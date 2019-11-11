@@ -1,0 +1,19 @@
+{
+  "categories": {
+    "dimension": "model",
+    "options": ["IMAGE 2.4", "MESSAGE V.4", "GCAM 3.0", "REMIND 1.5"]
+  },
+  "panels": {
+    "dimension": "variable",
+    "options": ["Emissions|CO2", "Primary Energy", "Price|Carbon"]
+  },
+  "option1": {
+    "dimension": "scenario",
+    "options": ["AMPERE3-550", "AMPERE3-450"],
+    "default": "AMPERE3-450"
+  },
+  "option2": {
+    "dimension": "region",
+    "options": ["World"]
+  }
+}
