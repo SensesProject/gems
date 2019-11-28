@@ -20,8 +20,8 @@
       "Emissions|CO2|Industrial Processes"
     ],
     "regions": ["World"],
-    "within": "variables",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "variables"
   },
   {
     "name": "Emissions by Sector – 2.0°C Warming",
@@ -44,8 +44,8 @@
       "Emissions|CO2|Industrial Processes"
     ],
     "regions": ["World"],
-    "within": "variables",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "variables"
   },
   {
     "name": "Emissions by Major Economy – 1.5°C Warming",
@@ -65,8 +65,8 @@
       "R5OECD90+EU",
       "R5REF"
     ],
-    "within": "regions",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "regions"
   },
   {
     "name": "Emissions by Major Economy – 2.0°C Warming",
@@ -86,8 +86,8 @@
       "R5OECD90+EU",
       "R5REF"
     ],
-    "within": "regions",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "regions"
   },
   {
     "name": "Sequestration – 1.5°C Warming",
@@ -103,8 +103,8 @@
       "Carbon sequestration|Land|Afforestation"
     ],
     "regions": ["World"],
-    "within": "variables",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "variables"
   },
   {
     "name": "Sequestration – 2.0°C Warming",
@@ -120,7 +120,7 @@
       "Carbon sequestration|Land|Afforestation"
     ],
     "regions": ["World"],
-    "within": "variables",
-    "across": "scenarios"
+    "within": "scenarios",
+    "across": "variables"
   }
 ]

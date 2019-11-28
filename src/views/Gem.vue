@@ -3,22 +3,22 @@
     <MdParser :md="text" class="intro"/>
     <div class="options" v-if="config != null">
       <div class="option">
-        <div class="tiny label">{{ config.option1.dimension }}</div>
-        <SensesSelect width="200px" :options="config.option1.options" v-model="option1"/>
+        <!-- <div class="tiny label">{{ config.option1.dimension }}</div> -->
+        <SensesSelect width="200px" :options="configs.map(c => c.name)" v-model="name"/>
       </div>
-      <div class="option">
+      <!-- <div class="option">
         <div class="tiny label">{{ config.option2.dimension }}</div>
         <SensesSelect width="200px" :options="config.option2.options" v-model="option2"/>
-      </div>
+      </div> -->
     </div>
     <div class="legend" v-if="config != null">
-      <div class="tiny label">{{ config.categories.dimension }}s</div>
-      <span v-for="(o, i) in config.categories.options" :key="`o${i}`" class="highlight no-hover" :class="colors[i]">
+      <div class="tiny label">{{ config.within }}</div>
+      <span v-for="(o, i) in config[config.within]" :key="`o${i}`" class="highlight no-hover" :class="colors[i]">
         {{ o }}
       </span>
     </div>
     <div class="panels">
-      <GemPanel v-for="(p, i) in panels" :key="i" :colors="colors" v-bind="p"/>
+      <GemPanel v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"/>
     </div>
   </div>
 </template>
@@ -36,9 +36,9 @@ export default {
     SensesSelect
   },
   computed: {
-    ...mapState(['text', 'config', 'colors']),
-    ...mapGetters(['panels']),
-    ...bindState(['option1', 'option2'])
+    ...mapState(['text', 'configs', 'colors', 'data']),
+    ...mapGetters(['config']),
+    ...bindState(['name'])
   },
   methods: {
     ...mapActions(['initGem', 'initSession'])

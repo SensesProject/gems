@@ -41,7 +41,7 @@ export default {
     resize
   },
   props: {
-    categories: Array,
+    within: Array,
     name: String,
     colors: Array
   },
@@ -55,15 +55,15 @@ export default {
   },
   computed: {
     xDomain () {
-      const { categories } = this
-      const min = Math.min(...categories.map(c => c.series.map(s => s.year)).flat())
-      const max = Math.max(...categories.map(c => c.series.map(s => s.year)).flat())
+      const { within } = this
+      const min = Math.min(...within.map(c => c.series.map(s => s.year)).flat())
+      const max = Math.max(...within.map(c => c.series.map(s => s.year)).flat())
       return [min, max]
     },
     yDomain () {
-      const { categories } = this
-      const min = Math.min(...categories.map(c => c.series.map(s => s.value)).flat(), 0)
-      const max = Math.max(...categories.map(c => c.series.map(s => s.value)).flat())
+      const { within } = this
+      const min = Math.min(...within.map(c => c.series.map(s => s.value)).flat(), 0)
+      const max = Math.max(...within.map(c => c.series.map(s => s.value)).flat())
       return [max, min]
     },
     xScale () {
@@ -95,8 +95,8 @@ export default {
       }))
     },
     lines () {
-      const { categories, xScale, yScale, colors } = this
-      return categories.map((c, i) => {
+      const { within, xScale, yScale, colors } = this
+      return within.map((c, i) => {
         return {
           ...c,
           color: colors[i],
