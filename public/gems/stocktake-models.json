@@ -8,16 +8,16 @@
       "PEP_1p5C_full_eff"
     ],
     "variables": [
-      "Emissions|CO2|AFOLU",
-      "Emissions|CO2|Energy|Demand|Industry",
-      "Emissions|CO2|Energy|Demand|Residential and Commercial",
-      "Emissions|CO2|Energy|Demand|Transportation",
-      "Emissions|CO2|Energy|Supply|Electricity",
-      "Emissions|CO2|Energy|Supply|Gases",
-      "Emissions|CO2|Energy|Supply|Heat",
-      "Emissions|CO2|Energy|Supply|Liquids",
-      "Emissions|CO2|Energy|Supply|Solids",
-      "Emissions|CO2|Industrial Processes"
+      { "value": "Emissions|CO2|AFOLU", "label": "AFOLU" },
+      { "value": "Emissions|CO2|Energy|Demand|Industry", "label": "Energy Demand – Industry" },
+      { "value": "Emissions|CO2|Energy|Demand|Residential and Commercial", "label": "Energy Demand – Residential and Commercial" },
+      { "value": "Emissions|CO2|Energy|Demand|Transportation", "label": "Energy Demand – Transportation" },
+      { "value": "Emissions|CO2|Energy|Supply|Electricity", "label": "Energy Supply – Electricity" },
+      { "value": "Emissions|CO2|Energy|Supply|Gases", "label": "Energy Supply – Gases" },
+      { "value": "Emissions|CO2|Energy|Supply|Heat", "label": "Energy Supply – Heat" },
+      { "value": "Emissions|CO2|Energy|Supply|Liquids", "label": "Energy Supply – Liquids" },
+      { "value": "Emissions|CO2|Energy|Supply|Solids", "label": "Energy Supply – Solids" },
+      { "value": "Emissions|CO2|Industrial Processes", "label": "Industrial Processes" }
     ],
     "regions": ["World"],
     "within": "variables",

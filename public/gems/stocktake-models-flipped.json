@@ -5,10 +5,10 @@
     "scenarios": [
       "PEP_1p5C_full_NDC",
       "PEP_1p5C_full_netzero",
-      "PEP_1p5C_full_eff"
+      { "value": "PEP_1p5C_full_eff", "label": "PEP 1.5°C Full Eff"}
     ],
     "variables": [
-      "Emissions|CO2|AFOLU",
+      { "value": "Emissions|CO2|AFOLU", "label": "AFOLU" },
       "Emissions|CO2|Energy|Demand|Industry",
       "Emissions|CO2|Energy|Demand|Residential and Commercial",
       "Emissions|CO2|Energy|Demand|Transportation",
@@ -59,7 +59,7 @@
       "Emissions|Kyoto Gases"
     ],
     "regions": [
-      "R5ASIA",
+      { "value": "R5ASIA", "label": "ASIA"},
       "R5LAM",
       "R5MAF",
       "R5OECD90+EU",
