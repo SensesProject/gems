@@ -1,6 +1,7 @@
 [
   {
     "name": "Emissions by Sector – 1.5°C Warming",
+    "vis": "stacked-bars",
     "models": ["REMIND-MAgPIE 1.7-3.0"],
     "scenarios": [
       "PEP_1p5C_full_NDC",
