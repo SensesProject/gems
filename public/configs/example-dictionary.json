@@ -1,0 +1,25 @@
+{
+  "title": "Example Dictionary",
+  "description": "no options, yes dictionary, no string interpolation",
+  "default": {
+    "variables": [
+      "Emissions|CO2"
+    ],
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "PEP_1p5C_full_NDC",
+      "PEP_1p5C_full_netzero",
+      "PEP_1p5C_full_eff"
+    ],
+    "regions": ["R5ASIA", "R5LAM", "R5OECD90+EU"]
+  },
+  "primaryDimension": "scenarios",
+  "dict": {
+    "PEP_1p5C_full_NDC": "1.5°C NDC",
+    "PEP_1p5C_full_eff": "← I forgot to set a dictionary entry for the one before",
+    "R5ASIA": "🌏",
+    "R5LAM": "🌎",
+    "R5OECD90+EU": "🌍",
+    "REMIND-MAgPIE 1.7-3.0": "my favourite model"
+  }
+}
