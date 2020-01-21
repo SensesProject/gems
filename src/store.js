@@ -61,7 +61,7 @@ export default new Vuex.Store({
       const config = await fetch(`./configs/${gem}.json`).then(r => r.json()).catch(e => console.error(`requested config ${location.href.split('#')[0]}configs/${gem}.json not found or invalid:\n${e}`))
       if (config == null) return
       commit('set', { key: 'config', value: config })
-      commit('set', { key: 'options', value: (config.options || []).map(o => o.overrides[0].label) })
+      commit('set', { key: 'options', value: (config.dropdowns || []).map(o => o.options[0].label) })
     },
     async updateTimeseries ({ commit, state }) {
       commit('set', { key: 'data', value: null })
@@ -77,7 +77,7 @@ async function getTimeseries ({ token, config, runs, options }) {
   const current = { ...config.default }
   const keysPlural = ['variables', 'regions', 'models', 'scenarios']
 
-  options.map((o, i) => config.options[i].overrides.find(or => or.label === o)).forEach(o => {
+  options.map((o, i) => config.dropdowns[i].options.find(or => or.label === o)).forEach(o => {
     Object.keys(o).filter(k => k !== 'label').forEach(k => {
       current[k] = o[k]
     })

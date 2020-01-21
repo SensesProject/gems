@@ -10,9 +10,9 @@
     ],
     "regions": ["World"]
   },
-  "options": [{
+  "dropdowns": [{
     "label": "Variables",
-    "overrides": [{
+    "options": [{
       "label": "AFOLU Emissions",
       "variables": [
         "Emissions|CO2|AFOLU",

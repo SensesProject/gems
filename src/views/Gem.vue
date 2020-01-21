@@ -6,9 +6,9 @@
         <p>{{ config.description }}</p>
       </section>
       <div class="options" v-if="config != null">
-        <div class="option" v-for="(o,i) in config.options" :key="`o-${i}`">
+        <div class="option" v-for="(o,i) in config.dropdowns" :key="`o-${i}`">
           <div class="tiny label">{{ o.label }}</div>
-          <SensesSelect width="120" :options="o.overrides.map(c => c.label)" v-model="options[i]"/>
+          <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
         </div>
       </div>
       <div class="legend" v-if="current != null">

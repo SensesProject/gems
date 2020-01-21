@@ -8,12 +8,11 @@
       "PEP_${warming}_${cdr}_netzero",
       "PEP_${warming}_${cdr}_eff"
     ],
-    "regions": ["World"],
-    "cdr": "full"
+    "regions": ["World"]
   },
-  "options": [{
+  "dropdowns": [{
     "label": "Perspective",
-    "overrides": [{
+    "options": [{
       "label": "Emissions by Sector",
       "variables": [
         "Emissions|CO2|AFOLU",
@@ -49,7 +48,7 @@
     }]
   }, {
     "label": "Warming Level",
-    "overrides": [{
+    "options": [{
       "label": "2°C",
       "warming": "1p5C"
     }, {
@@ -58,7 +57,7 @@
     }]
   }, {
     "label": "CDR",
-    "overrides": [{
+    "options": [{
       "label": "Full",
       "cdr": "full"
     }, {

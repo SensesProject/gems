@@ -19,9 +19,9 @@
       "R5REF"
     ]
   },
-  "options": [{
+  "dropdowns": [{
     "label": "GHG",
-    "overrides": [{
+    "options": [{
       "label": "CO₂",
       "ghg": "CO2"
     }, {
@@ -33,7 +33,7 @@
     }]
   }, {
     "label": "Source",
-    "overrides": [{
+    "options": [{
       "label": "AFOLU",
       "source": "AFOLU"
     }, {
