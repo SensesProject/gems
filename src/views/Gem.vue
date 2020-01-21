@@ -1,61 +1,61 @@
 <template>
   <div class="gem">
-    <MdParser :md="text" class="intro"/>
-    <div class="options" v-if="config != null">
-      <div class="option">
-        <div class="tiny label">Choose View</div>
-        <SensesSelect :options="configs.map(c => c.name)" v-model="name"/>
+    <template v-if="config">
+      <section class="intro">
+        <h1>{{ config.title }}</h1>
+        <p>{{ config.description }}</p>
+      </section>
+      <div class="options" v-if="config != null">
+        <div class="option" v-for="(o,i) in config.options" :key="`o-${i}`">
+          <div class="tiny label">{{ o.label }}</div>
+          <SensesSelect width="120" :options="o.overrides.map(c => c.label)" v-model="options[i]"/>
+        </div>
       </div>
-      <!-- <div class="option">
-        <div class="tiny label">{{ config.option2.dimension }}</div>
-        <SensesSelect width="200px" :options="config.option2.options" v-model="option2"/>
-      </div> -->
-    </div>
-    <div class="legend" v-if="config != null">
-      <div class="tiny label">{{ config.within }}</div>
-      <span v-for="(o, i) in config[config.within]" :key="`o${i}`"
-        class="tiny" :class="{ transparent: highlight != null && highlight != (o.label || o) }"
-        @mouseenter="highlight = o.label || o" @mousemove="highlight = o.label || o" @mouseout="highlight = null">
-        <span class="glyph-dot" :class="[colors[i%6], config[config.within].length > 6 ? i >= 6 ? 'light' : 'dark' : null]"/>
-        {{ o.label || o }}
-      </span>
-    </div>
-    <div class="panels" v-if="config && config.vis === 'stacked-bars'">
-      <ChartStackedBars v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
-        :number-format="config.numberFormat" :highlight="highlight"/>
-    </div>
-    <div class="panels" v-else>
-      <ChartLine v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
-        :number-format="config.numberFormat" :highlight="highlight"/>
-    </div>
-    <div class="metadata">
-      <h3>Metadata</h3>
-      <table>
-        <template v-for="m in docs">
-          <template v-if="m.items.length > 0">
-            <thead :key="`m1-${m.name}`">
-              <tr>
-                <th>{{ m.name }}</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody :key="`m2-${m.name}`">
-              <tr
-                v-for="(d, i) in m.items"
-                :key="`d-${i}`">
-                <td>{{d.name}}</td>
-                <td v-html="d.description"></td>
-              </tr>
-            </tbody>
+      <div class="legend" v-if="current != null">
+        <div class="tiny label">{{ config.primaryDimension }}</div>
+        <span v-for="(o, i) in current[config.primaryDimension]" :key="`o${i}`"
+          class="tiny" :class="{ transparent: highlight != null && highlight != o }"
+          @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
+          <span class="glyph-dot" :class="[colors[i%6], current[config.primaryDimension].length > 6 ? i >= 6 ? 'light' : 'dark' : null]"/>
+          {{ dict[o] || o }}
+        </span>
+      </div>
+      <div class="panels" v-if="config && config.vis === 'stacked-bars'">
+        <ChartStackedBars v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
+          :number-format="config.numberFormat" :highlight="highlight"/>
+      </div>
+      <div class="panels" v-else>
+        <ChartLine v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
+          :number-format="config.numberFormat" :highlight="highlight"/>
+      </div>
+      <div class="metadata">
+        <h3>Metadata</h3>
+        <table>
+          <template v-for="m in docs">
+            <template v-if="m.items.length > 0">
+              <thead :key="`m1-${m.name}`">
+                <tr>
+                  <th>{{ m.name }}</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody :key="`m2-${m.name}`">
+                <tr
+                  v-for="(d, i) in m.items"
+                  :key="`d-${i}`">
+                  <td>{{dict[d.name] || d.name}}</td>
+                  <td v-html="d.description"></td>
+                </tr>
+              </tbody>
+            </template>
           </template>
-        </template>
-      </table>
-    </div>
+        </table>
+      </div>
+      </template>
   </div>
 </template>
 <script>
 import SensesSelect from 'library/src/components/SensesSelect.vue'
-import MdParser from '@/components/MdParser.vue'
 import ChartLine from '@/components/ChartLine.vue'
 import ChartStackedBars from '@/components/ChartStackedBars.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
@@ -65,56 +65,20 @@ export default {
   data () {
     return {
       highlight: null
-      // meta: [{
-      //   name: 'blabla',
-      //   description: 'nfjaegnrj;bn dhb arhabgka jrabnjkfvbja;aw cekj v'
-      // }, {
-      //   name: 'blabla',
-      //   description: 'nfjaegnrj;bn dhb arhabgka jrabnjkfvbja;aw cekj v'
-      // }]
     }
   },
   components: {
-    MdParser,
     ChartLine,
     ChartStackedBars,
     SensesSelect
   },
   computed: {
-    ...mapState(['text', 'configs', 'colors', 'data', 'metadata']),
-    ...mapGetters(['config']),
-    ...bindState(['name']),
+    ...mapState(['config', 'colors', 'data', 'metadata', 'current']),
+    ...mapGetters(['dict']),
+    ...bindState(['options']),
     docs () {
       const { metadata } = this
-      if (metadata == null) return null
-      // console.log(metadata)
-      const meta = metadata.map(m => {
-        // const descr = m.description.match(/<\/h1>\s<p>([^<]+)<\/p>/)
-        const descr = m.description.match(/<\/h1>\s(.+)/)
-        return {
-          category: m.key.match(/^\/([^/]+)/)[1],
-          description: descr ? descr[1] : null,
-          name: m.description.match(/^<h1>([^<]+)<\/h1>/)[1]
-        }
-      })
-      const models = meta.filter(m => m.category === 'models')
-      const scenarios = meta.filter(m => m.category === 'scenarios')
-      const regions = meta.filter(m => m.category === 'regions')
-      // // console.log(models)
-      // const scenarios = meta.filter(m => m.key.match(/^\/scenarios/))
-      // // console.log(scenarios)
-      // const regions = meta.filter(m => m.key.match(/^\/regions/))
-      // console.log(regions)
-      return [{
-        name: 'Model',
-        items: models
-      }, {
-        name: 'Scenario',
-        items: scenarios
-      }, {
-        name: 'Region',
-        items: regions
-      }]
+      return metadata
     }
   },
   methods: {
@@ -126,6 +90,12 @@ export default {
   watch: {
     '$route.params.gem' () {
       this.initGem(this.$route.params.gem)
+    },
+    'options': { // force update options in state
+      handler (o) {
+        this.options = o
+      },
+      deep: true
     }
   }
 }
@@ -168,6 +138,7 @@ export default {
     margin-top: $spacing / 8;
     .label {
       text-transform: capitalize;
+      margin-bottom: -$spacing / 8;
     }
     > span {
       margin-right: $spacing / 4;

@@ -141,7 +141,7 @@ export default {
           color: colors[i % 6],
           shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
           points: c.series.map(d => `${xScale(d.year)}, ${yScale(d.value)}`).join(' '),
-          name: c.name
+          name: c.primaryDimension
         }
       })
     },

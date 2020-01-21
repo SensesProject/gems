@@ -1,0 +1,30 @@
+{
+  "title": "Example Options",
+  "description": "yes options, no dictionary, no string interpolation",
+  "default": {
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "PEP_1p5C_full_NDC",
+      "PEP_1p5C_full_netzero",
+      "PEP_1p5C_full_eff"
+    ],
+    "regions": ["World"]
+  },
+  "options": [{
+    "label": "Variables",
+    "overrides": [{
+      "label": "AFOLU Emissions",
+      "variables": [
+        "Emissions|CO2|AFOLU",
+        "Emissions|CH4|AFOLU",
+        "Emissions|N2O|AFOLU"
+      ]
+    }, {
+      "label": "AFOLU Sequestration",
+      "variables": [
+        "Carbon Sequestration|Land Use|Afforestation"
+      ]
+    }]
+  }],
+  "primaryDimension": "scenarios"
+}
