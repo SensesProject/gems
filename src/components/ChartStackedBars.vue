@@ -254,9 +254,6 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .chart-stacked-bars {
-  width: calc(50% - #{$spacing / 2});
-  height: 300px;
-  // background: $color-neon;
   margin-bottom: $spacing;
 
   svg {
@@ -407,10 +404,6 @@ export default {
         }
       }
     }
-  }
-
-  @include max-width(800px) {
-    width: 100%;
   }
 }
 </style>

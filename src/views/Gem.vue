@@ -168,13 +168,35 @@ export default {
   }
 
   .panels {
-    width: 100%;
-    max-width: 1080px;
+    width: 100vw;
+    max-width: 1920px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: center;
     margin: $spacing / 2 0 0;
+
+    .chart-line, .chart-stacked-bars {
+      width: 100%;
+      // height: 200px;
+      padding: 0 $spacing / 4;
+
+      @include min-width(400px) {
+        width: calc(50%);
+      }
+      @include min-width(700px) {
+        width: calc(33.33%);
+      }
+      @include min-width(1000px) {
+        width: calc(25%);
+      }
+      @include min-width(1300px) {
+        width: calc(20%);
+      }
+      @include min-width(1600px) {
+        width: calc(16.666%);
+      }
+    }
   }
 
   .metadata {

@@ -1,59 +1,62 @@
 <template>
-  <div class="chart-line" v-resize:debounce.initial="onResize">
-    <svg :width="width" :height="height"
-      @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
-      <g class="axes">
-        <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
-          <g class="ticks ticks-y">
-            <g class="tick tick-y" v-for="(t, i) in yTicks" :key="`y${i}`" :transform="`translate(0, ${t.y})`">
-              <line :x2="width" :class="{ zero: t.value === 0 }"/>
+  <div class="chart-line">
+    <div class="narrow" v-resize:debounce.initial="onResize">
+      <div class="tiny title">{{ name }}</div>
+      <svg :width="width" :height="height"
+        @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
+        <g class="axes">
+          <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
+            <g class="ticks ticks-y">
+              <g class="tick tick-y" v-for="(t, i) in yTicks" :key="`y${i}`" :transform="`translate(0, ${t.y})`">
+                <line :x2="width" :class="{ zero: t.value === 0 }"/>
+              </g>
             </g>
-          </g>
-          <g class="ruler" v-if="ruler" :transform="`translate(${ruler.x}, ${padding[0]})`">
-            <line class="ruler" :y2="height - padding[0] - padding[2]" />
-          </g>
-        </g>
-      </g>
-      <g class="title">
-        <text y="16">{{ name }}</text>
-      </g>
-      <g class="lines">
-        <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, l.shade, { transparent: highlight != null && highlight != l.name }]" :points="l.points"/>
-      </g>
-      <g class="points">
-        <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
-          <polyline class="shadow" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
-          <polyline :class="[p.color, p.shade]" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
-          <circle :class="[p.color, p.shade]" r="2" :transform="`translate(0, ${p.y})`"/>
-          <g :transform="`translate(0, ${p.y2})`">
-            <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" class="shadow">{{ p.label }}</text>
-            <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" :class="[p.color, p.shade]">{{ p.label }}</text>
-          </g>
-        </g>
-      </g>
-      <g class="axes">
-        <g class="axis-x" :transform="`translate(0, ${height - padding[2]})`">
-          <g class="ticks ticks-x">
-            <g class="tick tick-x" v-for="(t, i) in xTicks" :key="`x${i}`" :transform="`translate(${t.x}, 0)`">
-              <text :y="tickSize" :class="{transparent: ruler !== null && Math.abs(ruler.x - t.x) < 60}">
-                {{ t.value }}
-              </text>
-            </g>
-          </g>
-          <g class="ruler" v-if="ruler" :transform="`translate(${ruler.x}, 0)`">
-            <text :y="tickSize" :style="{ 'text-anchor': ruler.x === 0 ? 'start' : ruler.x === width ? 'end' : 'middle'}">{{ year }}</text>
-          </g>
-        </g>
-        <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
-          <g class="ticks ticks-y" :class="{transparent: ruler !== null && ruler.x < 60}">
-            <g class="tick tick-y" v-for="(t, i) in yTicks" :key="`y${i}`" :transform="`translate(0, ${t.y})`">
-              <text y="-4" class="shadow">{{ t.label }}<tspan v-if="i === 0"> {{ unit }}</tspan></text>
-              <text y="-4">{{ t.label }}<tspan v-if="i === 0"> {{ unit }}</tspan></text>
+            <g class="ruler" v-if="ruler" :transform="`translate(${ruler.x}, ${padding[0]})`">
+              <line class="ruler" :y2="height - padding[0] - padding[2]" />
             </g>
           </g>
         </g>
-      </g>
-    </svg>
+        <g class="title">
+          <!-- <text y="16">{{ name }}</text> -->
+        </g>
+        <g class="lines">
+          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, l.shade, { transparent: highlight != null && highlight != l.name }]" :points="l.points"/>
+        </g>
+        <g class="points">
+          <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
+            <polyline class="shadow" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
+            <polyline :class="[p.color, p.shade]" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
+            <circle :class="[p.color, p.shade]" r="2" :transform="`translate(0, ${p.y})`"/>
+            <g :transform="`translate(0, ${p.y2})`">
+              <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" class="shadow">{{ p.label }}</text>
+              <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" :class="[p.color, p.shade]">{{ p.label }}</text>
+            </g>
+          </g>
+        </g>
+        <g class="axes">
+          <g class="axis-x" :transform="`translate(0, ${height - padding[2]})`">
+            <g class="ticks ticks-x">
+              <g class="tick tick-x" v-for="(t, i) in xTicks" :key="`x${i}`" :transform="`translate(${t.x}, 0)`">
+                <text :y="tickSize" :class="{transparent: ruler !== null && Math.abs(ruler.x - t.x) < 60}">
+                  {{ t.value }}
+                </text>
+              </g>
+            </g>
+            <g class="ruler" v-if="ruler" :transform="`translate(${ruler.x}, 0)`">
+              <text :y="tickSize" :style="{ 'text-anchor': ruler.x === 0 ? 'start' : ruler.x === width ? 'end' : 'middle'}">{{ year }}</text>
+            </g>
+          </g>
+          <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
+            <g class="ticks ticks-y" :class="{transparent: ruler !== null && ruler.x < 60}">
+              <g class="tick tick-y" v-for="(t, i) in yTicks" :key="`y${i}`" :transform="`translate(0, ${t.y})`">
+                <text y="-4" class="shadow">{{ t.label }}<tspan v-if="i === 0"> {{ unit }}</tspan></text>
+                <text y="-4">{{ t.label }}<tspan v-if="i === 0"> {{ unit }}</tspan></text>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -79,8 +82,8 @@ export default {
   data () {
     return {
       width: null,
-      height: 300,
-      padding: [38, 0, 16, 0],
+      height: 200,
+      padding: [18, 0, 16, 0],
       tickSize: 16,
       year: null
     }
@@ -220,10 +223,15 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .chart-line {
-  width: calc(50% - #{$spacing / 2});
-  height: 300px;
   // background: $color-neon;
   margin-bottom: $spacing;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+
+  .title {
+    font-weight: bold;
+  }
 
   svg {
     overflow: visible;
@@ -340,10 +348,6 @@ export default {
         }
       }
     }
-  }
-
-  @include max-width(800px) {
-    width: 100%;
   }
 }
 </style>
