@@ -23,3 +23,12 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import "library/src/style/global.scss";
+.home {
+  padding: 0 $spacing / 2;
+  li {
+    list-style: none;
+  }
+}
+</style>
