@@ -49,10 +49,10 @@
   }, {
     "label": "Warming Level",
     "options": [{
-      "label": "2°C",
+      "label": "1.5°C",
       "warming": "1p5C"
     }, {
-      "label": "1.5°C",
+      "label": "2°C",
       "warming": "2C"
     }]
   }, {
