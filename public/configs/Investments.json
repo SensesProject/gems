@@ -1,0 +1,54 @@
+{
+  "title": "Investments",
+  "description": "Why must renewable investements overtake those in fossils",
+  "default": {
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "CD-LINKS_NPi",
+      "CD-LINKS_NPi2020_1000",
+      "CD-LINKS_NPi2020_400"
+    ],
+    "regions": ["World"]
+  },
+  "dropdowns": [{
+    "label": "Variables",
+    "options": [{
+      "label": "Overview",
+      "variables": [
+        "Investment|Energy Supply(TOTAL)",
+        "Investment|Energy Efficiency",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+      ]
+    }, {
+      "label": "Fossils vs Renewables",
+      "variables": [
+        "Investment|Energy Supply|Electricity|Solar", 
+        "Investment|Energy Supply|Electricity|Wind", 
+        "Investment|Energy Supply|Electricity|Hydro", 
+        "Investment|Energy Supply|Hydrogen|other", 
+      ]
+    }]
+  }, {
+    "label": "Region",
+    "options": [{
+      "label": "World",
+      "regions": ["World"]
+    }, {
+      "label": "R5ASIA",
+      "regions": ["R5ASIA"]
+    }, {
+      "label": "R5LAM",
+      "regions": ["R5LAM"]
+    }, {
+      "label": "R5MAF",
+      "regions": ["R5MAF"]
+    }, {
+      "label": "R5OECD90+EU",
+      "regions": ["R5OECD90+EU"]
+    }, {
+      "label": "R5REF",
+      "regions": ["R5REF"]
+    }]
+  }],
+  "primaryDimension": "scenarios"
+}
