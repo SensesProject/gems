@@ -1,9 +1,9 @@
-stocktake-models
 example-simple
 example-dictionary
 example-options-simple
 example-options-multi-overrides
 example-options-multi-dropdown
 example-opitons-string-interpolation
-Investments
-justDummyTesting
+investments
+stocktake-models_emissions
+stocktake-models_energySetup 

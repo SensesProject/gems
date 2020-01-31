@@ -37,7 +37,22 @@
         "R5OECD90+EU",
         "R5REF"
       ]
-    }, {
+    },{
+      "label": "Emissions by Sector",
+      "variables": [
+        "Emissions|CO2|AFOLU",
+        "Emissions|CO2|Energy|Demand|Industry",
+        "Emissions|CO2|Energy|Demand|Residential and Commercial",
+        "Emissions|CO2|Energy|Demand|Transportation",
+        "Emissions|CO2|Energy|Supply|Electricity",
+        "Emissions|CO2|Energy|Supply|Gases",
+        "Emissions|CO2|Energy|Supply|Heat",
+        "Emissions|CO2|Energy|Supply|Liquids",
+        "Emissions|CO2|Energy|Supply|Solids",
+        "Emissions|CO2|Industrial Processes"
+      ],
+      "regions": ["World"]
+    },  {
       "label": "Sequestration",
       "variables": [
         "Carbon Sequestration|CCS",

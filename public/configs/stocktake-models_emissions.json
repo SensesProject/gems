@@ -1,0 +1,112 @@
+{
+  "title": "Global Stocktake Scenario Comparison",
+  "description": "Some text describing this gem",
+  "default": {
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "PEP_${warming}_${cdr}_NDC",
+      "PEP_${warming}_${cdr}_netzero",
+      "PEP_${warming}_${cdr}_eff"
+    ],
+    "regions": ["World"]
+  },
+  "dropdowns": [{
+    "label": "Perspective",
+    "options": [{
+      "label": "How will the share of fossils develop?",
+      "variables": [
+        "Primary Energy|Coal", 
+        "Primary Energy|Gas",
+        "Primary Energy|Oil"
+      ],
+      "regions": ["World"]
+    }, {
+      "label": "How does the energy mix in future look like?",
+      "variables": [
+        "Primary Energy|Solar", 
+        "Primary Energy|Wind",
+        "Primary Energy|Biomass|Modern|w/ CCS", 
+        "Primary Energy|Biomass|Traditional", 
+        "Primary Energy|Geothermal", 
+        "Primary Energy|Hydro", 
+        "Primary Energy|Nuclear",
+        "Primary Energy|Coal|w/ CCS", 
+        "Primary Energy|Coal|w/o CCS", 
+        "Primary Energy|Gas|w/ CCS", 
+        "Primary Energy|Gas|w/o CCS", 
+        "Primary Energy|Oil|w/ CCS", 
+        "Primary Energy|Oil|w/o CCS"
+      ],
+      "regions": ["World"]
+      }, {
+        "label": "How can the elctricity mix of the future look like?",
+        "variables": [
+          "Secondary Energy|Electricity|Biomass|w/ CCS", 
+          "Secondary Energy|Electricity|Biomass|w/o CCS",
+          "Secondary Energy|Electricity|Geothermal",
+          "Secondary Energy|Electricity|Hydro",
+          "Secondary Energy|Electricity|Solar",
+          "Secondary Energy|Electricity|Wind",
+          "Secondary Energy|Electricity|Nuclear",
+          "Secondary Energy|Electricity|Coal|w/ CCS",
+          "Secondary Energy|Electricity|Coal|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/ CCS",
+          "Secondary Energy|Electricity|Gas|w/o CCS",
+          "Secondary Energy|Electricity|Oil|w/ CCS",
+          "Secondary Energy|Electricity|Oil|w/o CCS"
+      ],
+        "regions": ["World"]
+      }, {
+        "label": "How do fossils develop in the world regions?",
+        "variables": [
+          "Primary Energy|Coal|w/ CCS", 
+          "Primary Energy|Coal|w/o CCS", 
+          "Primary Energy|Gas|w/ CCS", 
+          "Primary Energy|Gas|w/o CCS", 
+          "Primary Energy|Oil|w/ CCS", 
+          "Primary Energy|Oil|w/o CCS"
+        ],
+        "regions": [
+          "R5ASIA",
+          "R5LAM",
+          "R5MAF",
+          "R5OECD90+EU",
+          "R5REF"]
+        }, {
+          "label": "How do renewables develop in the world regions?",
+          "variables": [
+            "Primary Energy|Solar", 
+            "Primary Energy|Wind",
+            "Primary Energy|Biomass|Modern|w/ CCS", 
+            "Primary Energy|Biomass|Traditional", 
+            "Primary Energy|Geothermal", 
+            "Primary Energy|Hydro" 
+          ],
+          "regions": [
+            "R5ASIA",
+            "R5LAM",
+            "R5MAF",
+            "R5OECD90+EU",
+            "R5REF"]
+          } ]
+    }, {
+      "label": "CDR",
+      "options": [{
+        "label": "What is the effect of full CDR availibility?",
+        "cdr": "full"
+      }, {
+        "label": "What if CDR options are limited?",
+        "cdr": "red"
+      }]
+    }, {
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "1p5C"
+    }, {
+      "label": "2°C",
+      "warming": "2C"
+    }]
+  } ],
+  "primaryDimension": "scenarios"
+}
