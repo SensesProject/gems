@@ -1,0 +1,61 @@
+{
+  "title": "Land use",
+  "description": "What are the key parameters in land use change?",
+  "default": {
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "SMP_1p5C_Def",
+      "SMP_1p5C_Sust"
+    ],
+    "regions": ["World", "R5ASIA",  "R5LAM",  "R5MAF", "R5OECD90+EU", "R5REF"]
+  },
+  "dropdowns": [{
+    "label": "Variables",
+    "options": [{
+      "label": "What are the main sources of emissions?",
+      "variables": [
+        "Emissions|CO2|AFOLU",
+        "Emissions|CH4|AFOLU",
+        "Emissions|N2O|AFOLU"
+      ]
+    }, {
+      "label": "What are the most affected key parameters?",
+      "variables": [
+        "Land Cover|Forest|Afforestation and Reforestation",
+        "Land Cover|Cropland",
+        "Land Cover|Cropland|Energy Crops",
+        "Land Cover|Pasture",
+        "Water Consumption|Irrigation"
+      ]
+    }, {
+      "label": "How is food demand devloping?",
+      "variables": [
+        "Population", 
+        "Food Demand",
+        "Price|Agriculture|Non-Energy Crops and Livestock|Index"
+      ]
+    }, {
+      "label": "Yield?",
+      "variables": [
+        "Agricultural Production|Energy|Crops",
+        "Agricultural Production|Non-Energy|Crops",
+        "Agricultural Production|Non-Energy|Livestock"
+      ]
+    }, {
+      "label": "Land cover?",
+      "variables": [
+        "Land Cover|Forest|Afforestation and Reforestation",
+        "Land Cover|Cropland|Energy Crops",
+        "Land Cover|Cropland|Cereals"        
+      ]
+    }
+  ]
+  }],
+  "primaryDimension": "scenarios"
+,  
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
