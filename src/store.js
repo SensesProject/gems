@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1/ '
-const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/anonym/IXSE_TEST_PUBLIC?algorithm=HS256 '
+const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1'
+const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/anonym/IXSE_TEST_PUBLIC'
 
 export default new Vuex.Store({
   state: {
