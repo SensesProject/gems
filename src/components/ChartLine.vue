@@ -77,7 +77,7 @@ export default {
     name: [String, Object],
     colors: Array,
     numberFormat: {
-      default: ',.0f',
+      default: ',.4~r',
       type: String
     },
     highlight: String

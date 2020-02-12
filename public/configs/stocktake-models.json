@@ -26,10 +26,17 @@
         "Emissions|CO2|Energy|Supply|Solids",
         "Emissions|CO2|Industrial Processes"
       ],
-      "regions": ["World"]
+      "regions": ["World"],
+      "breaks": [{
+        "title": "first",
+        "limit": 5
+      }, {
+        "title": "second",
+        "limit": 8
+      }]
     }, {
       "label": "Emissions by Major Economy",
-      "variables": ["Emissions|Kyoto Gases"],
+      "variables": ["Emissions|CO2|Energy|Supply|Gases", "Emissions|Kyoto Gases"],
       "regions": [
         "R5ASIA",
         "R5LAM",
