@@ -73,7 +73,7 @@ export default new Vuex.Store({
   }
 })
 
-async function getTimeseries ({ token, config, runs, options }) {
+async function getTimeseries ({ token, config, runs, options, colors }) {
   const current = { ...config.default }
   const keysPlural = ['variables', 'regions', 'models', 'scenarios']
 
@@ -119,7 +119,9 @@ async function getTimeseries ({ token, config, runs, options }) {
       ts = { series: [] }
       keysSingular.forEach(k => { ts[k] = entry[k] })
       ts.unit = entry.unit
+      // ts.color =
       ts.primaryDimension = entry[config.primaryDimension.replace(/s$/, '')]
+      ts.color = colors[current[config.primaryDimension].indexOf(ts.primaryDimension)]
       data.push(ts)
     }
     ts.series.push({
