@@ -16,7 +16,7 @@
         <span v-for="(o, i) in current[config.primaryDimension]" :key="`o${i}`"
           class="tiny" :class="{ transparent: highlight != null && highlight != o }"
           @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
-          <span class="glyph-dot" :class="[colors[i%6], current[config.primaryDimension].length > 6 ? i >= 6 ? 'light' : 'dark' : null]"/>
+          <span class="glyph-dot" :class="[colors[i]]"/>
           {{ dict[o] || o }}
         </span>
       </div>

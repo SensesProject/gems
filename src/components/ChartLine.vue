@@ -20,16 +20,16 @@
           <!-- <text y="16">{{ name }}</text> -->
         </g>
         <g class="lines">
-          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, l.shade, { transparent: highlight != null && highlight != l.name }]" :points="l.points"/>
+          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, { transparent: highlight != null && highlight != l.name }]" :points="l.points"/>
         </g>
         <g class="points">
           <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
             <polyline class="shadow" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
-            <polyline :class="[p.color, p.shade]" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
-            <circle :class="[p.color, p.shade]" r="2" :transform="`translate(0, ${p.y})`"/>
+            <polyline :class="[p.color]" :points="ruler.x < width / 2 ? `0 ${p.y} 4 ${p.y} 8 ${p.y2} 12 ${p.y2}` : `0 ${p.y} -4 ${p.y} -8 ${p.y2} -12 ${p.y2}`"/>
+            <circle :class="[p.color]" r="2" :transform="`translate(0, ${p.y})`"/>
             <g :transform="`translate(0, ${p.y2})`">
               <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" class="shadow">{{ p.label }}</text>
-              <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" :class="[p.color, p.shade]">{{ p.label }}</text>
+              <text y="4" :x="ruler.x < width / 2 ? 14 : -14" :style="{ 'text-anchor': ruler.x < width / 2 ? 'start' : 'end'}" :class="[p.color]">{{ p.label }}</text>
             </g>
           </g>
         </g>
@@ -137,12 +137,12 @@ export default {
       }))
     },
     lines () {
-      const { within, xScale, yScale, colors } = this
+      const { within, xScale, yScale } = this
       return within.map((c, i) => {
         return {
           ...c,
-          color: colors[i % 6],
-          shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
+          // color: colors[i % 6],
+          // shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
           points: c.series.map(d => `${xScale(d.year)}, ${yScale(d.value)}`).join(' '),
           name: c.primaryDimension
         }
@@ -157,7 +157,7 @@ export default {
       }
     },
     points () {
-      const { year, within, yScale, colors, numberFormat, height, padding } = this
+      const { year, within, yScale, numberFormat, height, padding } = this
       if (year === null) return null
       const points = within.map((c, i) => {
         const d = c.series.find(v => v.year === year)
@@ -165,8 +165,8 @@ export default {
         const y = yScale(d.value)
         return {
           label: format(numberFormat)(d.value).replace(/,/, ' '),
-          color: colors[i % 6],
-          shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
+          color: c.color,
+          // shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
           y,
           y2: y,
           validPosition: false
@@ -254,12 +254,12 @@ export default {
         // mix-blend-mode: multiply;
 
         @include tint(stroke);
-        &.light {
-          @include tint(stroke, 60);
-        }
-        &.dark {
-          @include tint(stroke, 40);
-        }
+        // &.light {
+        //   @include tint(stroke, 60);
+        // }
+        // &.dark {
+        //   @include tint(stroke, 40);
+        // }
         &.shadow {
           stroke-width: 3.5;
           stroke: $color-white;
@@ -278,12 +278,12 @@ export default {
 
         @include tint(stroke);
 
-        &.light {
-          @include tint(stroke, 60);
-        }
-        &.dark {
-          @include tint(stroke, 40);
-        }
+        // &.light {
+        //   @include tint(stroke, 60);
+        // }
+        // &.dark {
+        //   @include tint(stroke, 40);
+        // }
       }
       text {
         fill: $color-deep-gray;
