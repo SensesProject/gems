@@ -2,7 +2,7 @@
   <div class="chart-line">
     <div class="narrow" v-resize:debounce.initial="onResize">
       <div class="tiny title">{{ name }}</div>
-      <svg :width="width" :height="height"
+      <svg v-if="within.length > 0" :width="width" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
         <g class="axes">
           <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
@@ -56,6 +56,9 @@
           </g>
         </g>
       </svg>
+      <div v-else :style="{width: `${width}px`, height: `${height}px`}" class="tiny warn">
+        <span>no data available</span>
+      </div>
     </div>
   </div>
 </template>
@@ -231,6 +234,19 @@ export default {
 
   .title {
     font-weight: bold;
+  }
+
+  .warn {
+    color: getColor(red, 50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid getColor(orange, 100);
+    span {
+      // background: getColor(red, 100);
+      border: 1px solid getColor(red, 50);
+      padding: $spacing / 2 $spacing;
+    }
   }
 
   svg {
