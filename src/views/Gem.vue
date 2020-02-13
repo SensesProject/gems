@@ -20,7 +20,7 @@
           {{ dict[o] || o }}
         </span>
       </div>
-      <div class="panels" v-else>
+      <div class="panels">
         <ChartLine v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
           :number-format="config.numberFormat" :highlight="highlight"/>
       </div>

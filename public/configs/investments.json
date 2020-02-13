@@ -35,7 +35,14 @@
         "Investment|Energy Supply|Electricity|Gas|w/ CCS",
         "Investment|Energy Supply|Electricity|Gas|w/o CCS", 
         "Investment|Energy Supply|Electricity|Nuclear"
-      ]
+      ],
+      "breaks": [{
+        "title": "first",
+        "limit": 5
+      }, {
+        "title": "second",
+        "limit": 8
+      }]
     }]
   }, {
     "label": "Region",
