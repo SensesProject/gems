@@ -20,10 +20,6 @@
           {{ dict[o] || o }}
         </span>
       </div>
-      <div class="panels" v-if="config && config.vis === 'stacked-bars'">
-        <ChartStackedBars v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
-          :number-format="config.numberFormat" :highlight="highlight"/>
-      </div>
       <div class="panels" v-else>
         <ChartLine v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
           :number-format="config.numberFormat" :highlight="highlight"/>
@@ -57,7 +53,6 @@
 <script>
 import SensesSelect from 'library/src/components/SensesSelect.vue'
 import ChartLine from '@/components/ChartLine.vue'
-import ChartStackedBars from '@/components/ChartStackedBars.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
 export default {
@@ -69,7 +64,6 @@ export default {
   },
   components: {
     ChartLine,
-    ChartStackedBars,
     SensesSelect
   },
   computed: {
