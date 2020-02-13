@@ -20,9 +20,12 @@
           {{ dict[o] || o }}
         </span>
       </div>
-      <div class="panels">
-        <ChartLine v-for="(p, i) in data" :key="i" :colors="colors" v-bind="p"
-          :number-format="config.numberFormat" :highlight="highlight"/>
+      <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
+        <h3 v-if="g.label">{{g.label}}</h3>
+        <div class="panels">
+          <ChartLine v-for="(p, j) in g.data" :key="`${i}-${j}`" :colors="colors" v-bind="p"
+            :number-format="config.numberFormat" :highlight="highlight"/>
+        </div>
       </div>
       <div class="metadata">
         <h3>Metadata</h3>
@@ -73,6 +76,19 @@ export default {
     docs () {
       const { metadata } = this
       return metadata
+    },
+    groups () {
+      const { current, data } = this
+      if (current.groups == null) return [{ data }]
+      let start = 0
+      return current.groups.map(g => {
+        const d = data.filter((d, i) => i >= start && i < start + g.size)
+        start += g.size
+        return {
+          label: g.label,
+          data: d
+        }
+      })
     }
   },
   methods: {
@@ -158,6 +174,19 @@ export default {
           @include tint(color, 40);
         }
       }
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h3 {
+      width: 100%;
+      max-width: 600px;
+      align-self: center;
+      margin-top: $spacing / 2;
+      border-top: 1px solid $color-gray;
     }
   }
 
