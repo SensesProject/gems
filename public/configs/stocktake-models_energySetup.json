@@ -13,55 +13,92 @@
   "dropdowns": [{
     "label": "Perspective",
     "options": [{
-      "label": "Emissions by Sector",
+      "label": "How will the share of fossils develop?",
       "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CO2|Energy|Demand|Industry",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
-        "Emissions|CO2|Energy|Demand|Transportation",
-        "Emissions|CO2|Energy|Supply|Electricity",
-        "Emissions|CO2|Energy|Supply|Gases",
-        "Emissions|CO2|Energy|Supply|Heat",
-        "Emissions|CO2|Energy|Supply|Liquids",
-        "Emissions|CO2|Energy|Supply|Solids",
-        "Emissions|CO2|Industrial Processes"
+        "Primary Energy|Coal", 
+        "Primary Energy|Gas",
+        "Primary Energy|Oil"
       ],
       "regions": ["World"]
     }, {
-      "label": "Emissions by Major Economy",
-      "variables": ["Emissions|Kyoto Gases"],
-      "regions": [
-        "R5ASIA",
-        "R5LAM",
-        "R5MAF",
-        "R5OECD90+EU",
-        "R5REF"
-      ]
-    },{
-      "label": "Emissions by Sector",
+      "label": "How does the energy mix in future look like?",
       "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CO2|Energy|Demand|Industry",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
-        "Emissions|CO2|Energy|Demand|Transportation",
-        "Emissions|CO2|Energy|Supply|Electricity",
-        "Emissions|CO2|Energy|Supply|Gases",
-        "Emissions|CO2|Energy|Supply|Heat",
-        "Emissions|CO2|Energy|Supply|Liquids",
-        "Emissions|CO2|Energy|Supply|Solids",
-        "Emissions|CO2|Industrial Processes"
+        "Primary Energy|Solar", 
+        "Primary Energy|Wind",
+        "Primary Energy|Biomass|Modern|w/ CCS", 
+        "Primary Energy|Biomass|Traditional", 
+        "Primary Energy|Geothermal", 
+        "Primary Energy|Hydro", 
+        "Primary Energy|Nuclear",
+        "Primary Energy|Coal|w/ CCS", 
+        "Primary Energy|Coal|w/o CCS", 
+        "Primary Energy|Gas|w/ CCS", 
+        "Primary Energy|Gas|w/o CCS", 
+        "Primary Energy|Oil|w/ CCS", 
+        "Primary Energy|Oil|w/o CCS"
       ],
       "regions": ["World"]
-    },  {
-      "label": "Sequestration",
-      "variables": [
-        "Carbon Sequestration|CCS",
-        "Carbon Sequestration|CCS|Biomass",
-        "Carbon Sequestration|Land Use|Afforestation"
+      }, {
+        "label": "How can the elctricity mix of the future look like?",
+        "variables": [
+          "Secondary Energy|Electricity|Biomass|w/ CCS", 
+          "Secondary Energy|Electricity|Biomass|w/o CCS",
+          "Secondary Energy|Electricity|Geothermal",
+          "Secondary Energy|Electricity|Hydro",
+          "Secondary Energy|Electricity|Solar",
+          "Secondary Energy|Electricity|Wind",
+          "Secondary Energy|Electricity|Nuclear",
+          "Secondary Energy|Electricity|Coal|w/ CCS",
+          "Secondary Energy|Electricity|Coal|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/ CCS",
+          "Secondary Energy|Electricity|Gas|w/o CCS",
+          "Secondary Energy|Electricity|Oil|w/ CCS",
+          "Secondary Energy|Electricity|Oil|w/o CCS"
       ],
-      "regions": ["World"]
-    }]
-  }, {
+        "regions": ["World"]
+      }, {
+        "label": "How do fossils develop in the world regions?",
+        "variables": [
+          "Primary Energy|Coal|w/ CCS", 
+          "Primary Energy|Coal|w/o CCS", 
+          "Primary Energy|Gas|w/ CCS", 
+          "Primary Energy|Gas|w/o CCS", 
+          "Primary Energy|Oil|w/ CCS", 
+          "Primary Energy|Oil|w/o CCS"
+        ],
+        "regions": [
+          "ASIA",
+          "LAM",
+          "MAF",
+          "OECD90",
+          "REF"]
+        }, {
+          "label": "How do renewables develop in the world regions?",
+          "variables": [
+            "Primary Energy|Solar", 
+            "Primary Energy|Wind",
+            "Primary Energy|Biomass|Modern|w/ CCS", 
+            "Primary Energy|Biomass|Traditional", 
+            "Primary Energy|Geothermal", 
+            "Primary Energy|Hydro" 
+          ],
+          "regions": [
+            "ASIA",
+            "LAM",
+            "MAF",
+            "OECD90",
+            "REF"]
+          } ]
+    }, {
+      "label": "CDR",
+      "options": [{
+        "label": "What is the effect of full CDR availibility?",
+        "cdr": "full"
+      }, {
+        "label": "What if CDR options are limited?",
+        "cdr": "red"
+      }]
+    }, {
     "label": "Warming Level",
     "options": [{
       "label": "1.5°C",
@@ -70,48 +107,6 @@
       "label": "2°C",
       "warming": "2C"
     }]
-  }, {
-    "label": "CDR",
-    "options": [{
-      "label": "Full",
-      "cdr": "full"
-    }, {
-      "label": "Reduced",
-      "cdr": "red"
-    }]
-  }],
-  "primaryDimension": "scenarios",
-  "dict": {
-    "Emissions|CO2|AFOLU": "AFOLU",
-    "Emissions|CO2|Energy|Demand|Industry": "Energy Demand Industry",
-    "Emissions|CO2|Energy|Demand|Residential and Commercial": "Energy Demand Residential and Commercial",
-    "Emissions|CO2|Energy|Demand|Transportation": "Energy Demand Transportation",
-    "Emissions|CO2|Energy|Supply|Electricity": "Energy Supply Electricity",
-    "Emissions|CO2|Energy|Supply|Gases": "Energy Supply Gases",
-    "Emissions|CO2|Energy|Supply|Heat": "Energy Supply Heat",
-    "Emissions|CO2|Energy|Supply|Liquids": "Energy Supply Liquids",
-    "Emissions|CO2|Energy|Supply|Solids": "Energy Supply Solids",
-    "Emissions|CO2|Industrial Processes": "Industrial Processes",
-    "PEP_1p5C_full_NDC": "PEP 1.5°C full NDC",
-    "PEP_1p5C_full_netzero": "PEP 1.5°C full netzero",
-    "PEP_1p5C_full_eff": "PEP 1.5°C full eff",
-    "PEP_2C_full_NDC": "PEP 2°C full NDC",
-    "PEP_2C_full_netzero": "PEP 2°C full netzero",
-    "PEP_2C_full_eff": "PEP 2°C full eff",
-    "PEP_1p5C_red_NDC": "PEP 1.5°C reduced NDC",
-    "PEP_1p5C_red_netzero": "PEP 1.5°C reduced netzero",
-    "PEP_1p5C_red_eff": "PEP 1.5°C reduced eff",
-    "PEP_2C_red_NDC": "PEP 2°C reduced NDC",
-    "PEP_2C_red_netzero": "PEP 2°C reduced netzero",
-    "PEP_2C_red_eff": "PEP 2°C reduced eff",
-    "R5ASIA": "Asia",
-    "R5LAM": "Latin America and the Caribbean",
-    "R5MAF": "Middle East and Africa",
-    "R5OECD90+EU": "OECD 90 and EU",
-    "R5REF": "Eastern Europe and the Former Soviet Union",
-    "REMIND-MAgPIE 1.7-3.0": "REMIND-MAgPIE",
-    "Carbon Sequestration|CCS": "CCS Total",
-    "Carbon Sequestration|CCS|Biomass": "CCS Biomass",
-    "Carbon Sequestration|Land Use|Afforestation": "Afforestation"
-  }
+  } ],
+  "primaryDimension": "scenarios"
 }

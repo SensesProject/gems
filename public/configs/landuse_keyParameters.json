@@ -7,7 +7,7 @@
       "SMP_1p5C_Def",
       "SMP_1p5C_Sust"
     ],
-    "regions": ["World", "R5ASIA",  "R5LAM",  "R5MAF", "R5OECD90+EU", "R5REF"]
+    "regions": ["World", "ASIA",  "LAM",  "MAF", "OECD90", "REF"]
   },
   "dropdowns": [{
     "label": "Variables",
