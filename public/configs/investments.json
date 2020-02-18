@@ -51,19 +51,19 @@
       "regions": ["World"]
     }, {
       "label": "R5ASIA",
-      "regions": ["R5ASIA"]
+      "regions": ["R5|ASIA"]
     }, {
       "label": "R5LAM",
-      "regions": ["R5LAM"]
+      "regions": ["R5|LAM"]
     }, {
       "label": "R5MAF",
-      "regions": ["R5MAF"]
+      "regions": ["R5|MAF"]
     }, {
       "label": "R5OECD90+EU",
-      "regions": ["R5OECD90+EU"]
+      "regions": ["R5|OECD90+EU"]
     }, {
       "label": "R5REF",
-      "regions": ["R5REF"]
+      "regions": ["R5|REF"]
     }]
   }],
   "primaryDimension": "scenarios"

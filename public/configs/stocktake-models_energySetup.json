@@ -67,11 +67,11 @@
           "Primary Energy|Oil|w/o CCS"
         ],
         "regions": [
-          "ASIA",
-          "LAM",
-          "MAF",
-          "OECD90",
-          "REF"]
+            "R5|ASIA",
+            "R5|LAM",
+            "R5|MAF",
+            "R5|OECD90+EU",
+            "R5|REF"]
         }, {
           "label": "How do renewables develop in the world regions?",
           "variables": [
@@ -83,11 +83,11 @@
             "Primary Energy|Hydro" 
           ],
           "regions": [
-            "ASIA",
-            "LAM",
-            "MAF",
-            "OECD90",
-            "REF"]
+            "R5|ASIA",
+            "R5|LAM",
+            "R5|MAF",
+            "R5|OECD90+EU",
+            "R5|REF"]
           } ]
     }, {
       "label": "CDR",

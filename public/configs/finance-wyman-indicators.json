@@ -1,0 +1,108 @@
+{
+  "title": "Risk factor pathways",
+  "description": "Some text describing this gem",
+  "default": {
+    "models": ["REMIND-MAgPIE 1.7-3.0"],
+    "scenarios": [
+      "CD-LINKS_NPi Riskfactor Pathways",
+      "CD-LINKS_NPi2020_${warming} Riskfactor Pathways"
+    ],
+    "regions": ["World"]
+  },
+  "dropdowns": [{
+    "label": "Perspective",
+    "options": [{
+      "label": "Which costs will arise related to energy?",
+      "variables": [
+        "RFP|Direct emissions cost|End-Uses|Industrial processes",
+        "RFP|Direct emissions cost|End-Uses|Residential and commercial",
+        "RFP|Direct emissions cost|End-Uses|Transportation",
+        "RFP|Direct emissions cost|Energy Supply",
+        "RFP|Indirect emissions cost|End-Uses|Industrial processes",
+        "RFP|Indirect emissions cost|End-Uses|Transportation",
+        "RFP|Indirect emissions cost|Energy Supply|Electric Utilities",
+        "RFP|Total Costs|End-Uses|Industrial processes",
+        "RFP|Total Costs|End-Uses|Residential and commercial",
+        "RFP|Total Costs|End-Uses|Transportation"
+      ],
+      "regions": ["World"]
+    },{
+      "label": "Which costs will arise related to land use?",
+      "variables": [
+        "RFP|Direct emissions cost|Agriculture",
+        "RFP|Direct emissions cost|Agriculture|Crops",
+        "RFP|Direct emissions cost|Agriculture|Livestock",
+        "RFP|Indirect emissions cost|Agriculture|Livestock"
+      ],
+      "regions": ["World"]
+    }, {
+      "label": "What are the cost risks for energy supply in detail?",
+      "variables": [
+        "RFP|Direct emissions cost|Energy Supply",
+        "RFP|Direct emissions cost|Energy Supply|Coal",
+        "RFP|Direct emissions cost|Energy Supply|Gas",
+        "RFP|Direct emissions cost|Energy Supply|Oil",
+        "RFP|Direct emissions cost|Energy Supply|Oil and gas",
+        "RFP|Direct emissions cost|Energy Supply|Electric Utilities",
+        "RFP|Indirect emissions cost|Energy Supply|Electric Utilities"
+        
+      ],
+      "regions": ["World"]
+      }, {
+        "label": "What are the required investments for energy?",
+        "variables": [
+          "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Industrial processes",
+          "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Residential and commercial",
+          "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Transportation",
+          "RFP|Low-Carbon Investments|Energy Supply",
+          "RFP|Low-Carbon Investments|Energy Supply|Electric Utilities",
+          "RFP|Low-Carbon Investments|Energy Supply|Renewables"
+      ],
+        "regions": ["World"]
+      }, {
+        "label": "What are the required investments for land use?",
+        "variables": [
+          "RFP|Low-Carbon Investments|Agriculture|Crops",
+          "RFP|Low-Carbon Investments|Agriculture|Forestry",
+          "RFP|Low-Carbon Investments|Agriculture|Livestock"
+      ],
+        "regions": ["World"]
+      }, {
+        "label": "How will revenues develop for energy?",
+        "variables": [
+          "RFP|Revenue|End-Uses|Industrial processes",
+          "RFP|Revenue|End-Uses|Residential and commercial",
+          "RFP|Revenue|End-Uses|Transportation",
+          "RFP|Revenue|Energy Supply",
+          "RFP|Revenue|Energy Supply|Coal",
+          "RFP|Revenue|Energy Supply|Electric Utilities",
+          "RFP|Revenue|Energy Supply|Fossil Fuels",
+          "RFP|Revenue|Energy Supply|Gas",
+          "RFP|Revenue|Energy Supply|Oil",
+          "RFP|Revenue|Energy Supply|Oil and gas",
+          "RFP|Revenue|Energy Supply|Renewables"
+        ],
+        "regions": [
+          "World"]
+        }, {
+          "label": "How will revenues develop for land-use?",
+          "variables": [
+            "RFP|Revenue|Agriculture|Crops",
+            "RFP|Revenue|Agriculture|Forestry",
+            "RFP|Revenue|Agriculture|Livestock" 
+          ],
+          "regions": [
+            "World"]
+          } ]
+    },{
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "400"
+    }, {
+      "label": "2°C",
+      "warming": "1000"
+    }]
+  } ],
+  "primaryDimension": "scenarios"
+}

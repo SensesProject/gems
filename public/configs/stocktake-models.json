@@ -38,11 +38,11 @@
       "label": "Emissions by Major Economy",
       "variables": ["Emissions|CO2|Energy|Supply|Gases", "Emissions|Kyoto Gases"],
       "regions": [
-        "R5ASIA",
-        "R5LAM",
-        "R5MAF",
-        "R5OECD90+EU",
-        "R5REF"
+        "R5|ASIA",
+        "R5|LAM",
+        "R5|MAF",
+        "R5|OECD90+EU",
+        "R5|REF"
       ]
     }, {
       "label": "Sequestration",
