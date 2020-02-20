@@ -36,12 +36,12 @@
         "Investment|Energy Supply|Electricity|Gas|w/o CCS", 
         "Investment|Energy Supply|Electricity|Nuclear"
       ],
-      "breaks": [{
-        "title": "first",
-        "limit": 5
+      "groups": [{
+        "label": "Investments Renewables",
+        "size": 7
       }, {
-        "title": "second",
-        "limit": 8
+        "label": "Invesments Fossils and Nuclear",
+        "size": 6
       }]
     }]
   }, {
