@@ -2,10 +2,10 @@
   "title": "Example Simple",
   "description": "simple Database test",
   "default": {
-    "variables": ["SE|Electricity|Coal|w/ CCS"],
-    "models": ["REMIND"],
-    "scenarios": ["Net-zero CO2 by 2050"],
-    "regions": ["United States"]
-  },
-  "primaryDimension": "scenarios"
+    "runs": ["REMIND","Net-zero CO2 by 2050"],
+    "regions": ["United States"],
+    "primaryDimension": "runs",
+    "variables": ["SE|Electricity|Coal|w/ CCS"]
+  }
+  
 }

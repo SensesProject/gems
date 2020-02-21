@@ -2,13 +2,13 @@
   "title": "Global Stocktake Scenario Comparison",
   "description": "Some text describing this gem",
   "default": {
-    "models": ["REMIND-MAgPIE 1.7-3.0"],
-    "scenarios": [
-      "PEP_${warming}_${cdr}_NDC",
-      "PEP_${warming}_${cdr}_netzero",
-      "PEP_${warming}_${cdr}_eff"
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_netzero"],
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_eff"]
     ],
-    "regions": ["World"]
+    "regions": ["World"],
+    "primaryDimension": "scenarios"
   },
   "dropdowns": [{
     "label": "Perspective",
@@ -107,6 +107,5 @@
       "label": "2°C",
       "warming": "2C"
     }]
-  } ],
-  "primaryDimension": "scenarios"
+  } ]
 }

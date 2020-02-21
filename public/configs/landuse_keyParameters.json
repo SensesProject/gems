@@ -2,10 +2,9 @@
   "title": "Land use",
   "description": "What are the key parameters in land use change?",
   "default": {
-    "models": ["REMIND-MAgPIE 1.7-3.0"],
-    "scenarios": [
-      "SMP_1p5C_Def",
-      "SMP_1p5C_Sust"
+    "runs":[
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_1p5C_Def"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_1p5C_Sust"]
     ],
     "regions": [
       "World", 
@@ -13,7 +12,8 @@
       "R5|LAM",
       "R5|MAF",
       "R5|OECD90+EU",
-      "R5|REF"]
+      "R5|REF"],
+    "primaryDimension": "scenarios"
   },
   "dropdowns": [{
     "label": "Variables",
@@ -57,8 +57,6 @@
     }
   ]
   }],
-  "primaryDimension": "scenarios"
-,  
   "dict": {
     "Investment|Energy Efficiency": "Energy Demand",
     "Investment|Energy Supply": "Energy Supply",

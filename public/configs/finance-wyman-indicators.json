@@ -2,12 +2,12 @@
   "title": "Risk factor pathways",
   "description": "Some text describing this gem",
   "default": {
-    "models": ["REMIND-MAgPIE 1.7-3.0"],
-    "scenarios": [
-      "CD-LINKS_NPi Riskfactor Pathways",
-      "CD-LINKS_NPi2020_${warming} Riskfactor Pathways"
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi Riskfactor Pathways"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming} Riskfactor Pathways"]
     ],
-    "regions": ["World"]
+    "regions": ["World"], 
+    "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
     "label": "Perspective",
@@ -122,6 +122,5 @@
     "label": "2°C",
     "warming": "1000"
   }]
-}], 
-"primaryDimension": "scenarios"
+}] 
 }
