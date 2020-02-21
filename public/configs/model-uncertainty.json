@@ -1,0 +1,39 @@
+{
+  "title": "Model uncertainty",
+  "description": "Some text describing this gem",
+  "default": {
+    "models": [
+      "AIM/CGE 2.1", 
+      "IMAGE 3.0.1",
+      "MESSAGEix-GLOBIOM 1.0",
+      "REMIND-MAgPIE 1.7-3.0",
+      "WITCH-GLOBIOM 4.4"],
+    "scenarios": [
+      "CD-LINKS_NPi2020_${warming}"
+    ],
+    "regions": ["World"]
+  },
+  "dropdowns": [ {
+    "label": "Perspective",
+    "options": [
+      {
+      "label": "How different does the fossil phase out look like?",
+      "variables":[
+        "Primary Energy|Coal",
+        "Primary Energy|Gas",
+        "Primary Energy|Oil"
+      ],
+      "regions": ["World"]
+    }]
+  },{
+  "label": "Warming Level",
+  "options": [{
+    "label": "1.5°C",
+    "warming": "400"
+  }, {
+    "label": "2°C",
+    "warming": "1000"
+  }]
+}], 
+"primaryDimension": "models"
+}
