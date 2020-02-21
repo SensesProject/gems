@@ -87,7 +87,6 @@ export default {
     },
     groups () {
       const { current, data } = this
-      console.log(data)
       if (current == null || data == null) return
       if (current.groups == null) return [{ data }]
       let start = 0

@@ -145,8 +145,6 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     })
   })
 
-  console.log(data)
-
   const units = [...new Set(timeseries.map(ts => ts.unit))]
   const domains = {}
   units.forEach(u => {
@@ -187,7 +185,6 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       within
     }
   })
-  console.log(panels)
   return { data: panels, current, domains }
 }
 
