@@ -79,6 +79,7 @@ export default {
     },
     groups () {
       const { current, data } = this
+      if (current == null) return
       if (current.groups == null) return [{ data }]
       let start = 0
       return current.groups.map(g => {
