@@ -92,19 +92,24 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       })
     })
   })
+  current.allRuns = [...current.runs || []] //, ...current.funnel || [], ...current.reference || []]
+  current.models = [...new Set(current.allRuns.map(r => r[0]))]
+  current.scenarios = [...new Set(current.allRuns.map(r => r[1]))]
+  current.combined = [...new Set(current.allRuns.map(r => `${r[0]} | ${r[1]}`))]
 
-  current.models = [...new Set(current.runs.map(r => r[0]))]
-  current.scenarios = [...new Set(current.runs.map(r => r[1]))]
-  current.combined = [...new Set(current.runs.map(r => `${r[0]} | ${r[1]}`))]
-
+  current.primaryDimensionLabel = current.primaryDimension
   if (current.primaryDimension === 'runs') current.primaryDimension = 'combined'
+
+  // const runsPrimaryDim =
 
   const filter = {
     filters: {
       runs: runs.filter(r =>
         // current.scenarios.indexOf(r.scenario) !== -1 &&
         // current.models.indexOf(r.model) !== -1
-        current.runs.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b)
+        current.allRuns.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b) ||
+        current.funnel.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b) ||
+        current.reference.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b)
       ).map(r => r.run),
       regions: current.regions,
       variables: current.variables,
@@ -128,6 +133,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
   timeseries.forEach(entry => {
     entry.combined = `${entry.model} | ${entry.scenario}`
   })
+
   timeseries.forEach(entry => {
     let ts = data.find(d => keys.map(k => entry[k] === d[k]).reduce((a, b) => a && b))
     if (ts == null) {
@@ -137,6 +143,9 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       // ts.color =
       ts.primaryDimension = entry[current.primaryDimension.replace(/s$/, '')]
       ts.color = colors[current[current.primaryDimension].indexOf(ts.primaryDimension)]
+      ts.reference = current.reference.find(r => (typeof (r) === 'string' ? r : `${r[0]} | ${r[1]}`) === ts.primaryDimension) != null
+      if (ts.reference) ts.color = 'black'
+      ts.funnel = ts.color == null
       data.push(ts)
     }
     ts.series.push({

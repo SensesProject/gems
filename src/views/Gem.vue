@@ -16,13 +16,22 @@
         </div>
       </div>
       <div class="legend" v-if="current != null">
-        <div class="tiny label">{{ current.primaryDimension }}</div>
+        <div class="tiny label">{{ current.primaryDimensionLabel }}</div>
         <span v-for="(o, i) in current[current.primaryDimension]" :key="`o${i}`"
           class="tiny" :class="{ transparent: highlight != null && highlight != o }"
           @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
           <span class="glyph-dot" :class="[colors[i]]"/>
           {{ dict[o] || o }}
         </span>
+        <template v-if="current.reference != null">
+          <div class="tiny label">Reference</div>
+          <span v-for="(o, i) in current.reference" :key="`or${i}`"
+            class="tiny" :class="{ transparent: highlight != null && highlight != o }"
+            @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
+            <span class="glyph-dot black"/>
+            {{ dict[o] || o }}
+          </span>
+        </template>
       </div>
       <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
         <h3 v-if="g.label">{{g.label}}</h3>

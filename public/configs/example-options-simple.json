@@ -5,9 +5,17 @@
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_NDC"],
       ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_netzero"],
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_eff"],
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_eff"]
+    ],
+    "funnel": [
       ["MESSAGE-GLOBIOM 1.0", "SSP2-Baseline"],
-      ["REMIND-MAgPIE 1.5", "SSP2-Baseline"]
+      ["REMIND-MAgPIE 1.5", "SSP2-Baseline"],
+      ["GCAM 4.2", "SSP2-Baseline"],
+      ["IMAGE 3.0.1", "SSP2-Baseline"],
+      ["WITCH-GLOBIOM 3.1", "SSP2-Baseline"]
+    ],
+    "reference": [
+      ["AIM/CGE 2.0", "SSP2-Baseline"]
     ],
     "regions": ["World"],
     "primaryDimension": "runs"
@@ -38,6 +46,9 @@
     }, {
       "label": "scenarios",
       "primaryDimension": "scenarios"
+    }, {
+      "label": "variables",
+      "primaryDimension": "variables"
     }]
   }],
   "dict": {

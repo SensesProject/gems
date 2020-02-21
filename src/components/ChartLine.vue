@@ -20,7 +20,7 @@
           <!-- <text y="16">{{ name }}</text> -->
         </g>
         <g class="lines">
-          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, { transparent: highlight != null && highlight != l.name }]" :points="l.points"/>
+          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, { transparent: highlight != null && highlight != l.name, funnel: l.funnel, reference: l.reference}]" :points="l.points"/>
         </g>
         <g class="points">
           <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
@@ -167,7 +167,7 @@ export default {
     points () {
       const { year, within, yScale, numberFormat, height, padding } = this
       if (year === null) return null
-      const points = within.map((c, i) => {
+      const points = within.filter(c => !c.funnel).map((c, i) => {
         const d = c.series.find(v => v.year === year)
         if (d == null) return null
         const y = yScale(d.value)
@@ -286,6 +286,14 @@ export default {
         }
         &.transparent {
           opacity: 0.1;
+        }
+        &.funnel {
+          stroke: $color-black;
+          opacity: 0.1;
+        }
+        &.reference {
+          stroke: $color-black;
+          stroke-dasharray: 4 4;
         }
       }
     }
