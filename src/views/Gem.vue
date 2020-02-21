@@ -16,8 +16,8 @@
         </div>
       </div>
       <div class="legend" v-if="current != null">
-        <div class="tiny label">{{ config.primaryDimension }}</div>
-        <span v-for="(o, i) in current[config.primaryDimension]" :key="`o${i}`"
+        <div class="tiny label">{{ current.primaryDimension }}</div>
+        <span v-for="(o, i) in current[current.primaryDimension]" :key="`o${i}`"
           class="tiny" :class="{ transparent: highlight != null && highlight != o }"
           @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
           <span class="glyph-dot" :class="[colors[i]]"/>
@@ -27,7 +27,7 @@
       <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
         <h3 v-if="g.label">{{g.label}}</h3>
         <div class="panels">
-          <ChartLine v-for="(p, j) in g.data" :key="`${i}-${j}`" :colors="colors" v-bind="p"
+          <ChartLine v-for="(p, j) in g.data.filter(p => p.within.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
             :number-format="config.numberFormat" :highlight="highlight"
             :domain="synchronize ? domains[p.within[0].unit] : null"/>
         </div>
@@ -87,7 +87,8 @@ export default {
     },
     groups () {
       const { current, data } = this
-      if (current == null) return
+      console.log(data)
+      if (current == null || data == null) return
       if (current.groups == null) return [{ data }]
       let start = 0
       return current.groups.map(g => {

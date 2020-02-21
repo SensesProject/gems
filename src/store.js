@@ -77,25 +77,34 @@ export default new Vuex.Store({
 
 async function getTimeseries ({ token, config, runs, options, colors }) {
   const current = { ...config.default }
-  const keysPlural = ['variables', 'regions', 'models', 'scenarios']
 
   options.map((o, i) => config.dropdowns[i].options.find(or => or.label === o)).forEach(o => {
     Object.keys(o).filter(k => k !== 'label').forEach(k => {
       current[k] = o[k]
     })
-  })
+  });
 
-  keysPlural.forEach(k => {
+  ['variables', 'regions', 'runs'].forEach(k => {
     current[k] = current[k].map(c => {
-      return c.replace(/\$\{([^}]+)\}/g, v => current[v.match(/\$\{(.+)\}/)[1]])
+      if (typeof (c) === 'string') return c.replace(/\$\{([^}]+)\}/g, v => current[v.match(/\$\{(.+)\}/)[1]])
+      return c.map(c1 => {
+        return c1.replace(/\$\{([^}]+)\}/g, v1 => current[v1.match(/\$\{(.+)\}/)[1]])
+      })
     })
   })
+
+  current.models = [...new Set(current.runs.map(r => r[0]))]
+  current.scenarios = [...new Set(current.runs.map(r => r[1]))]
+  current.combined = [...new Set(current.runs.map(r => `${r[0]} | ${r[1]}`))]
+
+  if (current.primaryDimension === 'runs') current.primaryDimension = 'combined'
 
   const filter = {
     filters: {
       runs: runs.filter(r =>
-        current.scenarios.indexOf(r.scenario) !== -1 &&
-        current.models.indexOf(r.model) !== -1
+        // current.scenarios.indexOf(r.scenario) !== -1 &&
+        // current.models.indexOf(r.model) !== -1
+        current.runs.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b)
       ).map(r => r.run),
       regions: current.regions,
       variables: current.variables,
@@ -104,6 +113,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       times: []
     }
   }
+
   const timeseries = await fetch(`${url}/runs/bulk/ts`, {
     method: 'POST',
     headers: {
@@ -114,16 +124,19 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
   }).then(r => r.json())
 
   const data = []
-  const keysSingular = ['model', 'region', 'scenario', 'variable']
+  const keys = ['model', 'region', 'scenario', 'variable']
   timeseries.forEach(entry => {
-    let ts = data.find(d => keysSingular.map(k => entry[k] === d[k]).reduce((a, b) => a && b))
+    entry.combined = `${entry.model} | ${entry.scenario}`
+  })
+  timeseries.forEach(entry => {
+    let ts = data.find(d => keys.map(k => entry[k] === d[k]).reduce((a, b) => a && b))
     if (ts == null) {
       ts = { series: [] }
-      keysSingular.forEach(k => { ts[k] = entry[k] })
+      keys.forEach(k => { ts[k] = entry[k] })
       ts.unit = entry.unit
       // ts.color =
-      ts.primaryDimension = entry[config.primaryDimension.replace(/s$/, '')]
-      ts.color = colors[current[config.primaryDimension].indexOf(ts.primaryDimension)]
+      ts.primaryDimension = entry[current.primaryDimension.replace(/s$/, '')]
+      ts.color = colors[current[current.primaryDimension].indexOf(ts.primaryDimension)]
       data.push(ts)
     }
     ts.series.push({
@@ -132,6 +145,8 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     })
   })
 
+  console.log(data)
+
   const units = [...new Set(timeseries.map(ts => ts.unit))]
   const domains = {}
   units.forEach(u => {
@@ -139,17 +154,25 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     domains[u] = [Math.max(...values), Math.min(...values, 0)]
   })
 
-  const dimensions = keysPlural.filter(d => d !== config.primaryDimension)
+  let dimensions = ['models', 'regions', 'scenarios', 'variables'].filter(d => d !== current.primaryDimension)
+  if (current.primaryDimension === 'combined') dimensions = ['regions', 'variables']
   const groups = []
   current[dimensions[0]].forEach(d0 => {
     current[dimensions[1]].forEach(d1 => {
-      current[dimensions[2]].forEach(d2 => {
+      if (dimensions[2] != null) {
+        current[dimensions[2]].forEach(d2 => {
+          const obj = {}
+          if (current[dimensions[0]].length > 1) obj[dimensions[0]] = d0
+          if (current[dimensions[1]].length > 1) obj[dimensions[1]] = d1
+          if (current[dimensions[2]].length > 1) obj[dimensions[2]] = d2
+          groups.push(obj)
+        })
+      } else {
         const obj = {}
         if (current[dimensions[0]].length > 1) obj[dimensions[0]] = d0
         if (current[dimensions[1]].length > 1) obj[dimensions[1]] = d1
-        if (current[dimensions[2]].length > 1) obj[dimensions[2]] = d2
         groups.push(obj)
-      })
+      }
     })
   })
 
@@ -164,6 +187,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       within
     }
   })
+  console.log(panels)
   return { data: panels, current, domains }
 }
 
