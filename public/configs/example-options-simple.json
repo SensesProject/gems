@@ -2,13 +2,15 @@
   "title": "Example Options",
   "description": "yes options, no dictionary, no string interpolation",
   "default": {
-    "models": ["REMIND-MAgPIE 1.7-3.0"],
-    "scenarios": [
-      "PEP_1p5C_full_NDC",
-      "PEP_1p5C_full_netzero",
-      "PEP_1p5C_full_eff"
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_NDC"],
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_netzero"],
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_eff"],
+      ["MESSAGE-GLOBIOM 1.0", "SSP2-Baseline"],
+      ["REMIND-MAgPIE 1.5", "SSP2-Baseline"]
     ],
-    "regions": ["World"]
+    "regions": ["World"],
+    "primaryDimension": "runs"
   },
   "dropdowns": [{
     "label": "Variables",
@@ -25,6 +27,20 @@
         "Carbon Sequestration|Land Use|Afforestation"
       ]
     }]
+  }, {
+    "label": "Primary Dimension",
+    "options": [{
+      "label": "runs",
+      "primaryDimension": "runs"
+    }, {
+      "label": "models",
+      "primaryDimension": "models"
+    }, {
+      "label": "scenarios",
+      "primaryDimension": "scenarios"
+    }]
   }],
-  "primaryDimension": "scenarios"
+  "dict": {
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_NDC": "dictionary test for runs"
+  }
 }
