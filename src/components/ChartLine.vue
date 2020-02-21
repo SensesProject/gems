@@ -80,7 +80,11 @@ export default {
       default: ',.4~r',
       type: String
     },
-    highlight: String
+    highlight: String,
+    domain: {
+      default: null,
+      type: Array
+    }
   },
   data () {
     return {
@@ -105,7 +109,8 @@ export default {
       return [min, max]
     },
     yDomain () {
-      const { within } = this
+      const { within, domain } = this
+      if (domain != null) return domain
       const min = Math.min(...within.map(c => c.series.map(s => s.value)).flat(), 0)
       const max = Math.max(...within.map(c => c.series.map(s => s.value)).flat())
       return [max, min]
@@ -174,8 +179,7 @@ export default {
           y2: y,
           validPosition: false
         }
-      })
-        .filter(d => d != null)
+      }).filter(d => d != null)
         .sort((a, b) => a.y - b.y)
 
       const positions = points.map(p => p.y2)

@@ -10,6 +10,10 @@
           <div class="tiny label">{{ o.label }}</div>
           <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
         </div>
+        <div class="option">
+          <div class="tiny label axis">Axis</div>
+          <SensesRadio width="120" :options="[{label: 'synchronized', value: true}, {label: 'discrete', value: false}]" v-model="synchronize"/>
+        </div>
       </div>
       <div class="legend" v-if="current != null">
         <div class="tiny label">{{ config.primaryDimension }}</div>
@@ -24,7 +28,8 @@
         <h3 v-if="g.label">{{g.label}}</h3>
         <div class="panels">
           <ChartLine v-for="(p, j) in g.data" :key="`${i}-${j}`" :colors="colors" v-bind="p"
-            :number-format="config.numberFormat" :highlight="highlight"/>
+            :number-format="config.numberFormat" :highlight="highlight"
+            :domain="synchronize ? domains[p.within[0].unit] : null"/>
         </div>
       </div>
       <div class="metadata">
@@ -55,6 +60,7 @@
 </template>
 <script>
 import SensesSelect from 'library/src/components/SensesSelect.vue'
+import SensesRadio from 'library/src/components/SensesRadio.vue'
 import ChartLine from '@/components/ChartLine.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
@@ -62,15 +68,17 @@ export default {
   name: 'Gem',
   data () {
     return {
-      highlight: null
+      highlight: null,
+      synchronize: true
     }
   },
   components: {
     ChartLine,
-    SensesSelect
+    SensesSelect,
+    SensesRadio
   },
   computed: {
-    ...mapState(['config', 'colors', 'data', 'metadata', 'current']),
+    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains']),
     ...mapGetters(['dict']),
     ...bindState(['options']),
     docs () {
@@ -136,6 +144,9 @@ export default {
       margin: 0 $spacing / 4 $spacing / 8 0;
       .label {
         text-transform: capitalize;
+        &.axis {
+          margin-bottom: -5px;
+        }
       }
       &:last-of-type {
         margin-right: 0;

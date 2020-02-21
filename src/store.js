@@ -19,6 +19,7 @@ export default new Vuex.Store({
     metadata: null,
     options: null,
     current: null,
+    domains: {},
     gems: []
   },
   getters: {
@@ -65,9 +66,10 @@ export default new Vuex.Store({
     },
     async updateTimeseries ({ commit, state }) {
       commit('set', { key: 'data', value: null })
-      const { data, current } = await getTimeseries(state)
+      const { data, current, domains } = await getTimeseries(state)
       commit('set', { key: 'current', value: current })
       commit('set', { key: 'data', value: data })
+      commit('set', { key: 'domains', value: domains })
       commit('set', { key: 'metadata', value: await getMetadata(state) })
     }
   }
@@ -130,6 +132,13 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     })
   })
 
+  const units = [...new Set(timeseries.map(ts => ts.unit))]
+  const domains = {}
+  units.forEach(u => {
+    const values = timeseries.filter(ts => ts.unit === u).map(ts => ts.value)
+    domains[u] = [Math.max(...values), Math.min(...values, 0)]
+  })
+
   const dimensions = keysPlural.filter(d => d !== config.primaryDimension)
   const groups = []
   current[dimensions[0]].forEach(d0 => {
@@ -155,7 +164,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       within
     }
   })
-  return { data: panels, current }
+  return { data: panels, current, domains }
 }
 
 async function getMetadata ({ token, regions, scenarios, models, current }) {
