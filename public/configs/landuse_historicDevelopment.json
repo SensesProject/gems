@@ -3,25 +3,18 @@
   "description": "What are the key parameters in land use change?",
   "default": {
     "runs": [
-      ["REMIND-MAgPIE 2.0-4.1","WDI - historical"], 
-      ["REMIND-MAgPIE 2.0-4.1","FAO - historical"]
+      ["REMIND-MAgPIE 2.0-4.1","land-use_historical"]
     ],
     "regions": [
-      "World", 
-      "R5|ASIA",
-      "R5|LAM",
-      "R5|MAF",
-      "R5|OECD90+EU",
-      "R5|REF"]
+      "World"]
   },
-  "primaryDimension": "scenarios" ,  
+  "primaryDimension": "runs" ,  
   "dropdowns": [{
     "label": "Variables",
     "options": [{
       "label": "What is a differentiated view on pressure?",
       "variables": [
-        "Population", 
-        "Demand|Material|+|Crops"
+        "Population"
       ]
     }
   ]

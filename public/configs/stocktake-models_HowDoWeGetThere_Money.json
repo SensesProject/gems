@@ -1,0 +1,76 @@
+{
+  "title": "How do we get there - means of implementation and support?",
+  "description": "This GEM describes the means of implementation and support in terms of investments. ",
+  "default": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_netzero"],
+      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_eff"]
+    ],
+    "regions": ["World"],
+    "primaryDimension": "scenarios"
+  },
+  "dropdowns": [{
+    "label": "Perspective",
+    "options": [{
+      "label": "Investments in lowcarbon technology",
+      "variables": [
+        "Investment|Energy Supply|Electricity|Solar",
+        "Investment|Energy Supply|Electricity|Wind",
+        "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
+        "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+        "Investment|Energy Supply|Electricity|Hydro",
+        "Investment|Energy Supply|Electricity|Nuclear",
+        
+        "Investment|Energy Supply|Electricity|Electricity Storage",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+         
+      ],
+      "regions": ["World"],
+      "groups": [{
+        "label": "Investments in low carbon technologies",
+        "size": 3
+      },{
+        "label": " ",
+        "size": 3
+      }, {
+        "label": "Investements in infrastructure",
+        "size": 2
+      }]
+    }, {
+      "label": "Divestment in unabated fossils",
+      "variables": [
+        "Investment|Energy Supply|Electricity|Coal|w/o CCS",
+        "Investment|Energy Supply|Electricity|Oil|w/o CCS",
+        "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+      ],
+      "regions": ["World"]
+      },{
+        "label": "Investments into CCS",
+        "variables": [
+          "Investment|Energy Supply|Electricity|Coal|w/ CCS",
+          "Investment|Energy Supply|Electricity|Gas|w/ CCS",
+          "Investment|Energy Supply|Electricity|Biomass|w/ CCS"
+        ],
+        "regions": ["World"]
+      }]
+    }, {
+      "label": "CDR",
+      "options": [{
+        "label": "What is the effect of full CDR availibility?",
+        "cdr": "full"
+      }, {
+        "label": "What if CDR options are limited?",
+        "cdr": "red"
+      }]
+    }, {
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "1p5C"
+    }, {
+      "label": "2°C",
+      "warming": "2C"
+    }]
+  } ]
+}

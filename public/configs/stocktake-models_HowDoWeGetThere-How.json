@@ -1,6 +1,6 @@
 {
-  "title": "Global Stocktake Scenario Comparison",
-  "description": "Some text describing this gem",
+  "title": "How do we get there - means of mitigation?",
+  "description": "This GEM describes the means of mitigation. ",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -13,15 +13,25 @@
   "dropdowns": [{
     "label": "Perspective",
     "options": [{
-      "label": "How will the share of fossils develop?",
+      "label": "Fossil fuel phase out",
       "variables": [
-        "Primary Energy|Coal", 
-        "Primary Energy|Gas",
-        "Primary Energy|Oil"
+        "Primary Energy|Coal|w/o CCS", 
+        "Primary Energy|Oil|w/o CCS", 
+        "Primary Energy|Gas|w/o CCS",
+        "Primary Energy|Coal|w/ CCS",
+        "Primary Energy|Oil|w/ CCS", 
+        "Primary Energy|Gas|w/ CCS" 
       ],
-      "regions": ["World"]
+      "regions": ["World"],
+      "groups": [{
+        "label": "Fossils without CCS",
+        "size": 3
+      }, {
+        "label": "Fossils with CCS",
+        "size": 3
+      }]
     }, {
-      "label": "How does the energy mix in future look like?",
+      "label": "Ramp up of renewables and nuclear",
       "variables": [
         "Primary Energy|Solar", 
         "Primary Energy|Wind",
@@ -29,33 +39,40 @@
         "Primary Energy|Biomass|Traditional", 
         "Primary Energy|Geothermal", 
         "Primary Energy|Hydro", 
-        "Primary Energy|Nuclear",
-        "Primary Energy|Coal|w/ CCS", 
-        "Primary Energy|Coal|w/o CCS", 
-        "Primary Energy|Gas|w/ CCS", 
-        "Primary Energy|Gas|w/o CCS", 
-        "Primary Energy|Oil|w/ CCS", 
-        "Primary Energy|Oil|w/o CCS"
+        "Primary Energy|Nuclear" 
       ],
       "regions": ["World"]
-      }, {
-        "label": "How can the elctricity mix of the future look like?",
+      },{
+        "label": "Carbon Sequestration",
         "variables": [
-          "Secondary Energy|Electricity|Biomass|w/ CCS", 
-          "Secondary Energy|Electricity|Biomass|w/o CCS",
-          "Secondary Energy|Electricity|Geothermal",
-          "Secondary Energy|Electricity|Hydro",
+          "Carbon Sequestration|CCS",
+          "Carbon Sequestration|CCS|Biomass",
+          "Carbon Sequestration|Land Use|Afforestation"
+        ],
+        "regions": ["World"]
+      },{
+        "label": "Decarbonization of electricity production",
+        "variables": [
+          
           "Secondary Energy|Electricity|Solar",
           "Secondary Energy|Electricity|Wind",
-          "Secondary Energy|Electricity|Nuclear",
+          "Secondary Energy|Electricity|Hydro",
+          "Secondary Energy|Electricity|Geothermal",
+          "Secondary Energy|Electricity|Biomass|w/o CCS",
+          "Secondary Energy|Electricity|Biomass|w/ CCS", 
           "Secondary Energy|Electricity|Coal|w/ CCS",
-          "Secondary Energy|Electricity|Coal|w/o CCS",
           "Secondary Energy|Electricity|Gas|w/ CCS",
-          "Secondary Energy|Electricity|Gas|w/o CCS",
           "Secondary Energy|Electricity|Oil|w/ CCS",
-          "Secondary Energy|Electricity|Oil|w/o CCS"
+          "Secondary Energy|Electricity|Nuclear"
       ],
-        "regions": ["World"]
+        "regions": ["World"], 
+        "groups": [{
+          "label": "Renewables",
+          "size": 6
+        }, {
+          "label": "Fossils with CCS and nuklear",
+          "size": 4
+        }]
       }, {
         "label": "How do fossils develop in the world regions?",
         "variables": [

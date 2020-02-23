@@ -1,57 +1,67 @@
 {
-  "title": "Global Stocktake Scenario Comparison",
-  "description": "Some text describing this gem",
+  "title": "Scenario Sensitivities",
+  "description": "This GEM show the difference between scenarios that have full CDR technologies and those with restricted amoungs. TODO: write details",
   "default": {
-    "run": [
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_netzero"],
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_eff"]
-    ],
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_full_${policy}"],
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_red_${policy}"]
+    ] ,
     "regions": ["World"],
     "primaryDimension": "scenarios"
   },
   "dropdowns": [{
     "label": "Perspective",
-    "options": [{
-      "label": "Emissions by Sector",
+    "options": [ {
+      "label": "What is the effect on emissions?",
       "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CO2|Energy|Demand|Industry",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
-        "Emissions|CO2|Energy|Demand|Transportation",
-        "Emissions|CO2|Energy|Supply|Electricity",
-        "Emissions|CO2|Energy|Supply|Gases",
-        "Emissions|CO2|Energy|Supply|Heat",
-        "Emissions|CO2|Energy|Supply|Liquids",
-        "Emissions|CO2|Energy|Supply|Solids",
-        "Emissions|CO2|Industrial Processes"
+        "Emissions|CO2",
+        "Emissions|CH4",
+        "Emissions|N2O"
       ],
-      "regions": ["World"],
-      "breaks": [{
-        "title": "first",
-        "limit": 5
-      }, {
-        "title": "second",
-        "limit": 8
-      }]
+      "regions": ["World"] 
     }, {
-      "label": "Emissions by Major Economy",
-      "variables": ["Emissions|CO2|Energy|Supply|Gases", "Emissions|Kyoto Gases"],
-      "regions": [
-        "R5|ASIA",
-        "R5|LAM",
-        "R5|MAF",
-        "R5|OECD90+EU",
-        "R5|REF"
-      ]
-    }, {
-      "label": "Sequestration",
+      "label": "How different are the amounts of carbon sequestration?",
       "variables": [
         "Carbon Sequestration|CCS",
         "Carbon Sequestration|CCS|Biomass",
-        "Carbon Sequestration|Land Use|Afforestation"
+        "Carbon Sequestration|Land Use|Afforestation",
+        "Carbon Sequestration|CCS|Fossil|Energy|Supply",
+        "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
       ],
-      "regions": ["World"]
+      "regions": ["World"], 
+      "groups": [{
+        "label": " ",
+        "size": 3
+      }, {
+        "label": " ",
+        "size": 2
+      }]
+
+    },{
+      "label": "What are effects for end-users?",
+      "variables": [
+        "Price|Agriculture|Corn|Index",
+        "Price|Agriculture|Soybean|Index",
+        "Price|Agriculture|Wheat|Index",
+        "Price|Agriculture|Livestock|Index", 
+        "Price|Final Energy|Residential|Electricity", 
+        "Price|Final Energy|Residential|Gases|Natural Gas", 
+        "Price|Final Energy|Residential|Liquids|Biomass", 
+        "Price|Final Energy|Residential|Liquids|Oil", 
+        "Price|Final Energy|Residential|Solids|Coal", 
+        "Price|Final Energy|Residential|Solids|Biomass"
+      ],
+      "regions": ["World"],
+      "groups": [{
+        "label": "Food price index",
+        "size": 4
+      }, {
+        "label": "Final energy prices for the residential sector",
+        "size": 3
+      }, {
+        "label": " ",
+        "size": 3
+      }]
     }]
   }, {
     "label": "Warming Level",
@@ -63,13 +73,16 @@
       "warming": "2C"
     }]
   }, {
-    "label": "CDR",
+    "label": "Policy Option",
     "options": [{
-      "label": "Full",
-      "cdr": "full"
+      "label": "Delayed NDC until 2030",
+      "policy": "NDC"
+    },{
+      "label": "Strengthened action",
+      "policy": "netzero"
     }, {
-      "label": "Reduced",
-      "cdr": "red"
+      "label": "Cost-effective pricing",
+      "policy": "eff"
     }]
   }],
   "dict": {

@@ -1,6 +1,6 @@
 {
   "title": "Global Stocktake Scenario Comparison",
-  "description": "Some text describing this gem",
+  "description": "This GEM tells the story of emissions",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
@@ -15,19 +15,29 @@
     "options": [{
       "label": "Emissions by Sector",
       "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CO2|Energy|Demand|Industry",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
-        "Emissions|CO2|Energy|Demand|Transportation",
         "Emissions|CO2|Energy|Supply|Electricity",
+        "Emissions|CO2|Energy|Demand|Industry",
+        "Emissions|CO2|AFOLU",
+        "Emissions|CO2|Energy|Demand|Transportation",
+        "Emissions|CO2|Energy|Demand|Residential and Commercial",
         "Emissions|CO2|Energy|Supply|Gases",
         "Emissions|CO2|Energy|Supply|Heat",
         "Emissions|CO2|Energy|Supply|Liquids",
         "Emissions|CO2|Energy|Supply|Solids",
         "Emissions|CO2|Industrial Processes"
       ],
-      "regions": ["World"]
-    }, {
+      "regions": ["World"], 
+      "groups": [{
+        "label": " ",
+        "size": 3
+      }, {
+        "label": " ",
+        "size": 3
+      }, {
+        "label": " ",
+        "size": 3
+      }]
+    },{
       "label": "Emissions by Major Economy",
       "variables": ["Emissions|Kyoto Gases"],
       "regions": [
@@ -37,14 +47,6 @@
         "R5|OECD90+EU",
         "R5|REF"
       ]
-    }, {
-      "label": "Sequestration",
-      "variables": [
-        "Carbon Sequestration|CCS",
-        "Carbon Sequestration|CCS|Biomass",
-        "Carbon Sequestration|Land Use|Afforestation"
-      ],
-      "regions": ["World"]
     }]
   }, {
     "label": "Warming Level",
