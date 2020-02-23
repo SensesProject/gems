@@ -15,15 +15,15 @@
     "options": [{
       "label": "Emissions by Sector",
       "variables": [
-        "Emissions|CO2|Energy|Supply|Electricity",
-        "Emissions|CO2|Energy|Demand|Industry",
         "Emissions|CO2|AFOLU",
-        "Emissions|CO2|Energy|Demand|Transportation",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
+        "Emissions|CO2|Energy|Supply|Electricity",
         "Emissions|CO2|Energy|Supply|Gases",
         "Emissions|CO2|Energy|Supply|Heat",
         "Emissions|CO2|Energy|Supply|Liquids",
         "Emissions|CO2|Energy|Supply|Solids",
+        "Emissions|CO2|Energy|Demand|Industry",
+        "Emissions|CO2|Energy|Demand|Transportation",
+        "Emissions|CO2|Energy|Demand|Residential and Commercial",
         "Emissions|CO2|Industrial Processes"
       ],
       "regions": ["World"], 
@@ -35,7 +35,7 @@
         "size": 3
       }, {
         "label": " ",
-        "size": 3
+        "size": 4
       }]
     },{
       "label": "Emissions by Major Economy",

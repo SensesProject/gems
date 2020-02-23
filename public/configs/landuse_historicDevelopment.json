@@ -1,9 +1,9 @@
 {
   "title": "Land use",
-  "description": "What are the key parameters in land use change?",
+  "description": "Where are we now? Historic development of land use",
   "default": {
     "runs": [
-      ["REMIND-MAgPIE 2.0-4.1","land-use_historical"]
+      ["REMIND-MAgPIE 2.0-4.1"," "]
     ],
     "regions": [
       "World"]

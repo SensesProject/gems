@@ -1,0 +1,83 @@
+{
+  "title": "Land use - impact response measures",
+  "description": "What are the impacts of land based response measures? This strongly also depends on the chosen abatement strategie. This GEM investigates the sensitivites of this.",
+  "default": {
+    "runs":[
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Def"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Sust"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_early"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_lifesty"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_regul"]
+    ],
+    "regions": ["World"],
+    "primaryDimension": "scenarios"
+  },
+  "dropdowns": [{
+    "label": "Variables",
+    "options": [{
+      "label": "What are the emission trajectories for the response strategies?",
+      "variables": [
+        "Emissions|CO2|AFOLU",
+        "Emissions|CH4|AFOLU",
+        "Emissions|N2O|AFOLU"
+      ]
+    }, {
+      "label": "How is pressure on land increased?",
+      "variables": [
+        "Land Cover|Forest|Afforestation and Reforestation",
+        "Land Cover|Cropland",
+        "Land Cover|Cropland|Energy Crops",
+        "Land Cover|Pasture",
+        "Water Consumption|Irrigation", 
+        "Fertilizer Use|Nitrogen", 
+        "Agricultural Production", 
+        "Agricultural Production|Energy|Crops", 
+        "Agricultural Production|Non-Energy|Crops",
+        "Agricultural Production|Non-Energy|Livestock"
+      ],
+      "groups": [{
+        "label": "Change in land cover",
+        "size": 4
+      }, {
+        "label": "Change in irrigation and fertilizer use",
+        "size": 2
+      },{
+        "label": "Change in yield",
+        "size": 4
+      }]
+    }, {
+      "label": "What is the influence on food security?",
+      "variables": [
+        "Population", 
+        "Food Demand",
+        "Price|Agriculture|Non-Energy Crops and Livestock|Index",
+        "Land Cover|Forest|Afforestation and Reforestation",
+        "Land Cover|Cropland|Energy Crops",
+        "Land Cover|Cropland|Cereals",
+        "Land Cover|Pasture"
+      ], 
+      "groups": [{
+        "label": "Price index",
+        "size": 3
+      }, {
+        "label": "Change land cover",
+        "size": 4
+      }]
+    }
+  ]
+  }, {
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "1p5C"
+    }, {
+      "label": "2°C",
+      "warming": "2C"
+    }]
+  }],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
