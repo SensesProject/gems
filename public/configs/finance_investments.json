@@ -8,7 +8,7 @@
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400"]
     ], 
     "regions": ["World"], 
-    "primaryDimension": "scenarios" 
+    "primaryDimension": "runs" 
   },
   "dropdowns": [{
     "label": "Variables",

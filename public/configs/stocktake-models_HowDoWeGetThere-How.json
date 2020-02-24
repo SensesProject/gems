@@ -8,7 +8,7 @@
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_eff"]
     ],
     "regions": ["World"],
-    "primaryDimension": "scenarios"
+    "primaryDimension": "runs"
   },
   "dropdowns": [{
     "label": "Perspective",

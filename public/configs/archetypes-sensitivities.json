@@ -3,11 +3,10 @@
   "description": "Some text describing this gem",
   "default": {
     "runs": [
-      ["AIM/CGE 2.1", "CD-LINKS_NPi2020_${warming}"], 
-      ["IMAGE 3.0.1", "CD-LINKS_NPi2020_${warming}"],
-      ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_${warming}"],
-      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming}"],
-      ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_${warming}"]
+      ["MESSAGEix-GLOBIOM 1.0", "LowEnergyDemand"], 
+      ["AIM/CGE 2.0", "SSP1-19"],
+      ["MESSAGE-GLOBIOM 1.0", "SSP2-19"],
+      ["REMIND-MAgPIE 1.5", "SSP5-19"]
     ],
     "regions": ["World"], 
     "primaryDimension": "runs"
