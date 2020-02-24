@@ -20,29 +20,37 @@
         "Investment|Energy Supply|Electricity|Transmission and Distribution"
       ]
     }, {
-      "label": "Fossils vs Renewables",
+      "label": "Investments into low carbon technology",
       "variables": [
         "Investment|Energy Supply|Electricity|Solar", 
         "Investment|Energy Supply|Electricity|Wind", 
         "Investment|Energy Supply|Electricity|Hydro", 
         "Investment|Energy Supply|Electricity|Geothermal", 
-        "Investment|Energy Supply|Hydrogen|Other", 
-        "Investment|Energy Supply|Electricity|Biomass|w/ CCS", 
         "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
-        "Investment|Energy Supply|Extraction|Fossil",
+        "Investment|Energy Supply|Hydrogen|Other", 
+        "Investment|Energy Supply|Electricity|Nuclear",
+
+        "Investment|Energy Supply|Electricity|Biomass|w/ CCS", 
         "Investment|Energy Supply|Electricity|Coal|w/ CCS",
-        "Investment|Energy Supply|Electricity|Coal|w/o CCS", 
-        "Investment|Energy Supply|Electricity|Gas|w/ CCS",
-        "Investment|Energy Supply|Electricity|Gas|w/o CCS", 
-        "Investment|Energy Supply|Electricity|Nuclear"
+        "Investment|Energy Supply|Electricity|Gas|w/ CCS"
       ],
       "groups": [{
-        "label": "Investments Renewables",
-        "size": 7
+        "label": "Investments low carbon technologies",
+        "size": 4
       }, {
-        "label": "Invesments Fossils and Nuclear",
-        "size": 6
+        "label": " ",
+        "size": 3
+      }, {
+        "label": "Investments in CCS",
+        "size": 3
       }]
+    }, {
+      "label": "Divestment in unabated fossils",
+      "variables": [
+        "Investment|Energy Supply|Extraction|Fossil",
+        "Investment|Energy Supply|Electricity|Coal|w/o CCS", 
+        "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+      ]
     }]
   }, {
     "label": "Region",
