@@ -1,0 +1,59 @@
+{
+  "title": "Land use - where do we have to go & how do we get there",
+  "description": "What are the key parameters in land use change?",
+  "default": {
+    "runs":[
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Def"],
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Sust"]
+    ], 
+    "reference": [
+      ["MESSAGEix-GLOBIOM 1.0", "LowEnergyDemand"]
+    ]
+  },
+  "dropdowns": [{
+    "label": "Variables",
+    "options": [{
+      "label": "Where do we have to go?",
+      "variables": [
+        "Primary Energy|Coal"
+      ]      ,
+    "regions": [
+      "World" 
+      ], 
+      "groups": [{
+        "label": "World",
+        "size": 4
+      }, {
+        "label": "R5 Asia",
+        "size": 4
+      }, {
+        "label": "R5 Latin America",
+        "size": 4
+      }, {
+        "label": "R5 MAF",
+        "size": 4
+      }, {
+        "label": "R5 OECD90 +EU ",
+        "size": 4
+      }, {
+        "label": "R5 REF",
+        "size": 4
+      }]
+    }
+  ]
+  }, {
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "1p5C"
+    }, {
+      "label": "2°C",
+      "warming": "2C"
+    }]
+  }],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
