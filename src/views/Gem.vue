@@ -16,20 +16,20 @@
         </div>
       </div>
       <div class="legend" v-if="current != null">
-        <div class="tiny label">{{ current.primaryDimension }}</div>
-        <span v-for="(o, i) in current[current.primaryDimension]" :key="`o${i}`"
-          class="tiny" :class="{ transparent: highlight != null && highlight != o }"
-          @mouseenter="highlight = o" @mousemove="highlight = o" @mouseout="highlight = null">
-          <span class="glyph-dot" :class="[colors[i]]"/>
-          {{ dict[o] || o }}
+        <div class="tiny label">Models/Scenarios</div>
+        <span v-for="(r, i) in current.all.filter(r => r.type === 'default' || r.type === 'reference')" :key="`o${i}`"
+          class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
+          @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
+          <span class="glyph-dot" :class="r.color"/>
+          {{ dict[r.name] || r.name }}
         </span>
       </div>
       <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
         <h3 v-if="g.label">{{g.label}}</h3>
         <div class="panels">
-          <ChartLine v-for="(p, j) in g.data.filter(p => p.within.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
+          <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
             :number-format="config.numberFormat" :highlight="highlight"
-            :domain="synchronize ? domains[p.within[0].unit] : null"/>
+            :domain="synchronize ? domains[p.runs[0].unit] : null"/>
         </div>
       </div>
       <div class="metadata">
