@@ -92,25 +92,23 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       })
     })
   })
-  current.allRuns = [...current.runs || []] //, ...current.funnel || [], ...current.reference || []]
-  current.models = [...new Set(current.allRuns.map(r => r[0]))]
-  current.scenarios = [...new Set(current.allRuns.map(r => r[1]))]
-  current.combined = [...new Set(current.allRuns.map(r => `${r[0]} | ${r[1]}`))]
-
-  current.primaryDimensionLabel = current.primaryDimension
-  if (current.primaryDimension === 'runs') current.primaryDimension = 'combined'
-
-  // const runsPrimaryDim =
+  current.all = [
+    ...current.runs.map((r, i) => ({ model: r[0], scenario: r[1], type: 'default', color: colors[i] })),
+    ...(current.funnel || []).map(r => ({ model: r[0], scenario: r[1], type: 'funnel' })),
+    ...(current.reference || []).map(r => ({ model: r[0], scenario: r[1], type: 'reference' }))
+  ].map(r => {
+    return {
+      ...r,
+      name: `${r.model} | ${r.scenario}`,
+      runId: runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario).run
+    }
+  })
+  current.models = [...new Set(current.all.map(r => r.model))]
+  current.scenarios = [...new Set(current.all.map(r => r.scenario))]
 
   const filter = {
     filters: {
-      runs: runs.filter(r =>
-        // current.scenarios.indexOf(r.scenario) !== -1 &&
-        // current.models.indexOf(r.model) !== -1
-        current.allRuns.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b) ||
-        current.funnel.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b) ||
-        current.reference.map(cr => cr[0] === r.model && cr[1] === r.scenario).reduce((a, b) => a || b)
-      ).map(r => r.run),
+      runs: current.all.map(r => r.runId),
       regions: current.regions,
       variables: current.variables,
       units: [],
@@ -128,30 +126,28 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     body: JSON.stringify(filter)
   }).then(r => r.json())
 
-  const data = []
-  const keys = ['model', 'region', 'scenario', 'variable']
-  timeseries.forEach(entry => {
-    entry.combined = `${entry.model} | ${entry.scenario}`
-  })
+  const panels = current.variables.map(variable => {
+    return current.regions.map(region => ({
+      variable,
+      region,
+      label: [current.regions.length > 1 ? region : false, current.variables.length > 1 ? variable : false].filter(l => l).join(' | ')
+    }))
+  }).flat().map(panel => {
+    const runs = current.all.map(run => {
+      const ts = timeseries.filter(
+        ts => ts.runId === run.runId && ts.variable === panel.variable && ts.region === panel.region
+      )
 
-  timeseries.forEach(entry => {
-    let ts = data.find(d => keys.map(k => entry[k] === d[k]).reduce((a, b) => a && b))
-    if (ts == null) {
-      ts = { series: [] }
-      keys.forEach(k => { ts[k] = entry[k] })
-      ts.unit = entry.unit
-      // ts.color =
-      ts.primaryDimension = entry[current.primaryDimension.replace(/s$/, '')]
-      ts.color = colors[current[current.primaryDimension].indexOf(ts.primaryDimension)]
-      ts.reference = current.reference.find(r => (typeof (r) === 'string' ? r : `${r[0]} | ${r[1]}`) === ts.primaryDimension) != null
-      if (ts.reference) ts.color = 'black'
-      ts.funnel = ts.color == null
-      data.push(ts)
-    }
-    ts.series.push({
-      year: entry.year,
-      value: entry.value
+      return {
+        ...run,
+        unit: ts[0].unit,
+        series: ts.map(t => ({ year: t.year, value: t.value }))
+      }
     })
+    return {
+      runs,
+      label: panel.label
+    }
   })
 
   const units = [...new Set(timeseries.map(ts => ts.unit))]
@@ -159,40 +155,6 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
   units.forEach(u => {
     const values = timeseries.filter(ts => ts.unit === u).map(ts => ts.value)
     domains[u] = [Math.max(...values), Math.min(...values, 0)]
-  })
-
-  let dimensions = ['models', 'regions', 'scenarios', 'variables'].filter(d => d !== current.primaryDimension)
-  if (current.primaryDimension === 'combined') dimensions = ['regions', 'variables']
-  const groups = []
-  current[dimensions[0]].forEach(d0 => {
-    current[dimensions[1]].forEach(d1 => {
-      if (dimensions[2] != null) {
-        current[dimensions[2]].forEach(d2 => {
-          const obj = {}
-          if (current[dimensions[0]].length > 1) obj[dimensions[0]] = d0
-          if (current[dimensions[1]].length > 1) obj[dimensions[1]] = d1
-          if (current[dimensions[2]].length > 1) obj[dimensions[2]] = d2
-          groups.push(obj)
-        })
-      } else {
-        const obj = {}
-        if (current[dimensions[0]].length > 1) obj[dimensions[0]] = d0
-        if (current[dimensions[1]].length > 1) obj[dimensions[1]] = d1
-        groups.push(obj)
-      }
-    })
-  })
-
-  const dict = config.dict || {}
-  const panels = groups.map(g => {
-    const name = Object.keys(g).map(k => dict[g[k]] || g[k]).join(' | ')
-    const within = data.filter((d, i) => {
-      return Object.keys(g).map(k => g[k] === d[k.replace(/s$/, '')]).reduce((a, b) => a && b, [])
-    })
-    return {
-      name,
-      within
-    }
   })
   return { data: panels, current, domains }
 }

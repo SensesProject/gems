@@ -17,8 +17,7 @@
     "reference": [
       ["AIM/CGE 2.0", "SSP2-Baseline"]
     ],
-    "regions": ["World"],
-    "primaryDimension": "runs"
+    "regions": ["World"]
   },
   "dropdowns": [{
     "label": "Variables",
@@ -34,21 +33,6 @@
       "variables": [
         "Carbon Sequestration|Land Use|Afforestation"
       ]
-    }]
-  }, {
-    "label": "Primary Dimension",
-    "options": [{
-      "label": "runs",
-      "primaryDimension": "runs"
-    }, {
-      "label": "models",
-      "primaryDimension": "models"
-    }, {
-      "label": "scenarios",
-      "primaryDimension": "scenarios"
-    }, {
-      "label": "variables",
-      "primaryDimension": "variables"
     }]
   }],
   "dict": {

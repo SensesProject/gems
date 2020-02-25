@@ -1,9 +1,10 @@
 <template>
   <div class="chart-line">
     <div class="narrow" v-resize:debounce.initial="onResize">
-      <div class="tiny title">{{ name }}</div>
-      <svg v-if="within.length > 0" :width="width" :height="height"
+      <div class="tiny title">{{ label }}</div>
+      <svg v-if="runs.length > 0" :width="width" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
+        <polygon class="funnel" :points="funnel"/>
         <g class="axes">
           <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
             <g class="ticks ticks-y">
@@ -20,7 +21,7 @@
           <!-- <text y="16">{{ name }}</text> -->
         </g>
         <g class="lines">
-          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, { transparent: highlight != null && highlight != l.name, funnel: l.funnel, reference: l.reference}]" :points="l.points"/>
+          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, l.type, { transparent: highlight != null && highlight != l.runId}]" :points="l.points"/>
         </g>
         <g class="points">
           <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
@@ -73,14 +74,14 @@ export default {
     resize
   },
   props: {
-    within: Array,
-    name: [String, Object],
+    runs: Array,
+    label: [String, Object],
     colors: Array,
     numberFormat: {
       default: ',.4~r',
       type: String
     },
-    highlight: String,
+    highlight: Number,
     domain: {
       default: null,
       type: Array
@@ -97,7 +98,7 @@ export default {
   },
   computed: {
     years () {
-      const years = this.within.map(c => c.series.map(s => s.year)).flat()
+      const years = this.runs.map(c => c.series.map(s => s.year)).flat()
       return years.filter(function (item, index) {
         return years.indexOf(item) >= index
       })
@@ -109,10 +110,10 @@ export default {
       return [min, max]
     },
     yDomain () {
-      const { within, domain } = this
+      const { runs, domain } = this
       if (domain != null) return domain
-      const min = Math.min(...within.map(c => c.series.map(s => s.value)).flat(), 0)
-      const max = Math.max(...within.map(c => c.series.map(s => s.value)).flat())
+      const min = Math.min(...runs.map(c => c.series.map(s => s.value)).flat(), 0)
+      const max = Math.max(...runs.map(c => c.series.map(s => s.value)).flat())
       return [max, min]
     },
     xScale () {
@@ -145,16 +146,31 @@ export default {
       }))
     },
     lines () {
-      const { within, xScale, yScale } = this
-      return within.map((c, i) => {
+      const { runs, xScale, yScale } = this
+      return runs.filter(r => r.type !== 'funnel').map((c, i) => {
         return {
           ...c,
           // color: colors[i % 6],
-          // shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
-          points: c.series.map(d => `${xScale(d.year)}, ${yScale(d.value)}`).join(' '),
-          name: c.primaryDimension
+          // shade: runs.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
+          points: c.series.map(d => `${xScale(d.year)}, ${yScale(d.value)}`).join(' ')
+          // name: c.primaryDimension
         }
       })
+    },
+    funnel () {
+      const { runs, xScale, yScale } = this
+      const funnel = runs.filter(r => r.type === 'funnel')
+      const years = [...new Set(funnel.map(f => f.series.map(v => v.year)).flat())].sort().map(y => {
+        const values = funnel.map(f => f.series.find(v => v.year === y)).filter(v => v !== undefined).map(v => v.value)
+        return {
+          min: Math.min(...values),
+          max: Math.max(...values),
+          year: y
+        }
+      })
+      const lower = years.map(y => `${xScale(y.year)}, ${yScale(y.min)}`).join(' ')
+      const upper = years.reverse().map(y => `${xScale(y.year)}, ${yScale(y.max)}`).join(' ')
+      return `${lower} ${upper}`
     },
     ruler () {
       const { year, xScale } = this
@@ -165,16 +181,16 @@ export default {
       }
     },
     points () {
-      const { year, within, yScale, numberFormat, height, padding } = this
+      const { year, runs, yScale, numberFormat, height, padding } = this
       if (year === null) return null
-      const points = within.filter(c => !c.funnel).map((c, i) => {
+      const points = runs.filter(c => c.type !== 'funnel').map((c, i) => {
         const d = c.series.find(v => v.year === year)
         if (d == null) return null
         const y = yScale(d.value)
         return {
           label: format(numberFormat)(d.value).replace(/,/, ' '),
           color: c.color,
-          // shade: within.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
+          // shade: runs.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
           y,
           y2: y,
           validPosition: false
@@ -204,8 +220,8 @@ export default {
       return points
     },
     unit () {
-      const { within } = this
-      return within[0].unit
+      const { runs } = this
+      return runs[0].unit
     }
   },
   mounted () {
@@ -265,10 +281,15 @@ export default {
     .title {
       font-weight: $font-weight-bold;
     }
+    polygon {
+      &.funnel {
+        fill: getColor(gray, 90);
+      }
+    }
     .lines, .points {
       polyline {
         fill: none;
-        stroke: $color-gray;
+        stroke: $color-black;
         stroke-width: 1.5;
         transition: opacity $transition;
         // mix-blend-mode: multiply;
@@ -300,7 +321,7 @@ export default {
     .points {
       circle {
         fill: $color-white;
-        // stroke: $color-gray;
+        stroke: $color-black;
         stroke-width: 1.5;
         // mix-blend-mode: multiply;
 
