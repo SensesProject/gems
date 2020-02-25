@@ -126,8 +126,8 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     body: JSON.stringify(filter)
   }).then(r => r.json())
 
-  const panels = current.variables.map(variable => {
-    return current.regions.map(region => ({
+  const panels = current.regions.map(region => {
+    return current.variables.map(variable => ({
       variable,
       region,
       label: [current.regions.length > 1 ? region : false, current.variables.length > 1 ? variable : false].filter(l => l).join(' | ')
