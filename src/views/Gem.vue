@@ -27,7 +27,10 @@
         </div>
       </div>
       <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
-        <h3 v-if="g.label">{{g.label}}</h3>
+        <div class="group-title">
+          <img v-if="g.img" :src="g.img"/>
+          <h3 v-if="g.label">{{g.label}}</h3>
+        </div>
         <div class="panels">
           <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
             :number-format="config.numberFormat" :highlight="highlight"
@@ -97,6 +100,7 @@ export default {
         start += g.size
         return {
           label: g.label,
+          img: g.img,
           data: d
         }
       })
@@ -127,7 +131,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $spacing;
+  padding: $spacing $spacing / 2;
 
   .intro {
     width: 100%;
@@ -168,9 +172,10 @@ export default {
     position: sticky;
     width: 100vw;
     display: flex;
+    padding: 0 $spacing / 2 $spacing / 4;
     // align-items: center;
     justify-content: center;
-    padding-bottom: $spacing / 4;
+    // padding-bottom: $spacing / 4;
     .legend-inner {
       width: 100%;
       max-width: 600px;
@@ -211,17 +216,31 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    h3 {
+    border-top: 1px solid $color-pale-gray;
+    width: 100%;
+
+    .group-title {
       width: 100%;
-      max-width: 600px;
       align-self: center;
-      margin-top: $spacing / 2;
-      border-top: 1px solid $color-gray;
+      max-width: 600px;
+      margin: 0 $spacing / 4 0;
+      // justify-content: space-between;
+      display: flex;
+        h3 {
+        align-self: center;
+        margin: $spacing / 4 0;
+        color: $color-neon;
+      }
+      img {
+        margin: $spacing / 4 $spacing / 4 $spacing / 4 0;
+        height: 32px;
+        width: auto;
+      }
     }
   }
 
   .panels {
-    width: 100vw;
+    width: 100%;
     max-width: 1920px;
     display: flex;
     flex-wrap: wrap;
