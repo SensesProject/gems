@@ -16,13 +16,15 @@
         </div>
       </div>
       <div class="legend" v-if="current != null">
-        <div class="tiny label">Models/Scenarios</div>
-        <span v-for="(r, i) in current.all.filter(r => r.type === 'default' || r.type === 'reference')" :key="`o${i}`"
-          class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
-          @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
-          <span class="glyph-dot" :class="r.color"/>
-          {{ dict[r.name] || r.name }}
-        </span>
+        <div class="legend-inner">
+          <div class="tiny label">Models/Scenarios</div>
+          <span v-for="(r, i) in current.all.filter(r => r.type === 'default' || r.type === 'reference')" :key="`o${i}`"
+            class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
+            @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
+            <span class="glyph-dot" :class="r.color"/>
+            {{ dict[r.name] || r.name }}
+          </span>
+        </div>
       </div>
       <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
         <h3 v-if="g.label">{{g.label}}</h3>
@@ -155,35 +157,51 @@ export default {
   }
 
   .legend {
-    width: 100%;
-    max-width: 600px;
-    margin-top: $spacing / 8;
-    .label {
-      text-transform: capitalize;
-      margin-bottom: -$spacing / 16;
+    background: transparentize($color-white, 0.02);
+    z-index: 10;
+    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or(backdrop-filter: saturate(180%) blur(20px))) {
+      background: transparentize($color-white, 0.15);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      backdrop-filter:saturate(180%) blur(10px)
     }
-    > span {
-      margin-right: $spacing / 4;
-      display: inline-block;
-      cursor: default;
-      transition: opacity $transition;
-
-      &.transparent {
-        opacity: .6;
+    top: $spacing * 2;
+    position: sticky;
+    width: 100vw;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    padding-bottom: $spacing / 4;
+    .legend-inner {
+      width: 100%;
+      max-width: 600px;
+      margin-top: $spacing / 8;
+      .label {
+        text-transform: capitalize;
+        margin-bottom: -$spacing / 16;
       }
-        // white-space: nowrap;
-      .glyph-dot {
-        &:before {
-          content: '●';
-          font-family: $font-sans;
-          margin: 0;
+      > span {
+        margin-right: $spacing / 4;
+        display: inline-block;
+        cursor: default;
+        transition: opacity $transition;
+
+        &.transparent {
+          opacity: .6;
         }
-        @include tint(color);
-        &.light {
-          @include tint(color, 60);
-        }
-        &.dark {
-          @include tint(color, 40);
+          // white-space: nowrap;
+        .glyph-dot {
+          &:before {
+            content: '●';
+            font-family: $font-sans;
+            margin: 0;
+          }
+          @include tint(color);
+          &.light {
+            @include tint(color, 60);
+          }
+          &.dark {
+            @include tint(color, 40);
+          }
         }
       }
     }
