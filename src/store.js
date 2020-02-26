@@ -137,13 +137,13 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       const ts = timeseries.filter(
         ts => ts.runId === run.runId && ts.variable === panel.variable && ts.region === panel.region
       )
-
+      if (ts.length === 0) return null
       return {
         ...run,
         unit: ts[0].unit,
         series: ts.map(t => ({ year: t.year, value: t.value }))
       }
-    })
+    }).filter(r => r != null)
     return {
       runs,
       label: panel.label

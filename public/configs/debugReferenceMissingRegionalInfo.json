@@ -18,7 +18,12 @@
         "Primary Energy|Coal"
       ]      ,
     "regions": [
-      "World" 
+      "World",
+      "R5|ASIA",
+      "R5|LAM",
+      "R5|MAF",
+      "R5|OECD90+EU",
+      "R5|REF"
       ], 
       "groups": [{
         "label": "World",
