@@ -160,7 +160,7 @@ export default {
     margin-top: $spacing / 8;
     .label {
       text-transform: capitalize;
-      margin-bottom: -$spacing / 8;
+      margin-bottom: -$spacing / 16;
     }
     > span {
       margin-right: $spacing / 4;

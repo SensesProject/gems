@@ -92,17 +92,21 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       })
     })
   })
+
   current.all = [
     ...current.runs.map((r, i) => ({ model: r[0], scenario: r[1], type: 'default', color: colors[i] })),
     ...(current.funnel || []).map(r => ({ model: r[0], scenario: r[1], type: 'funnel' })),
     ...(current.reference || []).map(r => ({ model: r[0], scenario: r[1], type: 'reference' }))
-  ].map(r => {
+  ].map((r, i) => {
+    const run = runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario)
+    if (run == null) return null
     return {
       ...r,
       name: `${r.model} | ${r.scenario}`,
-      runId: runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario).run
+      runId: run.run_id
     }
-  })
+  }).filter(r => r != null)
+
   current.models = [...new Set(current.all.map(r => r.model))]
   current.scenarios = [...new Set(current.all.map(r => r.scenario))]
 
