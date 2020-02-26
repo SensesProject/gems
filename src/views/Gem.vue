@@ -10,9 +10,9 @@
           <div class="tiny label">{{ o.label }}</div>
           <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
         </div>
-        <div class="option">
+        <div class="option" v-if="data && Object.keys(domains).length !== data.length">
           <div class="tiny label axis">Axis</div>
-          <SensesRadio width="120" :options="[{label: 'synchronized', value: true}, {label: 'discrete', value: false}]" v-model="synchronize"/>
+          <SensesRadio width="120" :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
         </div>
       </div>
       <div class="legend" v-if="current != null">
