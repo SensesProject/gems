@@ -12,7 +12,7 @@
         </div>
         <div class="option" v-if="data && Object.keys(domains).length !== data.length">
           <div class="tiny label axis">Axis</div>
-          <SensesRadio width="120" :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
+          <SensesRadio width="120" :options="[{label: 'absolute', value: false}, {label: 'synchronized', value: true}]" v-model="synchronize"/>
         </div>
       </div>
       <div class="legend" v-if="current != null">
