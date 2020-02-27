@@ -1,25 +1,42 @@
 <template>
   <div class="home">
+    <h1>{{ module.title }}</h1>
     <ul>
-      <li v-for="gem in gems" :key="gem"><router-link :to="gem">{{ gem }}</router-link></li>
+      <li v-for="(gem, i) in module.gems" :key="`g-${i}`"><router-link :to="gem.path">{{ gem.title || gem.id }}</router-link></li>
+    </ul>
+    <br>
+    <ul v-if="module.link != null">
+      <li>More on that topic</li>
+      <li><router-link :to="module.link">→ Read the module</router-link></li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'home',
   components: {
   },
   computed: {
-    ...mapState(['gems'])
-  },
-  methods: {
-    ...mapActions(['fetchGems'])
-  },
-  created () {
-    this.fetchGems()
+    ...mapState(['gems', 'modules']),
+    module () {
+      const { $route, gems } = this
+      const module = gems.find(g => g.dir === $route.params.module)
+      if (module == null) {
+        return {
+          title: 'Guided Explore Modules',
+          gems: gems.map(({ title, dir }) => ({ title, path: dir }))
+        }
+      }
+      return {
+        ...module,
+        gems: module.gems.map(gem => ({
+          ...gem,
+          path: `${module.dir}/${gem.id}`
+        }))
+      }
+    }
   }
 }
 </script>
