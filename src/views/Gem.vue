@@ -60,7 +60,14 @@
           </template>
         </table>
       </div>
-      </template>
+      <div v-if="related">
+        More on that topic
+        <ul>
+          <li v-if="related.module.link"><a :href="related.module.link">Read the module</a></li>
+          <li v-for="(link, i) in related.gems" :key="`l-${i}`"><router-link :to="link.path">{{ link.title }}</router-link></li>
+        </ul>
+      </div>
+    </template>
   </div>
 </template>
 <script>
@@ -83,7 +90,7 @@ export default {
     SensesRadio
   },
   computed: {
-    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains']),
+    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
     ...bindState(['options']),
     docs () {
@@ -104,6 +111,19 @@ export default {
           data: d
         }
       })
+    },
+    related () {
+      const { $route, gems } = this
+      const module = gems.find(g => g.dir === $route.params.module)
+      if (module == null) return null
+      const relatedGems = module.gems.filter(gem => gem.id !== $route.params.gem).map(gem => ({
+        title: gem.title || gem.id,
+        path: `${module.dir}/${gem.id}`
+      }))
+      return {
+        gems: relatedGems,
+        module
+      }
     }
   },
   methods: {
