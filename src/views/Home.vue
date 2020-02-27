@@ -7,7 +7,7 @@
     <br>
     <ul v-if="module.link != null">
       <li>More on that topic</li>
-      <li><router-link :to="module.link">→ Read the module</router-link></li>
+      <li><a :href="module.link">→ Read the module</a></li>
     </ul>
   </div>
 </template>
