@@ -12,7 +12,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/:gem',
+      path: '/:module',
+      name: 'module',
+      component: Home
+    },
+    {
+      path: '/:module/:gem',
       name: 'gem',
       component: () => import(/* webpackChunkName: "gem" */ './views/Gem.vue')
     }

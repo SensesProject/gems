@@ -20,7 +20,8 @@ export default new Vuex.Store({
     options: null,
     current: null,
     domains: {},
-    gems: []
+    gems: [],
+    modules: []
   },
   getters: {
     dict: state => {
@@ -39,11 +40,25 @@ export default new Vuex.Store({
       if (d.key === 'options') dispatch('updateTimeseries')
     },
     async fetchGems ({ commit }) {
-      commit('set', { key: 'gems', value: await fetch(`./configlist.csv`).then(r => r.text()).then(text => text.split('\n')) })
+      const modules = await fetch(`https://dev.climatescenarios.org/settings/modules.json`).then(r => r.json()).then(m => m.modules)
+      commit('set', {
+        key: 'gems',
+        value: await fetch(`./gems.json`).then(r => r.json()).then(gems => {
+          return gems.map(gem => {
+            const module = modules.find(m => m.id === gem.id)
+            if (module == null) return gem
+            return {
+              ...gem,
+              title: module.title,
+              link: module.link
+            }
+          })
+        })
+      })
     },
     async initSession ({ commit, state, dispatch }, gem) {
       commit('set', { key: 'config', value: null })
-      commit('set', { key: 'gems', value: await fetch(`./configlist.csv`).then(r => r.text()).then(text => text.split('\n')) })
+      // commit('set', { key: 'gems', value: await fetch(`./gems.json`).then(r => r.json()) })
       commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
       if (state.token == null) {
         commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })

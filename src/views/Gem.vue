@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="gem">
     <template v-if="config">
       <section class="intro">
