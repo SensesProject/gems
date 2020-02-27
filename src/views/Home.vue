@@ -1,14 +1,24 @@
 <template>
   <div class="home">
-    <h1>{{ module.title }}</h1>
-    <ul>
-      <li v-for="(gem, i) in module.gems" :key="`g-${i}`"><router-link :to="gem.path">{{ gem.title || gem.id }}</router-link></li>
-    </ul>
-    <br>
-    <ul v-if="module.link != null">
-      <li>More on that topic</li>
-      <li><a :href="module.link">→ Read the module</a></li>
-    </ul>
+    <div class="content">
+      <h1>{{ module.title }}</h1>
+      <br>
+      <span class="mono tiny uppercase">Available GEMs</span>
+      <ul class="border">
+        <router-link v-for="(gem, i) in module.gems" :key="`g-${i}`" class="link" :to="gem.path">
+          <li>{{ gem.title || gem.id }}</li>
+        </router-link>
+      </ul>
+      <br>
+      <template v-if="module.link != null">
+        <span class="mono tiny uppercase">More on that topic</span>
+        <ul>
+          <a class="link" :href="module.link">
+            <li class="invert">Read the module</li>
+          </a>
+        </ul>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -43,9 +53,48 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .home {
-  padding: 0 $spacing / 2;
-  li {
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing $spacing / 2;
+
+  .content {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
+
+    ul {
+      margin-top: $spacing / 8;
+      border-radius: $border-radius;
+      &.border {
+        border: 1px solid $color-pale-gray;
+      }
+
+      .link {
+        li {
+          padding: $spacing / 4 $spacing / 2;
+          list-style: none;
+          border-bottom: 1px solid $color-pale-gray;
+          transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
+        }
+        &:last-child {
+          li {
+            border-bottom: none;
+          }
+        }
+      }
+    }
   }
 }
 </style>

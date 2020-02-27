@@ -60,11 +60,21 @@
           </template>
         </table>
       </div>
-      <div v-if="related">
-        More on that topic
-        <ul>
-          <li v-if="related.module.link"><a :href="related.module.link">Read the module</a></li>
-          <li v-for="(link, i) in related.gems" :key="`l-${i}`"><router-link :to="link.path">{{ link.title }}</router-link></li>
+      <div v-if="related" class="related">
+        <template v-if="related.module.link != null">
+          <span class="mono tiny uppercase">More on that topic</span>
+          <ul>
+            <a class="link" :href="related.module.link">
+              <li class="invert">Read the module</li>
+            </a>
+          </ul>
+          <br>
+        </template>
+        <span class="mono tiny uppercase">Related GEMs</span>
+        <ul class="border">
+          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
+            <li>{{ link.title }}</li>
+          </router-link>
         </ul>
       </div>
     </template>
@@ -118,7 +128,7 @@ export default {
       if (module == null) return null
       const relatedGems = module.gems.filter(gem => gem.id !== $route.params.gem).map(gem => ({
         title: gem.title || gem.id,
-        path: `${module.dir}/${gem.id}`
+        path: `/${module.dir}/${gem.id}`
       }))
       return {
         gems: relatedGems,
@@ -311,6 +321,44 @@ export default {
       tbody td {
         border-bottom: 1px solid getColor(gray, 90);
         padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+      }
+    }
+  }
+  .related {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
+
+    ul {
+      margin-top: $spacing / 8;
+      border-radius: $border-radius;
+      &.border {
+        border: 1px solid $color-pale-gray;
+      }
+
+      .link {
+        li {
+          padding: $spacing / 4 $spacing / 2;
+          list-style: none;
+          border-bottom: 1px solid $color-pale-gray;
+          transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
+        }
+        &:last-child {
+          li {
+            border-bottom: none;
+          }
+        }
       }
     }
   }
