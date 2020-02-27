@@ -81,7 +81,7 @@ export default {
   data () {
     return {
       highlight: null,
-      synchronize: true
+      synchronize: false
     }
   },
   components: {
