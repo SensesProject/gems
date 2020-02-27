@@ -74,7 +74,7 @@ export default new Vuex.Store({
     },
     async initGem ({ commit, dispatch, state }, gem) {
       commit('set', { key: 'config', value: null })
-      const config = await fetch(`./configs/${gem}.json`).then(r => r.json()).catch(e => console.error(`requested config ${location.href.split('#')[0]}configs/${gem}.json not found or invalid:\n${e}`))
+      const config = await fetch(`./configs/${gem}.json`).then(r => r.json())
       if (config == null) return
       commit('set', { key: 'config', value: config })
       commit('set', { key: 'options', value: (config.dropdowns || []).map(o => o.options[0].label) })
