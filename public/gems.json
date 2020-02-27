@@ -9,7 +9,17 @@
     {"id": "stocktake-sensitivities-CDR_avail", "title": "sensitivities CDR"}
   ]
 }, {
-  "title": "examples",
+  "id": "transition-risk",
+  "dir": "transition-risk",
+  "gems": [
+  ]
+}, {
+  "id": "land-transitions",
+  "dir": "land-use",
+  "gems": [
+  ]
+}, {
+  "title": "Examples",
   "dir": "examples",
   "gems": [
     {"id": "example-options-simple"},
