@@ -11,7 +11,7 @@
     "core-js": "^2.6.5",
     "d3-format": "^1.4.2",
     "d3-scale": "^3.1.0",
-    "library": "github:SensesProject/library#1.2.0",
+    "library": "github:SensesProject/library",
     "marked": "^0.7.0",
     "unfetch": "^4.1.0",
     "vue": "^2.6.10",
