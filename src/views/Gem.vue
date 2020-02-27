@@ -218,6 +218,7 @@ export default {
     justify-content: center;
     border-top: 1px solid $color-pale-gray;
     width: 100%;
+    align-items: center;
 
     .group-title {
       width: 100%;
