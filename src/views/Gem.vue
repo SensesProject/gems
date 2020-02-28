@@ -10,7 +10,12 @@
           <div class="tiny label">{{ o.label }}</div>
           <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
         </div>
-        <div class="option" v-if="data && Object.keys(domains).length !== data.length">
+      </div>
+      <section v-if="current.text" class="text">
+        <p>{{ current.text }}</p>
+      </section>
+      <div class="options" v-if="config != null">
+        <div class="option" v--if="data && Object.keys(domains).length !== data.length">
           <div class="tiny label axis">Axis</div>
           <SensesRadio width="120" :options="[{label: 'absolute', value: false}, {label: 'synchronized', value: true}]" v-model="synchronize"/>
         </div>
@@ -167,6 +172,12 @@ export default {
     width: 100%;
     max-width: 600px;
     margin-bottom: $spacing;
+  }
+
+  .text {
+    width: 100%;
+    max-width: 600px;
+    margin: $spacing / 2 0;
   }
 
   .options {
