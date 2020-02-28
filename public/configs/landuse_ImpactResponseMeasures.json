@@ -15,13 +15,6 @@
   "dropdowns": [{
     "label": "Variables",
     "options": [{
-      "label": "What are the emission trajectories for the response strategies?",
-      "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CH4|AFOLU",
-        "Emissions|N2O|AFOLU"
-      ]
-    }, {
       "label": "How is pressure on land increased?",
       "variables": [
         "Land Cover|Forest|Afforestation and Reforestation",
@@ -63,6 +56,13 @@
         "label": "Change land cover",
         "size": 4
       }]
+    },{
+      "label": "Basics: Emission trajectories of response strategies",
+      "variables": [
+        "Emissions|CO2|AFOLU",
+        "Emissions|CH4|AFOLU",
+        "Emissions|N2O|AFOLU"
+      ]
     }
   ]
   }, {

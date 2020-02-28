@@ -1,0 +1,50 @@
+{
+  "title": "Risk factor pathways - Power sector transition",
+  "description": "Some text describing this gem",
+  "default": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400 Riskfactor Pathways"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000 Riskfactor Pathways"]
+    ],
+    "regions": ["World"], 
+    "primaryDimension": "scenarios"
+  },
+  "dropdowns": [ {
+    "label": "Perspective",
+    "options": [
+      {
+      "label": "What are the emission costs?",
+      "variables":[
+        "RFP|Direct emissions cost|Energy Supply|Electric Utilities",
+        "RFP|Indirect emissions cost|Energy Supply|Electric Utilities"
+      ],
+      "regions": ["World"], 
+      "groups": [{
+        "label": "Emission costs power sector",
+        "size": 2
+      }]
+    },{
+      "label": "What are the major low carbon expenditures?",
+      "variables":[
+        "RFP|Low-Carbon Investments|Energy Supply|Electric Utilities",
+        "RFP|Low-Carbon Investments|Energy Supply|Renewables"
+      ],
+      "regions": ["World"], 
+      "groups": [{
+        "label": "Low-carbon expenditures in the power sector",
+        "size": 2
+      }]
+    },{
+      "label": "How do revenues develop?",
+      "variables":[
+        "RFP|Revenue|Energy Supply|Electric Utilities"
+      ],
+      "regions": ["World"], 
+      "groups": [{
+        "label": "Revenues in the power sector",
+        "size": 1
+      }]
+    }]
+  }] 
+}

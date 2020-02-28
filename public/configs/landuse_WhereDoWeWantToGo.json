@@ -1,17 +1,47 @@
 {
-  "title": "Land use - where do we want to go",
+  "title": "Land use - where do we have to go & how do we get there",
   "description": "What are the key parameters in land use change?",
   "default": {
     "runs":[
-      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Def"],
-      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Sust"]
-    ],
-    "primaryDimension": "scenarios"
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_${warming}_Def"]      
+    ], 
+    "reference": [
+      ["AIM/CGE 2.0", "SSP2-Baseline"]
+    ]
   },
   "dropdowns": [{
     "label": "Variables",
     "options": [{
       "label": "Where do we have to go?",
+      "variables": [
+        "Emissions|CO2",
+        "Emissions|CO2|AFOLU",
+        "Emissions|CH4|AFOLU",
+        "Emissions|N2O|AFOLU"
+      ]      ,
+    "regions": [
+      "World"], 
+      "groups": [{
+        "label": "World",
+        "size": 4
+      }]
+    }, {
+      "label": "What are the land based mitigation measures?",
+      "variables": [
+        "Primary Energy|Biomass",
+        "Carbon Sequestration|CCS|Biomass",
+        "Land Cover|Forest|Afforestation and Reforestation",
+        "Land Cover|Cropland|Energy Crops"
+      ],
+      "regions": [
+        "World" ], 
+        "groups": [{
+          "label": "How do we get there - World",
+          "size": 5
+        }]  
+
+    },{
+      "label": "Where do we have to go (R5 regions)?",
       "variables": [
         "Emissions|CO2",
         "Emissions|CO2|AFOLU",
@@ -44,8 +74,8 @@
         "label": "R5 REF",
         "size": 4
       }]
-    }, {
-      "label": "What are land use based mitigation measures?",
+    },{
+      "label": "What are the land based mitigation measures (R5 regions)?",
       "variables": [
         "Primary Energy|Biomass",
         "Carbon Sequestration|CCS|Biomass",
@@ -61,29 +91,29 @@
         "R5|OECD90+EU",
         "R5|REF"], 
         "groups": [{
-          "label": "World",
+          "label": "How do we get there - World",
           "size": 5
         }, {
-          "label": "R5 Asia",
+          "label": "How do we get there - R5 Asia",
           "size": 5
         },  {
-          "label": "R5 OECD90 +EU ",
+          "label": "How do we get there - R5 OECD90 +EU ",
           "size": 5
         },{
-          "label": "R5 Latin America",
+          "label": "How do we get there - R5 Latin America",
           "size": 5
         }, {
-          "label": "R5 MAF",
+          "label": "How do we get there - R5 MAF",
           "size": 5
         }, {
-          "label": "R5 REF",
+          "label": "How do we get there - R5 REF",
           "size": 5
         }]  
 
     }
   ]
   }, {
-    "label": "Warming Level",
+    "label": "Warming level",
     "options": [{
       "label": "1.5°C",
       "warming": "1p5C"

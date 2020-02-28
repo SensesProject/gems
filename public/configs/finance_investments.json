@@ -20,7 +20,7 @@
         "Investment|Energy Supply|Electricity|Transmission and Distribution"
       ]
     }, {
-      "label": "Investments into low carbon technology",
+      "label": "Investments into low carbon technology for energy supply",
       "variables": [
         "Investment|Energy Supply|Electricity|Solar", 
         "Investment|Energy Supply|Electricity|Wind", 
@@ -45,7 +45,7 @@
         "size": 3
       }]
     }, {
-      "label": "Divestment in unabated fossils",
+      "label": "Divestment in unabated fossils for energy supply",
       "variables": [
         "Investment|Energy Supply|Extraction|Fossil",
         "Investment|Energy Supply|Electricity|Coal|w/o CCS", 

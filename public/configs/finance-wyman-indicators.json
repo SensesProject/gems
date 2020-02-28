@@ -3,7 +3,7 @@
   "description": "Some text describing this gem",
   "default": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi Riskfactor Pathways"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming} Riskfactor Pathways"]
     ],
     "regions": ["World"], 

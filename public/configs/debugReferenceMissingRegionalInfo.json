@@ -15,7 +15,9 @@
     "options": [{
       "label": "Where do we have to go?",
       "variables": [
-        "Primary Energy|Coal"
+        "Primary Energy|Coal",
+        "Primary Energy|Oil",
+        "Primary Energy|Gas"
       ]      ,
     "regions": [
       "World",
@@ -28,7 +30,7 @@
       "groups": [{
         "label": "World",
         "img": "/maps/World.png",
-        "size": 4
+        "size": 3
       }, {
         "label": "R5 Asia",
         "img": "/maps/ASIA.png",
