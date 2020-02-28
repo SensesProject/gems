@@ -113,7 +113,8 @@ export default {
       const { runs, domain } = this
       if (domain != null) return domain
       const min = Math.min(...runs.map(c => c.series.map(s => s.value)).flat(), 0)
-      const max = Math.max(...runs.map(c => c.series.map(s => s.value)).flat())
+      let max = Math.max(...runs.map(c => c.series.map(s => s.value)).flat())
+      if (max === min) max += 0.01
       return [max, min]
     },
     xScale () {

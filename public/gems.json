@@ -1,0 +1,28 @@
+[{
+  "id": "stocktake-1",
+  "dir": "stocktake-1",
+  "gems": [
+    {"id": "stocktake-models_WhereDoWeWantToGo", "title": "Where do we want to go"},
+    {"id": "stocktake-models_HowDoWeGetThere_Energy", "title": "How do we get there (Energy)"},
+    {"id": "stocktake-models_HowDoWeGetThere_Money", "title": "How do we get there (Money)"},
+    {"id": "stocktake-sensitivities-policy", "title": "scenario sensitivities"},
+    {"id": "stocktake-sensitivities-CDR_avail", "title": "sensitivities CDR"}
+  ]
+}, {
+  "id": "transition-risk",
+  "dir": "transition-risk",
+  "gems": [
+  ]
+}, {
+  "id": "land-transitions",
+  "dir": "land-use",
+  "gems": [
+  ]
+}, {
+  "title": "Examples",
+  "dir": "examples",
+  "gems": [
+    {"id": "example-options-simple"},
+    {"id": "example-options-multi-dropdown"}
+  ]
+}]

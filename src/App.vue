@@ -5,10 +5,17 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import SensesMenu from 'library/src/components/SensesMenu.vue'
 export default {
   components: {
     SensesMenu
+  },
+  methods: {
+    ...mapActions(['fetchGems'])
+  },
+  created () {
+    this.fetchGems()
   }
 }
 </script>

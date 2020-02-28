@@ -17,7 +17,8 @@
     "reference": [
       ["AIM/CGE 2.0", "SSP2-Baseline"]
     ],
-    "regions": ["World"]
+    "regions": ["World"],
+    "text": "dsnajlw dnroanc jnwan;nad can sda; o  ewjbnfjoenw;ofabnc  enaonn ccen i;ae fen jnfjbjkv ecewbfwabfk cjenjafb"
   },
   "dropdowns": [{
     "label": "Variables",
@@ -32,7 +33,8 @@
       "label": "AFOLU Sequestration",
       "variables": [
         "Carbon Sequestration|Land Use|Afforestation"
-      ]
+      ],
+      "text": "AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA"
     }]
   }],
   "dict": {

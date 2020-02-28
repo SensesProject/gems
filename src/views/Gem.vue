@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="gem">
     <template v-if="config">
       <section class="intro">
@@ -10,9 +10,14 @@
           <div class="tiny label">{{ o.label }}</div>
           <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
         </div>
-        <div class="option" v-if="data && Object.keys(domains).length !== data.length">
+      </div>
+      <section v-if="current.text" class="text">
+        <p>{{ current.text }}</p>
+      </section>
+      <div class="options" v-if="config != null">
+        <div class="option" v--if="data && Object.keys(domains).length !== data.length">
           <div class="tiny label axis">Axis</div>
-          <SensesRadio width="120" :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
+          <SensesRadio width="120" :options="[{label: 'absolute', value: false}, {label: 'synchronized', value: true}]" v-model="synchronize"/>
         </div>
       </div>
       <div class="legend" v-if="current != null">
@@ -60,7 +65,24 @@
           </template>
         </table>
       </div>
-      </template>
+      <div v-if="related" class="related">
+        <template v-if="related.module.link != null">
+          <span class="mono tiny uppercase">More on that topic</span>
+          <ul>
+            <a class="link" :href="related.module.link">
+              <li class="invert">Read the module</li>
+            </a>
+          </ul>
+          <br>
+        </template>
+        <span class="mono tiny uppercase">Related GEMs</span>
+        <ul class="border">
+          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
+            <li>{{ link.title }}</li>
+          </router-link>
+        </ul>
+      </div>
+    </template>
   </div>
 </template>
 <script>
@@ -74,7 +96,7 @@ export default {
   data () {
     return {
       highlight: null,
-      synchronize: true
+      synchronize: false
     }
   },
   components: {
@@ -83,7 +105,7 @@ export default {
     SensesRadio
   },
   computed: {
-    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains']),
+    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
     ...bindState(['options']),
     docs () {
@@ -104,6 +126,19 @@ export default {
           data: d
         }
       })
+    },
+    related () {
+      const { $route, gems } = this
+      const module = gems.find(g => g.dir === $route.params.module)
+      if (module == null) return null
+      const relatedGems = module.gems.filter(gem => gem.id !== $route.params.gem).map(gem => ({
+        title: gem.title || gem.id,
+        path: `/${module.dir}/${gem.id}`
+      }))
+      return {
+        gems: relatedGems,
+        module
+      }
     }
   },
   methods: {
@@ -137,6 +172,12 @@ export default {
     width: 100%;
     max-width: 600px;
     margin-bottom: $spacing;
+  }
+
+  .text {
+    width: 100%;
+    max-width: 600px;
+    margin: $spacing / 2 0;
   }
 
   .options {
@@ -291,6 +332,44 @@ export default {
       tbody td {
         border-bottom: 1px solid getColor(gray, 90);
         padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+      }
+    }
+  }
+  .related {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
+
+    ul {
+      margin-top: $spacing / 8;
+      border-radius: $border-radius;
+      &.border {
+        border: 1px solid $color-pale-gray;
+      }
+
+      .link {
+        li {
+          padding: $spacing / 4 $spacing / 2;
+          list-style: none;
+          border-bottom: 1px solid $color-pale-gray;
+          transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
+        }
+        &:last-child {
+          li {
+            border-bottom: none;
+          }
+        }
       }
     }
   }
