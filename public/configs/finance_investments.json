@@ -27,7 +27,6 @@
         "Investment|Energy Supply|Electricity|Hydro", 
         "Investment|Energy Supply|Electricity|Geothermal", 
         "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
-        "Investment|Energy Supply|Hydrogen|Other", 
         "Investment|Energy Supply|Electricity|Nuclear",
 
         "Investment|Energy Supply|Electricity|Biomass|w/ CCS", 
@@ -41,7 +40,7 @@
         "label": " ",
         "size": 3
       }, {
-        "label": "Investments in CCS",
+        "label": "Investments in CCS based technologies",
         "size": 3
       }]
     }, {

@@ -1,5 +1,5 @@
 {
-  "title": "Risk factor pathways Fossil Resources",
+  "title": "Risk factor pathways - low carbon ",
   "description": "Some text describing this gem",
   "default": {
     "runs": [
@@ -16,13 +16,11 @@
     "label": "Perspective",
     "options": [
       {
-      "label": "What are the risks in the energy sector - scale trouble?",
+      "label": "What are the low carbon investments?",
       "variables":[
-        "RFP|Direct emissions cost|Energy Supply|Coal",
-        "RFP|Direct emissions cost|Energy Supply|Gas",
-        "RFP|Direct emissions cost|Energy Supply|Oil",
-        "Price|Carbon",
-        "RFP|Direct emissions cost|End-Uses|Transportation"
+        "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Industrial processes",
+        "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Residential and commercial",
+        "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Transportation"
       ],
       "regions": ["World"], 
       "groups": [{

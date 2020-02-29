@@ -12,6 +12,10 @@
   "id": "transition-risk",
   "dir": "transition-risk",
   "gems": [
+    {"id": "finance-wyman-indicators_fossilEnergy", "title": "Fossil risk"},
+    {"id": "finance-wyman-indicators_powerSector", "title": "Power sector transition"},
+    {"id": "finance_investments", "title": "Required investments"},
+    {"id": "finance-uncertainty", "title": "Model uncertainties"}
   ]
 }, {
   "id": "land-transitions",
