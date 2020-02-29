@@ -1,49 +1,108 @@
 {
-  "title": "Example Options",
-  "description": "yes options, no dictionary, no string interpolation",
+  "title": "Model uncertainties ",
+  "description": "XXX This guided explore module shows how diverse the strategies of different integrated assessment models can be.",
   "default": {
     "runs": [
-      ["AIM/CGE 2.0", "SSP2-Baseline"],
-      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming}"]
+      ["${foreGroundScen}", "CD-LINKS_NPi2020_1000"]
     
     ],
     "funnel": [
-      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy"],
-      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming}"]
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000"],
+      ["IMAGE 3.0.1", "CD-LINKS_NPi2020_1000"],
+      ["AIM/CGE 2.1", "CD-LINKS_NPi2020_1000"],
+      ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_1000"],
+      ["POLES CD-LINKS", "CD-LINKS_NPi2020_1000"],
+      ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_1000"]
+
      ],
     "reference": [
-      ["AIM/CGE 2.0", "SSP2-Baseline"]
+      ["MESSAGEix-GLOBIOM 1.0", "LowEnergyDemand"]
     ],
     "regions": ["World"],
-    "text": "dsnajlw dnroanc jnwan;nad can sda; o  ewjbnfjoenw;ofabnc  enaonn ccen i;ae fen jnfjbjkv ecewbfwabfk cjenjafb"
+    "text": " "
   },
   "dropdowns": [{
     "label": "Variables",
     "options": [{
-      "label": "AFOLU Emissions",
+      "label": "Quantities of fossil sources",
       "variables": [
-        "Emissions|CO2|AFOLU",
-        "Emissions|CH4|AFOLU",
-        "Emissions|N2O|AFOLU"
+        "Primary Energy|Coal",
+        "Primary Energy|Gas",
+        "Primary Energy|Oil"
       ]
     }, {
-      "label": "AFOLU Sequestration",
+      "label": "Power sector setup",
       "variables": [
-        "Carbon Sequestration|Land Use|Afforestation"
+        "Secondary Energy|Electricity|Solar", 
+        "Secondary Energy|Electricity|Wind",
+        "Secondary Energy|Electricity|Biomass|w/o CCS",
+        "Secondary Energy|Electricity|Biomass|w/ CCS",
+        "Secondary Energy|Electricity|Hydro",
+        "Secondary Energy|Electricity|Geothermal",
+        "Secondary Energy|Electricity|Nuclear", 
+
+        "Secondary Energy|Electricity|Coal",
+        "Secondary Energy|Electricity|Gas",
+        "Secondary Energy|Electricity|Oil"        
       ],
-      "text": "AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA AAAAAAAA"
+      "groups": [ {
+        "label": "Ramp up of low carbon technologies in electricity production (EJ/yr)",
+        "size": 4
+      },{
+        "label": "",
+        "size": 3
+      },{
+        "label": "Phase out of fossils in electricity production (EJ/yr)",
+        "size": 3
+      }]
+    },{
+      "label": "Investments",
+      "variables": [
+        "Investment|Energy Supply|Electricity|Solar", 
+        "Investment|Energy Supply|Electricity|Wind", 
+        "Investment|Energy Supply|Electricity|Hydro", 
+        "Investment|Energy Supply|Electricity|Geothermal", 
+        "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+        "Investment|Energy Supply|Electricity|Nuclear",
+
+        "Investment|Energy Supply|Electricity|Biomass|w/ CCS", 
+        "Investment|Energy Supply|Electricity|Coal|w/ CCS",
+        "Investment|Energy Supply|Electricity|Gas|w/ CCS"        
+      ],
+      "groups": [ {
+        "label": "Low carbon technology investments",
+        "size": 3
+      },{
+        "label": "",
+        "size": 3
+      },{
+        "label": "Fossil divestment",
+        "size": 3
+      }]
     }]
   },{
-    "label": "Warming Level",
+    "label": "Model choice",
     "options": [{
-      "label": "1.5°C",
-      "warming": "400"
-    }, {
-      "label": "2°C",
-      "warming": "1000"
+      "label": "AIM/CGE 2.1",
+      "foreGroundScen": "AIM/CGE 2.1"
+    },{
+      "label": "IMAGE 3.0.1",
+      "foreGroundScen": "IMAGE 3.0.1"
+    },{
+      "label": "MESSAGEix-GLOBIOM 1.0",
+      "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
+    },{
+      "label": "POLES CD-LINKS",
+      "foreGroundScen": "POLES CD-LINKS"
+    },{
+      "label": "REMIND-MAgPIE 1.7-3.0",
+      "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
+    },{
+      "label": "WITCH-GLOBIOM 4.4",
+      "foreGroundScen": "WITCH-GLOBIOM 4.4"
     }]
   }],
   "dict": {
-    "AIM/CGE 2.0 | SSP2-Baseline": "baseline"
+    "MESSAGEix-GLOBIOM 1.0 | LowEnergyDemand": "Archetype P1 scenario - Low energy demand, MESSAGEix-GLOBIOM 1.0"
   }
 }

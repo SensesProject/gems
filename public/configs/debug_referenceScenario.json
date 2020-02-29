@@ -81,11 +81,10 @@
     "label": "Reference scenario",
     "options": [{
       "label": "P1 - Low energy demand",
-      "refScen": "?XXX" ["MESSAGEix-GLOBIOM 1.0", "LowEnergyDemand"]
-      
+      "refScen": "?XXX"       
     },{
       "label": "P2",
-      "refScen": "XXX"  ["AIM/CGE 2.0", "SSP1-19"]
+      "refScen": "XXX" 
     }]
   }],
   "dict": {
