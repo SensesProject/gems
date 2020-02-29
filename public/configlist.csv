@@ -5,6 +5,8 @@ example-options-simple
 example-options-multi-overrides
 example-options-multi-dropdown
 example-opitons-string-interpolation
+debug_funnel_variableReplacement
+debug_finance-uncertainty
 finance_investments
 finance-wyman-indicators
 finance-uncertainty
