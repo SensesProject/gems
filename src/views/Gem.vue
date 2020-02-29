@@ -1,6 +1,6 @@
   <template>
   <div class="gem">
-    <template v-if="config">
+    <template v-if="config && current">
       <section class="intro">
         <h1>{{ config.title }}</h1>
         <p>{{ config.description }}</p>
@@ -15,7 +15,7 @@
         <p>{{ current.text }}</p>
       </section>
       <div class="options" v-if="config != null">
-        <div class="option" v--if="data && Object.keys(domains).length !== data.length">
+        <div class="option" v-if="data && Object.keys(domains).length !== data.length">
           <div class="tiny label axis">Axis</div>
           <SensesRadio width="120" :options="[{label: 'absolute', value: false}, {label: 'synchronized', value: true}]" v-model="synchronize"/>
         </div>

@@ -98,7 +98,7 @@ export default {
   },
   computed: {
     years () {
-      const years = this.runs.map(c => c.series.map(s => s.year)).flat()
+      const years = this.runs.filter(r => r.type !== 'funnel').map(c => c.series.map(s => s.year)).flat()
       return years.filter(function (item, index) {
         return years.indexOf(item) >= index
       })
@@ -161,8 +161,20 @@ export default {
     funnel () {
       const { runs, xScale, yScale } = this
       const funnel = runs.filter(r => r.type === 'funnel')
-      const years = [...new Set(funnel.map(f => f.series.map(v => v.year)).flat())].sort().map(y => {
-        const values = funnel.map(f => f.series.find(v => v.year === y)).filter(v => v !== undefined).map(v => v.value)
+      const years = [...new Set(funnel.map(f => f.series.map(v => v.year)).flat())].sort().map((y, yi, years) => {
+        const values = funnel.map(f => {
+          let value = f.series.find(v => v.year === y)
+          if (value == null) {
+            const v1 = f.series.find(v => v.year === years[yi - 1])
+            const v2 = f.series.find(v => v.year === years[yi + 1])
+            if (v1 != null && v2 != null) {
+              value = (v1.value + v2.value) / 2
+              return value
+            }
+          } else {
+            return value.value
+          }
+        }).filter(v => v !== undefined) // .map(v => v.value)
         return {
           min: Math.min(...values),
           max: Math.max(...values),

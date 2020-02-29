@@ -99,7 +99,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     })
   });
 
-  ['variables', 'regions', 'runs'].forEach(k => {
+  ['variables', 'regions', 'runs', 'funnel', 'reference'].forEach(k => {
     current[k] = current[k].map(c => {
       if (typeof (c) === 'string') return c.replace(/\$\{([^}]+)\}/g, v => current[v.match(/\$\{(.+)\}/)[1]])
       return c.map(c1 => {

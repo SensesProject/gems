@@ -13,10 +13,9 @@
       ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_1000"],
       ["POLES CD-LINKS", "CD-LINKS_NPi2020_1000"],
       ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_1000"]
-
      ],
     "reference": [
-      ["${refScen}"]
+      ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_1000"]
     ],
     "regions": ["World"],
     "text": " "
@@ -81,10 +80,14 @@
     "label": "Reference scenario",
     "options": [{
       "label": "P1 - Low energy demand",
-      "refScen": "?XXX"       
+      "reference": [
+        ["IMAGE 3.0.1", "CD-LINKS_NPi2020_1000"]
+      ]
     },{
       "label": "P2",
-      "refScen": "XXX" 
+      "reference": [
+        ["AIM/CGE 2.1", "CD-LINKS_NPi2020_1000"]
+      ]
     }]
   }],
   "dict": {
