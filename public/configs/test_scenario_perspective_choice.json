@@ -1,0 +1,81 @@
+{
+  "title": "Risk factor pathways Fossil Resources",
+  "description": " ",
+  "default": {
+    "runs": [
+      ["$scenarios"]
+    ],
+    "regions": ["World"], 
+    "primaryDimension": "scenarios"
+  },
+  "dropdowns": [ {
+    "label": "Exploration question",
+    "options": [
+      {
+      "label": "What are the direct emission costs for fossils?",
+      "variables":[
+        "RFP|Direct emissions cost|Energy Supply|Coal",
+        "RFP|Direct emissions cost|Energy Supply|Gas",
+        "RFP|Direct emissions cost|Energy Supply|Oil"
+      ],
+      "scenarios": [
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400 Riskfactor Pathways"],
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000 Riskfactor Pathways"]
+      ],
+      "regions": ["World"], 
+      "groups": [{
+        "label": "Direct emission costs",
+        "size": 3
+      },{
+        "label": "Price carbon",
+        "size": 2
+      }]
+    },  
+    {
+      "label": "How do revenues change?",
+      "variables":[
+        "RFP|Revenue|Energy Supply|Coal",
+        "RFP|Revenue|Energy Supply|Gas",
+        "RFP|Revenue|Energy Supply|Oil"
+      ],
+      "regions": ["World"], 
+      "scenarios": [
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400 Riskfactor Pathways"],
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000 Riskfactor Pathways"]
+      ],
+      "groups": [{
+        "label": "Revenues",
+        "size": 3
+      }]
+    },
+     {
+      "label": "How will the extraction of fossil quantities change?",
+      "variables":[
+        "Primary Energy|Coal",
+        "Primary Energy|Gas",
+        "Primary Energy|Oil"
+      ],
+      "regions": ["World"],
+      "scenarios": [
+        ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400"],
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000"]
+      ],
+      "groups": [{
+        "label": "Quantities",
+        "size": 3
+      }]
+    }]
+  },{
+  "label": "Warming Level",
+  "options": [{
+    "label": "1.5°C",
+    "warming": "400"
+  }, {
+    "label": "2°C",
+    "warming": "1000"
+  }]
+}] 
+}
