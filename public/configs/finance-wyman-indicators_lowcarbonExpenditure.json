@@ -1,5 +1,5 @@
 {
-  "title": "Risk factor pathways - low carbon ",
+  "title": "Transition risk - low-carbon carbon expenditure",
   "description": "Some text describing this gem",
   "default": {
     "runs": [
@@ -16,7 +16,7 @@
     "label": "Exploration question",
     "options": [
       {
-      "label": "What are the low carbon investments?",
+      "label": "What are the low-carbon investments?",
       "variables":[
         "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Industrial processes",
         "RFP|Low-Carbon Investments|End-Uses|Energy Efficiency|Residential and commercial",

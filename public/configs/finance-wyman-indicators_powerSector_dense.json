@@ -44,7 +44,7 @@
         "label": "BACKGROUND - Phase out of fossils in electricity production (EJ/yr)",
         "size": 3
       }, {
-        "label": "BACKGROUND - Ramp up of low carbon technologies in electricity production (EJ/yr)",
+        "label": "BACKGROUND - Ramp up of low-carbon technologies in electricity production (EJ/yr)",
         "size": 4
       },{
         "label": "",
@@ -73,7 +73,7 @@
         "label": "Low-carbon expenditures in the power sector",
         "size": 3
         },{
-          "label": "DETAIL - Investments low carbon technologies",
+          "label": "DETAIL - Investments low-carbon technologies",
           "size": 4
         }, {
           "label": " ",

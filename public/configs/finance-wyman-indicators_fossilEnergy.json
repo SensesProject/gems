@@ -1,6 +1,6 @@
 {
-  "title": "Risk factor pathways Fossil Resources",
-  "description": " ",
+  "title": "Transition risk - fossil fuel sector",
+  "description": " You can explore here: What are transition risks for the fossil fuel sector? ",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
@@ -23,13 +23,11 @@
         "RFP|Direct emissions cost|Energy Supply|Gas",
         "RFP|Direct emissions cost|Energy Supply|Oil"
       ],
+      "text" : "Direct emissions costs are the costs of emitting CO2 and other greenhouse gases relative to a baseline scenario. Increased costs are driven by the amount of emissions per period, and the associated carbon-equivalent price.",
       "regions": ["World"], 
       "groups": [{
         "label": "Direct emission costs",
         "size": 3
-      },{
-        "label": "Price carbon",
-        "size": 2
       }]
     },  
     {
@@ -39,6 +37,7 @@
         "RFP|Revenue|Energy Supply|Gas",
         "RFP|Revenue|Energy Supply|Oil"
       ],
+      "text": "Revenue can change due to changing costs and thus changing demand patterns by customers.",
       "regions": ["World"], 
       "groups": [{
         "label": "Revenues",
@@ -46,12 +45,13 @@
       }]
     },
      {
-      "label": "How will the extraction of fossil quantities change?",
+      "label": "How can the extraction of fossil quantities change?",
       "variables":[
         "Primary Energy|Coal",
         "Primary Energy|Gas",
         "Primary Energy|Oil"
       ],
+      "text": "Quantities of fossil fuels can change due to changing costs and thus changing demand patterns by customers.",
       "regions": ["World"], 
       "groups": [{
         "label": "Quantities",
