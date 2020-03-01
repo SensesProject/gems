@@ -14,7 +14,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "What are the direct emission costs for fossils?",

@@ -1,6 +1,6 @@
 {
-  "title": "How do we get there - means of implementation and support?",
-  "description": "This GEM describes the means of implementation and support in terms of investments. ",
+  "title": "How do we get there (investments)?",
+  "description": "You can explore here the means of implementation and support. This is explored in terms of required investments for a low carbon world, but also in divestment for unabated fossils. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -11,7 +11,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [{
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [{
       "label": "Investments in lowcarbon technology",
       "variables": [
@@ -34,7 +34,7 @@
         "label": " ",
         "size": 3
       }, {
-        "label": "Investements in infrastructure",
+        "label": "Investments in infrastructure",
         "size": 2
       }]
     }, {
@@ -55,7 +55,7 @@
         "regions": ["World"]
       }]
     }, {
-      "label": "CDR",
+      "label": "Assumptions on availibility of carbon dioxide removal (CDR)",
       "options": [{
         "label": "What is the effect of full CDR availibility?",
         "cdr": "full"
@@ -72,5 +72,20 @@
       "label": "2°C",
       "warming": "2C"
     }]
-  } ]
+  } ], 
+  "dict": {
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_NDC": "REMIND-MAgPIE - PEP 2°C NDC, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, full CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, reduced CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, reduced CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, reduced CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_NDC": "REMIND-MAgPIE - PEP 2°C NDC, reduced CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, reduced CDR availibility",
+    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, reduced CDR availibility"
+    
+  }
 }

@@ -10,7 +10,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "What are the risks in the energy sector?",

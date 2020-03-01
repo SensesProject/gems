@@ -13,7 +13,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "What are the low carbon investments?",

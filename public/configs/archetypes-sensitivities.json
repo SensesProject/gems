@@ -12,7 +12,7 @@
     "primaryDimension": "runs"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "How different does the fossil phase out look like?",

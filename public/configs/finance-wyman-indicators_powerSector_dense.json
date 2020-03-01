@@ -1,6 +1,6 @@
 {
   "title": "Risk factor pathways - Power sector transition *DENSE",
-  "description": "Some text describing this gem",
+  "description": " ",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
@@ -14,7 +14,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "What are the emission costs?",

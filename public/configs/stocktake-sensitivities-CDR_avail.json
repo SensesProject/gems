@@ -10,7 +10,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [{
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [ {
       "label": "What is the effect on emissions?",
       "variables": [

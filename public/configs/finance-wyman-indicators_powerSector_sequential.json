@@ -12,7 +12,7 @@
     "primaryDimension": "scenarios"
   },
   "dropdowns": [ {
-    "label": "Perspective",
+    "label": "Exploration question",
     "options": [
       {
       "label": "What are the emission costs?",

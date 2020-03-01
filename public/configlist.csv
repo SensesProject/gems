@@ -15,10 +15,10 @@ finance-wyman-indicators_powerSector
 finance-wyman-indicators_powerSector_dense
 finance-wyman-indicators_powerSector_sequential
 finance-wyman-indicators_lowcarbonExpenditure
-stocktake-models_WhereDoWeWantToGo
-stocktake-models_HowDoWeGetThere_Energy
-stocktake-models_HowDoWeGetThere_Money
-stocktake-sensitivities-policy
+stocktake-models_1_WhereDoWeWantToGo
+stocktake-models_2_HowDoWeGetThere_Mitigation
+stocktake-models_3_HowDoWeGetThere_Investment
+stocktake-models_4_sensitivities-policy
 stocktake-sensitivities-CDR_avail
 landuse_whereAreWeNow
 landuse_WhereDoWeWantToGo
