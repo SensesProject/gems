@@ -1,26 +1,61 @@
 {
   "title": "Investments",
-  "description": "Why must renewable investements overtake those in fossils",
+  "description": "You can explore here: What are the required investments with a focus on electricity production and the major world regions. How could divestment-paths of unabated fossil fuels develop?",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi"],
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000"],
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400"]
     ], 
-    "regions": ["World"], 
     "primaryDimension": "runs" 
   },
   "dropdowns": [{
-    "label": "Variables",
+    "label": "Exploration question",
     "options": [{
-      "label": "Overview",
+      "label": "What are the required investments?",
       "variables": [
         "Investment|Energy Supply",
         "Investment|Energy Efficiency",
         "Investment|Energy Supply|Electricity|Transmission and Distribution"
-      ]
+      ],
+      "regions": ["World"] 
+    },{
+      "label": "What are the required investments in the major world regions?",
+      "variables": [
+        "Investment|Energy Supply",
+        "Investment|Energy Efficiency",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+      ],
+      "regions": [
+        "R5|ASIA",
+        "R5|OECD90+EU",
+        "R5|LAM",
+        "R5|MAF",
+        "R5|REF"
+      ], 
+      "groups": [{
+        "label": "What are the required investments - R5 ASIA",
+        "img": "/maps/ASIA.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 OECD90 +EU ",
+        "img": "/maps/OECD90+EU.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 LATIN AMERICA",
+        "img": "/maps/LAM.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 MAF",
+        "img": "/maps/MAF.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 REF",
+        "img": "/maps/REF.png",
+        "size": 3
+      }]
     }, {
-      "label": "Investments into low carbon technology for energy supply",
+      "label": "What are the investments into low-carbon technology for energy supply",
       "variables": [
         "Investment|Energy Supply|Electricity|Solar", 
         "Investment|Energy Supply|Electricity|Wind", 
@@ -33,44 +68,25 @@
         "Investment|Energy Supply|Electricity|Coal|w/ CCS",
         "Investment|Energy Supply|Electricity|Gas|w/ CCS"
       ],
+      "regions": ["World"],
       "groups": [{
-        "label": "Investments low carbon technologies",
-        "size": 4
+        "label": "What are investments into low-carbon electricity production - RENEWABLES & NUCLEAR",
+        "size": 3
       }, {
         "label": " ",
         "size": 3
       }, {
-        "label": "Investments in CCS based technologies",
+        "label": "What are investments into low-carbon electricity production - CCS based technologies",
         "size": 3
       }]
     }, {
-      "label": "Divestment in unabated fossils for energy supply",
+      "label": "How can divestment in unabated fossils develop?",
       "variables": [
         "Investment|Energy Supply|Extraction|Fossil",
         "Investment|Energy Supply|Electricity|Coal|w/o CCS", 
         "Investment|Energy Supply|Electricity|Gas|w/o CCS"
-      ]
-    }]
-  }, {
-    "label": "Region",
-    "options": [{
-      "label": "World",
+      ],
       "regions": ["World"]
-    }, {
-      "label": "R5ASIA",
-      "regions": ["R5|ASIA"]
-    }, {
-      "label": "R5LAM",
-      "regions": ["R5|LAM"]
-    }, {
-      "label": "R5MAF",
-      "regions": ["R5|MAF"]
-    }, {
-      "label": "R5OECD90+EU",
-      "regions": ["R5|OECD90+EU"]
-    }, {
-      "label": "R5REF",
-      "regions": ["R5|REF"]
     }]
   }],
    

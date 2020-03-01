@@ -2,11 +2,7 @@
   "title": "Risk factor pathways Fossil Resources",
   "description": " ",
   "default": {
-    "runs": [
-      ["$scenarios"]
-    ],
-    "regions": ["World"], 
-    "primaryDimension": "scenarios"
+    "regions": ["World"]
   },
   "dropdowns": [ {
     "label": "Exploration question",
@@ -18,7 +14,7 @@
         "RFP|Direct emissions cost|Energy Supply|Gas",
         "RFP|Direct emissions cost|Energy Supply|Oil"
       ],
-      "scenarios": [
+      "runs": [
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400 Riskfactor Pathways"],
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000 Riskfactor Pathways"]
@@ -40,7 +36,7 @@
         "RFP|Revenue|Energy Supply|Oil"
       ],
       "regions": ["World"], 
-      "scenarios": [
+      "runs": [
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400 Riskfactor Pathways"],
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000 Riskfactor Pathways"]
@@ -58,7 +54,7 @@
         "Primary Energy|Oil"
       ],
       "regions": ["World"],
-      "scenarios": [
+      "runs": [
         ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy"],
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400"],
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_1000"]

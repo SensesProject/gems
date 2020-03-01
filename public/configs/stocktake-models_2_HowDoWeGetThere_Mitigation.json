@@ -1,6 +1,6 @@
 {
   "title": "How do we get there (mitigation)?",
-  "description": " You can explore here: the means of mitigation to achieve a well below two degree target: fossil phase out, ramp up of low carbon technologies, the role of carbon sequestration. In detail we look at the transformation of one of the largest emitting sources - electricity production and at the regional detail of fossil phase out and low carbon ramp up. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
+  "description": " You can explore here: the means of mitigation to achieve a well below two degree target: fossil phase out, ramp up of low-carbon technologies, the role of carbon sequestration. In detail we look at the transformation of one of the largest emitting sources - electricity production and at the regional detail of fossil phase out and low-carbon ramp up. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -31,7 +31,7 @@
         "size": 3
       }]
     }, {
-      "label": "How could low carbon technologies ramp up?",
+      "label": "How could low-carbon technologies ramp up?",
       "variables": [
         "Primary Energy|Solar", 
         "Primary Energy|Wind",
@@ -43,7 +43,7 @@
       ],
       "regions": ["World"],
       "groups": [{
-        "label": "How could low carbon technologies ramp up? RENEWABLES & NUCLEAR",
+        "label": "How could low-carbon technologies ramp up? RENEWABLES & NUCLEAR",
         "size": 4
       }, {
         "label": " ",

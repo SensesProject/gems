@@ -46,14 +46,14 @@
         "label": "Phase out of fossils in electricity production (EJ/yr)",
         "size": 3
       }, {
-        "label": "Ramp up of low carbon technologies in electricity production (EJ/yr)",
+        "label": "Ramp up of low-carbon technologies in electricity production (EJ/yr)",
         "size": 4
       },{
         "label": "",
         "size": 3
       }]
     },{
-      "label": "What are the major low carbon expenditures?",
+      "label": "What are the major low-carbon expenditures?",
       "variables":[
         "RFP|Low-Carbon Investments|Energy Supply|Electric Utilities",
         "RFP|Low-Carbon Investments|Energy Supply|Renewables"
@@ -64,7 +64,7 @@
         "size": 2
       }]
     },{
-      "label": "Detail: which are the low carbon expenditures?",
+      "label": "Detail: which are the low-carbon expenditures?",
       "variables": [
         "Investment|Energy Supply|Electricity|Solar", 
         "Investment|Energy Supply|Electricity|Wind", 
@@ -78,7 +78,7 @@
         "Investment|Energy Supply|Electricity|Gas|w/ CCS"
       ],
       "groups": [{
-        "label": "Investments low carbon technologies",
+        "label": "Investments low-carbon technologies",
         "size": 4
       }, {
         "label": " ",

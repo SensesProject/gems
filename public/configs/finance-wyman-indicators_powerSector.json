@@ -1,6 +1,6 @@
 {
-  "title": "Risk factor pathways - Power sector transition",
-  "description": "Some text describing this gem",
+  "title": "Transition risk - power sector transition",
+  "description": "You can explore here: What are transition risks factors for the power sector?",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
@@ -20,17 +20,20 @@
         "RFP|Indirect emissions cost|Energy Supply|Electric Utilities"
       ],
       "regions": ["World"], 
+      "text" : "Direct emissions costs are the costs of emitting CO2 and other greenhouse gases relative to a baseline scenario. Increased costs are driven by the amount of emissions per period, and the associated carbon-equivalent price. Indirect emissions costs are the increased costs of production inputs relative to a baseline scenario, due to pass-through of direct emissions costs.",
+      
       "groups": [{
         "label": "Emission costs power sector",
         "size": 2
       }]
     },{
-      "label": "What are the major low carbon expenditures?",
+      "label": "What are the major low-carbon expenditures?",
       "variables":[
         "RFP|Low-Carbon Investments|Energy Supply|Electric Utilities",
         "RFP|Low-Carbon Investments|Energy Supply|Renewables"
       ],
       "regions": ["World"], 
+      "text": "Low-carbon capital expenditure, are the increased costs associated with the need for capital investment to transition to a low-carbon economy.",
       "groups": [{
         "label": "Low-carbon expenditures in the power sector",
         "size": 2
@@ -41,6 +44,7 @@
         "RFP|Revenue|Energy Supply|Electric Utilities"
       ],
       "regions": ["World"], 
+      "text": "Revenue can change due to changing costs and thus changing demand patterns by customers.",
       "groups": [{
         "label": "Revenues in the power sector",
         "size": 1

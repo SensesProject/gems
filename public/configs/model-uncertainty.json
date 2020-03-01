@@ -1,6 +1,6 @@
 {
   "title": "Model uncertainties ",
-  "description": "Here you can explore how diverse the strategies of different integrated assessment models can be.",
+  "description": "Here you can explore how diverse the strategies of different integrated assessment models can be. One 1.5°C maximum warming scenario has been computed by a set integrated assessment models. Along decisive variables you can understand the differences. For further orientation we also depict the archetype scenarios from the IPCC 1.5°C special report.",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_400"]
@@ -42,7 +42,7 @@
         "Primary Energy|Oil"
       ]
     }, {
-      "label": "How do low carbon technologies vary?",
+      "label": "How do low-carbon technologies vary?",
       "variables": [
         "Primary Energy|Solar", 
         "Primary Energy|Wind",
@@ -54,7 +54,7 @@
       ],
       "regions": ["World"],
       "groups": [{
-        "label": "How do low carbon technologies vary? RENEWABLES & NUCLEAR",
+        "label": "How do low-carbon technologies vary? RENEWABLES & NUCLEAR",
         "size": 4
       }, {
         "label": " ",
@@ -111,7 +111,7 @@
         "Investment|Energy Supply|Electricity|Nuclear"
       ],
       "groups": [ {
-        "label": "How do low carbon investments vary - RENEWABLES & NUCLEAR",
+        "label": "How do low-carbon investments vary - RENEWABLES & NUCLEAR",
         "size": 4
       },{
         "label": "",
@@ -125,7 +125,7 @@
         "Investment|Energy Supply|Electricity|Gas|w/ CCS"        
       ],
       "groups": [{
-        "label": "How do low carbon investments vary - CCS TECHNOLOGIES",
+        "label": "How do low-carbon investments vary - CCS TECHNOLOGIES",
         "size": 3
       }]
     }]
