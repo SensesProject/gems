@@ -1,6 +1,6 @@
 {
   "title": "Transition risk - fossil fuel sector",
-  "description": " You can explore here: What are transition risks for the fossil fuel sector? ",
+  "description": " You can explore here: What are transition risks factors for the fossil fuel sector?",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],
