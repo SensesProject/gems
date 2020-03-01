@@ -150,7 +150,10 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
     return current.variables.map(variable => ({
       variable,
       region,
-      label: [current.regions.length > 1 ? region : false, current.variables.length > 1 ? variable : false].filter(l => l).join(' | ')
+      label: [
+        current.regions.length > 1 ? region : false,
+        current.variables.length > 1 ? variable : false
+      ].filter(l => l).map(l => config.dict[l] || l).join(' | ')
     }))
   }).flat().map(panel => {
     const runs = current.all.map(run => {
