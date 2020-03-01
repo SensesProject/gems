@@ -9,7 +9,7 @@
     {"id": "stocktake-models_4_sensitivities-policy", "title": "Scenario Sensitivities"}
    ]
 }, {
-  "Title": "transition-risk",
+  "title": "Transition risk",
   "dir": "transition-risk",
   "gems": [
     {"id": "finance-wyman-indicators_fossilEnergy", "title": "Fossil fuels risk"},
