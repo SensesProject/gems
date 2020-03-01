@@ -1,9 +1,10 @@
 <template>
-  <div v-html="parsed"/>
+  <section v-html="parsed"/>
 </template>
 
 <script>
 import marked from 'marked'
+import { sanitize } from 'dompurify'
 export default {
   name: 'MdParser',
   props: {
@@ -12,7 +13,7 @@ export default {
   computed: {
     parsed () {
       if (this.md == null) return null
-      return marked(this.md)
+      return sanitize(marked(this.md))
     }
   }
 }

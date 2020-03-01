@@ -1,6 +1,6 @@
 {
   "title": "Example Options",
-  "description": "yes options, no dictionary, no string interpolation",
+  "description": "yes **options**,\n\nno dictionary,<br> no ~string~ interpolation",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_1p5C_full_NDC"],
@@ -18,7 +18,7 @@
       ["AIM/CGE 2.0", "SSP2-Baseline"]
     ],
     "regions": ["World"],
-    "text": "dsnajlw dnroanc jnwan;nad can sda; o  ewjbnfjoenw;ofabnc  enaonn ccen i;ae fen jnfjbjkv ecewbfwabfk cjenjafb"
+    "text": "dsnajlw dnroanc jnwan;nad can sda; o \n\n - ewjbnfjoenw;ofabnc\n -enaonn ccen i;ae fen jnfjbjkv ecewbfwabfk cjenjafb"
   },
   "dropdowns": [{
     "label": "Variables",

@@ -3,7 +3,7 @@
     <template v-if="config && current">
       <section class="intro">
         <h1>{{ config.title }}</h1>
-        <p>{{ config.description }}</p>
+        <MdParser :md="config.description"/>
       </section>
       <div class="options" v-if="config != null">
         <div class="option" v-for="(o,i) in config.dropdowns" :key="`o-${i}`">
@@ -12,7 +12,7 @@
         </div>
       </div>
       <section v-if="current.text" class="text">
-        <p>{{ current.text }}</p>
+        <MdParser :md="current.text"/>
       </section>
       <div class="options" v-if="config != null">
         <div class="option" v-if="data && Object.keys(domains).length !== data.length">
@@ -89,6 +89,7 @@
 import SensesSelect from 'library/src/components/SensesSelect.vue'
 import SensesRadio from 'library/src/components/SensesRadio.vue'
 import ChartLine from '@/components/ChartLine.vue'
+import MdParser from '@/components/MdParser.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
 export default {
@@ -102,7 +103,8 @@ export default {
   components: {
     ChartLine,
     SensesSelect,
-    SensesRadio
+    SensesRadio,
+    MdParser
   },
   computed: {
     ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
