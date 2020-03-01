@@ -5,7 +5,8 @@
     {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go"},
     {"id": "stocktake-models_2_HowDoWeGetThere_Mitigation", "title": "How do we get there (mitigation)"},
     {"id": "stocktake-models_3_HowDoWeGetThere_Investment", "title": "How do we get there (investments)"},
-    {"id": "stocktake-models_4_sensitivities-policy", "title": "scenario sensitivities"}
+    {"id": "model-uncertainty", "title": "Model uncertainties"},
+    {"id": "stocktake-models_4_sensitivities-policy", "title": "Scenario Sensitivities"}
    ]
 }, {
   "id": "transition-risk",
@@ -14,7 +15,7 @@
     {"id": "finance-wyman-indicators_fossilEnergy", "title": "Fossil risk"},
     {"id": "finance-wyman-indicators_powerSector", "title": "Power sector transition"},
     {"id": "finance_investments", "title": "Required investments"},
-    {"id": "finance-uncertainty", "title": "Model uncertainties"}
+    {"id": "model-uncertainty", "title": "Model uncertainties"}
   ]
 }, {
   "id": "land-transitions",
