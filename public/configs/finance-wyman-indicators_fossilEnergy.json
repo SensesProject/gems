@@ -1,6 +1,6 @@
 {
   "title": "Transition risk - fossil fuel sector",
-  "description": " You can explore here: What are transition risks factors for the fossil fuel sector?",
+  "description": " <br/> You can explore here: <br/>What are transition risks factors for the fossil fuel sector?",
   "default": {
     "regions": ["World"]
   },
@@ -8,7 +8,7 @@
     "label": "Exploration question",
     "options": [
       {
-      "label": "What are the direct emission costs for fossils?",
+      "label": "What are the direct emission costs for fossil fuels?",
       "variables":[
         "RFP|Direct emissions cost|Energy Supply|Coal",
         "RFP|Direct emissions cost|Energy Supply|Gas",
@@ -46,7 +46,7 @@
       }]
     },
      {
-      "label": "How can the extraction of fossil quantities change?",
+      "label": "How can the extraction of fossil fuel quantities change?",
       "variables":[
         "Primary Energy|Coal",
         "Primary Energy|Gas",

@@ -1,6 +1,6 @@
 {
   "title": "Investments",
-  "description": "You can explore here: What are the required investments with a focus on electricity production and the major world regions. How could divestment-paths of unabated fossil fuels develop?",
+  "description": "<br/> You can explore here: <br/>What are the required investments with a focus on electricity production and the major world regions. How could divestment-paths of unabated fossil fuels develop?",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi"],
@@ -80,7 +80,7 @@
         "size": 3
       }]
     }, {
-      "label": "How can divestment in unabated fossils develop?",
+      "label": "How can divestment in unabated fossil fuels develop?",
       "variables": [
         "Investment|Energy Supply|Extraction|Fossil",
         "Investment|Energy Supply|Electricity|Coal|w/o CCS", 

@@ -1,6 +1,6 @@
 {
   "title": "How do we get there (investments)?",
-  "description": "You can explore here the means of implementation and support. This is explored in terms of required investments for a low-carbon world, but also in divestment for unabated fossils. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies",
+  "description": "<br/> You can explore here: <br/> The means of implementation and support. This is explored in terms of required investments for a low-carbon world, but also in divestment for unabated fossil fuels. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -38,7 +38,7 @@
         "size": 2
       }]
     }, {
-      "label": "Divestment in unabated fossils",
+      "label": "Divestment in unabated fossil fuels",
       "variables": [
         "Investment|Energy Supply|Electricity|Coal|w/o CCS",
         "Investment|Energy Supply|Electricity|Oil|w/o CCS",

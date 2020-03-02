@@ -1,6 +1,6 @@
 {
   "title": "Investments",
-  "description": "Why must renewable investements overtake those in fossils",
+  "description": "Why must renewable investements overtake those in fossil fuels",
   "default": {
     "models": ["REMIND-MAgPIE 1.7-3.0"],
     "scenarios": [

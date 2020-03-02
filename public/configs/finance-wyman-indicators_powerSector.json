@@ -1,6 +1,6 @@
 {
   "title": "Transition risk - power sector transition",
-  "description": "You can explore here: What are transition risks factors for the power sector?",
+  "description": "<br/> You can explore here: <br/>What are transition risks factors for the power sector?",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NoPolicy Riskfactor Pathways"],

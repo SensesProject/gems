@@ -1,6 +1,6 @@
 {
   "title": "How do we get there (mitigation)?",
-  "description": " You can explore here: the means of mitigation to achieve a well below two degree target: fossil phase out, ramp up of low-carbon technologies, the role of carbon sequestration. In detail we look at the transformation of one of the largest emitting sources - electricity production and at the regional detail of fossil phase out and low-carbon ramp up. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
+  "description": " <br/> You can explore here: <br/>the means of mitigation to achieve a well below two degree target: fossil phase out, ramp up of low-carbon technologies, the role of carbon sequestration. In detail we look at the transformation of one of the largest emitting sources - electricity production and at the regional detail of fossil phase out and low-carbon ramp up. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -90,7 +90,7 @@
           "size": 4
         }]
       }, {
-        "label": "How do fossils develop in the world regions?",
+        "label": "How do fossil fuels develop in the world regions?",
         "variables": [
           "Primary Energy|Coal|w/ CCS", 
           "Primary Energy|Coal|w/o CCS", 
@@ -105,23 +105,23 @@
             "R5|MAF",
             "R5|REF"], 
         "groups": [{
-          "label": "How do fossils develop in the world regions - R5 ASIA",
+          "label": "How do fossil fuels develop in the world regions - R5 ASIA",
           "img": "/maps/ASIA.png",
           "size": 5
         }, {
-          "label": "How do fossils develop in the world regions - R5 LATIN AMERICA",
+          "label": "How do fossil fuels develop in the world regions - R5 LATIN AMERICA",
           "img": "/maps/LAM.png",
           "size": 5
         }, {
-          "label": "How do fossils develop in the world regions - R5 MAF",
+          "label": "How do fossil fuels develop in the world regions - R5 MAF",
           "img": "/maps/MAF.png",
           "size": 5
         }, {
-          "label": "How do fossils develop in the world regions - R5 OECD90 +EU ",
+          "label": "How do fossil fuels develop in the world regions - R5 OECD90 +EU ",
           "img": "/maps/OECD90+EU.png",
           "size": 5
         }, {
-          "label": "How do fossils develop in the world regions - R5 REF",
+          "label": "How do fossil fuels develop in the world regions - R5 REF",
           "img": "/maps/REF.png",
           "size": 5
         }]

@@ -1,6 +1,6 @@
 {
   "title": "Where do we want to go? ",
-  "description": " You can explore here: What are the major greenhousegas emission contributors, in terms of sectors and major economies? How do their emissions develop? All these parameters can be explored for different warming levels and with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
+  "description": " <br/> You can explore here: <br/> What are the major greenhousegas emission contributors, in terms of sectors and major economies? How do their emissions need to decline? <br/> All these parameters can be explored for different warming levels and with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
@@ -32,13 +32,13 @@
       ],
       "regions": ["World"], 
       "groups": [{
-        "label": " How much do individual sectors contribute to the decline - ENERGY SUPPLY",
+        "label": " How much do individual sectors contribute to the decline? -> ENERGY SUPPLY",
         "size": 5
       }, {
-        "label": " How much do individual sectors contribute to the decline - DEMAND & INDUSTRIAL PROCESSES",
+        "label": " How much do individual sectors contribute to the decline? -> DEMAND & INDUSTRIAL PROCESSES",
         "size": 4
       }, {
-        "label": " How much do individual sectors contribute to the decline - AGRICULTURE, FORESTRY & OTHER LAND USE  ",
+        "label": " How much do individual sectors contribute to the decline? -> AGRICULTURE, FORESTRY & OTHER LAND USE  ",
         "size": 3
       }]
     },{ 

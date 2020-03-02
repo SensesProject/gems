@@ -8,7 +8,7 @@
     "label": "Exploration question",
     "options": [
       {
-      "label": "What are the direct emission costs for fossils?",
+      "label": "What are the direct emission costs for fossil fuels?",
       "variables":[
         "RFP|Direct emissions cost|Energy Supply|Coal",
         "RFP|Direct emissions cost|Energy Supply|Gas",

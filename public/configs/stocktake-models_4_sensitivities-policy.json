@@ -1,6 +1,6 @@
 {
   "title": "Scenario Sensitivities",
-  "description": "You can explore here the difference between scenarios that pursue different policies on decisive side indicators.",
+  "description": "<br/> You can explore here: <br/> The difference between scenarios that pursue different policies on decisive side indicators.",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
