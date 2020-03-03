@@ -29,27 +29,27 @@
       ], 
       "groups": [{
         "label": "World",
-        "img": "/maps/World.png",
+        "img": "./maps/World.png",
         "size": 3
       }, {
         "label": "R5 Asia",
-        "img": "/maps/ASIA.png",
+        "img": "./maps/ASIA.png",
         "size": 3
       }, {
         "label": "R5 Latin America",
-        "img": "/maps/LAM.png",
+        "img": "./maps/LAM.png",
         "size": 3
       }, {
         "label": "R5 MAF",
-        "img": "/maps/MAF.png",
+        "img": "./maps/MAF.png",
         "size": 3
       }, {
         "label": "R5 OECD90 +EU ",
-        "img": "/maps/OECD90+EU.png",
+        "img": "./maps/OECD90+EU.png",
         "size": 3
       }, {
         "label": "R5 REF",
-        "img": "/maps/REF.png",
+        "img": "./maps/REF.png",
         "size": 3
       }]
     }

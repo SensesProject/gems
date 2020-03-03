@@ -106,23 +106,23 @@
             "R5|REF"], 
         "groups": [{
           "label": "How do fossil fuels develop in the world regions - R5 ASIA",
-          "img": "/maps/ASIA.png",
+          "img": "./maps/ASIA.png",
           "size": 5
         }, {
           "label": "How do fossil fuels develop in the world regions - R5 LATIN AMERICA",
-          "img": "/maps/LAM.png",
+          "img": "./maps/LAM.png",
           "size": 5
         }, {
           "label": "How do fossil fuels develop in the world regions - R5 MAF",
-          "img": "/maps/MAF.png",
+          "img": "./maps/MAF.png",
           "size": 5
         }, {
           "label": "How do fossil fuels develop in the world regions - R5 OECD90 +EU ",
-          "img": "/maps/OECD90+EU.png",
+          "img": "./maps/OECD90+EU.png",
           "size": 5
         }, {
           "label": "How do fossil fuels develop in the world regions - R5 REF",
-          "img": "/maps/REF.png",
+          "img": "./maps/REF.png",
           "size": 5
         }]
         }, {
@@ -142,23 +142,23 @@
             "R5|REF"],
           "groups": [{
             "label": "How do renewables develop in the world regions - R5 ASIA",
-            "img": "/maps/ASIA.png",
+            "img": "./maps/ASIA.png",
             "size": 5
           }, {
             "label": "How do renewables develop in the world regions - R5 LATIN AMERICA",
-            "img": "/maps/LAM.png",
+            "img": "./maps/LAM.png",
             "size": 5
           }, {
             "label": "How do renewables develop in the world regions - R5 MAF",
-            "img": "/maps/MAF.png",
+            "img": "./maps/MAF.png",
             "size": 5
           }, {
             "label": "How do renewables develop in the world regions - R5 OECD90 +EU ",
-            "img": "/maps/OECD90+EU.png",
+            "img": "./maps/OECD90+EU.png",
             "size": 5
           }, {
             "label": "How do renewables develop in the world regions - R5 REF",
-            "img": "/maps/REF.png",
+            "img": "./maps/REF.png",
             "size": 5
           }]  
       } ]
