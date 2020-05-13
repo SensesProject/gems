@@ -133,7 +133,7 @@ async function getTimeseries ({ token, config, runs, options, colors }) {
       variables: current.variables,
       units: [],
       years: [],
-      times: []
+      timeslices: []
     }
   }
 
