@@ -1,6 +1,6 @@
 {
   "title": "Where do we want to go? ",
-  "description": " <br/> You can explore here: <br/> What are the major greenhousegas emission contributors, in terms of sectors and major economies? How do their emissions need to decline? <br/> All these parameters can be explored for different warming levels and with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
+  "description": " <br/> <b> You can explore here: </b> <ul> <li> What are the major greenhousegas emittors? </li> <li>  Which sectors and major economies need to change most? </li> </ul>  <br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul> ",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
@@ -15,9 +15,9 @@
       "label": "How much do individual sectors contribute to the decline?",
       "variables": [
         "Emissions|CO2|Energy|Supply|Electricity",
+        "Emissions|CO2|Energy|Supply|Liquids",
         "Emissions|CO2|Energy|Supply|Gases",
         "Emissions|CO2|Energy|Supply|Heat",
-        "Emissions|CO2|Energy|Supply|Liquids",
         "Emissions|CO2|Energy|Supply|Solids",
 
         "Emissions|CO2|Energy|Demand|Industry",
@@ -32,13 +32,13 @@
       ],
       "regions": ["World"], 
       "groups": [{
-        "label": " How much do individual sectors contribute to the decline? -> ENERGY SUPPLY",
+        "label": " ENERGY SUPPLY",
         "size": 5
       }, {
-        "label": " How much do individual sectors contribute to the decline? -> DEMAND & INDUSTRIAL PROCESSES",
+        "label": " DEMAND & INDUSTRIAL PROCESSES",
         "size": 4
       }, {
-        "label": " How much do individual sectors contribute to the decline? -> AGRICULTURE, FORESTRY & OTHER LAND USE  ",
+        "label": " AGRICULTURE, FORESTRY & OTHER LAND USE  ",
         "size": 3
       }]
     },{ 
@@ -59,23 +59,23 @@
         "R5|REF"
       ], 
       "groups": [{
-        "label": "How much do major economies contribute to the decline - R5 ASIA",
+        "label": "R5 ASIA - Emissions decline",
         "img": "./maps/ASIA.png",
         "size": 5
       }, {
-        "label": "How much do major economies contribute to the decline - R5 OECD90 +EU ",
+        "label": "R5 OECD90 + EU - Emissions decline",
         "img": "./maps/OECD90+EU.png",
         "size": 5
       }, {
-        "label": "How much do major economies contribute to the decline - R5 LATIN AMERICA",
+        "label": "R5 LATIN AMERICA - Emissions decline",
         "img": "./maps/LAM.png",
         "size": 5
       }, {
-        "label": "How much do major economies contribute to the decline - R5 MAF",
+        "label": "R5 MAF - Emissions decline",
         "img": "./maps/MAF.png",
         "size": 5
       }, {
-        "label": "How much do major economies contribute to the decline - R5 REF",
+        "label": "R5 REF - Emissions decline",
         "img": "./maps/REF.png",
         "size": 5
       }]

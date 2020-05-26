@@ -1,6 +1,6 @@
 {
   "title": "How do we get there (mitigation)?",
-  "description": " <br/> You can explore here: <br/>the means of mitigation to achieve a well below two degree target: fossil phase out, ramp up of low-carbon technologies, the role of carbon sequestration. In detail we look at the transformation of one of the largest emitting sources - electricity production and at the regional detail of fossil phase out and low-carbon ramp up. All these parameters can be explored with full or reduced availibility of carbon dioxide removal (CDR) technologies.",
+  "description": " <br/> <b> You can explore here: </b> <br/> The essential means of mitigation to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> How can a fossil fuel phase out be shaped? <li/> How can the ramp up of low-carbon technologies look like? <li/> What is the potential role of carbon sequestration? <li/> How can the decarbonization of the electricity production happen? <li/> What can the regional distribution of a fossil phase out look like?<li/> What is the regional detail of a low-carbon ramp up? </ul>  <br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -24,18 +24,18 @@
       ],
       "regions": ["World"],
       "groups": [{
-        "label": "How could a fossil phase out look like - FOSSILS  without Carbon Capture and Storage (CCS)",
+        "label": "Fossil phase out - FOSSILS without Carbon Capture and Storage (CCS)",
         "size": 3
       }, {
-        "label": "How could a fossil phase out look like - FOSSILS with  Carbon Capture and Storage (CCS)",
+        "label": "Fossil phase out - FOSSILS with Carbon Capture and Storage (CCS)",
         "size": 3
       }]
     }, {
       "label": "How could low-carbon technologies ramp up?",
       "variables": [
         "Primary Energy|Solar", 
-        "Primary Energy|Wind",
         "Primary Energy|Biomass|Modern|w/ CCS", 
+        "Primary Energy|Wind",
         "Primary Energy|Biomass|Traditional", 
         "Primary Energy|Geothermal", 
         "Primary Energy|Hydro", 
@@ -43,7 +43,7 @@
       ],
       "regions": ["World"],
       "groups": [{
-        "label": "How could low-carbon technologies ramp up? RENEWABLES & NUCLEAR",
+        "label": "Low-carbon technologies -  RENEWABLES & NUCLEAR",
         "size": 4
       }, {
         "label": " ",
@@ -60,7 +60,7 @@
         ],
         "regions": ["World"], 
         "groups": [{
-          "label": "To what extent might we need carbon sequestration??",
+          "label": "Carbon sequestration??",
           "size": 5
         }]
       },{
@@ -80,17 +80,17 @@
       ],
         "regions": ["World"], 
         "groups": [{
-          "label": "How can electricity production decarbonize - RENEWABLES",
+          "label": "Decarbonization of electricity production - RENEWABLES",
           "size": 3
         }, {
           "label": " ",
           "size": 3
         }, {
-          "label": "How can electricity production decarbonize - FOSSILS with CCS & NUKLEAR",
+          "label": "Decarbonization of electricity production  - FOSSILS with CCS & NUKLEAR",
           "size": 4
         }]
       }, {
-        "label": "How do fossil fuels develop in the world regions?",
+        "label": "How could fossil fuels develop in the world regions?",
         "variables": [
           "Primary Energy|Coal|w/ CCS", 
           "Primary Energy|Coal|w/o CCS", 
@@ -105,28 +105,28 @@
             "R5|MAF",
             "R5|REF"], 
         "groups": [{
-          "label": "How do fossil fuels develop in the world regions - R5 ASIA",
+          "label": "R5 ASIA - Fossil fuels",
           "img": "./maps/ASIA.png",
           "size": 5
         }, {
-          "label": "How do fossil fuels develop in the world regions - R5 LATIN AMERICA",
-          "img": "./maps/LAM.png",
-          "size": 5
-        }, {
-          "label": "How do fossil fuels develop in the world regions - R5 MAF",
-          "img": "./maps/MAF.png",
-          "size": 5
-        }, {
-          "label": "How do fossil fuels develop in the world regions - R5 OECD90 +EU ",
+          "label": "R5 OECD90 + EU - Fossil fuels",
           "img": "./maps/OECD90+EU.png",
           "size": 5
         }, {
-          "label": "How do fossil fuels develop in the world regions - R5 REF",
+          "label": "R5 LATIN AMERICA - Fossil fuels",
+          "img": "./maps/LAM.png",
+          "size": 5
+        }, {
+          "label": "R5 MAF - Fossil fuels",
+          "img": "./maps/MAF.png",
+          "size": 5
+        }, {
+          "label": "R5 REF - Fossil fuels",
           "img": "./maps/REF.png",
           "size": 5
         }]
         }, {
-          "label": "How do renewables develop in the world regions?",
+          "label": "How could renewables develop in the world regions?",
           "variables": [
             "Primary Energy|Solar", 
             "Primary Energy|Wind",
@@ -136,28 +136,28 @@
           ],
           "regions": [
             "R5|ASIA",
+            "R5|OECD90+EU",
             "R5|LAM",
             "R5|MAF",
-            "R5|OECD90+EU",
             "R5|REF"],
           "groups": [{
-            "label": "How do renewables develop in the world regions - R5 ASIA",
+            "label": "R5 ASIA - Renewable energy",
             "img": "./maps/ASIA.png",
             "size": 5
           }, {
-            "label": "How do renewables develop in the world regions - R5 LATIN AMERICA",
-            "img": "./maps/LAM.png",
-            "size": 5
-          }, {
-            "label": "How do renewables develop in the world regions - R5 MAF",
-            "img": "./maps/MAF.png",
-            "size": 5
-          }, {
-            "label": "How do renewables develop in the world regions - R5 OECD90 +EU ",
+            "label": "R5 OECD90 +EU - Renewable energy",
             "img": "./maps/OECD90+EU.png",
             "size": 5
           }, {
-            "label": "How do renewables develop in the world regions - R5 REF",
+            "label": "R5 LATIN AMERICA - Renewable energy",
+            "img": "./maps/LAM.png",
+            "size": 5
+          }, {
+            "label": "R5 MAF - Renewable energy",
+            "img": "./maps/MAF.png",
+            "size": 5
+          }, {
+            "label": "R5 REF - Renewable energy",
             "img": "./maps/REF.png",
             "size": 5
           }]  

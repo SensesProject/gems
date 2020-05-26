@@ -24,6 +24,7 @@ landuse_whereAreWeNow
 landuse_WhereDoWeWantToGo
 landuse_ImpactResponseMeasures
 model-uncertainty
+model-assumptions
 archetypes-sensitivities
 testDB
 debugReferenceMissingRegionalInfo
