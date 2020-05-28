@@ -12,7 +12,7 @@ export default new Vuex.Store({
     token: null,
     runs: null,
     data: null,
-    colors: ['blue', 'green', 'yellow', 'orange', 'red', 'purple'],
+    colors: ['blue', 'yellow', 'purple', 'green', 'orange', 'red'],
     regions: null,
     models: null,
     scenarios: null,

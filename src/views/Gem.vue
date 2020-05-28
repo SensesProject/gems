@@ -28,6 +28,11 @@
             @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
             <span class="glyph-dot" :class="r.color"/>
             {{ dict[r.name] || r.name }}
+          </span><br>
+          <span v-if="current.funnel != null"
+            class="tiny" :class="{ transparent: highlight != null }">
+            <span class="glyph-rect funnel"/>
+            The shaded area shows the model spread.
           </span>
         </div>
       </div>
@@ -41,6 +46,13 @@
             :number-format="config.numberFormat" :highlight="highlight"
             :domain="synchronize ? domains[p.runs[0].unit] : null"/>
         </div>
+      </div>
+      <div v-if="config.workspace" class="workspace">
+        <ul class="border">
+          <a :href="config.workspace" class="link" target="_blank">
+            <li>Open workspace in Scenario Explorer ↗</li>
+          </a>
+        </ul>
       </div>
       <div class="metadata">
         <h3>Metadata</h3>
@@ -97,7 +109,7 @@ export default {
   data () {
     return {
       highlight: null,
-      synchronize: false
+      synchronize: true
     }
   },
   components: {
@@ -251,6 +263,31 @@ export default {
             @include tint(color, 40);
           }
         }
+        .glyph-rect {
+          &:before {
+            content: '●';
+            font-family: $font-sans;
+            margin: 0;
+            background: getColor(neon, 100);
+            color: getColor(neon, 100);
+          }
+          // display: inline-block;
+          // width: $spacing / 4;
+          // height: $spacing / 4;
+          // background: getColor(gray, 80);
+          // &:before {
+          //   content: '';
+          //   font-family: $font-sans;
+          //   margin: 0;
+          // }
+          // @include tint(color);
+          // &.light {
+          //   @include tint(color, 60);
+          // }
+          // &.dark {
+          //   @include tint(color, 40);
+          // }
+        }
       }
     }
   }
@@ -268,7 +305,6 @@ export default {
       align-self: center;
       max-width: 600px;
       margin: 0 $spacing / 4 0;
-      // justify-content: space-between;
       display: flex;
         h3 {
         align-self: center;
@@ -337,7 +373,7 @@ export default {
       }
     }
   }
-  .related {
+  .related, .workspace {
     width: 100%;
     max-width: 600px;
     margin-bottom: $spacing;
@@ -373,6 +409,11 @@ export default {
           }
         }
       }
+    }
+  }
+  .workspace {
+    ul {
+      text-align: center;
     }
   }
 }

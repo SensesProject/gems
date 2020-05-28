@@ -1,10 +1,10 @@
 {
   "title": "Model uncertainties ",
   "description": "<br/> Here you can explore: <br/> How diverse the strategies of different integrated assessment models can be. One 1.5°C maximum warming scenario has been computed by a set integrated assessment models (see below in meta data for more information). <br/> Along decisive variables you can understand the differences. <br/> For further orientation we also depict the archetype scenarios from the IPCC 1.5°C special report.",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/#/login",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_400"]
-    
     ],
     "funnel": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_400"],

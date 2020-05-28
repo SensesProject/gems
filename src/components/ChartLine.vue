@@ -296,7 +296,8 @@ export default {
     }
     polygon {
       &.funnel {
-        fill: getColor(gray, 90);
+        fill: getColor(neon, 100);
+        opacity: 0.5;
       }
     }
     .lines, .points {
