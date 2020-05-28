@@ -270,6 +270,7 @@ export default {
             margin: 0;
             background: getColor(neon, 100);
             color: getColor(neon, 100);
+            transform: scale(0.8);
           }
           // display: inline-block;
           // width: $spacing / 4;
