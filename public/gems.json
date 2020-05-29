@@ -1,6 +1,6 @@
 [{
-  "id": "stocktake-1",
-  "dir": "stocktake-1",
+  "title": "Emissions gap",
+  "dir": "emissions-gap",
   "gems": [
     {"id": "model-assumptions_Pep", "title": "Basic assumptions in the Pep1p5 study"},
     {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go? How is the emissions decline distributed?"},
