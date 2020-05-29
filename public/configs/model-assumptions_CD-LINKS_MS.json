@@ -1,6 +1,7 @@
 {
   "title": "Mitigation strategies in the CD-LINKS study",
   "description": "<br/> <b>  You can explore here: </b> <br/> Individual mitigation strategies of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> The following mitigation strategies can be explored: <ul> <li/> <b> Strategy A </b> – A solar powered future  - energy production takes a sharp turn towards renewables, especially solar energy, and allows a fast coal-exit. <li/> <b> Strategy B </b> – Gas combined with CCS as a bridge technology - energy production increasingly abandons coal and switches to a great extent to gas with CCS. Renewables grow but not as pronounced. <li/> <b> Strategy C </b> – Retro-fitting of existing fossil infrastructure with CCS - energy production relys on coal and gas for a longer extent. This is increasingly combined with CCS. Renewables grow but not as pronounced.  </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer////////#/workspaces/share/9919d0cc-eab0-4682-9bfc-179ebdc64d9f",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_${warming}"]

@@ -2,6 +2,7 @@
   "title": "Investments",
  
   "description": "<br/> <b>  You can explore here: </b> <br/> Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> The following questions can be investigated: <ul> <li/> What are the required investments with a focus on electricity production? <li/> How do this invements look like in the major world regions? <li/> How could divestment-paths of unabated fossil fuels develop? <li/> How does the divestment look in the major world regions? </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_${warming}"]
@@ -61,7 +62,7 @@
         "size": 3
       }]
     }, {
-      "label": "What are the investments into low-carbon technology for energy supply",
+      "label": "What are the investments into low-carbon electricity",
       "variables": [
         "Investment|Energy Supply|Electricity|Solar", 
         "Investment|Energy Supply|Electricity|Wind", 

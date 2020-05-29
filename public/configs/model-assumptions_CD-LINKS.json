@@ -1,6 +1,8 @@
 {
   "title": "Basic assumptions and inner logic of models in the CD-LINKS study",
   "description": "<br/> <b>  You can explore here: </b> <br/> Basic characteristics of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a small set of integrated assessment models. Here you explore models in their baseline behaviour, when no policies towards a warming boundary are implied, i.e. without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer//////#/workspaces/share/b556baec-31db-4a4a-a058-d1f7d9a1ffb9",
+
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NoPolicy"]
