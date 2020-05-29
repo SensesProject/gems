@@ -1,6 +1,7 @@
 {
   "title": "Basic assumptions in the Pep1p5 study",
-  "description": "<br/> <b>  You can explore here: </b>  <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/>  Below you can explore the basic assumptions of the REMIND-MAgPIE model in the Pep1p5 study, conducted in 2018. <br/><br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul> ",
+  "description": "<br/> <b>  You can explore here: </b>  <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/>  Below you can explore the basic assumptions of three scenarios from the REMIND-MAgPIE model in the Pep1p5 study, conducted in 2018. <br/><br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/95a7803a-c169-4bd9-b74e-917e7a7f492b",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -69,7 +70,7 @@
       "warming": "2C"
     }]
   }, {
-    "label": "What is the effect of assumptions about CDR (carbon dioxide removal) availibility?",
+    "label": "Availibility of carbon dioxide removal (CDR)",
     "options": [{
       "label": "Full CDR availibility",
       "cdr": "full"

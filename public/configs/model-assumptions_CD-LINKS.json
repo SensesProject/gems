@@ -1,6 +1,6 @@
 {
   "title": "Basic assumptions and inner logic of models in the CD-LINKS study",
-  "description": "<br/> <b>  You can explore here: </b> <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a small setup of integrated assessment models take in a base setting, i.e. a no policy scenario. This allows to study basic assumptions without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
+  "description": "<br/> <b>  You can explore here: </b> <br/> Basic characteristics of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a small set of integrated assessment models. Here you explore models in their baseline behaviour, when no policies towards a warming boundary are implied, i.e. without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NoPolicy"]
@@ -64,7 +64,7 @@
           "size": 4
         }] 
       }, {
-        "label": "What is the energy setup?",
+        "label": "What is the basic energy setup?",
         "variables": [
           "Primary Energy",
           "Primary Energy|Fossil",
@@ -110,17 +110,17 @@
         },{
           "label": "Model choice",
           "options": [{
+            "label": "REMIND-MAgPIE 1.7-3.0",
+            "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
+          },{
+            "label": "MESSAGEix-GLOBIOM 1.0",
+            "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
+          },{
             "label": "AIM/CGE 2.1",
             "foreGroundScen": "AIM/CGE 2.1"
           },{
             "label": "IMAGE 3.0.1",
             "foreGroundScen": "IMAGE 3.0.1"
-          },{
-            "label": "MESSAGEix-GLOBIOM 1.0",
-            "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
-          },{
-            "label": "REMIND-MAgPIE 1.7-3.0",
-            "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
           },{
             "label": "WITCH-GLOBIOM 4.4",
             "foreGroundScen": "WITCH-GLOBIOM 4.4"

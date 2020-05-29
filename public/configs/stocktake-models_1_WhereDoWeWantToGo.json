@@ -1,6 +1,7 @@
 {
-  "title": "Where do we want to go? ",
-  "description": " <br/> <b> You can explore here: </b> <ul> <li> What are the major greenhousegas emittors? </li> <li>  Which sectors and major economies need to change most? </li> </ul>  <br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul> ",
+  "title": "Where do we want to go? How do emissions decline?",
+  "description": " <br/> <b> You can explore here: </b> <ul> <li> What are the major greenhousegas emittors? </li> <li>  Which sectors and major economies need to change most? </li> </ul>  <br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/885fb33b-557a-44f6-bd04-4532cffc4c2f",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
@@ -90,27 +91,27 @@
       "warming": "2C"
     }]
   }, {
-    "label": "Assumptions on availibility of carbon dioxide removal (CDR)",
+    "label": "Availibility of carbon dioxide removal (CDR)",
     "options": [{
-      "label": "What is the effect of full CDR availibility?",
+      "label": "Full CDR availibility",
       "cdr": "full"
     }, {
-      "label": "What if CDR options are limited?",
+      "label": "Limited CDR availibility",
       "cdr": "red"
     }]
   }],
   "dict": {
     "Emissions|CO2|AFOLU": "CO2 Emissions Agriculture, Forestry & other land use",
     "Emissions|CH4|AFOLU": " CH4 Emissions Agriculture, Forestry & other land use",
-    "Emissions|CO2|Energy|Demand|Industry": "Energy Demand Industry",
-    "Emissions|CO2|Energy|Demand|Residential and Commercial": "Energy Demand Residential and Commercial",
-    "Emissions|CO2|Energy|Demand|Transportation": "Energy Demand Transportation",
-    "Emissions|CO2|Energy|Supply|Electricity": "Energy Supply Electricity",
-    "Emissions|CO2|Energy|Supply|Gases": "Energy Supply Gases",
-    "Emissions|CO2|Energy|Supply|Heat": "Energy Supply Heat",
-    "Emissions|CO2|Energy|Supply|Liquids": "Energy Supply Liquids",
-    "Emissions|CO2|Energy|Supply|Solids": "Energy Supply Solids",
-    "Emissions|CO2|Industrial Processes": "Industrial Processes",
+    "Emissions|CO2|Energy|Demand|Industry": " Emissions CO2 Energy Demand Industry",
+    "Emissions|CO2|Energy|Demand|Residential and Commercial": " Emissions CO2 Energy Demand Residential and Commercial",
+    "Emissions|CO2|Energy|Demand|Transportation": " Emissions CO2 Energy Demand Transportation",
+    "Emissions|CO2|Energy|Supply|Electricity": " Emissions CO2 Energy Supply Electricity",
+    "Emissions|CO2|Energy|Supply|Gases": " Emissions CO2 Energy Supply Gases",
+    "Emissions|CO2|Energy|Supply|Heat": " Emissions CO2 Energy Supply Heat",
+    "Emissions|CO2|Energy|Supply|Liquids": " Emissions CO2 Energy Supply Liquids",
+    "Emissions|CO2|Energy|Supply|Solids": " Emissions CO2 Energy Supply Solids",
+    "Emissions|CO2|Industrial Processes": " Emissions CO2 Industrial Processes",
     "AIM/CGE 2.0 | SSP2-Baseline": "Baseline (AIM/CGE 2.0 SSP2-Baseline)",
     "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, full CDR availibility",
     "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, full CDR availibility",

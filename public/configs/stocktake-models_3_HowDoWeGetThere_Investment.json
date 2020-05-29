@@ -1,7 +1,7 @@
 {
   "title": "How do we get there (investments)?",
-  "description": " <br/> <b> You can explore here: </b> <br/> The means of implementation and support to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> Which investments can shape a low carbon world? <li/> Which divestments would need to take place? </ul>  <br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
-  
+  "description": " <br/> <b> You can explore here: </b> <br/> The means of implementation and support to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> Which investments can shape a low carbon world? <li/> Which divestments would need to take place? </ul>  <br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/5b1c57bb-8ea1-4455-9f73-8cf43078f5b7",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -39,7 +39,7 @@
         "size": 2
       }]
     },{
-      "label": "Investments into CCS",
+      "label": "Investments into carbon capture and storage (CCS)",
       "variables": [
         "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
         "Investment|Energy Supply|Electricity|Coal|w/ CCS",
@@ -47,7 +47,7 @@
       ],
       "regions": ["World"]
     },{
-      "label": "Divestment in unabated fossil fuels",
+      "label": "Divestment of unabated fossil fuels",
       "variables": [
         "Investment|Energy Supply|Electricity|Coal|w/o CCS",
         "Investment|Energy Supply|Electricity|Oil|w/o CCS",
@@ -56,12 +56,12 @@
       "regions": ["World"]
       }]
     }, {
-      "label": "Assumptions on availibility of carbon dioxide removal (CDR)",
+      "label": "Availibility of carbon dioxide removal (CDR)",
       "options": [{
-        "label": "What is the effect of full CDR availibility?",
+        "label": "Full CDR availibility",
         "cdr": "full"
       }, {
-        "label": "What if CDR options are limited?",
+        "label": "Limited CDR availibility",
         "cdr": "red"
       }]
     }, {

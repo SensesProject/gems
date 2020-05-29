@@ -1,6 +1,7 @@
 {
-  "title": "How do we get there (mitigation)?",
-  "description": " <br/> <b> You can explore here: </b> <br/> The essential means of mitigation to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> How can a fossil fuel phase out be shaped? <li/> How can the ramp up of low-carbon technologies look like? <li/> What is the potential role of carbon sequestration? <li/> How can the decarbonization of the electricity production happen? <li/> What can the regional distribution of a fossil phase out look like?<li/> What is the regional detail of a low-carbon ramp up? </ul>  <br/> This information can be explored for <ul> <li/> different warming levels <li/> with full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "title": "How do we get there? How is the mitigation shaped?",
+  "description": " <br/> <b> You can explore here: </b> <br/> The essential means of mitigation to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> How can a fossil fuel phase out be shaped? <li/> How can the ramp up of low-carbon technologies look like? <li/> What is the potential role of carbon sequestration? <li/> How can the decarbonization of the electricity production happen? <li/> What can the regional distribution of a fossil phase out look like?<li/> What is the regional detail of a low-carbon ramp up? </ul>  <br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/fb02dd63-5171-4f92-838c-6f278c784958",
   "default": {
     "runs": [
       ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
@@ -164,12 +165,12 @@
       } ]
           
     }, {
-      "label": "Assumptions on availibility of carbon dioxide removal (CDR)",
+      "label": "Availibility of carbon dioxide removal (CDR)",
       "options": [{
-        "label": "What is the effect of full CDR availibility?",
+        "label": "Full CDR availibility",
         "cdr": "full"
       }, {
-        "label": "What if CDR options are limited?",
+        "label": "Limited CDR availibility",
         "cdr": "red"
       }]
     }, {

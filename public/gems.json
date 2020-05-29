@@ -3,7 +3,7 @@
   "dir": "emissions-gap",
   "gems": [
     {"id": "model-assumptions_Pep", "title": "Basic assumptions in the Pep1p5 study"},
-    {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go? How is the emissions decline distributed?"},
+    {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go? How do emissions decline?"},
     {"id": "stocktake-models_2_HowDoWeGetThere_Mitigation", "title": "How do we get there? How is the mitigation shaped?"},
     {"id": "stocktake-models_3_HowDoWeGetThere_Investment", "title": "How do we get there? Which investments are required?"}  
    ]
@@ -12,9 +12,8 @@
   "dir": "transition-risk",
   "gems": [
     {"id": "model-assumptions_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
-    {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"},
-    {"id": "finance_investments", "title": "Required investments"},
-    {"id": "model-uncertainty", "title": "Model uncertainties"}
+    {"id": "model-assumptions_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"},
+    {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}
   ]
 }, {
   "id": "land-transitions",

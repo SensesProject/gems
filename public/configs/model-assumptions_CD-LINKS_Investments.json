@@ -1,0 +1,131 @@
+{
+  "title": "Investments",
+ 
+  "description": "<br/> <b>  You can explore here: </b> <br/> Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> The following questions can be investigated: <ul> <li/> What are the required investments with a focus on electricity production? <li/> How do this invements look like in the major world regions? <li/> How could divestment-paths of unabated fossil fuels develop? <li/> How does the divestment look in the major world regions? </ul>",
+  "default": {
+    "runs": [
+      ["${foreGroundScen}", "CD-LINKS_NPi2020_${warming}"]
+    ],
+    "funnel": [
+      ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming}"],
+      ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_${warming}"],
+      ["AIM/CGE 2.1", "CD-LINKS_NPi2020_${warming}"],
+      ["IMAGE 3.0.1", "CD-LINKS_NPi2020_${warming}"],
+      ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_${warming}"]
+    ]
+    
+  },
+  "dropdowns": [{
+    "label": "Exploration question",
+    "options": [{
+      "label": "What are the required investments?",
+      "variables": [
+        "Investment|Energy Supply",
+        "Investment|Energy Efficiency",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+      ],
+      "regions": ["World"] 
+    },{
+      "label": "What are the required investments in the major world regions?",
+      "variables": [
+        "Investment|Energy Supply",
+        "Investment|Energy Efficiency",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+      ],
+      "regions": [
+        "R5|ASIA",
+        "R5|OECD90+EU",
+        "R5|LAM",
+        "R5|MAF",
+        "R5|REF"
+      ], 
+      "groups": [{
+        "label": "What are the required investments - R5 ASIA",
+        "img": "./maps/ASIA.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 OECD90 +EU ",
+        "img": "./maps/OECD90+EU.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 LATIN AMERICA",
+        "img": "./maps/LAM.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 MAF",
+        "img": "./maps/MAF.png",
+        "size": 3
+      }, {
+        "label": "What are the required investments - R5 REF",
+        "img": "./maps/REF.png",
+        "size": 3
+      }]
+    }, {
+      "label": "What are the investments into low-carbon technology for energy supply",
+      "variables": [
+        "Investment|Energy Supply|Electricity|Solar", 
+        "Investment|Energy Supply|Electricity|Wind", 
+        "Investment|Energy Supply|Electricity|Hydro", 
+        "Investment|Energy Supply|Electricity|Geothermal", 
+        "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+        "Investment|Energy Supply|Electricity|Nuclear",
+
+        "Investment|Energy Supply|Electricity|Biomass|w/ CCS", 
+        "Investment|Energy Supply|Electricity|Coal|w/ CCS",
+        "Investment|Energy Supply|Electricity|Gas|w/ CCS"
+      ],
+      "regions": ["World"],
+      "groups": [{
+        "label": "What are investments into low-carbon electricity production - RENEWABLES & NUCLEAR",
+        "size": 3
+      }, {
+        "label": " ",
+        "size": 3
+      }, {
+        "label": "What are investments into low-carbon electricity production - CCS based technologies",
+        "size": 3
+      }]
+    }, {
+      "label": "How can divestment in unabated fossil fuels develop?",
+      "variables": [
+        "Investment|Energy Supply|Extraction|Fossil",
+        "Investment|Energy Supply|Electricity|Coal|w/o CCS", 
+        "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+      ],
+      "regions": ["World"]
+    }]
+  },{
+    "label": "Mitigation strategy",
+    "options": [{
+      "label": "REMIND-MAgPIE 1.7-3.0",
+      "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
+    },{
+      "label": "MESSAGEix-GLOBIOM 1.0",
+      "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
+    },{
+      "label": "AIM/CGE 2.1",
+      "foreGroundScen": "AIM/CGE 2.1"
+    },{
+      "label": "IMAGE 3.0.1",
+      "foreGroundScen": "IMAGE 3.0.1"
+    },{
+      "label": "WITCH-GLOBIOM 4.4",
+      "foreGroundScen": "WITCH-GLOBIOM 4.4"
+    }]
+  },{
+    "label": "Warming Level",
+    "options": [{
+      "label": "1.5°C",
+      "warming": "400"
+    }, {
+      "label": "2°C",
+      "warming": "1000"
+    }]
+  }],
+   
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
