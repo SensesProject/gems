@@ -1,6 +1,6 @@
 {
-  "title": "Basic assumptions and inner logic of models in the CD-LINKS study",
-  "description": "<br/> <b>  You can explore here: </b> <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a selection of integrated assessment models take in a base setting, i.e. a no policy scenario. This allows to study basic assumptions without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
+  "title": "Mitigation strategies in the CD-LINKS study",
+  "description": "<br/> <b>  You can explore here: </b> <br/> Individual mitigation strategies of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> Below you can explore the following mitigation strategies. <br/> Strategy A – A solar powered future <br/> Strategy B – Gas combined with CCS as a bridge technology <br/> Strategy C – Retro-fitting of existing fossil infrastructure with CCS. ",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_${warming}"]
@@ -18,22 +18,23 @@
   },
   "dropdowns": [
     {
-      "label": "Model choice",
+      "label": "Strategy choice",
         "options": [
           {
-          "label": "How could a retro-fit strategy look like?",
+
+          "label": "Strategy A - Solar powered future",
           "variables": [
-            "Primary Energy|Coal|w/o CCS" , 
-            "Primary Energy|Oil|w/o CCS", 
-            "Primary Energy|Gas|w/o CCS",
-            "Primary Energy|Coal|w/ CCS",
-            "Primary Energy|Oil|w/ CCS", 
-            "Primary Energy|Gas|w/ CCS", 
             "Primary Energy|Solar", 
             "Primary Energy|Biomass|Modern|w/ CCS", 
             "Primary Energy|Wind",
             "Primary Energy|Biomass|Traditional", 
             "Primary Energy|Nuclear",  
+            "Primary Energy|Coal|w/o CCS" , 
+            "Primary Energy|Coal|w/ CCS",
+            "Primary Energy|Gas|w/o CCS",
+            "Primary Energy|Gas|w/ CCS", 
+            "Primary Energy|Oil|w/o CCS",
+            "Primary Energy|Oil|w/ CCS", 
             "Carbon Sequestration|CCS",
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
@@ -41,33 +42,33 @@
             "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
             ],  
             "groups": [{
-              "label": "Fossil fuels",
-              "size": 3
-            },{
-              "label": "",
-              "size": 3
-            }, {
               "label": "Renewables & nuclear",
               "size": 5
+            },{
+              "label": "Fossil fuels",
+              "size": 4
+            },{
+              "label": "",
+              "size": 2
             }, {
               "label": "Carbon sequestration",
               "size": 5
             }],
-          "foreGroundScen": "IMAGE 3.0.1"
+          "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
         },{
-          "label": "How could a gas bridge tech strategy look like?",
+          "label": "Strategy B - Gas with CCS as bridging technology",
           "variables": [
-            "Primary Energy|Coal|w/o CCS" , 
-            "Primary Energy|Oil|w/o CCS", 
-            "Primary Energy|Gas|w/o CCS",
-            "Primary Energy|Coal|w/ CCS",
-            "Primary Energy|Oil|w/ CCS", 
-            "Primary Energy|Gas|w/ CCS", 
             "Primary Energy|Solar", 
             "Primary Energy|Biomass|Modern|w/ CCS", 
             "Primary Energy|Wind",
             "Primary Energy|Biomass|Traditional", 
             "Primary Energy|Nuclear",  
+            "Primary Energy|Coal|w/o CCS" , 
+            "Primary Energy|Coal|w/ CCS",
+            "Primary Energy|Gas|w/o CCS",
+            "Primary Energy|Gas|w/ CCS", 
+            "Primary Energy|Oil|w/o CCS",
+            "Primary Energy|Oil|w/ CCS", 
             "Carbon Sequestration|CCS",
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
@@ -75,33 +76,33 @@
             "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
             ],  
             "groups": [{
-              "label": "Fossil fuels",
-              "size": 3
-            },{
-              "label": "",
-              "size": 3
-            }, {
               "label": "Renewables & nuclear",
               "size": 5
+            },{
+              "label": "Fossil fuels",
+              "size": 4
+            },{
+              "label": "",
+              "size": 2
             }, {
               "label": "Carbon sequestration",
               "size": 5
             }],
           "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
         },{
-          "label": "How could a renewable dominant future look like?",
+          "label": "Strategy C - A retro-fit future",
           "variables": [
-            "Primary Energy|Coal|w/o CCS" , 
-            "Primary Energy|Oil|w/o CCS", 
-            "Primary Energy|Gas|w/o CCS",
-            "Primary Energy|Coal|w/ CCS",
-            "Primary Energy|Oil|w/ CCS", 
-            "Primary Energy|Gas|w/ CCS", 
             "Primary Energy|Solar", 
             "Primary Energy|Biomass|Modern|w/ CCS", 
             "Primary Energy|Wind",
             "Primary Energy|Biomass|Traditional", 
             "Primary Energy|Nuclear",  
+            "Primary Energy|Coal|w/o CCS" , 
+            "Primary Energy|Coal|w/ CCS",
+            "Primary Energy|Gas|w/o CCS",
+            "Primary Energy|Gas|w/ CCS", 
+            "Primary Energy|Oil|w/o CCS",
+            "Primary Energy|Oil|w/ CCS", 
             "Carbon Sequestration|CCS",
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
@@ -109,19 +110,19 @@
             "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
             ],  
             "groups": [{
-              "label": "Fossil fuels",
-              "size": 3
-            },{
-              "label": "",
-              "size": 3
-            }, {
               "label": "Renewables & nuclear",
               "size": 5
+            },{
+              "label": "Fossil fuels",
+              "size": 4
+            },{
+              "label": "",
+              "size": 2
             }, {
               "label": "Carbon sequestration",
               "size": 5
             }],
-          "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
+          "foreGroundScen": "IMAGE 3.0.1"
         }]
       },{
         "label": "Warming Level",
@@ -138,6 +139,7 @@
     "AIM/CGE 2.0 | SSP1-19": "IPCC 1.5°C Special report archetype scenario - P2 - Sustainability, AIM/CGE 2.0",
     "MESSAGE-GLOBIOM 1.0 | SSP2-19": "IPCC 1.5°C Special report archetype scenario - P3 - Middle of the road, MESSAGE-GLOBIOM 1.0", 
     "REMIND-MAgPIE 1.5 | SSP5-19": "IPCC 1.5°C Special report archetype scenario - P4 - Fossil-fuelled development, REMIND-MAgPIE 1.5",
-    "Primary Energy": "Primary Energy (TOTAL)"
+    "Primary Energy": "Primary Energy (TOTAL)",
+    "Carbon Sequestration|CCS" : "Carbon Sequestration|CCS (TOTAL)"
   }
 }
