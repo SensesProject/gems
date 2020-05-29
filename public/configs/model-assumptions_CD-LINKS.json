@@ -1,6 +1,6 @@
 {
   "title": "Basic assumptions and inner logic of models in the CD-LINKS study",
-  "description": "<br/> <b>  You can explore here: </b> <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a selection of integrated assessment models take in a base setting, i.e. a no policy scenario. This allows to study basic assumptions without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
+  "description": "<br/> <b>  You can explore here: </b> <br/> Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a small setup of integrated assessment models take in a base setting, i.e. a no policy scenario. This allows to study basic assumptions without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018. ",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NoPolicy"]

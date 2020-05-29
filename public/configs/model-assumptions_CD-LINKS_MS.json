@@ -1,6 +1,6 @@
 {
   "title": "Mitigation strategies in the CD-LINKS study",
-  "description": "<br/> <b>  You can explore here: </b> <br/> Individual mitigation strategies of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> Below you can explore the following mitigation strategies. <br/> Strategy A – A solar powered future <br/> Strategy B – Gas combined with CCS as a bridge technology <br/> Strategy C – Retro-fitting of existing fossil infrastructure with CCS. ",
+  "description": "<br/> <b>  You can explore here: </b> <br/> Individual mitigation strategies of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.<br/><br/> The following mitigation strategies can be explored: <ul> <li/> <b> Strategy A </b> – A solar powered future  - energy production takes a sharp turn towards renewables, especially solar energy, and allows a fast coal-exit. <li/> <b> Strategy B </b> – Gas combined with CCS as a bridge technology - energy production increasingly abandons coal and switches to a great extent to gas with CCS. Renewables grow but not as pronounced. <li/> <b> Strategy C </b> – Retro-fitting of existing fossil infrastructure with CCS - energy production relys on coal and gas for a longer extent. This is increasingly combined with CCS. Renewables grow but not as pronounced.  </ul>",
   "default": {
     "runs": [
       ["${foreGroundScen}", "CD-LINKS_NPi2020_${warming}"]
@@ -8,9 +8,7 @@
     "funnel": [
       ["REMIND-MAgPIE 1.7-3.0", "CD-LINKS_NPi2020_${warming}"],
       ["IMAGE 3.0.1", "CD-LINKS_NPi2020_${warming}"],
-      ["AIM/CGE 2.1", "CD-LINKS_NPi2020_${warming}"],
-      ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_${warming}"],
-      ["WITCH-GLOBIOM 4.4", "CD-LINKS_NPi2020_${warming}"]
+      ["MESSAGEix-GLOBIOM 1.0", "CD-LINKS_NPi2020_${warming}"]
     ],
     
     "regions": ["World"],
@@ -18,11 +16,10 @@
   },
   "dropdowns": [
     {
-      "label": "Strategy choice",
+      "label": "Mitigation strategy",
         "options": [
           {
-
-          "label": "Strategy A - Solar powered future",
+        "label": "Strategy A - Solar powered future",
           "variables": [
             "Primary Energy|Solar", 
             "Primary Energy|Biomass|Modern|w/ CCS", 
@@ -39,7 +36,10 @@
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
             "Carbon Sequestration|CCS|Fossil|Energy|Supply",
-            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
+            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry", 
+            "GDP|PPP",
+            "Final Energy",
+            "Food Demand"
             ],  
             "groups": [{
               "label": "Renewables & nuclear",
@@ -53,6 +53,9 @@
             }, {
               "label": "Carbon sequestration",
               "size": 5
+            },{
+              "label": "Basic assumptions",
+              "size": 3
             }],
           "foreGroundScen": "REMIND-MAgPIE 1.7-3.0"
         },{
@@ -73,7 +76,10 @@
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
             "Carbon Sequestration|CCS|Fossil|Energy|Supply",
-            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
+            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry",
+            "GDP|PPP",
+            "Final Energy",
+            "Food Demand"
             ],  
             "groups": [{
               "label": "Renewables & nuclear",
@@ -87,6 +93,9 @@
             }, {
               "label": "Carbon sequestration",
               "size": 5
+            },{
+              "label": "Basic assumptions",
+              "size": 3
             }],
           "foreGroundScen": "MESSAGEix-GLOBIOM 1.0"
         },{
@@ -107,7 +116,10 @@
             "Carbon Sequestration|CCS|Biomass",
             "Carbon Sequestration|Land Use|Afforestation", 
             "Carbon Sequestration|CCS|Fossil|Energy|Supply",
-            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
+            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry",
+            "GDP|PPP",
+            "Final Energy",
+            "Food Demand"
             ],  
             "groups": [{
               "label": "Renewables & nuclear",
@@ -121,6 +133,9 @@
             }, {
               "label": "Carbon sequestration",
               "size": 5
+            },{
+              "label": "Basic assumptions",
+              "size": 3
             }],
           "foreGroundScen": "IMAGE 3.0.1"
         }]
@@ -140,6 +155,7 @@
     "MESSAGE-GLOBIOM 1.0 | SSP2-19": "IPCC 1.5°C Special report archetype scenario - P3 - Middle of the road, MESSAGE-GLOBIOM 1.0", 
     "REMIND-MAgPIE 1.5 | SSP5-19": "IPCC 1.5°C Special report archetype scenario - P4 - Fossil-fuelled development, REMIND-MAgPIE 1.5",
     "Primary Energy": "Primary Energy (TOTAL)",
-    "Carbon Sequestration|CCS" : "Carbon Sequestration|CCS (TOTAL)"
+    "Carbon Sequestration|CCS" : "Carbon Sequestration|CCS (TOTAL)",
+    "Final Energy": "Final Energy Demand "
   }
 }
