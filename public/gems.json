@@ -1,6 +1,7 @@
 [{
   "title": "Emissions gap",
   "dir": "emissions-gap",
+  "id": "emissions-gap",
   "gems": [
     {"id": "model-assumptions_Pep", "title": "Basic assumptions in the Pep1p5 study"},
     {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go? How do emissions decline?"},
@@ -10,21 +11,10 @@
 }, {
   "title": "Transition risk",
   "dir": "transition-risk",
+  "id": "transition-risk",
   "gems": [
     {"id": "model-assumptions_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
     {"id": "model-assumptions_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"},
     {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}
-  ]
-}, {
-  "id": "land-transitions",
-  "dir": "land-use",
-  "gems": [
-  ]
-}, {
-  "title": "Examples",
-  "dir": "examples",
-  "gems": [
-    {"id": "example-options-simple"},
-    {"id": "example-options-multi-dropdown"}
   ]
 }]

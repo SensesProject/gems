@@ -49,7 +49,6 @@ export default new Vuex.Store({
             if (module == null) return gem
             return {
               ...gem,
-              title: module.title,
               link: module.link
             }
           })
