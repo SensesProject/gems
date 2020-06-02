@@ -50,7 +50,7 @@
       <div v-if="config.workspace" class="workspace">
         <ul class="border">
           <a :href="config.workspace" class="link" target="_blank">
-            <li>Open workspace in Scenario Explorer ↗</li>
+            <li>Open workspace in IIASA Scenario Explorer ↗</li>
           </a>
         </ul>
       </div>
