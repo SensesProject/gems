@@ -1,130 +1,119 @@
 {
   "title": "Where do we want to go? How do emissions decline?",
-  "description": " <br/> <b> You can explore here: </b> <ul> <li> What are the major greenhousegas emittors? </li> <li>  Which sectors and major economies need to change most? </li> </ul>  <br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "x-description": "**You can explore here:** \n - What are the major greenhousegas emittors? \n - Which sectors and major economies need to change most?<br></br>This information can be investigated for \n - Different warming levels \n - With full or reduced availibility of carbon dioxide removal (CDR) technologies",
+  "description": "Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/885fb33b-557a-44f6-bd04-4532cffc4c2f",
-  "default": {
+  "config": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_NDC"],
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_netzero"],
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_${warming}_${cdr}_eff"]
-    ] ,
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_$cdr_$policy"]
+    ],
     "regions": ["World"]
   },
-  "dropdowns": [{
-    "label": "Exploration question",
-    "options": [{
-      "label": "How much do individual sectors contribute to the decline?",
+  "questions": [{
+    "name": "How much do individual sectors contribute to the decline?",
+    "groups": [{
+      "name": "Energy Supply",
+      "config": {
+        "variables": [
+          "Emissions|CO2|Energy|Supply|Electricity",
+          "Emissions|CO2|Energy|Supply|Liquids",
+          "Emissions|CO2|Energy|Supply|Gases",
+          "Emissions|CO2|Energy|Supply|Heat",
+          "Emissions|CO2|Energy|Supply|Solids"
+        ]
+      }
+    }, {
+      "name": "Demand & industrial process",
+      "config": {
+        "variables": [
+          "Emissions|CO2|Energy|Demand|Industry",
+          "Emissions|CO2|Energy|Demand|Transportation",
+          "Emissions|CO2|Energy|Demand|Residential and Commercial",
+          "Emissions|CO2|Industrial Processes"
+        ]
+      }
+    }, {
+      "name": "Agriculture, forestry & other land use",
+      "config": {
+        "variables": [
+          "Emissions|CO2|AFOLU",
+          "Emissions|CH4|AFOLU",
+          "Emissions|N2O|AFOLU"
+        ]
+      }
+    }]
+  }, {
+    "name": "How much do major economies contribute to the decline?",
+    "config": {
       "variables": [
-        "Emissions|CO2|Energy|Supply|Electricity",
-        "Emissions|CO2|Energy|Supply|Liquids",
-        "Emissions|CO2|Energy|Supply|Gases",
-        "Emissions|CO2|Energy|Supply|Heat",
-        "Emissions|CO2|Energy|Supply|Solids",
-
-        "Emissions|CO2|Energy|Demand|Industry",
-        "Emissions|CO2|Energy|Demand|Transportation",
-        "Emissions|CO2|Energy|Demand|Residential and Commercial",
-        "Emissions|CO2|Industrial Processes",
-
-        "Emissions|CO2|AFOLU",
-        "Emissions|CH4|AFOLU",
-        "Emissions|N2O|AFOLU"
-        
-      ],
-      "regions": ["World"], 
-      "groups": [{
-        "label": " ENERGY SUPPLY",
-        "size": 5
-      }, {
-        "label": " DEMAND & INDUSTRIAL PROCESSES",
-        "size": 4
-      }, {
-        "label": " AGRICULTURE, FORESTRY & OTHER LAND USE  ",
-        "size": 3
-      }]
-    },{ 
-      "label": "How much do major economies contribute to the decline?",
-      "variables":  [
         "Emissions|Kyoto Gases", 
         "Emissions|CO2|Energy|Supply|Electricity",
         "Emissions|CO2|Energy|Demand|Industry",
         "Emissions|CO2|Energy|Demand|Transportation",
         "Emissions|CO2|Energy|Demand|Residential and Commercial"
-        
-      ],
-      "regions": [
-        "R5|ASIA",
-        "R5|OECD90+EU",
-        "R5|LAM",
-        "R5|MAF",
-        "R5|REF"
-      ], 
-      "groups": [{
-        "label": "R5 ASIA - Emissions decline",
-        "img": "./maps/ASIA.png",
-        "size": 5
-      }, {
-        "label": "R5 OECD90 + EU - Emissions decline",
-        "img": "./maps/OECD90+EU.png",
-        "size": 5
-      }, {
-        "label": "R5 LATIN AMERICA - Emissions decline",
-        "img": "./maps/LAM.png",
-        "size": 5
-      }, {
-        "label": "R5 MAF - Emissions decline",
-        "img": "./maps/MAF.png",
-        "size": 5
-      }, {
-        "label": "R5 REF - Emissions decline",
-        "img": "./maps/REF.png",
-        "size": 5
-      }]
-    }]
-  }, {
-    "label": "Warming Level",
-    "options": [{
-      "label": "1.5°C",
-      "warming": "1p5C"
+      ]
+    },
+    "groups": [{
+      "name": "R5 ASIA - Emissions decline",
+      "icon": "R5-ASIA",
+      "config": {
+        "regions": ["R5|ASIA"]
+      }
     }, {
-      "label": "2°C",
-      "warming": "2C"
-    }]
-  }, {
-    "label": "Availibility of carbon dioxide removal (CDR)",
-    "options": [{
-      "label": "Full CDR availibility",
-      "cdr": "full"
+      "name": "R5 OECD90+EU - Emissions decline",
+      "icon": "R5-OECD90+EU",
+      "config": {
+        "regions": ["R5|OECD90+EU"]
+      }
     }, {
-      "label": "Limited CDR availibility",
-      "cdr": "red"
+      "name": "R5 LAM - Emissions decline",
+      "icon": "R5-LAM",
+      "config": {
+        "regions": ["R5|LAM"]
+      }
+    }, {
+      "name": "R5 MAF - Emissions decline",
+      "icon": "R5-MAF",
+      "config": {
+        "regions": ["R5|MAF"]
+      }
+    }, {
+      "name": "R5 REF - Emissions decline",
+      "icon": "R5-REF",
+      "config": {
+        "regions": ["R5|REF"]
+      }
     }]
   }],
-  "dict": {
-    "Emissions|CO2|AFOLU": "CO2 Emissions Agriculture, Forestry & other land use",
-    "Emissions|CH4|AFOLU": " CH4 Emissions Agriculture, Forestry & other land use",
-    "Emissions|CO2|Energy|Demand|Industry": " Emissions CO2 Energy Demand Industry",
-    "Emissions|CO2|Energy|Demand|Residential and Commercial": " Emissions CO2 Energy Demand Residential and Commercial",
-    "Emissions|CO2|Energy|Demand|Transportation": " Emissions CO2 Energy Demand Transportation",
-    "Emissions|CO2|Energy|Supply|Electricity": " Emissions CO2 Energy Supply Electricity",
-    "Emissions|CO2|Energy|Supply|Gases": " Emissions CO2 Energy Supply Gases",
-    "Emissions|CO2|Energy|Supply|Heat": " Emissions CO2 Energy Supply Heat",
-    "Emissions|CO2|Energy|Supply|Liquids": " Emissions CO2 Energy Supply Liquids",
-    "Emissions|CO2|Energy|Supply|Solids": " Emissions CO2 Energy Supply Solids",
-    "Emissions|CO2|Industrial Processes": " Emissions CO2 Industrial Processes",
-    "AIM/CGE 2.0 | SSP2-Baseline": "Baseline (AIM/CGE 2.0 SSP2-Baseline)",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_NDC": "REMIND-MAgPIE - PEP 2°C NDC, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_NDC": "REMIND-MAgPIE - PEP 2°C NDC, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, reduced CDR availibility"
-  
-  }
+  "params": [{
+    "name": "Policy",
+    "options": [{
+      "name": "NDC",
+      "$policy": "NDC"
+    }, {
+      "name": "netzero",
+      "$policy": "netzero"
+    }, {
+      "name": "eff",
+      "$policy": "eff"
+    }]
+  }, {
+    "name": "Warming Level",
+    "options": [{
+      "name": "1.5°C",
+      "$warming": "1p5C"
+    },{
+      "name": "2°C",
+      "$warming": "2C"
+    }]
+  }, {
+    "name": "CDR Availibility",
+    "options": [{
+      "name": "Full",
+      "$cdr": "full"
+    }, {
+      "name": "Limited",
+      "$cdr": "red"
+    }]
+  }]
 }

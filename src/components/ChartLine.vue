@@ -2,7 +2,7 @@
   <div class="chart-line">
     <div class="narrow" v-resize:debounce.initial="onResize">
       <div class="tiny title">{{ label }}</div>
-      <svg v-if="runs.length > 0" :width="width" :height="height"
+      <svg v-if="runs.length > 0" width="100%" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
         <polygon class="funnel" :points="funnel"/>
         <g class="axes">
@@ -160,7 +160,7 @@ export default {
     },
     funnel () {
       const { runs, xScale, yScale } = this
-      const funnel = runs.filter(r => r.type === 'funnel')
+      const funnel = runs.filter(r => r.type === 'funnel' || r.type === 'funnel-select')
       const years = [...new Set(funnel.map(f => f.series.map(v => v.year)).flat())].sort().map((y, yi, years) => {
         const values = funnel.map(f => {
           let value = f.series.find(v => v.year === y)
@@ -259,6 +259,7 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .chart-line {
+  min-width: 0;
   // background: $color-neon;
   margin-bottom: $spacing;
   // display: flex;
@@ -267,6 +268,10 @@ export default {
 
   .title {
     font-weight: bold;
+    hyphens: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .warn {
