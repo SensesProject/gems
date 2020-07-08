@@ -123,7 +123,6 @@ function getConfig ({ gem, perspective }) {
       ]
     })
   })
-  console.log(grouped)
 
   config = { ...config, ...gem.config, ...question.config, ...grouped }
 
@@ -140,7 +139,6 @@ function getConfig ({ gem, perspective }) {
           model = model.replaceAll(k, option[k])
           scenario = scenario.replaceAll(k, option[k])
         })
-        console.log(type)
         return { ...r, model, scenario, type }
       })
     }).flat()
@@ -180,7 +178,6 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
     }))
   }).flat().map(panel => {
     const runs = config.runs.map((run, i) => {
-      console.log(run.type)
       const ts = timeseries.filter(
         ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === panel.variable && ts.region === panel.region
       )
