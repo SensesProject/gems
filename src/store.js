@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
     async initGem ({ commit }, gemId) {
       const gem = await fetch(`./configs/${gemId}.json`).then(r => r.json()).catch(e => {
-        console.error('failed to load gem config')
+        // console.error('failed to load gem config')
       })
       commit('set', { key: 'gem', value: gem })
       commit('set', {
