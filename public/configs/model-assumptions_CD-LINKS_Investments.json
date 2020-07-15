@@ -26,11 +26,13 @@
     },
     {
       "name": "What are the required investments in the major world regions?",
-      "variables": [
-        "Investment|Energy Supply",
-        "Investment|Energy Efficiency",
-        "Investment|Energy Supply|Electricity|Transmission and Distribution"
-      ],
+      "config": {
+        "variables": [
+          "Investment|Energy Supply",
+          "Investment|Energy Efficiency",
+          "Investment|Energy Supply|Electricity|Transmission and Distribution"
+        ]
+      },
       "groups": [
         {
           "name": "R5 ASIA - Emissions decline",

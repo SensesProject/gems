@@ -52,9 +52,9 @@
         </section>
         <section class="charts">
           <div class="group " v-for="(g, i) in groups" :key="`g-${i}`">
-            <div class="group-title">
-              <img v-if="g.img" :src="g.img"/>
-              <h3 v-if="g.label">{{g.label}}</h3>
+            <div v-if="g.name || g.icon" class="group-title grid tint">
+              <img v-if="g.icon" :src="g.icon"/>
+              <h3 v-if="g.name">{{g.name}}</h3>
             </div>
             <div class="panels grid">
               <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
@@ -223,19 +223,38 @@ export default {
       return metadata
     },
     groups () {
-      const { config, data } = this
+      const { config, data, gem, perspective } = this
       if (config == null || data == null) return
-      if (config.groups == null) return [{ data }]
-      let start = 0
-      return config.groups.map(g => {
-        const d = data.filter((d, i) => i >= start && i < start + g.size)
-        start += g.size
+
+      const groups = gem.questions.find(q => q.name === perspective.question).groups
+      if (groups == null) return [{ data }]
+
+      return groups.map(g => {
+        const variables = (g.config.variables || []).map(d => d.value || d)
+        const regions = (g.config.regions || []).map(d => d.value || d)
+
+        const panels = data.filter(panel =>
+          (variables.length === 0 || variables.find(d => d === panel.variable)) &&
+          (regions.length === 0 || regions.find(d => d === panel.region))
+        )
         return {
-          label: g.label,
-          img: g.img,
-          data: d
+          data: panels,
+          name: g.name,
+          icon: g.icon ? `./icons/${g.icon}.png` : null
         }
       })
+
+      // return [{ data }]
+      // let start = 0
+      // return config.groups.map(g => {
+      //   const d = data.filter((d, i) => i >= start && i < start + g.size)
+      //   start += g.size
+      //   return {
+      //     label: g.label,
+      //     img: g.img,
+      //     data: d
+      //   }
+      // })
     },
     related () {
       const { $route, gems } = this
@@ -307,7 +326,7 @@ $column: 240px;
     margin-top: $spacing / 2;
   }
 
-  section.tint {
+  section.tint, .group-title.tint {
     background: transparentize(getColor(gray, 90), 0.02);
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or(backdrop-filter: saturate(180%) blur(20px))) {
       background: transparentize(getColor(gray, 90), 0.15);
@@ -560,32 +579,36 @@ $column: 240px;
   //   }
   // }
 
-  // .group {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   border-top: 1px solid $color-pale-gray;
-  //   width: 100%;
-  //   align-items: center;
+  .group {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // border-top: 1px solid $color-pale-gray;
+    width: 100%;
+    // align-items: center;
 
-  //   .group-title {
-  //     width: 100%;
-  //     align-self: center;
-  //     max-width: 600px;
-  //     margin: 0 $spacing / 4 0;
-  //     display: flex;
-  //       h3 {
-  //       align-self: center;
-  //       margin: $spacing / 4 0;
-  //       color: $color-neon;
-  //     }
-  //     img {
-  //       margin: $spacing / 4 $spacing / 4 $spacing / 4 0;
-  //       height: 32px;
-  //       width: auto;
-  //     }
-  //   }
-  // }
+    .group-title {
+      // margin: 0;
+      width: calc(100% + #{$spacing});
+      // align-self: center;
+      margin-top: 0;
+      margin-bottom: $spacing / 2;
+      // max-width: 600px;
+      // margin: 0 $spacing / 4 0;
+      display: flex;
+        h3 {
+          align-self: center;
+          font-weight: $font-weight-regular;
+        // margin: $spacing / 4 0;
+        // color: $color-neon;
+      }
+      img {
+        // margin: $spacing / 4 $spacing / 4 $spacing / 4 0;
+        height: 32px;
+        width: auto;
+      }
+    }
+  }
 
   // .panels {
   //   width: 100%;

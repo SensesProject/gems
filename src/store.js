@@ -174,8 +174,8 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
 
   const panels = config.regions.map(region => {
     return config.variables.map(variable => ({
-      variable,
-      region,
+      variable: variable.value || variable,
+      region: region.value || region,
       label: [
         config.regions.length > 1 ? region : false,
         config.variables.length > 1 ? variable : false
@@ -184,7 +184,7 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
   }).flat().map(panel => {
     const runs = config.runs.map((run, i) => {
       const ts = timeseries.filter(
-        ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === (panel.variable.value || panel.variable) && ts.region === (panel.region.value || panel.region)
+        ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === panel.variable && ts.region === panel.region
       )
       if (ts.length === 0) return null
       return {
@@ -196,7 +196,9 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
     }).filter(r => r != null)
     return {
       runs,
-      label: panel.label
+      label: panel.label,
+      region: panel.region,
+      variable: panel.variable
     }
   })
 
