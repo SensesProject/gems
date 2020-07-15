@@ -310,7 +310,6 @@ async function getMetadata ({ token, regions, scenarios, models, config }) {
       ...d
     })) : []
 
-  console.log(config)
   const s = scenarios ? config.runs
     .map(d => scenarios.find(c => d.scenario === c.name))
     .filter(d => d != null)
