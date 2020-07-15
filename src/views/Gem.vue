@@ -27,6 +27,10 @@
           <div class="tiny label axis">Axes</div>
           <SensesRadio :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
         </div>
+        <div class="param">
+          <div class="tiny label axis">Layout</div>
+          <SensesRadio :options="[{label: 'small', value: false}, {label: 'large', value: true}]" v-model="large"/>
+        </div>
       </section>
       <div class="section-wrapper">
         <section class="key grid tint">
@@ -56,9 +60,11 @@
               <img v-if="g.icon" :src="g.icon"/>
               <h3 v-if="g.name">{{g.name}}</h3>
             </div>
-            <div class="panels grid">
+            <div class="panels grid" :class="{large}">
               <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
                 :number-format="config.numberFormat" :highlight="activeCats" :param="param"
+                :height="large ? 400 : 200"
+                :large="large"
                 :domain="synchronize ? domains[p.runs[0].unit] : null"/>
             </div>
           </div>
@@ -183,6 +189,7 @@ export default {
     return {
       highlight: null,
       synchronize: true,
+      large: false,
       question: null,
       comparison: null,
       params: {},
@@ -362,6 +369,27 @@ $column: 240px;
     }
 
     gap: $spacing / 2;
+
+    &.large {
+      grid-template-columns: repeat(1, 1fr);
+      max-width: $column * 7;
+      @include min-width($column * 2) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @include min-width($column * 3) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include min-width($column * 4) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include min-width($column * 5) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include min-width($column * 6) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      // gap: $spacing;
+    }
 
     &.grid-test {
       > div {

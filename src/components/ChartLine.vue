@@ -1,9 +1,10 @@
 <template>
   <div class="chart-line">
     <div class="narrow" v-resize:debounce.initial="onResize">
-      <div class="tiny title">{{ label }}</div>
+      <div class="title" :class="{tiny: !large}">{{ label }}</div>
       <svg v-if="runs.length > 0" width="100%" :height="height"
-        @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
+        @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()"
+        :class="{large}">
         <polygon class="funnel" v-if="param.type === 'funnel'" :points="funnel"/>
         <g class="axes">
           <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
@@ -93,12 +94,19 @@ export default {
     domain: {
       default: null,
       type: Array
+    },
+    large: {
+      type: Boolean,
+      default: false
+    },
+    height: {
+      type: Number,
+      default: 200
     }
   },
   data () {
     return {
       width: null,
-      height: 200,
       padding: [18, 0, 16, 0],
       tickSize: 16,
       year: null
@@ -317,6 +325,10 @@ export default {
 
   svg {
     overflow: visible;
+
+    &.large text {
+      font-size: 1rem;
+    }
 
     * {
       pointer-events: none;
