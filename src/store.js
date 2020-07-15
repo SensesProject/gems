@@ -13,7 +13,7 @@ export default new Vuex.Store({
     token: null,
     runs: null,
     data: null,
-    colors: ['blue', 'yellow', 'purple', 'green', 'red', 'orange'],
+    colors: ['yellow', 'blue', 'purple', 'green', 'red', 'orange'],
     regions: null,
     models: null,
     scenarios: null,
@@ -68,6 +68,7 @@ export default new Vuex.Store({
       dispatch('initGem', gemId)
     },
     async initGem ({ commit }, gemId) {
+      commit('set', { key: 'gem', value: null })
       const gem = await fetch(`./configs/${gemId}.json`).then(r => r.json()).catch(e => {
         // console.error('failed to load gem config')
       })
@@ -84,6 +85,7 @@ export default new Vuex.Store({
       // commit('set', { key: 'options', value: (config.dropdowns || []).map(o => o.options[0].label) })
     },
     async updateTimeseries ({ commit, state }) {
+      commit('set', { key: 'data', value: null })
       commit('set', { key: 'config', value: getConfig(state) })
       const { data, domains } = await getData(state)
       commit('set', { key: 'data', value: data })
@@ -135,11 +137,12 @@ function getConfig ({ gem, perspective }) {
       return config.runs.map(r => {
         let { model, scenario } = r
         let type = r.type || (funnel ? perspective.params[p.name] !== option.name ? 'funnel' : 'funnel-select' : null)
-        Object.keys(option).filter(k => k !== 'name').forEach(k => {
+        const interpolations = Object.fromEntries(Object.keys(option).filter(k => k !== 'name').map(k => [k, option[k]]))
+        Object.keys(interpolations).forEach(k => {
           model = model.replaceAll(k, option[k])
           scenario = scenario.replaceAll(k, option[k])
         })
-        return { ...r, model, scenario, type }
+        return { ...r, model, scenario, type, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) } }
       })
     }).flat()
   })

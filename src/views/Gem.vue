@@ -19,18 +19,19 @@
         <MdParser :md="gem.description"/>
       </section> -->
       <section class="config-2 grid tint">
-        <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison || p.type === 'funnel')" :key="`p-${i}`">
+        <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
           <div class="label tiny">{{ p.name }}</div>
           <SensesSelect :options="p.options.map(o => o.name)" v-model="perspective.params[p.name]"/>
         </div>
       </section>
-      <section class="key tint">
-          <div class="tiny label">{{ perspective.comparison }}</div>
+      <section class="key grid tint">
+        <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="param.type !== 'funnel'"/>
+          <!-- <div class="tiny label">{{ perspective.comparison }}</div>
           <div class="cats">
             <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
               {{ cat.name }}
             </span>
-          </div>
+          </div> -->
           <!-- <div class="tiny label">Models/Scenarios</div>
           <span v-for="(r, i) in config.runs" :key="`r-${i}`"
             class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
@@ -52,7 +53,7 @@
           </div>
           <div class="panels grid">
             <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
-              :number-format="config.numberFormat" :highlight="highlight"
+              :number-format="config.numberFormat" :highlight="activeCats" :param="param"
               :domain="synchronize ? domains[p.runs[0].unit] : null"/>
           </div>
         </div>
@@ -163,6 +164,7 @@
 <script>
 import SensesSelect from 'library/src/components/SensesSelect.vue'
 import SensesRadio from 'library/src/components/SensesRadio.vue'
+import OptionKey from '@/components/OptionKey.vue'
 import ChartLine from '@/components/ChartLine.vue'
 import MdParser from '@/components/MdParser.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
@@ -175,10 +177,12 @@ export default {
       synchronize: true,
       question: null,
       comparison: null,
-      params: {}
+      params: {},
+      activeCats: {}
     }
   },
   components: {
+    OptionKey,
     ChartLine,
     SensesSelect,
     SensesRadio,
@@ -196,10 +200,15 @@ export default {
       const { gem } = this
       return gem.params.map(p => p.name)
     },
-    cats () {
+    param () {
       const { gem, perspective } = this
-      const param = gem.params.find(p => p.name === perspective.comparison)
-      return param.type === 'funnel' ? [param.options.find(o => o.name === perspective.params[param.name])] : param.options
+      if (gem === null) return
+      return gem.params.find(p => p.name === perspective.comparison)
+    },
+    cats () {
+      const { gem, param, colors } = this
+      if (gem === null) return
+      return param.options.map((o, i) => ({ ...o, label: o.name, color: param.type === 'funnel' ? undefined : colors[i] }))
     },
     docs () {
       const { metadata } = this
@@ -243,6 +252,10 @@ export default {
   watch: {
     '$route.params.gem' () {
       this.initGem(this.$route.params.gem)
+    },
+    cats (cats) {
+      const { param } = this
+      this.activeCats = Object.fromEntries(cats.map((c, i) => [c.name, i === 0 || param.type !== 'funnel']))
     },
     // 'options': { // force update options in state
     //   handler (o) {
@@ -406,13 +419,8 @@ $column: 240px;
     position: sticky;
 
     .cats {
-      margin-left: $spacing / -8;
-      margin-bottom: $spacing / -8;
-      .cat {
-        text-align: center;
-        margin-left: $spacing / 8;
-        margin-bottom: $spacing / 8;
-      }
+      grid-column-start: 1;
+      grid-column-end: 5;
     }
   }
 
