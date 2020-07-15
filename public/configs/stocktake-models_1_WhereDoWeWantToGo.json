@@ -109,6 +109,7 @@
     }]
   }, {
     "name": "Warming Level",
+    "radio": true,
     "options": [{
       "name": "1.5°C",
       "$warming": "1p5C"
@@ -118,6 +119,7 @@
     }]
   }, {
     "name": "CDR Availibility",
+    "radio": true,
     "options": [{
       "name": "Full",
       "$cdr": "full"

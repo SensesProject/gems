@@ -21,93 +21,99 @@
       <section class="config-2 grid tint">
         <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
           <div class="label tiny">{{ p.name }}</div>
-          <SensesSelect :options="p.options.map(o => o.name)" v-model="perspective.params[p.name]"/>
+          <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.map(o => o.name)" v-model="perspective.params[p.name]"/>
+        </div>
+        <div class="param" v-if="!config.absoluteAxes">
+          <div class="tiny label axis">Axes</div>
+          <SensesRadio :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
         </div>
       </section>
-      <section class="key grid tint">
-        <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="param.type !== 'funnel'"/>
-          <!-- <div class="tiny label">{{ perspective.comparison }}</div>
-          <div class="cats">
-            <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
-              {{ cat.name }}
-            </span>
-          </div> -->
-          <!-- <div class="tiny label">Models/Scenarios</div>
-          <span v-for="(r, i) in config.runs" :key="`r-${i}`"
-            class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
-            @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
-            <span class="glyph-dot" :class="r.color"/>
-            {{r[0]}} -- {{r[1]}}
-          </span> -->
-          <!-- <span v-if="current.funnel != null"
-            class="tiny" :class="{ transparent: highlight != null }">
-            <span class="glyph-rect funnel"/>
-            The shaded area shows the model spread.
-          </span> -->
-      </section>
-      <section class="charts">
-        <div class="group " v-for="(g, i) in groups" :key="`g-${i}`">
-          <div class="group-title">
-            <img v-if="g.img" :src="g.img"/>
-            <h3 v-if="g.label">{{g.label}}</h3>
+      <div class="section-wrapper">
+        <section class="key grid tint">
+          <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="param.type !== 'funnel'"/>
+            <!-- <div class="tiny label">{{ perspective.comparison }}</div>
+            <div class="cats">
+              <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
+                {{ cat.name }}
+              </span>
+            </div> -->
+            <!-- <div class="tiny label">Models/Scenarios</div>
+            <span v-for="(r, i) in config.runs" :key="`r-${i}`"
+              class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
+              @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
+              <span class="glyph-dot" :class="r.color"/>
+              {{r[0]}} -- {{r[1]}}
+            </span> -->
+            <!-- <span v-if="current.funnel != null"
+              class="tiny" :class="{ transparent: highlight != null }">
+              <span class="glyph-rect funnel"/>
+              The shaded area shows the model spread.
+            </span> -->
+        </section>
+        <section class="charts">
+          <div class="group " v-for="(g, i) in groups" :key="`g-${i}`">
+            <div class="group-title">
+              <img v-if="g.img" :src="g.img"/>
+              <h3 v-if="g.label">{{g.label}}</h3>
+            </div>
+            <div class="panels grid">
+              <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
+                :number-format="config.numberFormat" :highlight="activeCats" :param="param"
+                :domain="synchronize ? domains[p.runs[0].unit] : null"/>
+            </div>
           </div>
-          <div class="panels grid">
-            <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
-              :number-format="config.numberFormat" :highlight="activeCats" :param="param"
-              :domain="synchronize ? domains[p.runs[0].unit] : null"/>
-          </div>
+        </section>
+      </div>
+      <section class="grid meta">
+        <div v-if="gem.workspace" class="workspace">
+          <ul class="border">
+            <a :href="gem.workspace" class="link" target="_blank">
+              <li>Open workspace in IIASA Scenario Explorer ↗</li>
+            </a>
+          </ul>
+        </div>
+        <div class="metadata">
+          <h3>Metadata</h3>
+          <table>
+            <template v-for="m in docs">
+              <template v-if="m.items.length > 0">
+                <thead :key="`m1-${m.name}`">
+                  <tr>
+                    <th>{{ m.name }}</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody :key="`m2-${m.name}`">
+                  <tr
+                    v-for="(d, i) in m.items"
+                    :key="`d-${i}`">
+                    <td>{{dict[d.name] || d.name}}</td>
+                    <td v-html="d.description"></td>
+                  </tr>
+                </tbody>
+              </template>
+            </template>
+          </table>
+        </div>
+        <div v-if="related" class="related">
+          <template v-if="related.module.link != null">
+            <h3>Related Module</h3>
+            <ul>
+              <a class="link" :href="related.module.link">
+                <li class="invert">Read the module</li>
+              </a>
+            </ul>
+            <br>
+          </template>
+          <h3>Related GEMs</h3>
+          <ul class="border">
+            <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
+              <li>{{ link.title }}</li>
+            </router-link>
+          </ul>
         </div>
       </section>
     </template>
-    <section class="grid meta">
-      <div v-if="gem.workspace" class="workspace">
-        <ul class="border">
-          <a :href="gem.workspace" class="link" target="_blank">
-            <li>Open workspace in IIASA Scenario Explorer ↗</li>
-          </a>
-        </ul>
-      </div>
-      <div class="metadata">
-        <h3>Metadata</h3>
-        <table>
-          <template v-for="m in docs">
-            <template v-if="m.items.length > 0">
-              <thead :key="`m1-${m.name}`">
-                <tr>
-                  <th>{{ m.name }}</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody :key="`m2-${m.name}`">
-                <tr
-                  v-for="(d, i) in m.items"
-                  :key="`d-${i}`">
-                  <td>{{dict[d.name] || d.name}}</td>
-                  <td v-html="d.description"></td>
-                </tr>
-              </tbody>
-            </template>
-          </template>
-        </table>
-      </div>
-      <div v-if="related" class="related">
-        <template v-if="related.module.link != null">
-          <h3>Related Module</h3>
-          <ul>
-            <a class="link" :href="related.module.link">
-              <li class="invert">Read the module</li>
-            </a>
-          </ul>
-          <br>
-        </template>
-        <h3>Related GEMs</h3>
-        <ul class="border">
-          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
-            <li>{{ link.title }}</li>
-          </router-link>
-        </ul>
-      </div>
-    </section>
     <!-- <div class="grid grid-test">
       <div/>
       <div/>
@@ -302,7 +308,7 @@ $column: 240px;
   }
 
   section.tint {
-    background: getColor(gray, 90);
+    background: transparentize(getColor(gray, 90), 0.02);
     @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or(backdrop-filter: saturate(180%) blur(20px))) {
       background: transparentize(getColor(gray, 90), 0.15);
       -webkit-backdrop-filter: saturate(180%) blur(10px);
@@ -408,6 +414,14 @@ $column: 240px;
         }
       }
     }
+    .senses-radio {
+      width: 100%;
+      display: block;
+      .radio label input + span {
+        line-height: inherit;
+        padding: 0 $spacing / 8;
+      }
+    }
   }
 
   .key {
@@ -420,6 +434,10 @@ $column: 240px;
     // }
     top: $spacing * 2;
     position: sticky;
+
+    &.tint {
+      margin-top: 1px;
+    }
 
     .cats {
       grid-column-start: 1;
