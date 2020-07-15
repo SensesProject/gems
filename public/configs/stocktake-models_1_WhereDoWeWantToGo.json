@@ -57,31 +57,41 @@
       "name": "R5 ASIA - Emissions decline",
       "icon": "R5-ASIA",
       "config": {
-        "regions": ["R5|ASIA"]
+        "regions": [
+          {"name": "Asia", "value": "R5|ASIA"}
+        ]
       }
     }, {
       "name": "R5 OECD90+EU - Emissions decline",
       "icon": "R5-OECD90+EU",
       "config": {
-        "regions": ["R5|OECD90+EU"]
+        "regions": [
+          {"name": "OECD90 & EU", "value": "R5|OECD90+EU"}
+        ]
       }
     }, {
       "name": "R5 LAM - Emissions decline",
       "icon": "R5-LAM",
       "config": {
-        "regions": ["R5|LAM"]
+        "regions": [
+          {"name": "LAM", "value": "R5|LAM"}
+        ]
       }
     }, {
       "name": "R5 MAF - Emissions decline",
       "icon": "R5-MAF",
       "config": {
-        "regions": ["R5|MAF"]
+        "regions": [
+          {"name": "MAF", "value": "R5|MAF"}
+        ]
       }
     }, {
       "name": "R5 REF - Emissions decline",
       "icon": "R5-REF",
       "config": {
-        "regions": ["R5|REF"]
+        "regions": [
+          {"name": "REF", "value": "R5|REF"}
+        ]
       }
     }]
   }],

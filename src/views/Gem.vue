@@ -59,6 +59,55 @@
         </div>
       </section>
     </template>
+    <section class="grid meta">
+      <div v-if="gem.workspace" class="workspace">
+        <ul class="border">
+          <a :href="gem.workspace" class="link" target="_blank">
+            <li>Open workspace in IIASA Scenario Explorer ↗</li>
+          </a>
+        </ul>
+      </div>
+      <div class="metadata">
+        <h3>Metadata</h3>
+        <table>
+          <template v-for="m in docs">
+            <template v-if="m.items.length > 0">
+              <thead :key="`m1-${m.name}`">
+                <tr>
+                  <th>{{ m.name }}</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody :key="`m2-${m.name}`">
+                <tr
+                  v-for="(d, i) in m.items"
+                  :key="`d-${i}`">
+                  <td>{{dict[d.name] || d.name}}</td>
+                  <td v-html="d.description"></td>
+                </tr>
+              </tbody>
+            </template>
+          </template>
+        </table>
+      </div>
+      <div v-if="related" class="related">
+        <template v-if="related.module.link != null">
+          <h3>Related Module</h3>
+          <ul>
+            <a class="link" :href="related.module.link">
+              <li class="invert">Read the module</li>
+            </a>
+          </ul>
+          <br>
+        </template>
+        <h3>Related GEMs</h3>
+        <ul class="border">
+          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
+            <li>{{ link.title }}</li>
+          </router-link>
+        </ul>
+      </div>
+    </section>
     <!-- <div class="grid grid-test">
       <div/>
       <div/>
@@ -110,53 +159,6 @@
             :number-format="config.numberFormat" :highlight="highlight"
             :domain="synchronize ? domains[p.runs[0].unit] : null"/>
         </div>
-      </div>
-      <div v-if="config.workspace" class="workspace">
-        <ul class="border">
-          <a :href="config.workspace" class="link" target="_blank">
-            <li>Open workspace in IIASA Scenario Explorer ↗</li>
-          </a>
-        </ul>
-      </div>
-      <div class="metadata">
-        <h3>Metadata</h3>
-        <table>
-          <template v-for="m in docs">
-            <template v-if="m.items.length > 0">
-              <thead :key="`m1-${m.name}`">
-                <tr>
-                  <th>{{ m.name }}</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody :key="`m2-${m.name}`">
-                <tr
-                  v-for="(d, i) in m.items"
-                  :key="`d-${i}`">
-                  <td>{{dict[d.name] || d.name}}</td>
-                  <td v-html="d.description"></td>
-                </tr>
-              </tbody>
-            </template>
-          </template>
-        </table>
-      </div>
-      <div v-if="related" class="related">
-        <template v-if="related.module.link != null">
-          <span class="mono tiny uppercase">More on that topic</span>
-          <ul>
-            <a class="link" :href="related.module.link">
-              <li class="invert">Read the module</li>
-            </a>
-          </ul>
-          <br>
-        </template>
-        <span class="mono tiny uppercase">Related GEMs</span>
-        <ul class="border">
-          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
-            <li>{{ link.title }}</li>
-          </router-link>
-        </ul>
       </div>
     </template>
   </div>
@@ -255,6 +257,7 @@ export default {
     },
     cats (cats) {
       const { param } = this
+      if (cats == null) return
       this.activeCats = Object.fromEntries(cats.map((c, i) => [c.name, i === 0 || param.type !== 'funnel']))
     },
     // 'options': { // force update options in state
@@ -598,70 +601,78 @@ $column: 240px;
   //   }
   // }
 
-  // .metadata {
-  //   width: 100%;
-  //   max-width: 600px;
-  //   margin-bottom: $spacing;
+  .meta {
+     > * {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      width: 100%;
+    }
+  }
 
-  //    table {
-  //     width: 100%;
-  //     margin: 0 -$spacing / 6;
+  .metadata {
+    width: 100%;
+    // max-width: 600px;
+    margin-bottom: $spacing;
 
-  //     thead th {
-  //       font-weight: $font-weight-bold;
-  //       padding: $spacing / 1.5 $spacing / 6 $spacing / 4;
-  //       border-bottom: 1px solid getColor(gray, 80);
-  //        margin-top: $spacing / 3;
-  //     }
+     table {
+      width: 100%;
+      margin: 0 -$spacing / 6;
 
-  //     tbody td {
-  //       border-bottom: 1px solid getColor(gray, 90);
-  //       padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
-  //     }
-  //   }
-  // }
-  // .related, .workspace {
-  //   width: 100%;
-  //   max-width: 600px;
-  //   margin-bottom: $spacing;
+      thead th {
+        font-weight: $font-weight-bold;
+        padding: $spacing / 1.5 $spacing / 6 $spacing / 4;
+        border-bottom: 1px solid getColor(gray, 80);
+         margin-top: $spacing / 3;
+      }
 
-  //   ul {
-  //     margin-top: $spacing / 8;
-  //     border-radius: $border-radius;
-  //     &.border {
-  //       border: 1px solid $color-pale-gray;
-  //     }
+      tbody td {
+        border-bottom: 1px solid getColor(gray, 90);
+        padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+      }
+    }
+  }
+  .related, .workspace {
+    width: 100%;
+    // max-width: 600px;
+    margin-bottom: $spacing;
 
-  //     .link {
-  //       li {
-  //         padding: $spacing / 4 $spacing / 2;
-  //         list-style: none;
-  //         border-bottom: 1px solid $color-pale-gray;
-  //         transition: background-color $transition;
-  //         &:hover {
-  //           background-color: getColor(gray, 90)
-  //         }
+    ul {
+      margin-top: $spacing / 8;
+      border-radius: $border-radius;
+      &.border {
+        border: 1px solid $color-pale-gray;
+      }
 
-  //         &.invert {
-  //           background-color: $color-neon;
-  //           border-radius: $border-radius;
-  //           &:hover {
-  //             background-color: getColor(neon, 40)
-  //           }
-  //         }
-  //       }
-  //       &:last-child {
-  //         li {
-  //           border-bottom: none;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  // .workspace {
-  //   ul {
-  //     text-align: center;
-  //   }
-  // }
+      .link {
+        li {
+          padding: $spacing / 4 $spacing / 2;
+          list-style: none;
+          border-bottom: 1px solid $color-pale-gray;
+          transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
+        }
+        &:last-child {
+          li {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+  .workspace {
+    ul {
+      text-align: center;
+    }
+  }
 }
 </style>
