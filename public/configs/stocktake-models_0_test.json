@@ -1,0 +1,62 @@
+{
+  "title": "Where do we want to go? How do emissions decline?",
+  "description": "",
+  "config": {
+    "runs": [
+      ["$model", "CD-LINKS_NPi2020_$warming"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How could a fossil phase out look like?",
+    "config": {
+      "variables": [
+        "Primary Energy|Nuclear",
+        "Primary Energy|Coal|w/o CCS" , 
+        "Primary Energy|Coal|w/ CCS",
+        "Primary Energy|Gas|w/o CCS",
+        "Primary Energy|Gas|w/ CCS", 
+        "Primary Energy|Oil|w/o CCS",
+        "Primary Energy|Oil|w/ CCS"
+      ]
+    }
+  }, {
+    "name": "How could low-carbon technologies ramp up?",
+      "config": {
+        "variables": [
+          "Primary Energy|Solar", 
+          "Primary Energy|Biomass|Modern|w/ CCS", 
+          "Primary Energy|Wind",
+          "Primary Energy|Biomass|Traditional"
+        ]
+      }
+  }],
+  "params": [{
+    "name": "Model",
+    "options": [{
+      "name": "REMIND-MAgPIE",
+      "$model": "REMIND-MAgPIE 1.7-3.0"
+    }, {
+      "name": "MESSAGEix-GLOBIOM",
+      "$model": "MESSAGEix-GLOBIOM 1.0"
+    }, {
+      "name": "AIM/CGE",
+      "$model": "AIM/CGE 2.1"
+    }, {
+      "name": "IMAGE",
+      "$model": "IMAGE 3.0.1"
+    }, {
+      "name": "WITCH-GLOBIOM",
+      "$model": "WITCH-GLOBIOM 4.4"
+    }]
+  }, {
+    "name": "Warming Level",
+    "options": [{
+      "name": "1.5°C",
+      "$warming": "400"
+    },{
+      "name": "2°C",
+      "$warming": "1000"
+    }]
+  }]
+}
