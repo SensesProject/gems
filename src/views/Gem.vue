@@ -78,6 +78,13 @@
             </a>
           </ul>
         </div>
+        <div v-if="data" class="download">
+          <ul class="border">
+            <a class="link" :href="download" download="data.csv">
+              <li>Download Data ↓</li>
+            </a>
+          </ul>
+        </div>
         <div class="metadata">
           <h3>Metadata</h3>
           <table>
@@ -183,6 +190,7 @@ import ChartLine from '@/components/ChartLine.vue'
 import MdParser from '@/components/MdParser.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
+import { csvFormat } from 'd3-dsv'
 export default {
   name: 'Gem',
   data () {
@@ -275,17 +283,45 @@ export default {
         gems: relatedGems,
         module
       }
+    },
+    download () {
+      const data = this.data.map(p => {
+        return p.runs.map(r => {
+          return {
+            region: p.region,
+            variable: p.variable,
+            unit: r.unit,
+            model: r.model,
+            scenario: r.scenario,
+            ...Object.fromEntries(r.series.map(y => [y.year, y.value]))
+          }
+        })
+      }).flat()
+
+      const attrKeys = ['model', 'scenario', 'region', 'variable', 'unit']
+      const keys = [...new Set(data.map(d => Object.keys(d)).flat())].sort().filter(k => attrKeys.find(k2 => k === k2) == null)
+
+      return encodeURI(`data:text/csv;charset=utf-8,${csvFormat(data, [...attrKeys, ...keys])}`)
+      // var encodedUri = encodeURI(csvContent)
+      // var link = document.createElement('a')
+      // link.setAttribute('href', encodedUri)
+      // link.setAttribute('download', 'data.csv')
+      // document.body.appendChild(link) // Required for FF
+      // link.click()
     }
   },
   methods: {
     ...mapActions(['initGem', 'initSession'])
   },
   created () {
-    this.initSession(this.$route.params.gem)
+    this.initSession(this.$route.params)
   },
   watch: {
-    '$route.params.gem' () {
-      this.initGem(this.$route.params.gem)
+    '$route.params.gem': {
+      handler () {
+        this.initGem(this.$route.params)
+      },
+      deep: true
     },
     cats (cats) {
       const { param } = this
@@ -700,7 +736,7 @@ $column: 240px;
       }
     }
   }
-  .related, .workspace {
+  .related, .workspace, .download {
     width: 100%;
     // max-width: 600px;
     margin-bottom: $spacing;
@@ -738,10 +774,13 @@ $column: 240px;
       }
     }
   }
-  .workspace {
+  .workspace, .download {
     ul {
       text-align: center;
     }
+  }
+  .workspace {
+    margin: 0;
   }
 }
 </style>
