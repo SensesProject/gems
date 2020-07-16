@@ -53,7 +53,7 @@ export default new Vuex.Store({
         value: await fetch(`./gems.json`).then(r => r.json())
       })
     },
-    async initSession ({ commit, state, dispatch }, gemId) {
+    async initSession ({ commit, state, dispatch }, param) {
       commit('set', { key: 'config', value: null })
       if (state.token == null) {
         commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
@@ -65,11 +65,11 @@ export default new Vuex.Store({
         commit('set', { key: 'models', value: await fetch(`${url}/models`, options).then(r => r.json()) })
         commit('set', { key: 'scenarios', value: await fetch(`${url}/scenarios`, options).then(r => r.json()) })
       }
-      dispatch('initGem', gemId)
+      dispatch('initGem', param)
     },
-    async initGem ({ commit }, gemId) {
+    async initGem ({ commit }, param) {
       commit('set', { key: 'gem', value: null })
-      const gem = await fetch(`./configs/${gemId}.json`).then(r => r.json()).catch(e => {
+      const gem = await fetch(`./configs/${param.module}/${param.gem}.json`).then(r => r.json()).catch(e => {
         // console.error('failed to load gem config')
       })
       commit('set', { key: 'gem', value: gem })
