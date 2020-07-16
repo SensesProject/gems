@@ -1,6 +1,5 @@
 {
   "title": "Where do we want to go? How do emissions decline?",
-  "x-description": "**You can explore here:** \n - What are the major greenhousegas emittors? \n - Which sectors and major economies need to change most?<br></br>This information can be investigated for \n - Different warming levels \n - With full or reduced availibility of carbon dioxide removal (CDR) technologies",
   "description": "Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/885fb33b-557a-44f6-bd04-4532cffc4c2f",
   "config": {
