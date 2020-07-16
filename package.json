@@ -15,6 +15,7 @@
     "dompurify": "^2.0.8",
     "library": "github:SensesProject/library",
     "marked": "^0.7.0",
+    "sanitize-filename": "^1.6.3",
     "unfetch": "^4.1.0",
     "vue": "^2.6.10",
     "vue-resize-directive": "^1.2.0",

@@ -80,7 +80,7 @@
         </div>
         <div v-if="data" class="download">
           <ul class="border">
-            <a class="link" :href="download" download="data.csv">
+            <a class="link" :href="download" :download="filename">
               <li>Download Data ↓</li>
             </a>
           </ul>
@@ -191,6 +191,7 @@ import MdParser from '@/components/MdParser.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
 import { csvFormat } from 'd3-dsv'
+import sanitize from 'sanitize-filename'
 export default {
   name: 'Gem',
   data () {
@@ -302,12 +303,17 @@ export default {
       const keys = [...new Set(data.map(d => Object.keys(d)).flat())].sort().filter(k => attrKeys.find(k2 => k === k2) == null)
 
       return encodeURI(`data:text/csv;charset=utf-8,${csvFormat(data, [...attrKeys, ...keys])}`)
-      // var encodedUri = encodeURI(csvContent)
-      // var link = document.createElement('a')
-      // link.setAttribute('href', encodedUri)
-      // link.setAttribute('download', 'data.csv')
-      // document.body.appendChild(link) // Required for FF
-      // link.click()
+    },
+    filename () {
+      const { $route, questions, perspective } = this
+      const segments = [
+        $route.params.module,
+        $route.params.gem,
+        `Q${questions.indexOf(perspective.question) + 1}`,
+        perspective.comparison,
+        Object.keys(perspective.params).map(p => p === perspective.comparison ? null : perspective.params[p]).filter(p => p != null).join('-')
+      ]
+      return sanitize(`${segments.join('_')}.csv`)
     }
   },
   methods: {
