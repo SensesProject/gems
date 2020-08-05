@@ -29,7 +29,7 @@
         </div>
         <div class="param">
           <div class="tiny label axis">Layout</div>
-          <SensesRadio :options="[{label: 'small', value: false}, {label: 'large', value: true}]" v-model="large"/>
+          <SensesRadio :options="['small', {label: 'default', value: 'medium'}, 'large', 'huge']" v-model="size"/>
         </div>
       </section>
       <div class="section-wrapper">
@@ -60,11 +60,11 @@
               <img v-if="g.icon" :src="g.icon"/>
               <h3 v-if="g.name">{{g.name}}</h3>
             </div>
-            <div class="panels grid" :class="{large}">
+            <div class="panels grid" :class="[size]">
               <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
                 :number-format="config.numberFormat" :highlight="activeCats" :param="param"
-                :height="large ? 400 : 200"
-                :large="large"
+                :height="size === 'huge' ? 500 : size === 'large' ? 400 : size === 'medium' ? 300 : 200"
+                :large="size === 'huge'"
                 :domain="synchronize ? domains[p.runs[0].unit] : null"/>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default {
     return {
       highlight: null,
       synchronize: true,
-      large: false,
+      // large: false,
       question: null,
       comparison: null,
       params: {},
@@ -215,7 +215,7 @@ export default {
   computed: {
     ...mapState(['gem', 'config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
-    ...bindState(['options', 'perspective']),
+    ...bindState(['options', 'perspective', 'size']),
     questions () {
       const { gem } = this
       return gem.questions.map(p => p.name)
@@ -366,8 +366,6 @@ export default {
   }
 }
 
-$column: 240px;
-
 .gem {
   padding: $spacing / 2;
 
@@ -391,9 +389,14 @@ $column: 240px;
   }
 
   .grid {
+    $column: 240px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     max-width: $column * 7;
+
+    &.tint {
+      max-width: calc(#{$column * 7} + #{$spacing});
+    }
     @include min-width($column * 2) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -413,24 +416,32 @@ $column: 240px;
     gap: $spacing / 2;
 
     &.large {
+      $column: 480px;
       grid-template-columns: repeat(1, 1fr);
-      max-width: $column * 7;
       @include min-width($column * 2) {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
       @include min-width($column * 3) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &.huge {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &.medium {
+      $column: 320px;
+      grid-template-columns: repeat(1, 1fr);
+      @include min-width($column * 2) {
         grid-template-columns: repeat(2, 1fr);
+      }
+      @include min-width($column * 3) {
+        grid-template-columns: repeat(3, 1fr);
       }
       @include min-width($column * 4) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      @include min-width($column * 5) {
         grid-template-columns: repeat(3, 1fr);
       }
-      @include min-width($column * 6) {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      // gap: $spacing;
     }
 
     &.grid-test {
