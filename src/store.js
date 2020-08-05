@@ -140,8 +140,8 @@ function getConfig ({ gem, perspective }) {
         let type = r.type || (funnel ? perspective.params[p.name] !== option.name ? 'funnel' : 'funnel-select' : null)
         const interpolations = Object.fromEntries(Object.keys(option).filter(k => k !== 'name').map(k => [k, option[k]]))
         Object.keys(interpolations).forEach(k => {
-          model = model.replaceAll(k, option[k])
-          scenario = scenario.replaceAll(k, option[k])
+          model = model.replace(k, option[k])
+          scenario = scenario.replace(k, option[k])
         })
         return { ...r, model, scenario, type, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) } }
       })

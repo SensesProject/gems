@@ -23,7 +23,7 @@
           <div class="label tiny">{{ p.name }}</div>
           <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.map(o => o.name)" v-model="perspective.params[p.name]"/>
         </div>
-        <div class="param" v-if="!config.absoluteAxes">
+        <div class="param" v-if="config && !config.absoluteAxes">
           <div class="tiny label axis">Axes</div>
           <SensesRadio :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
         </div>
