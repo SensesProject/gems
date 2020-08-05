@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { getUrlToResources } from 'library/src/assets/js/utils'
+
 Vue.use(Vuex)
 
 const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1'
@@ -22,7 +24,7 @@ export default new Vuex.Store({
     current: null,
     domains: {},
     gems: [],
-    modules: [],
+    modules: null,
     size: 'small',
     // new
     perspective: {
@@ -56,6 +58,7 @@ export default new Vuex.Store({
     },
     async initSession ({ commit, state, dispatch }, param) {
       commit('set', { key: 'config', value: null })
+      commit('set', { key: 'modules', value: await fetch(getUrlToResources('settings/modules.json')).then(r => r.json()) })
       if (state.token == null) {
         commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
       }

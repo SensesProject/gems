@@ -72,6 +72,7 @@
       </div>
       <section class="grid links">
         <div v-if="data" class="download">
+          <h3>Data</h3>
           <ul>
             <a class="link invert" :href="download" :download="filename">
               <li>Download Data ↓</li>
@@ -88,11 +89,11 @@
       </section>
       <section class="grid more">
         <div v-if="related" class="related">
-          <template v-if="related.module.link != null">
+          <template v-if="related.link != null">
             <h3>Related Module</h3>
-            <ul>
-              <a class="link" :href="related.module.link">
-                <li class="invert">Read the module</li>
+            <ul class="border">
+              <a class="link" :href="related.link">
+                <li>Read the module</li>
               </a>
             </ul>
             <br>
@@ -196,6 +197,7 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
 import { csvFormat } from 'd3-dsv'
 import sanitize from 'sanitize-filename'
+import { getUrlToResources } from 'library/src/assets/js/utils'
 export default {
   name: 'Gem',
   data () {
@@ -277,16 +279,24 @@ export default {
       // })
     },
     related () {
-      const { $route, gems } = this
+      const { $route, gems, modules } = this
       const module = gems.find(g => g.dir === $route.params.module)
       if (module == null) return null
       const relatedGems = module.gems.filter(gem => gem.id !== $route.params.gem).map(gem => ({
         title: gem.title || gem.id,
         path: `/${module.dir}/${gem.id}`
       }))
+      let link = null
+      if (modules != null) {
+        const m = modules.modules.find(m => m.id === module.id)
+        if (m) {
+          link = getUrlToResources(m.link)
+        }
+      }
       return {
         gems: relatedGems,
-        module
+        module,
+        link
       }
     },
     download () {
@@ -737,6 +747,7 @@ export default {
       .workspace {
         grid-column-start: 2;
         grid-column-end: 4;
+        align-self: end;
       }
       .download {
         grid-column-start: 1;
