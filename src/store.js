@@ -341,7 +341,7 @@ async function getMetadata ({ token, regions, scenarios, models, config }) {
       ...m.map(d => d.key)
     ] })
   }).then(r => r.json()).then(docs => docs.map(d => {
-    const descr = d.description.match(/<\/h1>\s(.+)/)
+    const descr = d.description.match(/<\/h1>\s([\S\s]+)/)
     const category = d.key.match(/^\/([^/]+)/)[1]
     return {
       category,

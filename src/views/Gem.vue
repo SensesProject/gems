@@ -70,44 +70,23 @@
           </div>
         </section>
       </div>
-      <section class="grid meta">
-        <div v-if="gem.workspace" class="workspace">
-          <ul class="border">
-            <a :href="gem.workspace" class="link" target="_blank">
-              <li>Open workspace in IIASA Scenario Explorer ↗</li>
-            </a>
-          </ul>
-        </div>
+      <section class="grid links">
         <div v-if="data" class="download">
-          <ul class="border">
-            <a class="link" :href="download" :download="filename">
+          <ul>
+            <a class="link invert" :href="download" :download="filename">
               <li>Download Data ↓</li>
             </a>
           </ul>
         </div>
-        <div class="metadata">
-          <h3>Metadata</h3>
-          <table>
-            <template v-for="m in docs">
-              <template v-if="m.items.length > 0">
-                <thead :key="`m1-${m.name}`">
-                  <tr>
-                    <th>{{ m.name }}</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody :key="`m2-${m.name}`">
-                  <tr
-                    v-for="(d, i) in m.items"
-                    :key="`d-${i}`">
-                    <td>{{dict[d.name] || d.name}}</td>
-                    <td v-html="d.description"></td>
-                  </tr>
-                </tbody>
-              </template>
-            </template>
-          </table>
+        <div v-if="gem.workspace" class="workspace">
+          <ul>
+            <a :href="gem.workspace" class="link invert" target="_blank">
+              <li>Open workspace in IIASA Scenario Explorer ↗</li>
+            </a>
+          </ul>
         </div>
+      </section>
+      <section class="grid more">
         <div v-if="related" class="related">
           <template v-if="related.module.link != null">
             <h3>Related Module</h3>
@@ -124,6 +103,31 @@
               <li>{{ link.title }}</li>
             </router-link>
           </ul>
+        </div>
+      </section>
+      <section class="grid meta tint">
+        <div class="metadata">
+          <h3>Metadata</h3>
+          <table>
+            <template v-for="m in docs">
+              <template v-if="m.items.length > 0">
+                <thead :key="`m1-${m.name}`">
+                  <tr>
+                    <th>{{ m.name }}</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody :key="`m2-${m.name}`">
+                  <tr
+                    v-for="(d, i) in m.items"
+                    :key="`d-${i}`">
+                    <td class="bold">{{dict[d.name] || d.name}}</td>
+                    <td v-html="d.description"></td>
+                  </tr>
+                </tbody>
+              </template>
+            </template>
+          </table>
         </div>
       </section>
     </template>
@@ -367,7 +371,7 @@ export default {
 }
 
 .gem {
-  padding: $spacing / 2;
+  padding: $spacing / 2 $spacing / 2 0 $spacing / 2;
 
   section + section {
     margin-top: $spacing / 2;
@@ -723,7 +727,25 @@ export default {
   //   }
   // }
 
-  .meta {
+  .links {
+    > * {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      width: 100%;
+    }
+    @include min-width(720px) {
+      .workspace {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+      .download {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+    }
+  }
+
+  .meta, .more {
      > * {
       grid-column-start: 1;
       grid-column-end: 4;
@@ -743,20 +765,25 @@ export default {
       thead th {
         font-weight: $font-weight-bold;
         padding: $spacing / 1.5 $spacing / 6 $spacing / 4;
-        border-bottom: 1px solid getColor(gray, 80);
+        border-bottom: 1px solid getColor(gray, 70);
          margin-top: $spacing / 3;
       }
 
       tbody td {
-        border-bottom: 1px solid getColor(gray, 90);
+        border-bottom: 1px solid getColor(gray, 80);
         padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+        vertical-align: initial;
+
+        &.bold {
+          font-weight: $font-weight-bold;
+        }
       }
     }
   }
   .related, .workspace, .download {
     width: 100%;
     // max-width: 600px;
-    margin-bottom: $spacing;
+    // margin-bottom: $spacing;
 
     ul {
       margin-top: $spacing / 8;
@@ -786,6 +813,16 @@ export default {
         &:last-child {
           li {
             border-bottom: none;
+          }
+        }
+        &.invert {
+          li {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40);
+              color: $color-white;
+            }
           }
         }
       }
