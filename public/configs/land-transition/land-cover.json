@@ -1,0 +1,32 @@
+{
+  "title": "Land Cover Changes",
+  "description": "",
+  "config": {
+    "runs": [
+      ["MESSAGE-GLOBIOM 1.0", "SSP2-$rcp"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How does land cover change?",
+    "config": {
+      "variables": [
+        {"value": "Land Cover|Cropland", "name": "Cropland"},
+        {"value": "Land Cover|Pasture", "name": "Pasture"},
+        {"value": "Land Cover|Forest", "name": "Forest"},
+        {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"}
+      ]
+    }
+  }],
+  "params": [{
+    "name": "Scenario",
+    "radio": true,
+    "options": [{
+      "name": "SSP2-Baseline",
+      "$rcp": "Baseline"
+    }, {
+      "name": "SSP2-1.9",
+      "$rcp": "19"
+    }]
+  }]
+}

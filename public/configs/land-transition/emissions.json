@@ -1,0 +1,43 @@
+{
+  "title": "Emissions from Agriculture, Forests and Other Land Use",
+  "description": "",
+  "config": {
+    "runs": [
+      ["MESSAGE-GLOBIOM 1.0", "SSP2-$rcp"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How can AFOLU help Mitigation?",
+    "groups": [{
+      "name": "Emissions from AFOLU",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2|AFOLU", "name": "CO2"},
+          {"value": "Emissions|CH4|AFOLU", "name": "CH4"},
+          {"value": "Emissions|N2O|AFOLU", "name": "N2O"}
+        ]
+      }
+    }, {
+      "name": "Total Emissions",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2", "name": "CO2"},
+          {"value": "Emissions|CH4", "name": "CH4"},
+          {"value": "Emissions|N2O", "name": "N2O"}
+        ]
+      }
+    }]
+  }],
+  "params": [{
+    "name": "Scenario",
+    "radio": true,
+    "options": [{
+      "name": "SSP2-Baseline",
+      "$rcp": "Baseline"
+    }, {
+      "name": "SSP2-1.9",
+      "$rcp": "19"
+    }]
+  }]
+}

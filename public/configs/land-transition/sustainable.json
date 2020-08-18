@@ -1,0 +1,62 @@
+{
+  "title": "Land Cover Changes",
+  "description": "",
+  "config": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_1p5C_$scenario"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How does land cover change?",
+    "groups": [{
+      "name": "Demand-side mitigation",
+      "config": {
+        "variables": [
+          {"value": "Food Demand|Crops", "name": "Demand for Crops"},
+          {"value": "Food Demand|Livestock", "name": "Demand for Livestock"},
+          {"value": "Land Cover|Cropland", "name": "Food Crops"},
+          {"value": "Land Cover|Pasture", "name": "Pasture"}
+        ]
+      }
+    }, {
+      "name": "Land-based mitigation",
+      "config": {
+        "variables": [
+          {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"},
+          {"value": "Land Cover|Forest|Afforestation and Reforestation", "name": "Afforestation"},
+          {"value": "Primary Energy|Biomass", "name": "Biomass"}
+        ]
+      }
+    }, {
+      "name": "Emissions",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2|AFOLU", "name": "AFOLU CO₂ Emissions"},
+          {"value": "Emissions|CH4|AFOLU", "name": "AFOLU CH₄ Emissions"},
+          {"value": "Emissions|N2O|AFOLU", "name": "AFOLU N₂O Emissions"},
+          {"value": "Carbon Sequestration|CCS|Biomass", "name": "Carbon Sequestration from Biomass"}
+        ]
+      }
+    }, {
+      "name": "Prices",
+      "config": {
+        "variables": [
+          {"value": "Price|Agriculture|Non-Energy Crops|Index", "name": "Price Index for Food Crops"},
+          {"value": "Price|Agriculture|Livestock|Index", "name": "Price Index for Livestock"}
+        ]
+      }
+    }]
+  }],
+  "params": [{
+    "name": "Scenario",
+    "radio": true,
+    "options": [{
+      "name": "Default",
+      "$scenario": "Def"
+    }, {
+      "name": "Sustainable",
+      "$scenario": "Sust"
+    }]
+  }]
+}
