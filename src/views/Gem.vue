@@ -788,6 +788,12 @@ export default {
         &.bold {
           font-weight: $font-weight-bold;
         }
+
+        ::v-deep {
+          h1, h2, h3 {
+            font-size: 1em;
+          }
+        }
       }
     }
   }
