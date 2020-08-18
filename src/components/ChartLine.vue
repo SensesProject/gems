@@ -305,9 +305,9 @@ export default {
   .title {
     font-weight: bold;
     hyphens: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
   }
 
   .warn {
