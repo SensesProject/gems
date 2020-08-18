@@ -21,7 +21,7 @@
 }, {
   "title": "Land Transition",
   "dir": "land-transition",
-  "id": "land-use",
+  "id": "land-transitions",
   "gems": [
     {"id": "emissions", "title": "Emissions from Agriculture, Forests and Other Land Use"},
     {"id": "land-cover", "title": "Land Cover Changes"},

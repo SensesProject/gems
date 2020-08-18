@@ -1,5 +1,5 @@
 {
-  "title": "Land Cover Changes",
+  "title": "Sustainable Policies",
   "description": "",
   "config": {
     "runs": [
@@ -8,7 +8,7 @@
     "regions": ["World"]
   },
   "questions": [{
-    "name": "How does land cover change?",
+    "name": "How does a set of sustainable policies compare?",
     "groups": [{
       "name": "Demand-side mitigation",
       "config": {
