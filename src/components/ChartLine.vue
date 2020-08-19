@@ -1,6 +1,6 @@
 <template>
   <div class="chart-line">
-    <div class="narrow" v-resize:debounce.initial="onResize">
+    <div class="narrow chart-container" v-resize:debounce.initial="onResize">
       <div class="title" :class="{tiny: !large}">{{ label }}</div>
       <svg v-if="runs.length > 0" width="100%" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()"
@@ -295,6 +295,12 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .chart-line {
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
   min-width: 0;
   // background: $color-neon;
   margin-bottom: $spacing;
