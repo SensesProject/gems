@@ -15,8 +15,8 @@
   "id": "transition-risk",
   "gems": [
     {"id": "model-assumptions_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
-    {"id": "model-assumptions_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"},
-    {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}
+    {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}, 
+    {"id": "model-assumptions_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"}
   ]
 }, {
   "title": "Land Transition",
