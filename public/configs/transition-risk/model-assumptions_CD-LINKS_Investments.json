@@ -35,7 +35,7 @@
       },
       "groups": [
         {
-          "name": "R5 ASIA - Emissions decline",
+          "name": "R5 ASIA - Required investments",
           "icon": "R5-ASIA",
           "config": {
             "regions": [
@@ -44,7 +44,7 @@
           }
         },
         {
-          "name": "R5 OECD90+EU - Emissions decline",
+          "name": "R5 OECD90+EU -  Required investments",
           "icon": "R5-OECD90+EU",
           "config": {
             "regions": [
@@ -53,7 +53,7 @@
           }
         },
         {
-          "name": "R5 LAM - Emissions decline",
+          "name": "R5 LAM -  Required investments",
           "icon": "R5-LAM",
           "config": {
             "regions": [
@@ -62,7 +62,7 @@
           }
         },
         {
-          "name": "R5 MAF - Emissions decline",
+          "name": "R5 MAF -  Required investments",
           "icon": "R5-MAF",
           "config": {
             "regions": [
@@ -71,7 +71,7 @@
           }
         },
         {
-          "name": "R5 REF - Emissions decline",
+          "name": "R5 REF -  Required investments",
           "icon": "R5-REF",
           "config": {
             "regions": [
@@ -85,7 +85,7 @@
       "name": "What are the investments into low-carbon electricity",
       "groups": [
         {
-          "name": "What are investments into low-carbon electricity production - RENEWABLES & NUCLEAR",
+          "name": "Investments into low-carbon electricity production - RENEWABLES & NUCLEAR",
           "config": {
             "variables": [
               "Investment|Energy Supply|Electricity|Solar",
@@ -104,7 +104,7 @@
           }
         },
         {
-          "name": "What are investments into low-carbon electricity production - CCS based technologies",
+          "name": "Investments into low-carbon electricity production - CCS based technologies",
           "config": {
             "variables": [
               "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
@@ -128,7 +128,7 @@
   ],
   "params": [
     {
-      "name": "Mitigation strategy",
+      "name": "Model",
       "type": "funnel",
       "options": [
         {

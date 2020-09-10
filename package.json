@@ -8,30 +8,30 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "core-js": "^2.6.11",
     "d3-dsv": "^1.2.0",
-    "d3-format": "^1.4.2",
-    "d3-scale": "^3.1.0",
+    "d3-format": "^1.4.5",
+    "d3-scale": "^3.2.2",
     "dompurify": "^2.0.8",
     "library": "github:SensesProject/library",
     "marked": "^0.7.0",
     "sanitize-filename": "^1.6.3",
     "unfetch": "^4.1.0",
-    "vue": "^2.6.10",
+    "vue": "^2.6.12",
     "vue-resize-directive": "^1.2.0",
-    "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vue-router": "^3.4.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.12.0",
-    "@vue/cli-plugin-eslint": "^3.12.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-service": "^4.2.3",
     "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "sass": "^1.19.0",
-    "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "sass": "^1.26.10",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.12"
   }
 }
