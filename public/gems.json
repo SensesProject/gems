@@ -4,7 +4,6 @@
   "id": "emissions-gap",
   "gems": [
     {"id": "model-assumptions_Pep", "title": "Basic assumptions in the Pep1p5 study"},
-    {"id": "stocktake-models_0_Test", "title": "Model Test"},
     {"id": "stocktake-models_1_WhereDoWeWantToGo", "title": "Where do we want to go? How do emissions decline?"},
     {"id": "stocktake-models_2_HowDoWeGetThere_Mitigation", "title": "How do we get there? How is the mitigation shaped?"},
     {"id": "stocktake-models_3_HowDoWeGetThere_Investment", "title": "How do we get there? Which investments are required?"}  

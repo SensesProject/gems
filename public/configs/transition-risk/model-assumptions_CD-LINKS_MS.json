@@ -5,7 +5,7 @@
   "config": {
     "runs": [
       [
-        "$scenario",
+        "$model",
         "CD-LINKS_NPi2020_$warming"
       ]
     ],
@@ -62,15 +62,15 @@
       "options": [
         {
           "name": "High solar share",
-          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+          "$model": "REMIND-MAgPIE 1.7-3.0"
         },
         {
           "name": "High gas share",
-          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+          "$model": "MESSAGEix-GLOBIOM 1.0"
         },
         {
           "name": "High efficiency and retrofit of fossil infrastructure",
-          "$scenario": "IMAGE 3.0.1",
+          "$model": "IMAGE 3.0.1",
           "hidden": true
         }
       ]

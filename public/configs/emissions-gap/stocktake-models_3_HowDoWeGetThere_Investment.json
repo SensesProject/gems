@@ -1,92 +1,97 @@
 {
   "title": "How do we get there (investments)?",
-  "description": " <br/> <b> You can explore here: </b> <br/> The means of implementation and support to achieve a well below 2°C warming target for different scenarios. <br/><br/> <ul> <li/> Which investments can shape a low carbon world? <li/> Which divestments would need to take place? </ul>  <br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
+  "description": " <br/> <b> You can explore here: </b> <br/> The means of implementation and support to achieve a well below 2°C warming target for different scenarios. <br/><br/> This information can be investigated for <ul> <li/> Different warming levels <li/> With full or reduced availibility of carbon dioxide removal (CDR) technologies </ul>",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/5b1c57bb-8ea1-4455-9f73-8cf43078f5b7",
-  "default": {
+  "config": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_NDC"],
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_netzero"],
-      ["REMIND-MAgPIE 1.7-3.0","PEP_${warming}_${cdr}_eff"]
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_$cdr_$policy"]
     ],
-    "regions": ["World"],
-    "primaryDimension": "scenarios"
+    "regions": ["World"]
   },
-  "dropdowns": [{
-    "label": "Exploration question",
-    "options": [{
-      "label": "Investments in low carbon technology",
-      "variables": [
-        "Investment|Energy Supply|Electricity|Solar",
-        "Investment|Energy Supply|Electricity|Wind",
-        "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
-        "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
-        "Investment|Energy Supply|Electricity|Hydro",
-        "Investment|Energy Supply|Electricity|Nuclear",
-        
-        "Investment|Energy Supply|Electricity|Electricity Storage",
-        "Investment|Energy Supply|Electricity|Transmission and Distribution"
-         
-      ],
-      "regions": ["World"],
-      "groups": [{
-        "label": "Investments in low-carbon technologies",
-        "size": 3
-      },{
-        "label": " ",
-        "size": 3
-      }, {
-        "label": "Investments in infrastructure",
-        "size": 2
-      }]
+  "questions": [{
+    "name": "How could investments in low carbon technology develop?",
+    "groups": [{
+      "name": "Investments in low-carbon technologies",
+      "config": {
+        "variables": [
+          "Investment|Energy Supply|Electricity|Solar",
+          "Investment|Energy Supply|Electricity|Wind",
+          "Investment|Energy Supply|Electricity|Biomass|w/ CCS"
+        ]
+      }
     },{
-      "label": "Investments into carbon capture and storage (CCS)",
+      "name": "",
+      "config": {
+        "variables": [ 
+          "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+          "Investment|Energy Supply|Electricity|Hydro",
+          "Investment|Energy Supply|Electricity|Nuclear"
+        ]
+      } 
+    },{
+      "name": "Investments in infrastructure",
+      "config": {
+        "variables": [ 
+          "Investment|Energy Supply|Electricity|Electricity Storage",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+        ]
+      } 
+    }]
+    },{ "name": "How could investments into carbon capture and storage (CCS) develop?",
+    "groups": [{
+      "name": "Investments into carbon capture and storage (CCS) ",
+      "config": {
       "variables": [
         "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
         "Investment|Energy Supply|Electricity|Coal|w/ CCS",
         "Investment|Energy Supply|Electricity|Gas|w/ CCS"
-      ],
-      "regions": ["World"]
-    },{
-      "label": "Divestment of unabated fossil fuels",
+      ]
+     }
+    }]
+  },{ "name": "How could divestment of unabated fossil fuels develop?",
+    "groups": [{
+      "name": "Divestment of unabated fossil fuels",
+      "config": {
       "variables": [
         "Investment|Energy Supply|Electricity|Coal|w/o CCS",
         "Investment|Energy Supply|Electricity|Oil|w/o CCS",
         "Investment|Energy Supply|Electricity|Gas|w/o CCS"
-      ],
-      "regions": ["World"]
-      }]
-    }, {
-      "label": "Availibility of carbon dioxide removal (CDR)",
-      "options": [{
-        "label": "Full CDR availibility",
-        "cdr": "full"
-      }, {
-        "label": "Limited CDR availibility",
-        "cdr": "red"
-      }]
-    }, {
-    "label": "Warming Level",
-    "options": [{
-      "label": "1.5°C",
-      "warming": "1p5C"
-    }, {
-      "label": "2°C",
-      "warming": "2C"
-    }]
-  } ], 
-  "dict": {
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_full_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_NDC": "REMIND-MAgPIE - PEP 2°C NDC, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_full_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, full CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_NDC": "REMIND-MAgPIE - PEP 1.5°C NDC, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_netzero": "REMIND-MAgPIE - PEP 1.5°C strengthened action, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_1p5C_red_eff": "REMIND-MAgPIE - PEP 1.5°C efficient cost pricing, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_NDC": "REMIND-MAgPIE - PEP 2°C NDC, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_netzero": "REMIND-MAgPIE - PEP 2°C strengthened action, reduced CDR availibility",
-    "REMIND-MAgPIE 1.7-3.0 | PEP_2C_red_eff": "REMIND-MAgPIE - PEP 2°C efficient cost pricing, reduced CDR availibility"
-    
+      ]
+     }
+  }]
   }
+],
+  "params": [{
+    "name": "Policy",
+    "options": [{
+      "name": "NDC",
+      "$policy": "NDC"
+    }, {
+      "name": "netzero",
+      "$policy": "netzero"
+    }, {
+      "name": "eff",
+      "$policy": "eff"
+    }]
+  }, {
+    "name": "Warming Level",
+    "radio": true,
+    "options": [{
+      "name": "1.5°C",
+      "$warming": "1p5C"
+    },{
+      "name": "2°C",
+      "$warming": "2C"
+    }]
+  }, {
+    "name": "CDR Availibility",
+    "radio": true,
+    "options": [{
+      "name": "Full",
+      "$cdr": "full"
+    }, {
+      "name": "Limited",
+      "$cdr": "red"
+    }]
+  }]
 }
