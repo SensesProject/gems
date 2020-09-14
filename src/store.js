@@ -57,6 +57,7 @@ export default new Vuex.Store({
       })
     },
     async initSession ({ commit, state, dispatch }, param) {
+      commit('set', { key: 'gem', value: null })
       commit('set', { key: 'config', value: null })
       commit('set', { key: 'modules', value: await fetch(getUrlToResources('settings/modules.json')).then(r => r.json()) })
       if (state.token == null) {
@@ -72,6 +73,7 @@ export default new Vuex.Store({
       dispatch('initGem', param)
     },
     async initGem ({ commit }, param) {
+      console.log('init gem')
       commit('set', { key: 'gem', value: null })
       const gem = await fetch(`./configs/${param.module}/${param.gem}.json`).then(r => r.json()).catch(e => {
         // console.error('failed to load gem config')
