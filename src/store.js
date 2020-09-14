@@ -73,7 +73,6 @@ export default new Vuex.Store({
       dispatch('initGem', param)
     },
     async initGem ({ commit }, param) {
-      console.log('init gem')
       commit('set', { key: 'gem', value: null })
       const gem = await fetch(`./configs/${param.module}/${param.gem}.json`).then(r => r.json()).catch(e => {
         // console.error('failed to load gem config')
@@ -139,17 +138,17 @@ function getConfig ({ gem, perspective }) {
   // string interpolation
   gem.params.forEach(p => {
     const options = p.options.filter(o => perspective.comparison === p.name || o.name === perspective.params[p.name])
-    const funnel = perspective.comparison === p.name && p.type === 'funnel'
+    const mono = perspective.comparison === p.name && p.monochrome
     config.runs = options.map(option => {
       return config.runs.map(r => {
         let { model, scenario } = r
-        let type = r.type || (funnel ? perspective.params[p.name] !== option.name ? 'funnel' : 'funnel-select' : null)
+        let monochrome = r.monochrome || mono
         const interpolations = Object.fromEntries(Object.keys(option).filter(k => k !== 'name').map(k => [k, option[k]]))
         Object.keys(interpolations).forEach(k => {
           model = model.replace(k, option[k])
           scenario = scenario.replace(k, option[k])
         })
-        return { ...r, model, scenario, type, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) } }
+        return { ...r, model, scenario, monochrome, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) } }
       })
     }).flat()
   })
@@ -193,9 +192,10 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
         ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === panel.variable && ts.region === panel.region
       )
       if (ts.length === 0) return null
+      // console.log(run.type)
       return {
         ...run,
-        color: run.type != null ? colors[0] : colors[i],
+        color: run.monochrome ? colors[0] : colors[i % 6],
         unit: ts[0].unit,
         series: ts.map(t => ({ year: t.year, value: t.value }))
       }

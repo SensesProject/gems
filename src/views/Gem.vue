@@ -34,7 +34,7 @@
       </section>
       <div class="section-wrapper">
         <section class="key grid tint">
-          <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="param.type !== 'funnel'"/>
+          <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="!param.singleSelect"/>
             <!-- <div class="tiny label">{{ perspective.comparison }}</div>
             <div class="cats">
               <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
@@ -238,7 +238,7 @@ export default {
     cats () {
       const { gem, param, colors } = this
       if (gem === null) return
-      return param.options.map((o, i) => ({ ...o, label: o.name, color: param.type === 'funnel' ? undefined : colors[i] }))
+      return param.options.map((o, i) => ({ ...o, label: o.name, color: param.monochrome ? 'yellow' : colors[i] }))
     },
     docs () {
       const { metadata } = this
@@ -346,7 +346,7 @@ export default {
     cats (cats) {
       const { param } = this
       if (cats == null) return
-      this.activeCats = Object.fromEntries(cats.map((c, i) => [c.name, i === 0 || param.type !== 'funnel']))
+      this.activeCats = Object.fromEntries(cats.map((c, i) => [c.name, i === 0 || !param.singleSelect]))
     },
     // 'options': { // force update options in state
     //   handler (o) {

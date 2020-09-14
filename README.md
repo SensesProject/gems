@@ -128,14 +128,16 @@ To offer a way to visually structure information, `questions` may als have a fie
 
 `params` require a `name` and an array of `options`. Each option is an Object with a name (which is shown to the users), and one or multiple string replacements. In this example the scenario template `PEP_$warming_full_NDC` is interpolated to `PEP_1p5C_full_NDC` or `PEP_2C_full_NDC` depending on the user setting, or if it's the parameter that is compared in the chart, both scenarios will be shown and the legend lists `1.5°C` and `2°C` as the scenarios listed.
 
-By default, `params` are shown as dropdowns, in some cases (2 to 3 options and short names) it is more user friendly to show them as `radio` buttons instead. If a param has many options (e.g. by offering a large variety of different models) it becomes difficult to show them all at once. By setting the `type` to `funnel` only one of the options is shown at once, while the others fade in to the background. An option using both `radio` and `type: funnel` would look like this:
+A couple of attributes change the appearance of options and scenario/model runs, all of them are not required and default to `false`. `radio` shows the options side by side instead of the dropdown menu. `funnel` draws a polygon underneath the model runs to highlight the range of all runs. `monochrome` displays all options and runs in yellow instead of individual colors. `singleSelect` prevents the user from selecting/inspecting multiple runs at once. Below is an example that employs all these options:
 
 ```
 …,
 "params": [{
   "name": "Warming Level",
-  "type": "funnel",
   "radio": true,
+  "funnel": true,
+  "monochrome": true,
+  "singleSelect": true,
   "options": [{
     "name": "1.5°C",
     "$warming": "1p5C"

@@ -25,7 +25,9 @@
   }],
   "params": [{
     "name": "Warming Level",
-    "type": "funnel",
+    "funnel": true,
+    "singleSelect": true,
+    "monochrome": true,
     "radio": true,
     "options": [{
       "name": "1.5°C",

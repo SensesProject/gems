@@ -5,7 +5,7 @@
       <svg v-if="runs.length > 0" width="100%" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()"
         :class="{large}">
-        <polygon class="funnel" v-if="param.type === 'funnel'" :points="funnel"/>
+        <polygon class="funnel" v-if="param.funnel" :points="funnel"/>
         <g class="axes">
           <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
             <g class="ticks ticks-y">

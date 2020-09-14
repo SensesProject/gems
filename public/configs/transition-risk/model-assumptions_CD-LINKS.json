@@ -87,7 +87,7 @@
   "params": [
     {
       "name": "Model",
-      "type": "funnel",
+      "funnel": true,
       "options": [
         {
           "name": "REMIND-MAgPIE 1.7-3.0",

@@ -56,7 +56,9 @@
   "params": [
     {
       "name": "Model outcome",
-      "type": "funnel",
+      "funnel": true,
+      "singleSelect": true,
+      "monochrome": true,
       "options": [
         {
           "name": "High solar share",
