@@ -355,7 +355,7 @@ export default {
       polyline {
         fill: none;
         stroke: $color-black;
-        stroke-width: 1.5;
+        stroke-width: 2;
         transition: opacity $transition;
 
         @include tint(stroke);
@@ -369,7 +369,7 @@ export default {
         &.funnel {
           stroke: getColor(neon, 60);
           // mix-blend-mode: multiply;
-          stroke-width: 0.5;
+          stroke-width: 0.75;
           // opacity: 0.2;
         }
         &.reference {
