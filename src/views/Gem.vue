@@ -21,7 +21,7 @@
       <section class="config-2 grid tint">
         <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
           <div class="label tiny">{{ p.name }}</div>
-          <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.map(o => o.name)" v-model="perspective.params[p.name]"/>
+          <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
         </div>
         <div class="param" v-if="config && !config.absoluteAxes">
           <div class="tiny label axis">Axes</div>
@@ -34,7 +34,7 @@
       </section>
       <div class="section-wrapper">
         <section class="key grid tint">
-          <OptionKey class="cats" :options="cats" v-model="activeCats" :label="perspective.comparison" :select-all="!param.singleSelect"/>
+          <OptionKey class="cats" :options="cats.filter(o => !o.hidden)" v-model="activeCats" :label="perspective.comparison" :select-all="!param.singleSelect"/>
             <!-- <div class="tiny label">{{ perspective.comparison }}</div>
             <div class="cats">
               <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
