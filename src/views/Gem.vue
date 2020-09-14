@@ -5,36 +5,37 @@
         <h1>{{ gem.title }}</h1>
         <MdParser :md="gem.description"/>
       </section>
-      <section class="config-1 grid tint">
-        <div class="question">
-          <div class="label tiny"><strong>Guiding Question</strong></div>
-          <SensesRadio :isHorizontal="false" :options="questions" v-model="perspective.question"/>
-        </div>
-        <div class="comparison">
-          <div class="label tiny"><strong>Comparison</strong></div>
-          <SensesRadio :isHorizontal="false" :options="comparisons" v-model="perspective.comparison"/>
+      <section class="config-1 tint">
+        <div class="grid">
+          <div class="question">
+            <div class="label tiny"><strong>Guiding Question</strong></div>
+            <SensesRadio :isHorizontal="false" :options="questions" v-model="perspective.question"/>
+          </div>
+          <div class="comparison">
+            <div class="label tiny"><strong>Comparison</strong></div>
+            <SensesRadio :isHorizontal="false" :options="comparisons" v-model="perspective.comparison"/>
+          </div>
         </div>
       </section>
       <!-- <section class="intro grid">
         <MdParser :md="gem.description"/>
       </section> -->
-      <section class="config-2 grid tint">
-        <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
-          <div class="label tiny">{{ p.name }}</div>
-          <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
-        </div>
-        <div class="param" v-if="config && !config.absoluteAxes">
-          <div class="tiny label axis">Axes</div>
-          <SensesRadio :options="[{label: 'synchronized', value: true}, {label: 'absolute', value: false}]" v-model="synchronize"/>
-        </div>
-        <div class="param">
-          <div class="tiny label axis">Layout</div>
-          <SensesRadio :options="['small', {label: 'default', value: 'medium'}, 'large', 'huge']" v-model="size"/>
+      <section class="config-2 tint">
+        <div class="grid">
+          <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
+            <div class="label tiny">{{ p.name }}</div>
+            <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
+          </div>
         </div>
       </section>
       <div class="section-wrapper">
-        <section class="key grid tint">
-          <OptionKey class="cats" :options="cats.filter(o => !o.hidden)" v-model="activeCats" :label="perspective.comparison" :select-all="!param.singleSelect"/>
+        <section class="key tint">
+          <div class="grid">
+            <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
+              <div class="label tiny">{{ p.name }}</div>
+              <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
+            </div>
+            <OptionKey class="cats" :options="cats.filter(o => !o.hidden)" v-model="activeCats" :label="perspective.comparison" :select-all="!param.singleSelect"/>
             <!-- <div class="tiny label">{{ perspective.comparison }}</div>
             <div class="cats">
               <span v-for="(cat, i) in cats" :key="`o-${i}`" class="highlight cat" :class="colors[i]">
@@ -53,10 +54,11 @@
               <span class="glyph-rect funnel"/>
               The shaded area shows the model spread.
             </span> -->
+          </div>
         </section>
         <section class="charts">
           <div class="group " v-for="(g, i) in groups" :key="`g-${i}`">
-            <div v-if="g.name || g.icon" class="group-title grid tint">
+            <div v-if="g.name || g.icon" class="group-title" :class="{'first-title': i === 0}">
               <img v-if="g.icon" :src="g.icon"/>
               <h3 v-if="g.name">{{g.name}}</h3>
             </div>
@@ -66,6 +68,18 @@
                 :height="size === 'huge' ? 500 : size === 'large' ? 400 : size === 'medium' ? 300 : 200"
                 :large="size === 'huge'"
                 :domain="synchronize ? domains[p.runs[0].unit] : null"/>
+            </div>
+          </div>
+        </section>
+        <section class="layout tint">
+          <div class="grid">
+            <div class="param" v-if="config && !config.absoluteAxes">
+              <div class="tiny label axis">Axes</div>
+              <SensesRadio :options="[{label: 'synced', value: true}, {label: 'unsynced', value: false}]" v-model="synchronize"/>
+            </div>
+            <div class="param">
+              <div class="tiny label axis">Layout</div>
+              <SensesRadio :options="['small', {label: 'default', value: 'medium'}, 'large', 'huge']" v-model="size"/>
             </div>
           </div>
         </section>
@@ -106,7 +120,7 @@
           </ul>
         </div>
       </section>
-      <section class="grid meta tint">
+      <section class="grid meta">
         <div class="metadata">
           <h3>Metadata</h3>
           <table>
@@ -385,6 +399,10 @@ export default {
 
   section + section {
     margin-top: $spacing / 2;
+
+    &.charts {
+      margin-top: 0;
+    }
   }
 
   section.tint, .group-title.tint {
@@ -408,9 +426,9 @@ export default {
     grid-template-columns: repeat(1, 1fr);
     max-width: $column * 7;
 
-    &.tint {
-      max-width: calc(#{$column * 7} + #{$spacing});
-    }
+    // &.tint {
+    //   max-width: calc(#{$column * 7} + #{$spacing});
+    // }
     @include min-width($column * 2) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -518,7 +536,7 @@ export default {
     }
   }
 
-  ::v-deep .config-2 {
+  ::v-deep .config-2, ::v-deep .layout, ::v-deep .key {
     .senses-select {
       width: 100%;
       > * {
@@ -546,8 +564,33 @@ export default {
     //   -webkit-backdrop-filter: saturate(180%) blur(10px);
     //   backdrop-filter:saturate(180%) blur(10px)
     // }
-    top: $spacing * 2;
-    position: sticky;
+    @include min-width($narrow) {
+      top: $spacing * 2;
+      position: sticky;
+    }
+
+    &.tint {
+      margin-top: 1px;
+    }
+
+    .cats {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+  }
+
+  .layout {
+    // background: transparentize(getColor(gray, 90), 0.02);
+    z-index: 9;
+    // @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or(backdrop-filter: saturate(180%) blur(20px))) {
+    //   background: transparentize(getColor(gray, 90), 0.15);
+    //   -webkit-backdrop-filter: saturate(180%) blur(10px);
+    //   backdrop-filter:saturate(180%) blur(10px)
+    // }
+    @include min-width($narrow) {
+      bottom: 0;
+      position: sticky;
+    }
 
     &.tint {
       margin-top: 1px;
@@ -679,21 +722,29 @@ export default {
     flex-direction: column;
     // justify-content: center;
     // border-top: 1px solid $color-pale-gray;
+    // border-bottom: 1px solid $color-gray;
     width: 100%;
     // align-items: center;
 
     .group-title {
       // margin: 0;
       width: calc(100% + #{$spacing});
+
+      border-top: 1px solid $color-gray;
+      margin: 0 #{-$spacing / 2} 0;
+      padding: $spacing / 2 $spacing / 2 0 $spacing / 2;
       // align-self: center;
-      margin-top: 0;
-      margin-bottom: $spacing / 2;
+      // margin-bottom: $spacing / 2;
       // max-width: 600px;
       // margin: 0 $spacing / 4 0;
+
+      &.first-title {
+        border-top: none;
+      }
       display: flex;
         h3 {
           align-self: center;
-          font-weight: $font-weight-regular;
+          font-weight: $font-weight-bold;
         // margin: $spacing / 4 0;
         // color: $color-neon;
       }
@@ -702,6 +753,10 @@ export default {
         height: 32px;
         width: auto;
       }
+    }
+
+    .panels {
+      margin-top: $spacing / 2;
     }
   }
 
@@ -738,6 +793,7 @@ export default {
   // }
 
   .links {
+    margin-top: $spacing / 2;
     > * {
       grid-column-start: 1;
       grid-column-end: 4;
@@ -771,18 +827,18 @@ export default {
 
      table {
       width: 100%;
-      margin: 0 -$spacing / 6;
+      // margin: 0 -$spacing / 6;
 
       thead th {
         font-weight: $font-weight-bold;
-        padding: $spacing / 1.5 $spacing / 6 $spacing / 4;
+        padding: $spacing / 1.5 $spacing / 3 $spacing / 4 0;
         border-bottom: 1px solid getColor(gray, 70);
          margin-top: $spacing / 3;
       }
 
       tbody td {
         border-bottom: 1px solid getColor(gray, 80);
-        padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+        padding: $spacing / 12 $spacing / 3 $spacing / 12 0;
         vertical-align: initial;
 
         &.bold {
