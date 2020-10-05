@@ -4,9 +4,14 @@
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/95a7803a-c169-4bd9-b74e-917e7a7f492b",
   "config": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_$cdr_$policy"]
+      [
+        "REMIND-MAgPIE 1.7-3.0",
+        "PEP_$warming_$cdr_$policy"
+      ]
     ],
-    "regions": ["World"]
+    "regions": [
+      "World"
+    ]
   },
   "questions": [
     {
@@ -18,7 +23,8 @@
           "Final Energy",
           "Food Demand"
         ]
-      }
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c8a00ae5-5361-421a-9947-dfd5a58a1f39"
     },
     {
       "name": "How do socioeconomic key drivers develop in the 5 world regions?",
@@ -76,42 +82,56 @@
             ]
           }
         }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28fa7e25-5dcd-4b2f-979a-183165c05f02"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "options": [
+        {
+          "name": "NDC",
+          "$policy": "NDC"
+        },
+        {
+          "name": "netzero",
+          "$policy": "netzero"
+        },
+        {
+          "name": "eff",
+          "$policy": "eff"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "radio": true,
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2C"
+        }
+      ]
+    },
+    {
+      "name": "CDR Availibility",
+      "radio": true,
+      "options": [
+        {
+          "name": "Full",
+          "$cdr": "full"
+        },
+        {
+          "name": "Limited",
+          "$cdr": "red"
+        }
       ]
     }
   ],
-  "params": [{
-    "name": "Policy",
-    "options": [{
-      "name": "NDC",
-      "$policy": "NDC"
-    }, {
-      "name": "netzero",
-      "$policy": "netzero"
-    }, {
-      "name": "eff",
-      "$policy": "eff"
-    }]
-  }, {
-    "name": "Warming Level",
-    "radio": true,
-    "options": [{
-      "name": "1.5°C",
-      "$warming": "1p5C"
-    },{
-      "name": "2°C",
-      "$warming": "2C"
-    }]
-  }, {
-    "name": "CDR Availibility",
-    "radio": true,
-    "options": [{
-      "name": "Full",
-      "$cdr": "full"
-    }, {
-      "name": "Limited",
-      "$cdr": "red"
-    }]
-  }],
-  "dict": {
-  }
+  "dict": {}
 }

@@ -2,9 +2,11 @@
 
 GEMs are guided explore modules and are mostly used as supplementary material for SENSES Learn-Modules. A GEM (e.g. *Where do we want to go? How do emissions decline?*) is generally structured around a couple of guiding questions and belongs to a group of GEMs (e.g. *Emissions gap*).
 
+## Adding GEMs
+
 Each GEM has a config file, which is parsed and used to fetch and visualize the required data as well as to offer user options. There's also a main config '/public/gems.json' listing the available GEMs and group of GEMs. To add a new GEM a config must be provided and it must be added to said main config.
 
-## Main Config
+### Main Config
 
 `/public/gems.json`
 
@@ -68,7 +70,7 @@ The fields `title [String]`, `description [String, optional]`, and `workspace [S
 
 `config` defines which data is fetched and shown. It requires the fields `runs`, `variables`, and `regions`, but since `questions` are used to overwrite parts of said config, not all fields must be given at the root level. `runs` is an array of arrays, which contain a model as their first element and a scenario as the second element. Models and scenarios are typically written as templates which are later modified by `params` (see `$warming` in the example above). `regions` and `variables` are arrays of strings, providing the regions and variables to be shown.
 
-`questions` is an array of objects, each representing a guiding question offering a different config. Users can choose between those questions. A question requires a `name` and to override the config their own config. Fields in there are propagated to the main config.
+`questions` is an array of objects, each representing a guiding question offering a different config. Users can choose between those questions. A question requires a `name` and to override the config their own config. Fields in there are propagated to the main config. Questions can also provide their own `workspace` url, this also overrides any url given on the top level of the gem.
 
 To offer a way to visually structure information, `questions` may als have a field `groups` each having a field `name` and `config`. Configs in groups are chained and don't override each other. A question with groups looks like this:
 ```
@@ -149,6 +151,28 @@ A couple of attributes change the appearance of options and scenario/model runs,
 }, …]
 ```
 
+## Generating Workspaces
+
+GEMs can link to IIASA Scenario Explorer Workspaces. When provided manually workspace links can either be added for the whole GEM or for each of the questions. Automatically generating workspaces from a gem is possible by running
+
+```
+npm run generate [path to gem config]
+```
+
+e.g.
+
+```
+npm run generate  public/configs/transition-risk/model-assumptions_CD-LINKS_Investments.json
+```
+
+this process requires an IIASA Scenario Explorer account. Credentials must be stored in `scripts/credentials.json`:
+
+```
+{
+  "username": "[your username]",
+  "password": "[your password]"
+}
+```
 
 ## Development
 ```

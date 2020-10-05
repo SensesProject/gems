@@ -93,9 +93,9 @@
             </a>
           </ul>
         </div>
-        <div v-if="gem.workspace" class="workspace">
+        <div v-if="workspace" class="workspace">
           <ul>
-            <a :href="gem.workspace" class="link invert" target="_blank">
+            <a :href="workspace" class="link invert" target="_blank">
               <li>Open workspace in IIASA Scenario Explorer ↗</li>
             </a>
           </ul>
@@ -236,6 +236,9 @@ export default {
     ...mapState(['gem', 'config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
     ...bindState(['options', 'perspective', 'size']),
+    workspace () {
+      return this.questions.find(a => a.name === this.perspective.question).workspace || this.gem.workspace
+    },
     questions () {
       const { gem } = this
       return gem.questions.map(p => p.name)
