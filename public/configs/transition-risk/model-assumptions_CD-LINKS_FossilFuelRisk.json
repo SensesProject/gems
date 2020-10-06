@@ -1,0 +1,74 @@
+{
+  "title": "Fossil fuel risks",
+  "description": "**You can explore here:**\n\n xx \n ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "CD-LINKS_NPi2020_$warming Riskfactor Pathways" 
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How do direct emission costs for the extraction of fossil fuels develop?",
+      "config": {
+        "variables": [
+          "RFP|Direct emissions cost|Coal",
+          "RFP|Direct emissions cost|Oil",
+          "RFP|Direct emissions cost|Gas"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+    },
+    {
+      "name": "How do revenues for fossil fuels develop?",
+      "config": {
+        "variables": [
+          "RFP|Revenue|Coal",
+          "RFP|Revenue|Oil",
+          "RFP|Revenue|Gas"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM_1.0"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "1000"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

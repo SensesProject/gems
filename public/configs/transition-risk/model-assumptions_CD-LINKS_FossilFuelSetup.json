@@ -1,0 +1,93 @@
+{
+  "title": "Investments",
+  "description": "**You can explore here:**\n\n xxx \n ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "CD-LINKS_NPi2020_$warming"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How do raw fossil fuels develop?",
+      "config": {
+        "variables": [
+          "Primary Energy|Coal",
+          "Primary Energy|Oil",
+          "Primary Energy|Gas"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+    },
+    {
+      "name": "What extent of carbon sequestration is required for these amounts of fossil fuels?",
+      "config": {
+        "variables": [
+          "Primary Energy|Coal",
+          "Primary Energy|Oil",
+          "Primary Energy|Gas"
+          ]
+        }
+      },
+      {
+      "config": {
+        "variables": [
+          "Carbon Sequestration|CCS",
+          "Carbon Sequestration|Land Use"
+        ]
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": true,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+        },
+        {
+          "name": "AIM/CGE 2.1",
+          "$scenario": "AIM/CGE 2.1"
+        },
+        {
+          "name": "IMAGE 3.0.1",
+          "$scenario": "IMAGE 3.0.1"
+        },
+        {
+          "name": "WITCH-GLOBIOM 4.4",
+          "$scenario": "WITCH-GLOBIOM 4.4"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "1000"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
