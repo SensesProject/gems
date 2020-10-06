@@ -20,14 +20,14 @@
       <!-- <section class="intro grid">
         <MdParser :md="gem.description"/>
       </section> -->
-      <section class="config-2 tint">
+      <!-- <section class="config-2 tint">
         <div class="grid">
           <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
             <div class="label tiny">{{ p.name }}</div>
             <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
           </div>
         </div>
-      </section>
+      </section> -->
       <div class="section-wrapper">
         <section class="key tint">
           <div class="grid">
@@ -93,9 +93,9 @@
             </a>
           </ul>
         </div>
-        <div v-if="gem.workspace" class="workspace">
+        <div v-if="workspace" class="workspace">
           <ul>
-            <a :href="gem.workspace" class="link invert" target="_blank">
+            <a :href="workspace" class="link invert" target="_blank">
               <li>Open workspace in IIASA Scenario Explorer ↗</li>
             </a>
           </ul>
@@ -236,6 +236,9 @@ export default {
     ...mapState(['gem', 'config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
     ...bindState(['options', 'perspective', 'size']),
+    workspace () {
+      return (this.questions.find(a => a.name === this.perspective.question) || {}).workspace || this.gem.workspace
+    },
     questions () {
       const { gem } = this
       return gem.questions.map(p => p.name)
