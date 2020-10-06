@@ -237,7 +237,7 @@ export default {
     ...mapGetters(['dict']),
     ...bindState(['options', 'perspective', 'size']),
     workspace () {
-      return (this.questions.find(a => a.name === this.perspective.question) || {}).workspace || this.gem.workspace
+      return (this.gem.questions.find(a => a.name === this.perspective.question) || {}).workspace || this.gem.workspace
     },
     questions () {
       const { gem } = this
