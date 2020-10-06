@@ -1,12 +1,12 @@
 {
-  "title": "Investments",
+  "title": "Fossil fuel setup",
   "description": "**You can explore here:**\n\n xxx \n ",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
   "config": {
     "runs": [
       [
         "$scenario",
-        "CD-LINKS_NPi2020_$warming"
+        "CD-LINKS_NPi$warming"
       ]
     ],
     "regions": [
@@ -15,34 +15,34 @@
   },
   "questions": [
     {
-      "name": "How do raw fossil fuels develop?",
-      "config": {
-        "variables": [
-          "Primary Energy|Coal",
-          "Primary Energy|Oil",
-          "Primary Energy|Gas"
-        ]
-      },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
-    },
-    {
-      "name": "What extent of carbon sequestration is required for these amounts of fossil fuels?",
-      "config": {
-        "variables": [
-          "Primary Energy|Coal",
-          "Primary Energy|Oil",
-          "Primary Energy|Gas"
-          ]
+      "name": "How do raw fossil fuels develop & what extent of carbon sequestration is required to compensate the emissions?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Primary Energy|Coal",
+              "Primary Energy|Oil",
+              "Primary Energy|Gas",
+              "Carbon Sequestration|CCS",
+              "Carbon Sequestration|Land Use"
+            ]
+          }
         }
-      },
-      {
-      "config": {
-        "variables": [
-          "Carbon Sequestration|CCS",
-          "Carbon Sequestration|Land Use"
-        ]
-      }
-    }
+      ]
+    }, {
+      "name": "How do fossil fuels develop in electricity production?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal",
+              "Secondary Energy|Electricity|Gas",
+              "Secondary Energy|Electricity|Oil"              
+            ]
+          }
+        }
+      ]
+    } 
   ],
   "params": [
     {
@@ -76,11 +76,15 @@
       "options": [
         {
           "name": "1.5°C",
-          "$warming": "400"
+          "$warming": "2020_400"
         },
         {
           "name": "2°C",
-          "$warming": "1000"
+          "$warming": "2020_1000"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming": ""
         }
       ]
     }
