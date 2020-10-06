@@ -1,5 +1,5 @@
 {
-  "title": "Fossil fuel risks",
+  "title": "Enduse risks",
   "description": "**You can explore here:**\n\n xx \n ",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
   "config": {
@@ -15,23 +15,34 @@
   },
   "questions": [
     {
-      "name": "How do direct emission costs for the extraction of fossil fuels develop?",
+      "name": "How do direct emission costs develop for end use sectors?",
       "config": {
         "variables": [
-          "RFP|Direct emissions cost|Coal",
-          "RFP|Direct emissions cost|Oil",
-          "RFP|Direct emissions cost|Gas"
+          "RFP|Direct emissions cost|Industrial processes",
+          "RFP|Direct emissions cost|Residential and commercial",
+          "RFP|Direct emissions cost|Transportation"
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
     },
     {
-      "name": "How do revenues for fossil fuels develop?",
+      "name": "How do indirect emission costs develop for end use sectors?",
       "config": {
         "variables": [
-          "RFP|Revenue|Coal",
-          "RFP|Revenue|Oil",
-          "RFP|Revenue|Gas"
+          "RFP|Indirect emissions cost|Industrial processes",
+          "RFP|Indirect emissions cost|Transportation"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+    },
+    {
+      "name": "How much low carbon capital expenditure is required?",
+      "config": {
+        "variables": [
+          "RFP|Low-carbon capital expenditure|Industrial processes", 
+          "RFP|Low-carbon capital expenditure|Residential and commercial", 
+          "RFP|Low-carbon capital expenditure|Transportation"
+
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
