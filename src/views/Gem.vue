@@ -20,14 +20,14 @@
       <!-- <section class="intro grid">
         <MdParser :md="gem.description"/>
       </section> -->
-      <section class="config-2 tint">
+      <!-- <section class="config-2 tint">
         <div class="grid">
           <div class="param" v-for="(p, i) in gem.params.filter(p => p.name !== perspective.comparison)" :key="`p-${i}`">
             <div class="label tiny">{{ p.name }}</div>
             <component :is="p.radio ? 'SensesRadio' : 'SensesSelect'" :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]"/>
           </div>
         </div>
-      </section>
+      </section> -->
       <div class="section-wrapper">
         <section class="key tint">
           <div class="grid">
