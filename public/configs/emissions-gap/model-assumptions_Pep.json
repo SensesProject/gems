@@ -1,6 +1,6 @@
 {
   "title": "Basic assumptions in the Pep1p5 study",
-  "description": "**You can explore here:**\n\n Basic assumptions in the Pep1p5 study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for the Pep1p5 study. <br/><br/> The Pep1p5 study (conducted in 2018) is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important further literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1).  ",
+  "description": "Basic assumptions in the Pep1p5 study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for the Pep1p5 study. \n\n The Pep1p5 study (conducted in 2018) is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important further literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1).  ",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/95a7803a-c169-4bd9-b74e-917e7a7f492b",
   "config": {
     "runs": [
@@ -89,6 +89,7 @@
   "params": [
     {
       "name": "Policy",
+      "label": true,
       "options": [
         {
           "name": "NDC",
@@ -106,7 +107,6 @@
     },
     {
       "name": "Warming Level",
-      "radio": true,
       "options": [
         {
           "name": "1.5°C",
@@ -120,14 +120,13 @@
     },
     {
       "name": "CDR Availibility",
-      "radio": true,
       "options": [
         {
-          "name": "Full",
+          "name": "Full CDR",
           "$cdr": "full"
         },
         {
-          "name": "Limited",
+          "name": "Limited CDR",
           "$cdr": "red"
         }
       ]

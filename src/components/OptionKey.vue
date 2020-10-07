@@ -1,10 +1,10 @@
 <template>
   <div class="option-key">
-    <span v-if="label" class="tiny">
+    <span v-if="label" class="label uppercase" @click="reset">
       {{ label }}&nbsp;
-      <span v-if="selectAll && !allSelected" class="reset" @click="reset">
+      <!-- <span v-if="selectAll && !allSelected" class="reset" @click="reset">
         reset filter
-      </span>
+      </span> -->
     </span>
     <div class="checkboxes">
       <label
@@ -21,7 +21,6 @@
           :name="_uid"
           :checked="value[o.name]"
           :value="o.value != null ? o.value : o"
-          x-v-model="value[o.name]"
           @change="onChange(o.name)">
           <span>{{ o.label || (o.value != null ? o.value : o) }}</span>
       </label>
@@ -118,6 +117,10 @@ export default {
 .option-key {
   display: inline-block;
 
+  .label {
+    white-space: nowrap;
+  }
+
   .reset {
     text-transform: uppercase;
     // color: $color-neon;
@@ -134,19 +137,20 @@ export default {
 
   .checkboxes {
     position: relative;
-    width: 100%;
-    margin-left: $spacing / -8;
     margin-bottom: $spacing / -8;
     display: flex;
     flex-wrap: wrap;
     label {
-      margin-left: $spacing / 8;
+      margin-right: $spacing / 8;
       margin-bottom: $spacing / 8;
-      // color: getColor(neon, 40);
-      min-width: 64px;
+      border-radius: $spacing / 8;
+      padding: 0;
       align-items: center;
       justify-content: center;
       transition: background $transition, color $transition;
+      &:last-of-type {
+        margin-right: 0;
+      }
       &.highlight {
         background: getColor(neon, 100);
         color: getColor(neon, 40);
@@ -162,7 +166,7 @@ export default {
       &.active, &.active:hover, &.highlight:hover {
         background: $color-yellow;
         @include tint(background, 50);
-        color: getColor(gray, 90);
+        color: $color-white;
 
         &.unclicked:hover {
           background: getColor(yellow, 80);
@@ -183,19 +187,19 @@ export default {
         appearance: none;
         -webkit-appearance: none;
 
-        &:checked+span {
-          // cursor: default;
-        }
-
         +span {
           width: 100%;
           display: inline-block;
-          line-height: 1.2;
-          padding: $spacing * 0.1 $spacing * 0.25;
+          // line-height: 1.2;
+          padding: $spacing / 8;
           text-align: center;
           cursor: pointer;
         }
       }
+
+      // + label {
+      //   margin-left: $spacing / 8;
+      // }
     }
   }
 }

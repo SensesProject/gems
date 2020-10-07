@@ -25,7 +25,7 @@ export default new Vuex.Store({
     domains: {},
     gems: [],
     modules: null,
-    size: 'small',
+    size: 4,
     // new
     perspective: {
       question: null,
