@@ -7,6 +7,10 @@
       [
         "$scenario",
         "CD-LINKS_NPi$warming Riskfactor Pathways" 
+      ],
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming"
       ]
     ],
     "regions": [
@@ -15,15 +19,44 @@
   },
   "questions": [
     {
-      "name": "How do direct emission costs for the extraction of fossil fuels develop?",
+      "name": "How do raw fossil fuels develop & what extent of carbon sequestration is required to compensate the emissions?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Primary Energy|Coal",
+              "Primary Energy|Gas",
+              "Primary Energy|Oil",
+              "Carbon Sequestration|CCS",
+              "Carbon Sequestration|Land Use"
+            ]
+          }
+        }
+      ]
+    },{
+      "name": "How do fossil fuels develop in electricity production?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal",
+              "Secondary Energy|Electricity|Gas",
+              "Secondary Energy|Electricity|Oil"              
+            ]
+          }
+        }
+      ]
+    },{
+      "name": "How do direct emission costs for the extraction (not combustion) develop?",
       "config": {
         "variables": [
           "RFP|Direct emissions cost|Coal",
           "RFP|Direct emissions cost|Oil",
-          "RFP|Direct emissions cost|Gas"
+          "RFP|Direct emissions cost|Gas",
+          "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+      "workspace": ""
     },
     {
       "name": "How do revenues for fossil fuels develop?",
@@ -34,7 +67,7 @@
           "RFP|Revenue|Gas"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+      "workspace": ""
     }
   ],
   "params": [
@@ -48,7 +81,7 @@
         },
         {
           "name": "MESSAGEix-GLOBIOM 1.0",
-          "$scenario": "MESSAGEix-GLOBIOM_1.0"
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
         }
       ]
     },

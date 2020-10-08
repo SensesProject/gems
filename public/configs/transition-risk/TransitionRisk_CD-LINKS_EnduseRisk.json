@@ -6,6 +6,10 @@
     "runs": [
       [
         "$scenario",
+        "CD-LINKS_NPi$warming"
+      ], 
+      [
+        "$scenario",
         "CD-LINKS_NPi$warming Riskfactor Pathways" 
       ]
     ],
@@ -14,6 +18,17 @@
     ]
   },
   "questions": [
+    {
+      "name": "How do direct emission costs develop for asdfasdfend use sectors?",
+      "config": {
+        "variables": [
+          "Primary Energy|Solar", 
+          "Primary Energy|Biomass|Modern|w/ CCS", 
+          "Primary Energy|Wind"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+    }, 
     {
       "name": "How do direct emission costs develop for end use sectors?",
       "config": {
@@ -82,8 +97,7 @@
     }
   ],
   "dict": {
-    "Investment|Energy Efficiency": "Energy Demand",
-    "Investment|Energy Supply": "Energy Supply",
-    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+    "Investment|Energy Efficiency": "Energy Demand"
+    
   }
 }
