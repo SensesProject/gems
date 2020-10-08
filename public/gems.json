@@ -13,9 +13,13 @@
   "dir": "transition-risk",
   "id": "transition-risk",
   "gems": [
-    {"id": "model-assumptions_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
-    {"id": "model-assumptions_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}, 
-    {"id": "model-assumptions_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"}
+    {"id": "TransitionRisk_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
+    {"id": "TransitionRisk_CD-LINKS_MS", "title": "Mitigation strategies in the CD-LINKS study"}, 
+    {"id": "TransitionRisk_CD-LINKS_Investments", "title": "Required investments in the CD-LINKS study"},
+    {"id": "TransitionRisk_CD-LINKS_FossilFuelSetup", "title": "Fossil fuel setup for the CD-LINKS study"},
+    {"id": "TransitionRisk_CD-LINKS_FossilFuelRisk", "title": "Fossil fuels risks for the CD-LINKS study"},
+    {"id": "TransitionRisk_CD-LINKS_PowerSectorRisk", "title": "Power sector risks for the CD-LINKS study"},
+    {"id": "TransitionRisk_CD-LINKS_EnduseRisk", "title": "Risks for end use sectors for the CD-LINKS study"}
   ]
 }, {
   "title": "Land Transition",
