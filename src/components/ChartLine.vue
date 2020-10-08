@@ -1,7 +1,7 @@
 <template>
   <div class="chart-line">
     <div class="narrow chart-container" v-resize:debounce.initial="onResize">
-      <div class="title" :class="{tiny: !large}">{{ label }}</div>
+      <div class="title" :class="{tiny: !large}">{{ label.replace(/\|/g, ' | ') }}</div>
       <svg v-if="runs.length > 0" width="100%" :height="height"
         @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()"
         :class="{large}">
@@ -303,7 +303,7 @@ export default {
   }
   min-width: 0;
   // background: $color-neon;
-  margin-bottom: $spacing;
+  // margin-bottom: $spacing;
   // display: flex;
   // flex-direction: column;
   // justify-content: flex-end;

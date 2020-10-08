@@ -11,8 +11,10 @@
   "dependencies": {
     "core-js": "^2.6.11",
     "d3-dsv": "^1.2.0",
+    "d3-ease": "^2.0.0",
     "d3-format": "^1.4.5",
     "d3-scale": "^3.2.2",
+    "d3-timer": "^2.0.0",
     "dompurify": "^2.0.8",
     "library": "github:SensesProject/library",
     "marked": "^0.7.0",
