@@ -1,7 +1,7 @@
 {
   "title": "Enduse risks",
   "description": "**You can explore here:**\n\n xx \n ",
-  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
+  "workspace": "",
   "config": {
     "runs": [
       [
@@ -19,15 +19,15 @@
   },
   "questions": [
     {
-      "name": "How do direct emission costs develop for asdfasdfend use sectors?",
+      "name": "How does energy for the end use sectors develop?",
       "config": {
         "variables": [
-          "Primary Energy|Solar", 
-          "Primary Energy|Biomass|Modern|w/ CCS", 
-          "Primary Energy|Wind"
+          "Final Energy|Residential and Commercial",
+          "Final Energy|Transportation",
+          "Final Energy|Industry"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+      "workspace": ""
     }, 
     {
       "name": "How do direct emission costs develop for end use sectors?",
@@ -38,7 +38,7 @@
           "RFP|Direct emissions cost|Transportation"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+      "workspace": ""
     },
     {
       "name": "How do indirect emission costs develop for end use sectors?",
@@ -48,7 +48,7 @@
           "RFP|Indirect emissions cost|Transportation"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+      "workspace": ""
     },
     {
       "name": "How much low carbon capital expenditure is required?",
@@ -60,7 +60,7 @@
 
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+      "workspace": ""
     }
   ],
   "params": [
@@ -74,7 +74,7 @@
         },
         {
           "name": "MESSAGEix-GLOBIOM 1.0",
-          "$scenario": "MESSAGEix-GLOBIOM_1.0"
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
         }
       ]
     },
