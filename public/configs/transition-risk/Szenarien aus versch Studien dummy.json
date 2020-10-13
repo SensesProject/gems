@@ -1,0 +1,72 @@
+{
+  "title": "Power sector risks testtest",
+  "description": "**You can explore here:**\n\n xx \n ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "PEP_1p5C_red_eff" 
+      ], 
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How how does the electricity sector develop?",
+      "groups": [{
+        "name": "Fossil fuels",
+        "config": {
+          "variables": [
+          "Primary Energy|Coal",
+          "Primary Energy|Gas",
+          "Primary Energy|Oil"
+        ]
+        }
+      }]}
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "2020_400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2020_1000"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming": ""
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
