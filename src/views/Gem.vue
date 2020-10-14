@@ -55,11 +55,11 @@
         <section class="view center">
           <div class="margin-fix">
             <div class="box" v-if="config && !config.absoluteAxes">
-              <!-- <div class="label uppercase">Axes</div> -->
+              <div class="label uppercase">Axes</div>
               <SensesRadio :options="[{label: '', value: true}, {label: '', value: false}]" v-model="synchronize"/>
             </div>
             <div class="box sizes">
-              <!-- <div class="label uppercase">Layout</div> -->
+              <div class="label uppercase">Layout</div>
               <SensesRadio :options="[{label: '', value:'large'}, {label: '', value: 'default'}, {label: '', value: 'wide'}]" v-model="size"/>
             </div>
           </div>
