@@ -197,10 +197,18 @@ export default {
         const variables = (g.config.variables || (question.config && question.config.variables ? question.config.variables : (gem.config && gem.config.variables ? gem.config.variables : []))).map(d => d.value || d)
         const regions = (g.config.regions || (question.config && question.config.regions ? question.config.regions : (gem.config && gem.config.regions ? gem.config.regions : []))).map(d => d.value || d)
 
+        let runs = g.config.runs || (question.config && question.config.runs ? question.config.runs : (gem.config && gem.config.runs ? gem.config.runs : []))
+
         const panels = data.filter(panel =>
-          (variables.find(d => d === panel.variable)) &&
-          (regions.find(d => d === panel.region))
-        )
+          variables.find(d => d === panel.variable) && regions.find(d => d === panel.region)
+        ).map(panel => {
+          return {
+            ...panel,
+            runs: panel.runs.filter(({ source }) =>
+              runs.find(r => (source.model === r[0] && source.scenario === r[1]))
+            )
+          }
+        })
         return {
           data: panels,
           name: g.name,

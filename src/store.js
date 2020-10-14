@@ -142,13 +142,14 @@ function getConfig ({ gem, perspective }) {
     config.runs = options.map(option => {
       return config.runs.map(r => {
         let { model, scenario } = r
+        const source = r.source || r
         let monochrome = r.monochrome || mono
         const interpolations = Object.fromEntries(Object.keys(option).filter(k => k !== 'name').map(k => [k, option[k]]))
         Object.keys(interpolations).forEach(k => {
           model = model.replace(k, option[k])
           scenario = scenario.replace(k, option[k])
         })
-        return { ...r, model, scenario, monochrome, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) } }
+        return { ...r, model, scenario, monochrome, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) }, source }
       })
     }).flat()
   })
