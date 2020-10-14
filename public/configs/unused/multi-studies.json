@@ -5,12 +5,8 @@
   "config": {
     "runs": [
       [
-        "$scenario",
-        "PEP_1p5C_red_eff" 
-      ], 
-      [
-        "$scenario",
-        "CD-LINKS_NPi$warming"
+        "$model",
+        "$scenario" 
       ]
     ],
     "regions": [
@@ -37,12 +33,19 @@
       "funnel": false,
       "options": [
         {
-          "name": "REMIND-MAgPIE 1.7-3.0",
-          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+          "name": "REMIND-MAgPIE 1.7-3.0 PEP",
+          "$model": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "PEP_$warming-pep_red_eff"
         },
         {
-          "name": "MESSAGEix-GLOBIOM 1.0",
-          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+          "name": "REMIND-MAgPIE 1.7-3.0 CD-LINKS",
+          "$model": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "CD-LINKS_NPi$warming-cdl"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0 CD-LINKS",
+          "$model": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "CD-LINKS_NPi$warming-cdl"
         }
       ]
     },
@@ -51,15 +54,18 @@
       "options": [
         {
           "name": "1.5°C",
-          "$warming": "2020_400"
+          "$warming-cdl": "2020_400",
+          "$warming-pep": "1p5C"
         },
         {
           "name": "2°C",
-          "$warming": "2020_1000"
+          "$warming-cdl": "2020_1000",
+          "$warming-pep": "2C"
         },
         {
           "name": "Nationally implemented policies",
-          "$warming": ""
+          "$warming-cdl": "",
+          "$warming-pep": ""
         }
       ]
     }
