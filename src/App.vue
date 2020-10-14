@@ -76,6 +76,20 @@ export default {
         background: getColor(neon, 50);
         color: $color-white;
       }
+
+      &.dark {
+        background: getColor(neon,50);
+        color: getColor(gray, 90);
+
+        &:hover {
+          background: getColor(neon, 40);
+          color: getColor(gray, 90);
+        }
+        &.selected, &:active {
+          background: getColor(neon,20);
+          color: getColor(neon, 100);
+        }
+      }
     }
     .senses-radio {
       grid-column-gap: 0;

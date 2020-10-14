@@ -69,8 +69,11 @@
         <div class="margin-fix">
           <section class="box data">
             <div class="items">
+              <router-link :to="`/${collection.dir}`" class="button">
+                ← Back to GEM overview
+              </router-link>
               <a v-if="data" class="button" :href="download" :download="filename">
-                Download Data ↓
+                Download data ↓
               </a>
               <a v-if="workspace" :href="workspace" class="button" target="_blank">
                 Open in IIASA Scenario Explorer ↗
@@ -81,18 +84,18 @@
             </div>
           </section>
         </div>
-        <div class="margin-fix">
+        <!-- <div class="margin-fix">
           <section class="box related" v-if="related">
             <div class="items">
               <router-link :to="`/${collection.dir}`" class="button">
-                Related GEMs
+                ← Back to GEM overview
               </router-link>
               <a v-if="related.link" class="button" :href="related.link">
                 Learn Module
               </a>
             </div>
           </section>
-        </div>
+        </div> -->
         <section class="meta" v-if="docs">
           <GemExpandable v-for="m in docs.filter(m => m.items.length > 0)" :key="m.name"
             class="metadata" :title="`${m.name} Metadata`">

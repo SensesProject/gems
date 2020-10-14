@@ -1,21 +1,21 @@
 <template>
   <div class="home">
     <div class="content tiny">
-      <h1>{{ module.title }}</h1>
+      <h1>{{ collection.title }}</h1>
       <br>
-      <div class="box block">
-        <span class="label uppercase">Available GEMs</span>
+      <div class="box block" v-for="(group, i) in collection.groups" :key="`group-${i}`">
+        <span class="label uppercase">{{group.title || 'Available GEMs'}}</span>
         <ul class="block">
-          <router-link v-for="(gem, i) in module.gems" :key="`g-${i}`" class="link button" :to="gem.path">
+          <router-link v-for="(gem, i) in group.gems" :key="`g-${i}`" class="link button" :to="gem.path">
             <li>{{ gem.title || gem.id }}</li>
           </router-link>
         </ul>
       </div>
-      <div class="box block" v-if="module.id != null">
-        <span class="label uppercase">More on that topic</span>
+      <div class="box block" v-if="collection.modules != null && collection.modules.length > 0">
+        <span class="label uppercase">Related Learn {{collection.modules.length === 1 ? 'module' : 'modules'}}</span>
         <ul class="block">
-          <a class="link button" :href="module.id">
-            <li>Read the module</li>
+          <a class="link button dark" v-for="(m, i) in collection.modules" :key="`m-${i}`" :href="m.link">
+            <li>{{m.title}}</li>
           </a>
         </ul>
       </div>
@@ -31,20 +31,28 @@ export default {
   },
   computed: {
     ...mapState(['gems', 'modules']),
-    module () {
+    collection () {
       const { $route, gems } = this
-      const module = gems.find(g => g.dir === $route.params.module)
-      if (module == null) {
+      const modules = this.modules ? this.modules.modules : []
+      const collection = gems.find(g => g.dir === $route.params.module)
+      if (collection == null) {
         return {
           title: 'Guided Explore Modules',
-          gems: gems.map(({ title, dir }) => ({ title, path: dir }))
+          groups: [{
+            title: 'All Collections',
+            gems: gems.map(({ title, dir }) => ({ title, path: dir }))
+          }]
         }
       }
       return {
-        ...module,
-        gems: module.gems.map(gem => ({
-          ...gem,
-          path: `${module.dir}/${gem.id}`
+        ...collection,
+        modules: collection.modules.map(m => modules.find(({ id }) => id === m)).filter(m => m != null),
+        groups: collection.groups.map(group => ({
+          title: group.title,
+          gems: group.gems.map(g => ({
+            ...g,
+            path: `${collection.dir}/${g.id}`
+          }))
         }))
       }
     }

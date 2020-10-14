@@ -55,11 +55,11 @@ export default new Vuex.Store({
         key: 'gems',
         value: await fetch(`./gems.json`).then(r => r.json())
       })
+      commit('set', { key: 'modules', value: await fetch(getUrlToResources('settings/modules.json')).then(r => r.json()) })
     },
     async initSession ({ commit, state, dispatch }, param) {
       commit('set', { key: 'gem', value: null })
       commit('set', { key: 'config', value: null })
-      commit('set', { key: 'modules', value: await fetch(getUrlToResources('settings/modules.json')).then(r => r.json()) })
       if (state.token == null) {
         commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
       }
