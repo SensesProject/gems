@@ -371,10 +371,6 @@ export default {
     // margin-bottom: -$spacing / 2;
     .box {
       margin: 0 $spacing / 2 $spacing / 2 0;
-
-      &:last-child {
-        margin: 0 0 $spacing / 2 0;
-      }
       .label {
         white-space: nowrap;
       }
