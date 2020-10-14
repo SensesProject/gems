@@ -223,7 +223,7 @@ export default {
     collection () {
       const { $route, gems } = this
       const module = gems.find(g => g.dir === $route.params.module)
-      if (module == null) return null
+      if (module == null) return {}
       return { name: module.title, dir: module.dir }
     },
     related () {
