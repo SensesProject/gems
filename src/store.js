@@ -125,10 +125,10 @@ function getConfig ({ gem, perspective }) {
   (question.groups || []).forEach(g => {
     Object.keys(g.config).forEach(k => {
       if (grouped[k] === undefined) grouped[k] = []
-      grouped[k] = [
+      grouped[k] = [...new Set([
         ...grouped[k],
         ...g.config[k]
-      ]
+      ])]
     })
   })
 
