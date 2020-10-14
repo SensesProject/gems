@@ -190,16 +190,16 @@ export default {
       const { config, data, gem, perspective } = this
       if (config == null || data == null) return
 
-      const groups = gem.questions.find(q => q.name === perspective.question).groups
+      const question = gem.questions.find(q => q.name === perspective.question)
+      const groups = question.groups
       if (groups == null) return [{ data }]
-
       return groups.map(g => {
-        const variables = (g.config.variables || []).map(d => d.value || d)
-        const regions = (g.config.regions || []).map(d => d.value || d)
+        const variables = (g.config.variables || (question.config && question.config.variables ? question.config.variables : (gem.config && gem.config.variables ? gem.config.variables : []))).map(d => d.value || d)
+        const regions = (g.config.regions || (question.config && question.config.regions ? question.config.regions : (gem.config && gem.config.regions ? gem.config.regions : []))).map(d => d.value || d)
 
         const panels = data.filter(panel =>
-          (variables.length === 0 || variables.find(d => d === panel.variable)) &&
-          (regions.length === 0 || regions.find(d => d === panel.region))
+          (variables.find(d => d === panel.variable)) &&
+          (regions.find(d => d === panel.region))
         )
         return {
           data: panels,
