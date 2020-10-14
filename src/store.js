@@ -192,10 +192,12 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
         ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === panel.variable && ts.region === panel.region
       )
       if (ts.length === 0) return null
-      // console.log(run.type)
+      // console.log(perspective.comparison)
+      const params = gem.params.find(param => param.name === perspective.comparison).options.map(o => o.name)
+      const param = run.params[perspective.comparison]
       return {
         ...run,
-        color: run.monochrome ? colors[0] : colors[i % 6],
+        color: run.monochrome ? colors[0] : colors[params.indexOf(param) % 6],
         unit: ts[0].unit,
         series: ts.map(t => ({ year: t.year, value: t.value }))
       }
