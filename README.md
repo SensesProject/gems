@@ -10,7 +10,7 @@ Each GEM has a config file, which is parsed and used to fetch and visualize the 
 
 `/public/gems.json`
 
-An array containing an object for each Group of GEMs with properties `title [String]`, `dir [String, the directory for GEM config files]`, `id [String, optional, id of the related learn module]`, `gems [Array]`. The gems-array consists of objects with the properties `id [String, config filename without file-ending, also used in url]` and `title [String]`.
+An array containing an object for each Group of GEMs with properties `title [String]`, `dir [String, the directory for GEM config files]`, `modules [Array of Strings, optional, ids of the related learn modules]` (see [here](https://github.com/SensesProject/share/tree/master/settings) for module ids), `groups [Array]`. Groups consists of objects with the properties `title [string]` and `gems [array]`. Gems consists of objects with the properties `id [String, config filename without file-ending, also used in url]` and `title [String]`.
 
 e.g.
 
@@ -18,11 +18,14 @@ e.g.
 [{
   "title": "Transition risk",
   "dir": "transition-risk",
-  "id": "transition-risk",
-  "gems": [
-    {"id": "model-assumptions_CD-LINKS", "title": "Basic assumptions in the CD-LINKS study"},
-    …
-  ]
+  "modules": ["transition-risk"],
+  "groups": [{
+    "title": "Basic Assumptions",
+    "gems": [{
+        "id": "TransitionRisk_CD-LINKS_model-assumptions",
+        "title": "Basic assumptions in the CD-LINKS study"
+      }, …]
+  }, …]
 }, …]
 ```
 
