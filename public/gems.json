@@ -11,7 +11,7 @@
         "gems": [
           {
             "id": "model-assumptions_Pep",
-            "title": "Basic assumptions in the Pep1p5 study"
+            "title": "Basic model characteristics in the Pep1p5 study"
           },
           {
             "id": "stocktake-models_1_WhereDoWeWantToGo",
@@ -39,11 +39,11 @@
     ],
     "groups": [
       {
-        "title": "Basic Assumptions",
+        "title": "Basic understanding: integrated assessment modles and transition scenarios in the CD-LINKS study",
         "gems": [
           {
             "id": "TransitionRisk_CD-LINKS_model-assumptions",
-            "title": "Basic assumptions in the CD-LINKS study"
+            "title": "Basic model assumptions and behaviour in the CD-LINKS study"
           },
           {
             "id": "TransitionRisk_CD-LINKS_MitigationStrategies",
@@ -56,7 +56,7 @@
         ]
       },
       {
-        "title": "More More More",
+        "title": "Risk indicators - risk factor pathways",
         "gems": [
           {
             "id": "TransitionRisk_CD-LINKS_FossilFuelRisk",

@@ -1,6 +1,6 @@
 {
   "title": "Investments",
-  "description": "**You can explore here:**\n\n Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study. <br/><br/>  The CD-LINKS study (conducted in 2018) is especially relevant, because it had a dedicated focus on required investments for mitigation. Important further literature are the UNEP Finance Initiative report [EXTENDING OUR HORIZONS]( https://www.unepfi.org/news/themes/climate-change/extending-our-horizons/) and the paper by McCollum et al. [“Energy investment needs for fulfilling the Paris Agreement and achieving the Sustainable Development Goals” (2018)](https://doi.org/10.1038/s41560-018-0179-z). \n ",
+  "description": "**You can explore here:**\n\n Required investments to achieve climate goals for scenarios of a subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study. <br/><br/>  The CD-LINKS study (conducted in 2018) is especially relevant for questions from the financial sector, because it had a dedicated focus on required investments for mitigation. Important further literature are the UNEP Finance Initiative report [EXTENDING OUR HORIZONS]( https://www.unepfi.org/news/themes/climate-change/extending-our-horizons/) and the paper by McCollum et al. [“Energy investment needs for fulfilling the Paris Agreement and achieving the Sustainable Development Goals” (2018)](https://doi.org/10.1038/s41560-018-0179-z). \n ",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/4acd81f2-e1eb-4f78-a7a3-90bc2f109f5b",
   "config": {
     "runs": [
@@ -15,23 +15,23 @@
   },
   "questions": [
     {
-      "name": "What are the required investments?",
+      "name": "What are the major required investments?",
       "config": {
         "variables": [
           "Investment|Energy Supply",
-          "Investment|Energy Efficiency",
-          "Investment|Energy Supply|Electricity|Transmission and Distribution"
+          "Investment|Energy Supply|Electricity|Transmission and Distribution",
+          "Investment|Energy Efficiency"
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
     },
     {
-      "name": "What are the required investments in the major world regions?",
+      "name": "What are the major required investments in the major world regions?",
       "config": {
         "variables": [
           "Investment|Energy Supply",
-          "Investment|Energy Efficiency",
-          "Investment|Energy Supply|Electricity|Transmission and Distribution"
+          "Investment|Energy Supply|Electricity|Transmission and Distribution",
+          "Investment|Energy Efficiency"
         ]
       },
       "groups": [

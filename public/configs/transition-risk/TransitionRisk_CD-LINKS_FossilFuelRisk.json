@@ -1,6 +1,6 @@
 {
   "title": "Fossil fuel risks",
-  "description": "**You can explore here:**\n\n xx \n ",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change.\n ",
   "workspace": "",
   "config": {
     "runs": [
@@ -19,7 +19,7 @@
   },
   "questions": [
     {
-      "name": "How do raw fossil fuels develop & what extent of carbon sequestration is required to compensate the emissions?",
+      "name": "How do fossil fuel quantities develop & what extent of carbon sequestration is required to compensate the emissions?",
       "groups": [
         {
           "config": {
@@ -47,7 +47,7 @@
         }
       ]
     },{
-      "name": "How do direct emission costs for the extraction (not combustion) develop?",
+      "name": "How do direct emission costs for the extraction of fossil fuels develop (not combustion)?",
       "config": {
         "variables": [
           "RFP|Direct emissions cost|Coal",

@@ -1,6 +1,6 @@
 {
   "title": "Power sector risks",
-  "description": "**You can explore here:**\n\n xx \n ",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the power sector in mitigation scenarios. They help to understand what role the power sector will play under a climate target, how production, costs, required investments and revenues change.\n ",
   "workspace": "",
   "config": {
     "runs": [
@@ -19,7 +19,7 @@
   },
   "questions": [
     {
-      "name": "How how does the electricity sector develop?",
+      "name": "How how does the power sector develop?",
       "groups": [{
         "name": "Fossil fuels",
         "config": {
@@ -45,7 +45,7 @@
         "workspace": ""
         }]
     }, {
-      "name": "How do the risk factors develop in the power sector?",
+      "name": "How do direct and indirect costs in the power sector develop?",
       "config": {
         "variables": [
           "RFP|Direct emissions cost|Electricity",
@@ -55,7 +55,7 @@
       },
       "workspace": ""
     }, {
-      "name": "How do revenues and required investments develop?",
+      "name": "How do required investments and revenues develop?",
       "config": {
         "variables": [
           "RFP|Low-carbon capital expenditure|Electricity",
@@ -100,8 +100,6 @@
     }
   ],
   "dict": {
-    "Investment|Energy Efficiency": "Energy Demand",
-    "Investment|Energy Supply": "Energy Supply",
-    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+    "RFP|Low-carbon capital expenditure|Electricity": "Required investments"    
   }
 }
