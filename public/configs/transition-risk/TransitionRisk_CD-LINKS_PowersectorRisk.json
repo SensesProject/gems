@@ -6,8 +6,8 @@
     "runs": [
       [
         "$scenario",
-        "CD-LINKS_NPi$warming Riskfactor Pathways" 
-      ], 
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
+      ],
       [
         "$scenario",
         "CD-LINKS_NPi$warming"
@@ -20,31 +20,36 @@
   "questions": [
     {
       "name": "How how does the power sector develop?",
-      "groups": [{
-        "name": "Fossil fuels",
-        "config": {
-          "variables": [
-          "Secondary Energy|Electricity|Coal",
-          "Secondary Energy|Electricity|Gas",
-          "Secondary Energy|Electricity|Oil"
-        ]
-        }
-      }, {
-        "name": "Renewables and nuclear",
-        "config": {
-          "variables": [
-          "Secondary Energy|Electricity|Solar", 
-          "Secondary Energy|Electricity|Wind",
-          "Secondary Energy|Electricity|Biomass|w/o CCS",
-          "Secondary Energy|Electricity|Biomass|w/ CCS",
-          "Secondary Energy|Electricity|Hydro",
-          "Secondary Energy|Electricity|Geothermal",
-          "Secondary Energy|Electricity|Nuclear"
-          ]
+      "groups": [
+        {
+          "name": "Fossil fuels",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal",
+              "Secondary Energy|Electricity|Gas",
+              "Secondary Energy|Electricity|Oil"
+            ]
+          }
         },
-        "workspace": ""
-        }]
-    }, {
+        {
+          "name": "Renewables and nuclear",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Solar",
+              "Secondary Energy|Electricity|Wind",
+              "Secondary Energy|Electricity|Biomass|w/o CCS",
+              "Secondary Energy|Electricity|Biomass|w/ CCS",
+              "Secondary Energy|Electricity|Hydro",
+              "Secondary Energy|Electricity|Geothermal",
+              "Secondary Energy|Electricity|Nuclear"
+            ]
+          },
+          "workspace": ""
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/767fa9ea-937a-40a5-ba48-6dbf4d6b9277"
+    },
+    {
       "name": "How do direct and indirect costs in the power sector develop?",
       "config": {
         "variables": [
@@ -53,8 +58,9 @@
           "Price|Carbon"
         ]
       },
-      "workspace": ""
-    }, {
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b6e08abc-a5d4-4d79-9536-a51dc6909801"
+    },
+    {
       "name": "How do required investments and revenues develop?",
       "config": {
         "variables": [
@@ -63,7 +69,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f89d255c-5c31-4c7c-a3a1-3c0836a6ba26"
     }
   ],
   "params": [
@@ -100,6 +106,6 @@
     }
   ],
   "dict": {
-    "RFP|Low-carbon capital expenditure|Electricity": "Required investments"    
+    "RFP|Low-carbon capital expenditure|Electricity": "Required investments"
   }
 }

@@ -7,10 +7,10 @@
       [
         "$scenario",
         "CD-LINKS_NPi$warming"
-      ], 
+      ],
       [
         "$scenario",
-        "CD-LINKS_NPi$warming Riskfactor Pathways" 
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
       ]
     ],
     "regions": [
@@ -27,8 +27,8 @@
           "Final Energy|Industry"
         ]
       },
-      "workspace": ""
-    }, 
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/de235263-d2a0-45ef-acc2-1114dc0f8bb6"
+    },
     {
       "name": "How do direct emission costs develop for end use sectors for the transition?",
       "config": {
@@ -38,7 +38,7 @@
           "RFP|Direct emissions cost|Transportation"
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/01a85e04-f866-463d-abc9-43f05121e899"
     },
     {
       "name": "How do indirect emission costs develop for end use sectors?",
@@ -48,19 +48,18 @@
           "RFP|Indirect emissions cost|Transportation"
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a47f2d6a-84e6-48c5-a977-c0cf1092919b"
     },
     {
       "name": "How much low carbon capital expenditure is required?",
       "config": {
         "variables": [
-          "RFP|Low-carbon capital expenditure|Industrial processes", 
-          "RFP|Low-carbon capital expenditure|Residential and commercial", 
+          "RFP|Low-carbon capital expenditure|Industrial processes",
+          "RFP|Low-carbon capital expenditure|Residential and commercial",
           "RFP|Low-carbon capital expenditure|Transportation"
-
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05c0ba3d-aebe-4038-8cf1-99872d3764ac"
     }
   ],
   "params": [
@@ -98,6 +97,5 @@
   ],
   "dict": {
     "Investment|Energy Efficiency": "Energy Demand"
-    
   }
 }
