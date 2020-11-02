@@ -1,0 +1,75 @@
+{
+  "title": "Further important energy carriers",
+  "description": "**You can explore here:**\n\n  ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "Which other important energy carriers play a signifcant role?",
+      "groups": [{
+        "name": "Gases",
+        "config": {
+          "variables": [
+            "Secondary Energy|Gases",
+            "Secondary Energy|Gases|Natural Gas",
+            "Secondary Energy|Gases|Biomass"
+          ]
+        }
+       }, {
+        "name": "Liquids",
+        "config": {
+          "variables": [
+            "Secondary Energy|Liquids",
+            "Secondary Energy|Liquids|Oil",
+            "Secondary Energy|Liquids|Biomass",
+            "Secondary Energy|Liquids|Coal"
+          ]
+        }
+      },{
+        "name": "Solids",
+        "config": {
+          "variables": [
+            "Secondary Energy|Solids",
+            "Secondary Energy|Solids|Coal",
+            "Secondary Energy|Solids|Biomass"
+          ]
+        }
+      }]
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

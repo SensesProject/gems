@@ -1,0 +1,104 @@
+{
+  "title": "Electricity production",
+  "description": "**You can explore here:**\n\n  ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "REMIND 2.1.2|Australia"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does electricity production develop?",
+      "groups": [{
+        "name": "Electricity production fossils",
+        "config": {
+          "variables": [
+            "Secondary Energy|Electricity|Coal|w/o CCS",
+            "Secondary Energy|Electricity|Gas|w/o CCS",
+            "Secondary Energy|Electricity|Gas|w/ CCS",
+            "Secondary Energy|Electricity|Coal|w/ CCS",
+            "Secondary Energy|Electricity|Oil"
+          ]
+        },
+        "groups": [{
+        "name": "Japan",
+        "icon": "R5-ASIA",
+        "config": {
+          "regions": [
+            "REMIND 2.1.2|Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "R5-ASIA",
+        "config": {
+          "regions": [
+            "REMIND 2.1.2|Australia"
+          ]
+        }
+      }
+    ]
+       }, {
+        "name": "Electricity production renewables and nuclear",
+        "config": {
+          "variables": [
+            "Secondary Energy|Electricity|Solar",
+            "Secondary Energy|Electricity|Wind",
+            "Secondary Energy|Electricity|Hydro",
+            "Secondary Energy|Electricity|Nuclear",
+            "Secondary Energy|Electricity|Biomass|w/ CCS",
+            "Secondary Energy|Electricity|Biomass|w/o CCS",
+            "Secondary Energy|Electricity|Geothermal"
+          ]
+        }
+      }]
+    },
+    {
+      "name": "Emissions profile",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP", 
+          "Emissions|CO2",
+          "Emissions|CO2|Energy|Supply|Electricity|Gross", 
+          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg", 
+          "Emissions|CO2|Land-Use Change"
+
+
+        ]
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

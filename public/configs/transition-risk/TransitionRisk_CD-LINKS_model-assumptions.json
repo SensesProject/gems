@@ -5,7 +5,7 @@
   "config": {
     "runs": [
       [
-        "$scenario",
+        "$model",
         "CD-LINKS_NoPolicy"
       ]
     ],
@@ -159,23 +159,23 @@
       "options": [
         {
           "name": "REMIND-MAgPIE 1.7-3.0",
-          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+          "$model": "REMIND-MAgPIE 1.7-3.0"
         },
         {
           "name": "MESSAGEix-GLOBIOM 1.0",
-          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+          "$model": "MESSAGEix-GLOBIOM 1.0"
         },
         {
           "name": "AIM/CGE 2.1",
-          "$scenario": "AIM/CGE 2.1"
+          "$model": "AIM/CGE 2.1"
         },
         {
           "name": "IMAGE 3.0.1",
-          "$scenario": "IMAGE 3.0.1"
+          "$model": "IMAGE 3.0.1"
         },
         {
           "name": "WITCH-GLOBIOM 4.4",
-          "$scenario": "WITCH-GLOBIOM 4.4"
+          "$model": "WITCH-GLOBIOM 4.4"
         }
       ]
     }

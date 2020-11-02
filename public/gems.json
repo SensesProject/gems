@@ -73,6 +73,54 @@
         ]
       }
     ]
+  },{
+    "title": "Electrification",
+    "dir": "electrification",
+    "modules": [
+      "sector-transition",
+      "countries-pathways"
+    ],
+    "groups": [
+      {
+        "title": "Electrificaion",
+        "gems": [
+          {
+            "id": "Electrification_EnergyProduction",
+            "title": "Electrification - Energy Production"
+          },
+          {
+            "id": "Electrification_EnergyDemand",
+            "title": "Electrification - Energy Demand"
+          },
+          {
+            "id": "Electrification_FurtherImportantEnergyCarriers",
+            "title": "Electrification - Further Important Energy Carriers"
+          }
+        ]
+      }
+    ]
+  },{
+    "title": "Net zero for industrialized countries",
+    "dir": "netZeroIC",
+    "modules": [
+      "countries-pathways",
+      "sector-transition"
+    ],
+    "groups": [
+      {
+        "title": "Net zero pathways for industrialized countries",
+        "gems": [
+          {
+            "id": "NetZeroIC_EnergyProduction",
+            "title": "Energy Production"
+          },
+          {
+            "id": "NetZeroIC_EnergyDemand",
+            "title": "Electrification - Energy Demand"
+          }
+        ]
+      }
+    ]
   },
   {
     "title": "Land Transition",

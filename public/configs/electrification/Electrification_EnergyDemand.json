@@ -1,0 +1,93 @@
+{
+  "title": "Energy demand and the role of electricity ",
+  "description": "**You can explore here:**\n\n  ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does direct electricity consumption the demand sector develop?",
+      "config": {
+        "variables": [
+          "Final Energy|Buildings|Electricity",
+          "Final Energy|Industry|Electricity", 
+          "Final Energy|Transport|Electricity"
+        ]
+      }
+    }, {
+      "name": "How does the demand sector develop altogether?",
+      "groups": [ {
+        "name": "Industry",
+        "config": {
+          "variables": [
+            "Final Energy|Industry",
+            "Final Energy|Industry|Electricity",
+            "Final Energy|Industry|Gases",
+            "Final Energy|Industry|Liquids",
+            "Final Energy|Industry|Solids",
+            "Final Energy|Industry|Hydrogen",
+            "Final Energy|Industry|Heat"
+          ]
+        }
+      },{
+        "name": "Transport",
+        "config": {
+          "variables": [
+            "Final Energy|Transport", 
+            "Final Energy|Transport|Electricity",
+            "Final Energy|Transport|Liquids",
+            "Final Energy|Transport|Gases",
+            "Final Energy|Transport|Hydrogen"
+          ]
+        }
+      },{
+        "name": "Buildings",
+        "config": {
+          "variables": [
+            "Final Energy|Buildings",
+            "Final Energy|Buildings|Electricity",
+            "Final Energy|Buildings|Gases",
+            "Final Energy|Buildings|Solids",
+            "Final Energy|Buildings|Heat",
+            "Final Energy|Buildings|Hydrogen",
+            "Final Energy|Buildings|Liquids"
+          ]
+        }
+       }]
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

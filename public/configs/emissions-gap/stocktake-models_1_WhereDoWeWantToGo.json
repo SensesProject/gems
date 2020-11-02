@@ -12,7 +12,17 @@
   "questions": [{
     "name": "How much do individual sectors contribute to the decline?",
     "groups": [{
-      "name": "Energy Supply",
+      "name": "Demand side emissions",
+      "config": {
+        "variables": [
+          "Emissions|CO2|Energy|Demand|Industry",
+          "Emissions|CO2|Energy|Demand|Transportation",
+          "Emissions|CO2|Energy|Demand|Residential and Commercial",
+          "Emissions|CO2|Industrial Processes"
+        ]
+      }
+     }, {
+      "name": "Energy supply emissions",
       "config": {
         "variables": [
           "Emissions|CO2|Energy|Supply|Electricity",
@@ -23,17 +33,7 @@
         ]
       }
     }, {
-      "name": "Demand & industrial process",
-      "config": {
-        "variables": [
-          "Emissions|CO2|Energy|Demand|Industry",
-          "Emissions|CO2|Energy|Demand|Transportation",
-          "Emissions|CO2|Energy|Demand|Residential and Commercial",
-          "Emissions|CO2|Industrial Processes"
-        ]
-      }
-    }, {
-      "name": "Agriculture, forestry & other land use",
+      "name": "Agriculture, forestry & other land use emissions",
       "config": {
         "variables": [
           "Emissions|CO2|AFOLU",
@@ -98,14 +98,14 @@
   "params": [{
     "name": "Policy",
     "options": [{
-      "name": "Nationally determined contributions",
-      "$policy": "NDC"
-    }, {
       "name": "Most efficient transition",
       "$policy": "eff"
     }, {
       "name": "Bridging scenario",
       "$policy": "netzero"
+    },{
+      "name": "Nationally determined contributions",
+      "$policy": "NDC"
     }]
   }, {
     "name": "Warming Level",

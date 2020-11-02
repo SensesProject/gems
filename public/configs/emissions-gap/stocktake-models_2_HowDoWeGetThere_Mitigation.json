@@ -97,15 +97,15 @@
 ],
   "params": [{
     "name": "Policy",
-    "options": [{
-      "name": "Nationally determined contributions",
-      "$policy": "NDC"
-    }, {
+    "options": [ {
       "name": "Most efficient transition",
       "$policy": "eff"
     }, {
       "name": "Bridging scenario",
       "$policy": "netzero"
+    },{
+      "name": "Nationally determined contributions",
+      "$policy": "NDC"
     }]
   }, {
     "name": "Warming Level",
