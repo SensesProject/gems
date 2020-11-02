@@ -6,7 +6,7 @@
     "runs": [
       [
         "$scenario",
-        "CD-LINKS_NPi$warming Riskfactor Pathways" 
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
       ],
       [
         "$scenario",
@@ -32,8 +32,10 @@
             ]
           }
         }
-      ]
-    },{
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/04dbdfc5-8cc4-44c0-8ae4-ff33b89e1335"
+    },
+    {
       "name": "How do fossil fuels develop in electricity production?",
       "groups": [
         {
@@ -41,12 +43,14 @@
             "variables": [
               "Secondary Energy|Electricity|Coal",
               "Secondary Energy|Electricity|Gas",
-              "Secondary Energy|Electricity|Oil"              
+              "Secondary Energy|Electricity|Oil"
             ]
           }
         }
-      ]
-    },{
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ac2e556f-8985-41a4-a8e6-9545c10635fe"
+    },
+    {
       "name": "How do direct emission costs for the extraction of fossil fuels develop (not combustion)?",
       "config": {
         "variables": [
@@ -56,7 +60,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/49c02fe0-6c62-4077-8dd4-4a70e899dec6"
     },
     {
       "name": "How do revenues for fossil fuels develop?",
@@ -67,7 +71,7 @@
           "RFP|Revenue|Gas"
         ]
       },
-      "workspace": ""
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/d054c548-0f14-4dc6-8cd3-81e9e865414c"
     }
   ],
   "params": [

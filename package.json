@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "generate": "node --experimental-modules --experimental-json-modules scripts/create-workspaces.js"
+    "generate": "node --experimental-modules --experimental-json-modules scripts/create-workspaces.mjs"
   },
   "dependencies": {
     "core-js": "^2.6.11",
