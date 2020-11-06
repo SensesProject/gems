@@ -1,6 +1,6 @@
 {
   "title": "Electricity production",
-  "description": "**You can explore here:**\n\n  ",
+  "description": "**You can explore here:**\n\n Understand the shift in production of these important energy carriers (besides electricity). Describe perspective on industrialized countries. Explain gas, liquids, solids -  Cite paper  ",
   "workspace": "",
   "config": {
     "runs": [
@@ -14,19 +14,8 @@
     ]
   },
   "questions": [
-    {
-      "name": "Which other important energy carriers play a signifcant role?",
-      "groups": [{
-        "name": "Gases",
-        "config": {
-          "variables": [
-            "Secondary Energy|Gases",
-            "Secondary Energy|Gases|Natural Gas",
-            "Secondary Energy|Gases|Biomass"
-          ]
-        }
-       }, {
-        "name": "Liquids",
+     {
+        "name": "Role of liquids as energy carrier",
         "config": {
           "variables": [
             "Secondary Energy|Liquids",
@@ -34,18 +23,128 @@
             "Secondary Energy|Liquids|Biomass",
             "Secondary Energy|Liquids|Coal"
           ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
         }
+      ]
       },{
-        "name": "Solids",
+      "name": "Production of gas as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Gases",
+          "Secondary Energy|Gases|Natural Gas",
+          "Secondary Energy|Gases|Biomass"
+        ]
+      },
+      "groups": [{
+        "name": "United States of America",
+        "icon": "",
         "config": {
-          "variables": [
-            "Secondary Energy|Solids",
-            "Secondary Energy|Solids|Coal",
-            "Secondary Energy|Solids|Biomass"
+          "regions": [
+            "United States"
           ]
         }
-      }]
-    }
+      }, {
+        "name": "European Union",
+        "icon": "",
+        "config": {
+          "regions": [
+            "European Union"
+          ]
+        }
+      },{
+        "name": "Japan",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Australia"
+          ]
+        }
+      }
+    ]
+     },{
+      "name": "Role of solids as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Solids",
+          "Secondary Energy|Solids|Coal",
+          "Secondary Energy|Solids|Biomass"
+        ]
+      },
+      "groups": [{
+        "name": "United States of America",
+        "icon": "",
+        "config": {
+          "regions": [
+            "United States"
+          ]
+        }
+      }, {
+        "name": "European Union",
+        "icon": "",
+        "config": {
+          "regions": [
+            "European Union"
+          ]
+        }
+      },{
+        "name": "Japan",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Australia"
+          ]
+        }
+      }
+    ]
+  }
   ],
   "params": [
     {

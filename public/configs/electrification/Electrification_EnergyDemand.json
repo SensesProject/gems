@@ -1,6 +1,6 @@
 {
   "title": "Energy demand and the role of electricity ",
-  "description": "**You can explore here:**\n\n  ",
+  "description": "**You can explore here:**\n\n  role of electrification on the demand side. Overall view shift from classic mostly fossil based carriers to electricity later in the century (write about timing) . Describe the 3 scenarios NDC, no policy, 1.5°C.    ",
   "workspace": "",
   "config": {
     "runs": [
@@ -15,16 +15,16 @@
   },
   "questions": [
     {
-      "name": "How does direct electricity consumption the demand sector develop?",
+      "name": "Electricity demand - how end use sectors develop?",
       "config": {
         "variables": [
-          "Final Energy|Buildings|Electricity",
           "Final Energy|Industry|Electricity", 
+          "Final Energy|Buildings|Electricity",
           "Final Energy|Transport|Electricity"
         ]
       }
     }, {
-      "name": "How does the demand sector develop altogether?",
+      "name": "What is the overall final energy demand profile in the sectors?",
       "groups": [ {
         "name": "Industry",
         "config": {

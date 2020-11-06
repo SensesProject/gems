@@ -85,16 +85,16 @@
         "title": "Electrificaion",
         "gems": [
           {
-            "id": "Electrification_EnergyProduction",
-            "title": "Electrification - Energy Production"
+            "id": "Electrification_ElectricityProduction",
+            "title": "Electricity Production"
           },
           {
             "id": "Electrification_EnergyDemand",
-            "title": "Electrification - Energy Demand"
+            "title": "Demand side changes"
           },
           {
             "id": "Electrification_FurtherImportantEnergyCarriers",
-            "title": "Electrification - Further Important Energy Carriers"
+            "title": "Decarbonization - Further Important Energy Carriers"
           }
         ]
       }
@@ -116,7 +116,11 @@
           },
           {
             "id": "NetZeroIC_EnergyDemand",
-            "title": "Electrification - Energy Demand"
+            "title": "Demand side - energy and electricity"
+          },
+          {
+            "id": "NetZeroIC_FurtherImportantEnergyCarriers",
+            "title": "Further Important Energy Carriers"
           }
         ]
       }
