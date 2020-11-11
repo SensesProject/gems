@@ -101,53 +101,10 @@
     },
     {
       "name": "How does demand-side mitigation develop in the 5 world regions?",
-      "groups": [
-        {
-          "name": "R5 ASIA - Demand-Side Mitigation",
-          "icon": "R5-ASIA",
-          "config": {
-            "regions": [
-              "R5|ASIA"
-            ]
-          }
-        },
-        {
-          "name": "R5 LAM - Demand-Side Mitigation",
-          "icon": "R5-LAM",
-          "config": {
-            "regions": [
-              "R5|LAM"
-            ]
-          }
-        },
-        {
-          "name": "R5 MAF - Demand-Side Mitigation",
-          "icon": "R5-MAF",
-          "config": {
-            "regions": [
-              "R5|MAF"
-            ]
-          }
-        },
-        {
-          "name": "R5 OECD90+EU - Demand-Side Mitigation",
-          "icon": "R5-OECD90+EU",
-          "config": {
-            "regions": [
-              "R5|OECD90+EU"
-            ]
-          }
-        },
-        {
-          "name": "R5 REF - Demand-Side Mitigation",
-          "icon": "R5-REF",
-          "config": {
-            "regions": [
-              "R5|REF"
-            ]
-          }
-        }
-      ],
+      "groups": {
+        "r5": true,
+        "suffix": "Demand-Side Mitigation"
+      },
       "config": {
         "variables": [
           {
@@ -172,53 +129,10 @@
     },
     {
       "name": "How does land-based mitigation develop in the 5 world regions?",
-      "groups": [
-        {
-          "name": "R5 ASIA - Land-Based Mitigation",
-          "icon": "R5-ASIA",
-          "config": {
-            "regions": [
-              "R5|ASIA"
-            ]
-          }
-        },
-        {
-          "name": "R5 LAM - Land-Based Mitigation",
-          "icon": "R5-LAM",
-          "config": {
-            "regions": [
-              "R5|LAM"
-            ]
-          }
-        },
-        {
-          "name": "R5 MAF - Land-Based Mitigation",
-          "icon": "R5-MAF",
-          "config": {
-            "regions": [
-              "R5|MAF"
-            ]
-          }
-        },
-        {
-          "name": "R5 OECD90+EU - Land-Based Mitigation",
-          "icon": "R5-OECD90+EU",
-          "config": {
-            "regions": [
-              "R5|OECD90+EU"
-            ]
-          }
-        },
-        {
-          "name": "R5 REF - Land-Based Mitigation",
-          "icon": "R5-REF",
-          "config": {
-            "regions": [
-              "R5|REF"
-            ]
-          }
-        }
-      ],
+      "groups": {
+        "r5": true,
+        "suffix": "Land-Based Mitigation"
+      },
       "config": {
         "variables": [
           {
@@ -239,53 +153,10 @@
     },
     {
       "name": "How do AFOLU emissions develop in the 5 world regions?",
-      "groups": [
-        {
-          "name": "R5 ASIA - Emissions",
-          "icon": "R5-ASIA",
-          "config": {
-            "regions": [
-              "R5|ASIA"
-            ]
-          }
-        },
-        {
-          "name": "R5 LAM - Emissions",
-          "icon": "R5-LAM",
-          "config": {
-            "regions": [
-              "R5|LAM"
-            ]
-          }
-        },
-        {
-          "name": "R5 MAF - Emissions",
-          "icon": "R5-MAF",
-          "config": {
-            "regions": [
-              "R5|MAF"
-            ]
-          }
-        },
-        {
-          "name": "R5 OECD90+EU - Emissions",
-          "icon": "R5-OECD90+EU",
-          "config": {
-            "regions": [
-              "R5|OECD90+EU"
-            ]
-          }
-        },
-        {
-          "name": "R5 REF - Emissions",
-          "icon": "R5-REF",
-          "config": {
-            "regions": [
-              "R5|REF"
-            ]
-          }
-        }
-      ],
+      "groups": {
+        "r5": true,
+        "suffix": "Emissions"
+      },
       "config": {
         "variables": [
           {

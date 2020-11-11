@@ -126,11 +126,11 @@ async function getBasics (options) {
 
 function parseConfigs ({ gem, question }) {
   let config = { ...gem.config }
-
+  let groups = question.groups
   const grouped = {}
-  if (question.groups && question.groups.r5 === true) {
+  if (groups && groups.r5 === true) {
     const suffix = question.groups.suffix ? ` - ${question.groups.suffix}` : ''
-    question.groups = ['ASIA', 'LAM', 'MAF', 'OECD90+EU', 'REF'].map(r => ({
+    groups = ['ASIA', 'LAM', 'MAF', 'OECD90+EU', 'REF'].map(r => ({
       name: `R5 ${r}${suffix}`,
       icon: `R5-${r}`,
       config: {
@@ -140,7 +140,7 @@ function parseConfigs ({ gem, question }) {
       }
     }))
   }
-  (question.groups || []).forEach(g => {
+  (groups || []).forEach(g => {
     Object.keys(g.config).forEach(k => {
       if (grouped[k] === undefined) grouped[k] = []
       grouped[k] = [

@@ -55,7 +55,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/2f025713-b954-4493-8800-9b12bb2a64d7"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/5a00b8ed-6bfe-4c41-967f-bf7d179b5ecc"
     },
     {
       "name": "How does land cover change in the 5 world regions?",
@@ -79,8 +79,11 @@
           }
         ]
       },
-      "groups": {"r5": true, "suffix": "Land Cover Change"},
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/022282fd-577d-4ec5-8b1d-350244d8f44f"
+      "groups": {
+        "r5": true,
+        "suffix": "Land Cover Change"
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/dd35ce8d-a98c-4b2d-b461-f2549bdc10d6"
     },
     {
       "name": "How does cropland change in the 5 world regions?",
@@ -96,8 +99,11 @@
           }
         ]
       },
-      "groups": {"r5": true, "suffix": "Cropland Change"},
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/efa25f73-20e2-4ccb-a1e6-6db8c26f30c2"
+      "groups": {
+        "r5": true,
+        "suffix": "Cropland Change"
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8aeb3f43-dc83-42e0-af2c-6431ecfe39c4"
     }
   ],
   "params": [
