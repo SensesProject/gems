@@ -1,318 +1,173 @@
   <template>
-  <div class="gem tiny">
-    <template v-if="gem">
-        <div class="center header">
-          <section class="title">
-            <router-link :to="`/${collection.dir}`" class="uppercase collection">{{ collection.name }}</router-link>
-            <h1>{{ gem.title }}</h1>
-          </section>
-        <section>
-          <GemExpandable title="What you can explore here">
-            <MdParser class="description" :md="gem.description"/>
-          </GemExpandable>
-        </section>
-        <section class="perspective">
-          <div class="box block question">
-            <div class="label uppercase">Guiding Question</div>
-            <SensesRadio :isHorizontal="false" :options="questions" v-model="perspective.question"/>
-          </div>
-          <div class="box block comparison">
-            <div class="label uppercase">Focus</div>
-            <SensesRadio :isHorizontal="false" :options="comparisons" v-model="perspective.comparison"/>
-          </div>
-        </section>
+  <div class="gem">
+    <template v-if="config && current">
+      <section class="intro">
+        <h1>{{ config.title }}</h1>
+        <MdParser :md="config.description"/>
+      </section>
+      <div class="options" v-if="config != null">
+        <div class="option" v-for="(o,i) in config.dropdowns" :key="`o-${i}`">
+          <div class="tiny label">{{ o.label }}</div>
+          <SensesSelect width="120" :options="o.options.map(c => c.label)" v-model="options[i]"/>
+        </div>
       </div>
-      <div class="main">
-        <div class="sticky-wrapper">
-        <section class="options center">
-          <div class="margin-fix">
-            <template v-for="(p, i) in gem.params">
-              <div v-if="p.name !== perspective.comparison" class="box" :key="`p-${i}`">
-                <div class="label uppercase" v-if="p.label">{{ p.name }}</div>
-                <SensesRadio :options="p.options.filter(o => !o.hidden).map(o => o.name)" v-model="perspective.params[p.name]" :isEqualWidth="false"/>
-              </div>
-              <OptionKey v-else :key="`p-${i}`" class="box" :options="cats.filter(o => !o.hidden)" v-model="activeCats" :label="p.label ? perspective.comparison : null" :select-all="!param.singleSelect"/>
+      <section v-if="current.text" class="text">
+        <MdParser :md="current.text"/>
+      </section>
+      <div class="options" v-if="config != null">
+        <div class="option" v-if="data && Object.keys(domains).length !== data.length">
+          <div class="tiny label axis">Axis</div>
+          <SensesRadio width="120" :options="[{label: 'absolute', value: false}, {label: 'synchronized', value: true}]" v-model="synchronize"/>
+        </div>
+      </div>
+      <div class="legend" v-if="current != null">
+        <div class="legend-inner">
+          <div class="tiny label">Models/Scenarios</div>
+          <span v-for="(r, i) in current.all.filter(r => r.type === 'default' || r.type === 'reference')" :key="`o${i}`"
+            class="tiny" :class="{ transparent: highlight != null && highlight != r.runId }"
+            @mouseenter="highlight = r.runId" @mousemove="highlight = r.runId" @mouseout="highlight = null">
+            <span class="glyph-dot" :class="r.color"/>
+            {{ dict[r.name] || r.name }}
+          </span><br>
+          <span v-if="current.funnel != null"
+            class="tiny" :class="{ transparent: highlight != null }">
+            <span class="glyph-rect funnel"/>
+            The shaded area shows the model spread.
+          </span>
+        </div>
+      </div>
+      <div class="group" v-for="(g, i) in groups" :key="`g-${i}`">
+        <div class="group-title">
+          <img v-if="g.img" :src="g.img"/>
+          <h3 v-if="g.label">{{g.label}}</h3>
+        </div>
+        <div class="panels">
+          <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
+            :number-format="config.numberFormat" :highlight="highlight"
+            :domain="synchronize ? domains[p.runs[0].unit] : null"/>
+        </div>
+      </div>
+      <div v-if="config.workspace" class="workspace">
+        <ul class="border">
+          <a :href="config.workspace" class="link" target="_blank">
+            <li>Open workspace in Scenario Explorer ↗</li>
+          </a>
+        </ul>
+      </div>
+      <div class="metadata">
+        <h3>Metadata</h3>
+        <table>
+          <template v-for="m in docs">
+            <template v-if="m.items.length > 0">
+              <thead :key="`m1-${m.name}`">
+                <tr>
+                  <th>{{ m.name }}</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody :key="`m2-${m.name}`">
+                <tr
+                  v-for="(d, i) in m.items"
+                  :key="`d-${i}`">
+                  <td>{{dict[d.name] || d.name}}</td>
+                  <td v-html="d.description"></td>
+                </tr>
+              </tbody>
             </template>
-          </div>
-        </section>
-          <section class="charts center" :style="{'max-width': size === 'wide' ? `${Math.max(1200, columns * 256)}px` : null}">
-            <div class="group " v-for="(g, i) in groups" :key="`g-${i}`">
-              <div v-if="g.name || g.icon" class="group-title" :class="{'has-image': g.icon != null}">
-                <img v-if="g.icon" :src="g.icon"/>
-                <h3 class="uppercase" v-if="g.name">{{g.name}}</h3>
-              </div>
-              <!-- <div class="margin-fix"> -->
-                <div class="panels" :class="[`${size}`]" :style="{'grid-template-columns': size === 'wide' ? `repeat(${Math.min(columns, g.data.filter(p => p.runs.length > 0).length)}, 1fr)` : `repeat(${columns}, 1fr)` }">
-                  <ChartLine v-for="(p, j) in g.data.filter(p => p.runs.length > 0)" :key="`${i}-${j}`" :colors="colors" v-bind="p"
-                    :number-format="config.numberFormat" :highlight="activeCats" :param="param"
-                    :height="size === 'large' ? 360 : 200"
-                    :domain="synchronize ? domains[p.runs[0].unit] : null"/>
-                </div>
-              <!-- </div> -->
-            </div>
-          </section>
-        </div>
-        <section class="view center">
-          <div class="margin-fix">
-            <div class="box" v-if="config && !config.absoluteAxes">
-              <div class="label uppercase">Axes</div>
-              <SensesRadio :options="[{label: '', value: true}, {label: '', value: false}]" v-model="synchronize"/>
-            </div>
-            <div class="box sizes">
-              <div class="label uppercase">Layout</div>
-              <SensesRadio :options="[{label: '', value:'large'}, {label: '', value: 'default'}, {label: '', value: 'wide'}]" v-model="size"/>
-            </div>
-          </div>
-        </section>
+          </template>
+        </table>
       </div>
-      <div class="center footer">
-        <div class="margin-fix">
-          <section class="box data">
-            <div class="items">
-              <router-link :to="`/${collection.dir}`" class="button">
-                ← Back to GEM overview
-              </router-link>
-              <a v-if="data" class="button" :href="download" :download="filename">
-                Download data ↓
-              </a>
-              <a v-if="workspace" :href="workspace" class="button" target="_blank">
-                Open in IIASA Scenario Explorer ↗
-              </a>
-              <a href="https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/#/license" class="button" target="_blank">
-                License ↗
-              </a>
-            </div>
-          </section>
-        </div>
-        <!-- <div class="margin-fix">
-          <section class="box related" v-if="related">
-            <div class="items">
-              <router-link :to="`/${collection.dir}`" class="button">
-                ← Back to GEM overview
-              </router-link>
-              <a v-if="related.link" class="button" :href="related.link">
-                Learn Module
-              </a>
-            </div>
-          </section>
-        </div> -->
-        <section class="meta" v-if="docs">
-          <GemExpandable v-for="m in docs.filter(m => m.items.length > 0)" :key="m.name"
-            class="metadata" :title="`${m.name} Metadata`">
-            <div class="grid">
-              <div
-                v-for="(d, i) in m.items"
-                :key="`d-${i}`">
-                <h3>{{dict[d.name] || d.name}}</h3>
-                <div class="description" v-html="d.description"></div>
-              </div>
-            </div>
-          </GemExpandable>
-        </section>
+      <div v-if="related" class="related">
+        <template v-if="related.module.link != null">
+          <span class="mono tiny uppercase">More on that topic</span>
+          <ul>
+            <a class="link" :href="related.module.link">
+              <li class="invert">Read the module</li>
+            </a>
+          </ul>
+          <br>
+        </template>
+        <span class="mono tiny uppercase">Related GEMs</span>
+        <ul class="border">
+          <router-link v-for="(link, i) in related.gems" :key="`g-${i}`" class="link" :to="link.path">
+            <li>{{ link.title }}</li>
+          </router-link>
+        </ul>
       </div>
     </template>
   </div>
 </template>
 <script>
-// import SensesSelect from 'library/src/components/SensesSelect.vue'
+import SensesSelect from 'library/src/components/SensesSelect.vue'
 import SensesRadio from 'library/src/components/SensesRadio.vue'
-import OptionKey from '@/components/OptionKey.vue'
 import ChartLine from '@/components/ChartLine.vue'
 import MdParser from '@/components/MdParser.vue'
-import GemExpandable from '@/components/GemExpandable.vue'
 import { mapActions, mapState, mapGetters } from 'vuex'
 import bindState from '@/assets/js/bindState'
-import { csvFormat } from 'd3-dsv'
-import sanitize from 'sanitize-filename'
-import { getUrlToResources } from 'library/src/assets/js/utils'
 export default {
   name: 'Gem',
   data () {
     return {
       highlight: null,
-      synchronize: true,
-      // large: false,
-      question: null,
-      comparison: null,
-      params: {},
-      activeCats: {}
+      synchronize: true
     }
   },
   components: {
-    OptionKey,
     ChartLine,
-    // SensesSelect,
+    SensesSelect,
     SensesRadio,
-    MdParser,
-    GemExpandable
+    MdParser
   },
   computed: {
-    ...mapState(['gem', 'config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
+    ...mapState(['config', 'colors', 'data', 'metadata', 'current', 'domains', 'gems', 'modules']),
     ...mapGetters(['dict']),
-    ...bindState(['options', 'perspective', 'size']),
-    columns () {
-      const max = this.groups != null ? Math.max(...this.groups.map(g => g.data.filter(p => p.runs.length > 0).length)) : 8
-      switch (this.size) {
-        case 'large':
-          return Math.min(2, max)
-        case 'wide':
-          return Math.min(8, max)
-        default:
-          return Math.min(4, max)
-      }
-    },
-    workspace () {
-      return (this.gem.questions.find(a => a.name === this.perspective.question) || {}).workspace || this.gem.workspace
-    },
-    questions () {
-      const { gem } = this
-      return gem.questions.map(p => p.name)
-    },
-    comparisons () {
-      const { gem } = this
-      return gem.params.map(p => p.name)
-    },
-    param () {
-      const { gem, perspective } = this
-      if (gem === null) return
-      return gem.params.find(p => p.name === perspective.comparison)
-    },
-    cats () {
-      const { gem, param, colors } = this
-      if (gem === null) return
-      return param.options.map((o, i) => ({ ...o, label: o.name, color: param.monochrome ? 'yellow' : colors[i] }))
-    },
+    ...bindState(['options']),
     docs () {
       const { metadata } = this
       return metadata
     },
     groups () {
-      const { config, data, gem, perspective } = this
-      if (config == null || data == null) return
-
-      const question = gem.questions.find(q => q.name === perspective.question)
-      const groups = question.groups
-      if (groups == null) return [{ data }]
-      return groups.map(g => {
-        const variables = (g.config.variables || (question.config && question.config.variables ? question.config.variables : (gem.config && gem.config.variables ? gem.config.variables : []))).map(d => d.value || d)
-        const regions = (g.config.regions || (question.config && question.config.regions ? question.config.regions : (gem.config && gem.config.regions ? gem.config.regions : []))).map(d => d.value || d)
-
-        let runs = g.config.runs || (question.config && question.config.runs ? question.config.runs : (gem.config && gem.config.runs ? gem.config.runs : []))
-
-        const panels = data.filter(panel =>
-          variables.find(d => d === panel.variable) && regions.find(d => d === panel.region)
-        ).map(panel => {
-          return {
-            ...panel,
-            runs: panel.runs.filter(({ source }) =>
-              runs.find(r => (source.model === r[0] && source.scenario === r[1]))
-            )
-          }
-        })
+      const { current, data } = this
+      if (current == null || data == null) return
+      if (current.groups == null) return [{ data }]
+      let start = 0
+      return current.groups.map(g => {
+        const d = data.filter((d, i) => i >= start && i < start + g.size)
+        start += g.size
         return {
-          data: panels,
-          name: g.name,
-          icon: g.icon ? `./icons/${g.icon}.png` : null
+          label: g.label,
+          img: g.img,
+          data: d
         }
       })
-
-      // return [{ data }]
-      // let start = 0
-      // return config.groups.map(g => {
-      //   const d = data.filter((d, i) => i >= start && i < start + g.size)
-      //   start += g.size
-      //   return {
-      //     label: g.label,
-      //     img: g.img,
-      //     data: d
-      //   }
-      // })
-    },
-    collection () {
-      const { $route, gems } = this
-      const module = gems.find(g => g.dir === $route.params.module)
-      if (module == null) return {}
-      return { name: module.title, dir: module.dir }
     },
     related () {
-      const { $route, gems, modules } = this
+      const { $route, gems } = this
       const module = gems.find(g => g.dir === $route.params.module)
       if (module == null) return null
       const relatedGems = module.gems.filter(gem => gem.id !== $route.params.gem).map(gem => ({
         title: gem.title || gem.id,
         path: `/${module.dir}/${gem.id}`
       }))
-      let link = null
-      if (modules != null) {
-        const m = modules.modules.find(m => m.id === module.id)
-        if (m) {
-          link = getUrlToResources(m.link)
-        }
-      }
       return {
         gems: relatedGems,
-        module,
-        link
+        module
       }
-    },
-    download () {
-      const data = this.data.map(p => {
-        return p.runs.map(r => {
-          return {
-            region: p.region,
-            variable: p.variable,
-            unit: r.unit,
-            model: r.model,
-            scenario: r.scenario,
-            ...Object.fromEntries(r.series.map(y => [y.year, y.value]))
-          }
-        })
-      }).flat()
-
-      const attrKeys = ['model', 'scenario', 'region', 'variable', 'unit']
-      const keys = [...new Set(data.map(d => Object.keys(d)).flat())].sort().filter(k => attrKeys.find(k2 => k === k2) == null)
-
-      return encodeURI(`data:text/csv;charset=utf-8,${csvFormat(data, [...attrKeys, ...keys])}`)
-    },
-    filename () {
-      const { $route, questions, perspective } = this
-      const segments = [
-        $route.params.module,
-        $route.params.gem,
-        `Q${questions.indexOf(perspective.question) + 1}`,
-        perspective.comparison,
-        Object.keys(perspective.params).map(p => p === perspective.comparison ? null : perspective.params[p]).filter(p => p != null).join('-')
-      ]
-      return sanitize(`${segments.join('_')}.csv`)
     }
   },
   methods: {
     ...mapActions(['initGem', 'initSession'])
   },
   created () {
-    this.initSession(this.$route.params)
+    this.initSession(this.$route.params.gem)
   },
   watch: {
-    '$route.params.gem': {
-      handler () {
-        this.initGem(this.$route.params)
-      },
-      deep: true
+    '$route.params.gem' () {
+      this.initGem(this.$route.params.gem)
     },
-    cats (cats) {
-      const { param } = this
-      if (cats == null) return
-      this.activeCats = Object.fromEntries(cats.map((c, i) => [c.name, i === 0 || !param.singleSelect]))
-    },
-    // 'options': { // force update options in state
-    //   handler (o) {
-    //     this.options = o
-    //   },
-    //   deep: true
-    // }
-    perspective: { // force update options in state
-      handler (perspective) {
-        this.perspective = perspective
+    'options': { // force update options in state
+      handler (o) {
+        this.options = o
       },
       deep: true
     }
@@ -321,205 +176,245 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
-
 .gem {
-  padding: $spacing / 2 $spacing / 2 $spacing / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing $spacing / 2;
 
-  section + section {
-    margin-top: $spacing / 2;
+  .intro {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
   }
-  .header {
-    .title {
-      .collection {
-        background: none;
-        margin-bottom: $spacing / 16;
-        display: inline-block;
-      }
-      h1 {
-        transform: translateX(-1.25px);
-      }
-    }
 
-    .description {
-      columns: 3;
-      column-gap: $spacing / 2;
-      &::v-deep p + p {
-        text-indent: 2em;
-      }
-
-      @include max-width($medium) {
-        columns: 2
-      }
-
-      @include max-width($narrow) {
-        columns: 1
-      }
-    }
-
-    .perspective {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: $spacing / 2;
-
-      @include max-width($narrow) {
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: $spacing / 2 0;
-      }
-
-      .question {
-        grid-column-start: 1;
-        grid-column-end: 3;
-      }
-    }
+  .text {
+    width: 100%;
+    max-width: 600px;
+    margin: $spacing / 2 0;
   }
-  .margin-fix {
-    margin-right: -$spacing / 2;
+
+  .options {
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-wrap: wrap;
-    // margin-bottom: -$spacing / 2;
-    .box {
-      margin: 0 $spacing / 2 $spacing / 2 0;
+    align-items: center;
+
+    .option {
+      margin: 0 $spacing / 4 $spacing / 8 0;
       .label {
-        white-space: nowrap;
+        text-transform: capitalize;
+        &.axis {
+          margin-bottom: -5px;
+        }
+      }
+      &:last-of-type {
+        margin-right: 0;
       }
     }
   }
-  .main {
-    // .sticky-wrapper {
-    //   padding-bottom: $spacing;
-    // }
-    .options {
-      margin-top: $spacing / 2;
-      position: sticky;
-      top: $spacing * 2.25;
-      z-index: 1;
+
+  .legend {
+    background: transparentize($color-white, 0.02);
+    z-index: 10;
+    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or(backdrop-filter: saturate(180%) blur(20px))) {
+      background: transparentize($color-white, 0.15);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      backdrop-filter:saturate(180%) blur(10px)
     }
-    .view {
-      // margin-top: $spacing / 2;
-      position: sticky;
-      bottom: 0;
-      z-index: 1;
-
-      .senses-radio ::v-deep {
-        label {
-          font-family: 'gem-view';
-          font-size: 16px;
-          line-height: 1.1;
-          padding-left: 0 !important;
-        }
+    top: $spacing * 2;
+    position: sticky;
+    width: 100vw;
+    display: flex;
+    padding: 0 $spacing / 2 $spacing / 4;
+    // align-items: center;
+    justify-content: center;
+    // padding-bottom: $spacing / 4;
+    .legend-inner {
+      width: 100%;
+      max-width: 600px;
+      margin-top: $spacing / 8;
+      .label {
+        text-transform: capitalize;
+        margin-bottom: -$spacing / 16;
       }
+      > span {
+        margin-right: $spacing / 4;
+        display: inline-block;
+        cursor: default;
+        transition: opacity $transition;
 
-      .sizes {
-        @include max-width($medium) {
-          display: none !important;
+        &.transparent {
+          opacity: .6;
         }
-        @include max-width($wide) {
-          ::v-deep {
-            label:last-of-type {
-              display: none !important;
-            }
-            label:nth-last-of-type(2) {
-              margin-right: 0 !important;
-            }
+          // white-space: nowrap;
+        .glyph-dot {
+          &:before {
+            content: '●';
+            font-family: $font-sans;
+            margin: 0;
+          }
+          @include tint(color);
+          &.light {
+            @include tint(color, 60);
+          }
+          &.dark {
+            @include tint(color, 40);
           }
         }
-      }
-    }
-    .charts {
-      padding-bottom: $spacing / 2;
-      margin-top: 0;
-
-      .group {
-
-        margin: 0 0 $spacing / 2 0;
-        border-top: 1px solid getColor(neon, 60);
-        padding-top: $spacing / 4;
-
-        .group-title {
-          margin-bottom: $spacing / 8;
-          display: flex;
-          align-items: center;
-          img {
-            height: 2em;
-            margin-right: $spacing / 4;
+        .glyph-rect {
+          &:before {
+            content: '●';
+            font-family: $font-sans;
+            margin: 0;
+            background: getColor(neon, 100);
+            color: getColor(neon, 100);
+            transform: scale(0.8);
           }
-          h3 {
-            color: $color-neon;
-            font-weight: $font-weight-regular;
-          }
-          &.has-image {
-            margin-bottom: $spacing / 4;
-          }
-        }
-
-        &:last-child {
-          border-bottom: 1px solid getColor(neon, 60);
-          padding-bottom: $spacing / 2;
-          margin: 0;
-        }
-      }
-
-      .panels {
-        display: grid;
-        grid-gap: $spacing / 2;
-        @include max-width($medium) {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-        @include max-width($narrow) {
-          grid-template-columns: repeat(1, 1fr) !important;
+          // display: inline-block;
+          // width: $spacing / 4;
+          // height: $spacing / 4;
+          // background: getColor(gray, 80);
+          // &:before {
+          //   content: '';
+          //   font-family: $font-sans;
+          //   margin: 0;
+          // }
+          // @include tint(color);
+          // &.light {
+          //   @include tint(color, 60);
+          // }
+          // &.dark {
+          //   @include tint(color, 40);
+          // }
         }
       }
     }
   }
 
-  .footer {
-    .margin-fix {
-      margin-right: 0;
-    }
-    .items {
-      margin-bottom: -$spacing / 8;
-      .button {
-        margin: 0 $spacing / 8 $spacing / 8 0;
+  .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid $color-pale-gray;
+    width: 100%;
+    align-items: center;
 
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-
-    .metadata {
-      margin-bottom: $spacing / 2;
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: $spacing / 2;
-
-        @include max-width($medium) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include max-width($narrow) {
-          grid-template-columns: repeat(1, 1fr);
-        }
-
+    .group-title {
+      width: 100%;
+      align-self: center;
+      max-width: 600px;
+      margin: 0 $spacing / 4 0;
+      display: flex;
         h3 {
-          margin-bottom: $spacing / 8;
-          color: $color-neon;
-          font-weight: $font-weight-regular;
+        align-self: center;
+        margin: $spacing / 4 0;
+        color: $color-neon;
+      }
+      img {
+        margin: $spacing / 4 $spacing / 4 $spacing / 4 0;
+        height: 32px;
+        width: auto;
+      }
+    }
+  }
+
+  .panels {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    margin: $spacing / 2 0 0;
+
+    .chart-line, .chart-stacked-bars {
+      width: 100%;
+      // height: 200px;
+      padding: 0 $spacing / 4;
+
+      @include min-width(400px) {
+        width: calc(50%);
+      }
+      @include min-width(700px) {
+        width: calc(33.33%);
+      }
+      @include min-width(1000px) {
+        width: calc(25%);
+      }
+      @include min-width(1300px) {
+        width: calc(20%);
+      }
+      @include min-width(1600px) {
+        width: calc(16.666%);
+      }
+    }
+  }
+
+  .metadata {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
+
+     table {
+      width: 100%;
+      margin: 0 -$spacing / 6;
+
+      thead th {
+        font-weight: $font-weight-bold;
+        padding: $spacing / 1.5 $spacing / 6 $spacing / 4;
+        border-bottom: 1px solid getColor(gray, 80);
+         margin-top: $spacing / 3;
+      }
+
+      tbody td {
+        border-bottom: 1px solid getColor(gray, 90);
+        padding: $spacing / 12 $spacing / 6 $spacing / 12 $spacing / 6;
+      }
+    }
+  }
+  .related, .workspace {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: $spacing;
+
+    ul {
+      margin-top: $spacing / 8;
+      border-radius: $border-radius;
+      &.border {
+        border: 1px solid $color-pale-gray;
+      }
+
+      .link {
+        li {
+          padding: $spacing / 4 $spacing / 2;
+          list-style: none;
+          border-bottom: 1px solid $color-pale-gray;
+          transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
         }
-        .description ::v-deep {
-          * {
-            font-size: 1em;
-            color: $color-black;
-          }
-          h1, h2, h3, h4 {
-            margin-top: $spacing / 8;
-          }
-          a {
-            background: linear-gradient(to top, transparent 0.1em, $color-black 0.1em, $color-black 0.2em, transparent 0.2em);
+        &:last-child {
+          li {
+            border-bottom: none;
           }
         }
       }
+    }
+  }
+  .workspace {
+    ul {
+      text-align: center;
     }
   }
 }

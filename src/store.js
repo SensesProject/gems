@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getUrlToResources } from 'library/src/assets/js/utils'
-
 Vue.use(Vuex)
 
 const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1'
@@ -10,12 +8,11 @@ const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/anonym/IXSE_TEST_
 
 export default new Vuex.Store({
   state: {
-    gem: null,
     config: null,
     token: null,
     runs: null,
     data: null,
-    colors: ['yellow', 'blue', 'purple', 'green', 'red', 'orange'],
+    colors: ['blue', 'yellow', 'purple', 'green', 'orange', 'red'],
     regions: null,
     models: null,
     scenarios: null,
@@ -24,14 +21,7 @@ export default new Vuex.Store({
     current: null,
     domains: {},
     gems: [],
-    modules: null,
-    size: 'default',
-    // new
-    perspective: {
-      question: null,
-      comparison: null,
-      params: {}
-    }
+    modules: []
   },
   getters: {
     dict: state => {
@@ -47,126 +37,103 @@ export default new Vuex.Store({
   actions: {
     update ({ commit, dispatch }, d) {
       commit('set', d)
-      if (d.key === 'perspective') dispatch('updateTimeseries')
-      // if (d.key === 'options') dispatch('updateTimeseries')
+      if (d.key === 'options') dispatch('updateTimeseries')
     },
     async fetchGems ({ commit }) {
+      const modules = await fetch(`https://dev.climatescenarios.org/settings/modules.json`).then(r => r.json()).then(m => m.modules)
       commit('set', {
         key: 'gems',
-        value: await fetch(`./gems.json`).then(r => r.json())
+        value: await fetch(`./gems.json`).then(r => r.json()).then(gems => {
+          return gems.map(gem => {
+            const module = modules.find(m => m.id === gem.id)
+            if (module == null) return gem
+            return {
+              ...gem,
+              link: module.link
+            }
+          })
+        })
       })
-      commit('set', { key: 'modules', value: await fetch(getUrlToResources('settings/modules.json')).then(r => r.json()) })
     },
-    async initSession ({ commit, state, dispatch }, param) {
-      commit('set', { key: 'gem', value: null })
+    async initSession ({ commit, state, dispatch }, gem) {
       commit('set', { key: 'config', value: null })
+      // commit('set', { key: 'gems', value: await fetch(`./gems.json`).then(r => r.json()) })
+      commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
       if (state.token == null) {
         commit('set', { key: 'token', value: await fetch(authUrl).then(r => r.json()) })
       }
       if (state.runs == null || state.regions == null || state.models == null || state.scenarios == null) {
         const options = { headers: { Authorization: `Bearer ${state.token}` } }
-        commit('set', { key: 'runs', value: await fetch(`${url}/runs`, options).then(r => r.json()) })
+        commit('set', { key: 'runs', value: await fetch(`${url}/runs`, options).then(r => r.json()).then(j => j.map(r => ({ ...r, run: r.run_id }))) })
         commit('set', { key: 'regions', value: await fetch(`${url}/nodes?hierarchy=*`, options).then(r => r.json()) })
         commit('set', { key: 'models', value: await fetch(`${url}/models`, options).then(r => r.json()) })
         commit('set', { key: 'scenarios', value: await fetch(`${url}/scenarios`, options).then(r => r.json()) })
       }
-      dispatch('initGem', param)
+      dispatch('initGem', gem)
     },
-    async initGem ({ commit }, param) {
-      commit('set', { key: 'gem', value: null })
-      const gem = await fetch(`./configs/${param.module}/${param.gem}.json`).then(r => r.json()).catch(e => {
-        // console.error('failed to load gem config')
-      })
-      commit('set', { key: 'gem', value: gem })
-      commit('set', {
-        key: 'perspective',
-        value: {
-          question: gem.questions[0].name,
-          comparison: gem.params[0].name,
-          params: Object.fromEntries(gem.params.map(p => [p.name, p.options[0].name]))
-        }
-      })
-      // if (config == null) return
-      // commit('set', { key: 'options', value: (config.dropdowns || []).map(o => o.options[0].label) })
+    async initGem ({ commit, dispatch, state }, gem) {
+      commit('set', { key: 'config', value: null })
+      const config = await fetch(`./configs/${gem}.json`).then(r => r.json())
+      if (config == null) return
+      commit('set', { key: 'config', value: config })
+      commit('set', { key: 'options', value: (config.dropdowns || []).map(o => o.options[0].label) })
     },
     async updateTimeseries ({ commit, state }) {
       commit('set', { key: 'data', value: null })
-      commit('set', { key: 'config', value: getConfig(state) })
-      const { data, domains } = await getData(state)
+      const { data, current, domains } = await getTimeseries(state)
+      commit('set', { key: 'current', value: current })
       commit('set', { key: 'data', value: data })
       commit('set', { key: 'domains', value: domains })
       commit('set', { key: 'metadata', value: await getMetadata(state) })
-      // if (state === null) {
-      //   const { data, current, domains } = await getTimeseries(state)
-
-      //   // commit('set', { key: 'data', value: null })
-      //   commit('set', { key: 'current', value: current })
-      //   commit('set', { key: 'data', value: data })
-      //   commit('set', { key: 'domains', value: domains })
-      //   commit('set', { key: 'metadata', value: await getMetadata(state) })
-      // }
     }
   }
 })
 
-function getConfig ({ gem, perspective }) {
-  let config = {
-    runs: [
-      ['MESSAGE-GLOBIOM 1.0', 'SSP2-Baseline'],
-      ['MESSAGE-GLOBIOM 1.0', 'SSP2-19']
-    ],
-    regions: ['World'],
-    variables: ['Emissions|CO2', 'Price|Carbon']
-  }
-  config = { ...config, ...gem.config }
+async function getTimeseries ({ token, config, runs, options, colors }) {
+  const current = { ...config.default }
 
-  const question = gem.questions.find(q => q.name === perspective.question) || {}
-  const grouped = {};
-  (question.groups || []).forEach(g => {
-    Object.keys(g.config).forEach(k => {
-      if (grouped[k] === undefined) grouped[k] = []
-      grouped[k] = [...new Set([
-        ...grouped[k],
-        ...g.config[k]
-      ])]
+  options.map((o, i) => config.dropdowns[i].options.find(or => or.label === o)).forEach(o => {
+    Object.keys(o).filter(k => k !== 'label').forEach(k => {
+      current[k] = o[k]
+    })
+  });
+
+  ['variables', 'regions', 'runs', 'funnel', 'reference'].forEach(k => {
+    if (current[k] == null) return
+    current[k] = current[k].map(c => {
+      if (typeof (c) === 'string') return c.replace(/\$\{([^}]+)\}/g, v => current[v.match(/\$\{(.+)\}/)[1]])
+      return c.map(c1 => {
+        return c1.replace(/\$\{([^}]+)\}/g, v1 => current[v1.match(/\$\{(.+)\}/)[1]])
+      })
     })
   })
 
-  config = { ...config, ...gem.config, ...question.config, ...grouped }
+  current.all = [
+    ...current.runs.map((r, i) => ({ model: r[0], scenario: r[1], type: 'default', color: colors[i] })),
+    ...(current.funnel || []).map(r => ({ model: r[0], scenario: r[1], type: 'funnel' })),
+    ...(current.reference || []).map(r => ({ model: r[0], scenario: r[1], type: 'reference' }))
+  ].map((r, i) => {
+    const run = runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario)
+    if (run == null) return null
+    return {
+      ...r,
+      name: `${r.model} | ${r.scenario}`,
+      runId: run.run_id
+    }
+  }).filter(r => r != null)
 
-  config.runs = config.runs.map(r => ({ model: r[0], scenario: r[1] }))
-  // string interpolation
-  gem.params.forEach(p => {
-    const options = p.options.filter(o => perspective.comparison === p.name || o.name === perspective.params[p.name])
-    const mono = perspective.comparison === p.name && p.monochrome
-    config.runs = options.map(option => {
-      return config.runs.map(r => {
-        let { model, scenario } = r
-        const source = r.source || r
-        let monochrome = r.monochrome || mono
-        const interpolations = Object.fromEntries(Object.keys(option).filter(k => k !== 'name').map(k => [k, option[k]]))
-        Object.keys(interpolations).forEach(k => {
-          model = model.replace(k, option[k])
-          scenario = scenario.replace(k, option[k])
-        })
-        return { ...r, model, scenario, monochrome, params: { ...r.params, ...Object.fromEntries([[p.name, option.name]]) }, source }
-      })
-    }).flat()
-  })
-  return config
-}
+  current.models = [...new Set(current.all.map(r => r.model))]
+  current.scenarios = [...new Set(current.all.map(r => r.scenario))]
 
-async function getData ({ token, config, runs, colors, gem, perspective }) {
-  const filters = {
-    regions: config.regions.map(r => r.value || r),
-    variables: config.variables.map(r => r.value || r),
-    runs: config.runs
-      .map(r => runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario))
-      .filter(r => r !== undefined)
-      .map(r => r.run_id),
-    units: [],
-    years: [],
-    timeslices: []
+  const filter = {
+    filters: {
+      runs: current.all.map(r => r.runId),
+      regions: current.regions,
+      variables: current.variables,
+      units: [],
+      years: [],
+      timeslices: []
+    }
   }
 
   const timeseries = await fetch(`${url}/runs/bulk/ts`, {
@@ -175,39 +142,33 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ filters })
+    body: JSON.stringify(filter)
   }).then(r => r.json())
 
-  const panels = config.regions.map(region => {
-    return config.variables.map(variable => ({
-      variable: variable.value || variable,
-      region: region.value || region,
+  const panels = current.regions.map(region => {
+    return current.variables.map(variable => ({
+      variable,
+      region,
       label: [
-        config.regions.length > 1 ? region : false,
-        config.variables.length > 1 ? variable : false
-      ].filter(l => l).map(l => (l.name || l)).filter(l => l.length > 0).join(' | ')
+        current.regions.length > 1 ? region : false,
+        current.variables.length > 1 ? variable : false
+      ].filter(l => l).map(l => (config.dict && config.dict[l]) ? config.dict[l] : l).join(' | ')
     }))
   }).flat().map(panel => {
-    const runs = config.runs.map((run, i) => {
+    const runs = current.all.map(run => {
       const ts = timeseries.filter(
-        ts => ts.model === run.model && ts.scenario === run.scenario && ts.variable === panel.variable && ts.region === panel.region
+        ts => ts.runId === run.runId && ts.variable === panel.variable && ts.region === panel.region
       )
       if (ts.length === 0) return null
-      // console.log(perspective.comparison)
-      const params = gem.params.find(param => param.name === perspective.comparison).options.map(o => o.name)
-      const param = run.params[perspective.comparison]
       return {
         ...run,
-        color: run.monochrome ? colors[0] : colors[params.indexOf(param) % 6],
         unit: ts[0].unit,
         series: ts.map(t => ({ year: t.year, value: t.value }))
       }
     }).filter(r => r != null)
     return {
       runs,
-      label: panel.label,
-      region: panel.region,
-      variable: panel.variable
+      label: panel.label
     }
   })
 
@@ -217,120 +178,28 @@ async function getData ({ token, config, runs, colors, gem, perspective }) {
     const values = timeseries.filter(ts => ts.unit === u).map(ts => ts.value)
     domains[u] = [Math.max(...values), Math.min(...values, 0)]
   })
-  return { data: panels, domains }
+  return { data: panels, current, domains }
 }
 
-// async function getTimeseries ({ token, config, runs, options, colors }) {
-//   const current = { ...config.default }
-
-//   options.map((o, i) => config.dropdowns[i].options.find(or => or.label === o)).forEach(o => {
-//     Object.keys(o).filter(k => k !== 'label').forEach(k => {
-//       current[k] = o[k]
-//     })
-//   });
-
-//   ['variables', 'regions', 'runs', 'funnel', 'reference'].forEach(k => {
-//     if (current[k] == null) return
-//     current[k] = current[k].map(c => {
-//       if (typeof (c) === 'string') return c.replace(/\$\{([^}]+)\}/g, v => current[v.match(/\$\{(.+)\}/)[1]])
-//       return c.map(c1 => {
-//         return c1.replace(/\$\{([^}]+)\}/g, v1 => current[v1.match(/\$\{(.+)\}/)[1]])
-//       })
-//     })
-//   })
-
-//   current.all = [
-//     ...current.runs.map((r, i) => ({ model: r[0], scenario: r[1], type: 'default', color: colors[i] })),
-//     ...(current.funnel || []).map(r => ({ model: r[0], scenario: r[1], type: 'funnel' })),
-//     ...(current.reference || []).map(r => ({ model: r[0], scenario: r[1], type: 'reference' }))
-//   ].map((r, i) => {
-//     const run = runs.find(r2 => r2.model === r.model && r2.scenario === r.scenario)
-//     if (run == null) return null
-//     return {
-//       ...r,
-//       name: `${r.model} | ${r.scenario}`,
-//       runId: run.run_id
-//     }
-//   }).filter(r => r != null)
-
-//   current.models = [...new Set(current.all.map(r => r.model))]
-//   current.scenarios = [...new Set(current.all.map(r => r.scenario))]
-
-//   const filter = {
-//     filters: {
-//       runs: current.all.map(r => r.runId),
-//       regions: current.regions,
-//       variables: current.variables,
-//       units: [],
-//       years: [],
-//       timeslices: []
-//     }
-//   }
-
-//   const timeseries = await fetch(`${url}/runs/bulk/ts`, {
-//     method: 'POST',
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(filter)
-//   }).then(r => r.json())
-
-//   const panels = current.regions.map(region => {
-//     return current.variables.map(variable => ({
-//       variable,
-//       region,
-//       label: [
-//         current.regions.length > 1 ? region : false,
-//         current.variables.length > 1 ? variable : false
-//       ].filter(l => l).map(l => (config.dict && config.dict[l]) ? config.dict[l] : l).join(' | ')
-//     }))
-//   }).flat().map(panel => {
-//     const runs = current.all.map((run) => {
-//       const ts = timeseries.filter(
-//         ts => ts.runId === run.runId && ts.variable === panel.variable && ts.region === panel.region
-//       )
-//       if (ts.length === 0) return null
-//       return {
-//         ...run,
-//         unit: ts[0].unit,
-//         series: ts.map(t => ({ year: t.year, value: t.value }))
-//       }
-//     }).filter(r => r != null)
-//     return {
-//       runs,
-//       label: panel.label
-//     }
-//   })
-
-//   const units = [...new Set(timeseries.map(ts => ts.unit))]
-//   const domains = {}
-//   units.forEach(u => {
-//     const values = timeseries.filter(ts => ts.unit === u).map(ts => ts.value)
-//     domains[u] = [Math.max(...values), Math.min(...values, 0)]
-//   })
-//   return { data: panels, current, domains }
-// }
-
-async function getMetadata ({ token, regions, scenarios, models, config }) {
-  const r = regions ? config.regions
-    .map(d => regions.find(c => (d.value || d) === c.name))
+async function getMetadata ({ token, regions, scenarios, models, current }) {
+  const r = regions ? current.regions
+    .map(d => regions.find(c => d === c.name))
     .filter(d => d != null)
     .map(d => ({
       key: `/regions/${d.id}`,
       ...d
     })) : []
 
-  const s = scenarios ? config.runs
-    .map(d => scenarios.find(c => d.scenario === c.name))
+  const s = scenarios ? current.scenarios
+    .map(d => scenarios.find(c => d === c.name))
     .filter(d => d != null)
     .map(d => ({
       key: `/scenarios/${d.id}`,
       ...d
     })) : []
 
-  const m = models ? config.runs
-    .map(d => models.find(c => d.model === c.name))
+  const m = models ? current.models
+    .map(d => models.find(c => d === c.name))
     .filter(d => d != null)
     .map(d => ({
       key: `/models/${d.id}`,
@@ -349,7 +218,7 @@ async function getMetadata ({ token, regions, scenarios, models, config }) {
       ...m.map(d => d.key)
     ] })
   }).then(r => r.json()).then(docs => docs.map(d => {
-    const descr = d.description.match(/<\/h1>\s([\S\s]+)/)
+    const descr = d.description.match(/<\/h1>\s(.+)/)
     const category = d.key.match(/^\/([^/]+)/)[1]
     return {
       category,

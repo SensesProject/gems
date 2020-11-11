@@ -1,11 +1,10 @@
 <template>
   <div class="chart-line">
-    <div class="narrow chart-container" v-resize:debounce.initial="onResize">
-      <div class="title" :class="{tiny: !large}">{{ label.replace(/\|/g, ' | ') }}</div>
-      <svg v-if="runs.length > 0" width="100%" :height="height"
-        @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()"
-        :class="{large}">
-        <polygon class="funnel" v-if="param.funnel" :points="funnel"/>
+    <div class="narrow" v-resize:debounce.initial="onResize">
+      <div class="tiny title">{{ label }}</div>
+      <svg v-if="runs.length > 0" :width="width" :height="height"
+        @mousemove="setYear($event)" @mouseenter="setYear($event)" @mouseout="resetYear()">
+        <polygon class="funnel" :points="funnel"/>
         <g class="axes">
           <g class="axis-y" :transform="`translate(${padding[3]}, 0)`">
             <g class="ticks ticks-y">
@@ -22,8 +21,7 @@
           <!-- <text y="16">{{ name }}</text> -->
         </g>
         <g class="lines">
-          <polyline v-for="(l, i) in lines.filter(l => !l.active)" :key="`l-${param.name}-p-${i}`" :class="[l.color, 'funnel' ]" :points="l.points"/>
-          <polyline v-for="(l, i) in lines.filter(l => l.active)" :key="`l-${param.name}-a-${i}`" :class="[l.color]" :points="l.points"/>
+          <polyline v-for="(l, i) in lines" :key="`l${i}`" :class="[l.color, l.type, { transparent: highlight != null && highlight != l.runId}]" :points="l.points"/>
         </g>
         <g class="points">
           <g v-for="(p, i) in points" :key="`p${i}`"  :transform="`translate(${ruler.x}, 0)`">
@@ -83,30 +81,16 @@ export default {
       default: ',.4~r',
       type: String
     },
-    highlight: {
-      type: Object,
-      default () { return {} }
-    },
-    param: {
-      type: Object,
-      default () { return {} }
-    },
+    highlight: Number,
     domain: {
       default: null,
       type: Array
-    },
-    large: {
-      type: Boolean,
-      default: false
-    },
-    height: {
-      type: Number,
-      default: 200
     }
   },
   data () {
     return {
       width: null,
+      height: 200,
       padding: [18, 0, 16, 0],
       tickSize: 16,
       year: null
@@ -114,13 +98,7 @@ export default {
   },
   computed: {
     years () {
-      const years = this.runs.map(c => c.series.map(s => s.year)).flat()
-      return years.filter(function (item, index) {
-        return years.indexOf(item) >= index
-      })
-    },
-    activeYears () {
-      const years = this.activeRuns.map(c => c.series.map(s => s.year)).flat()
+      const years = this.runs.filter(r => r.type !== 'funnel').map(c => c.series.map(s => s.year)).flat()
       return years.filter(function (item, index) {
         return years.indexOf(item) >= index
       })
@@ -168,24 +146,11 @@ export default {
         y: yScale(t)
       }))
     },
-    passiveRuns () {
-      const { runs, highlight, param } = this
-      return runs.filter(r => {
-        return !highlight[r.params[param.name]]
-      })
-    },
-    activeRuns () {
-      const { runs, highlight, param } = this
-      return runs.filter(r => {
-        return highlight[r.params[param.name]]
-      })
-    },
     lines () {
-      const { runs, xScale, yScale, highlight, param } = this
-      return runs.map((c, i) => {
+      const { runs, xScale, yScale } = this
+      return runs.filter(r => r.type !== 'funnel').map((c, i) => {
         return {
           ...c,
-          active: highlight[c.params[param.name]],
           // color: colors[i % 6],
           // shade: runs.length > 6 ? i >= 6 ? 'light' : 'dark' : null,
           points: c.series.map(d => `${xScale(d.year)}, ${yScale(d.value)}`).join(' ')
@@ -195,7 +160,7 @@ export default {
     },
     funnel () {
       const { runs, xScale, yScale } = this
-      const funnel = [...runs]
+      const funnel = runs.filter(r => r.type === 'funnel')
       const years = [...new Set(funnel.map(f => f.series.map(v => v.year)).flat())].sort().map((y, yi, years) => {
         const values = funnel.map(f => {
           let value = f.series.find(v => v.year === y)
@@ -229,9 +194,9 @@ export default {
       }
     },
     points () {
-      const { year, activeRuns, yScale, numberFormat, height, padding } = this
+      const { year, runs, yScale, numberFormat, height, padding } = this
       if (year === null) return null
-      const points = activeRuns.map((c, i) => {
+      const points = runs.filter(c => c.type !== 'funnel').map((c, i) => {
         const d = c.series.find(v => v.year === year)
         if (d == null) return null
         const y = yScale(d.value)
@@ -280,10 +245,9 @@ export default {
       this.width = el.getBoundingClientRect().width
     },
     setYear (e) {
-      const { xScale, activeYears } = this
-      if (activeYears.length === 0) return
+      const { xScale, years } = this
       const year = xScale.invert(e.offsetX)
-      const closestYear = activeYears.reduce((a, b) => (Math.abs(b - year) < Math.abs(a - year) ? b : a))
+      const closestYear = years.reduce((a, b) => (Math.abs(b - year) < Math.abs(a - year) ? b : a))
       this.year = closestYear
     },
     resetYear (e) {
@@ -295,25 +259,14 @@ export default {
 <style lang="scss" scoped>
 @import "library/src/style/global.scss";
 .chart-line {
-  .chart-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-  min-width: 0;
   // background: $color-neon;
-  // margin-bottom: $spacing;
+  margin-bottom: $spacing;
   // display: flex;
   // flex-direction: column;
   // justify-content: flex-end;
 
   .title {
     font-weight: bold;
-    hyphens: auto;
-    // overflow: hidden;
-    // text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 
   .warn {
@@ -331,10 +284,6 @@ export default {
 
   svg {
     overflow: visible;
-
-    &.large text {
-      font-size: 1rem;
-    }
 
     * {
       pointer-events: none;
@@ -355,10 +304,17 @@ export default {
       polyline {
         fill: none;
         stroke: $color-black;
-        stroke-width: 2;
+        stroke-width: 1.5;
         transition: opacity $transition;
+        // mix-blend-mode: multiply;
 
         @include tint(stroke);
+        // &.light {
+        //   @include tint(stroke, 60);
+        // }
+        // &.dark {
+        //   @include tint(stroke, 40);
+        // }
         &.shadow {
           stroke-width: 3.5;
           stroke: $color-white;
@@ -367,10 +323,8 @@ export default {
           opacity: 0.1;
         }
         &.funnel {
-          stroke: getColor(neon, 60);
-          // mix-blend-mode: multiply;
-          stroke-width: 0.75;
-          // opacity: 0.2;
+          stroke: $color-black;
+          opacity: 0.1;
         }
         &.reference {
           stroke: $color-black;
