@@ -79,53 +79,7 @@
           }
         ]
       },
-      "groups": [
-        {
-          "name": "R5 ASIA - Land Cover Change",
-          "icon": "R5-ASIA",
-          "config": {
-            "regions": [
-              "R5|ASIA"
-            ]
-          }
-        },
-        {
-          "name": "R5 LAM - Land Cover Change",
-          "icon": "R5-LAM",
-          "config": {
-            "regions": [
-              "R5|LAM"
-            ]
-          }
-        },
-        {
-          "name": "R5 MAF - Land Cover Change",
-          "icon": "R5-MAF",
-          "config": {
-            "regions": [
-              "R5|MAF"
-            ]
-          }
-        },
-        {
-          "name": "R5 OECD90+EU - Land Cover Change",
-          "icon": "R5-OECD90+EU",
-          "config": {
-            "regions": [
-              "R5|OECD90+EU"
-            ]
-          }
-        },
-        {
-          "name": "R5 REF - Land Cover Change",
-          "icon": "R5-REF",
-          "config": {
-            "regions": [
-              "R5|REF"
-            ]
-          }
-        }
-      ],
+      "groups": {"r5": true, "suffix": "Land Cover Change"},
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/022282fd-577d-4ec5-8b1d-350244d8f44f"
     },
     {
@@ -142,53 +96,7 @@
           }
         ]
       },
-      "groups": [
-        {
-          "name": "R5 ASIA - Cropland Change",
-          "icon": "R5-ASIA",
-          "config": {
-            "regions": [
-              "R5|ASIA"
-            ]
-          }
-        },
-        {
-          "name": "R5 LAM - Cropland Change",
-          "icon": "R5-LAM",
-          "config": {
-            "regions": [
-              "R5|LAM"
-            ]
-          }
-        },
-        {
-          "name": "R5 MAF - Cropland Change",
-          "icon": "R5-MAF",
-          "config": {
-            "regions": [
-              "R5|MAF"
-            ]
-          }
-        },
-        {
-          "name": "R5 OECD90+EU - Cropland Change",
-          "icon": "R5-OECD90+EU",
-          "config": {
-            "regions": [
-              "R5|OECD90+EU"
-            ]
-          }
-        },
-        {
-          "name": "R5 REF - Cropland Change",
-          "icon": "R5-REF",
-          "config": {
-            "regions": [
-              "R5|REF"
-            ]
-          }
-        }
-      ],
+      "groups": {"r5": true, "suffix": "Cropland Change"},
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/efa25f73-20e2-4ccb-a1e6-6db8c26f30c2"
     }
   ],
