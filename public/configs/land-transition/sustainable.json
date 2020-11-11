@@ -3,105 +3,344 @@
   "description": "",
   "config": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0", "SMP_$wl_$scenario"]
+      [
+        "REMIND-MAgPIE 1.7-3.0",
+        "SMP_$wl_$scenario"
+      ]
     ],
-    "regions": ["World"]
+    "regions": [
+      "World"
+    ]
   },
-  "questions": [{
-    "name": "How does a sustainable mitigation policy pathway develop?",
-    "groups": [{
-      "name": "Demand-Side Mitigation",
+  "questions": [
+    {
+      "name": "How does a sustainable mitigation policy pathway develop?",
+      "groups": [
+        {
+          "name": "Demand-Side Mitigation",
+          "config": {
+            "variables": [
+              {
+                "value": "Food Demand|Crops",
+                "name": "Demand for Crops"
+              },
+              {
+                "value": "Food Demand|Livestock",
+                "name": "Demand for Livestock"
+              },
+              {
+                "value": "Land Cover|Cropland",
+                "name": "Food Crops"
+              },
+              {
+                "value": "Land Cover|Pasture",
+                "name": "Pasture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Land-Based Mitigation",
+          "config": {
+            "variables": [
+              {
+                "value": "Land Cover|Cropland|Energy Crops",
+                "name": "Energy Crops"
+              },
+              {
+                "value": "Land Cover|Forest|Afforestation and Reforestation",
+                "name": "Afforestation"
+              },
+              {
+                "value": "Primary Energy|Biomass",
+                "name": "Biomass"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Emissions",
+          "config": {
+            "variables": [
+              {
+                "value": "Emissions|CO2|AFOLU",
+                "name": "AFOLU CO₂ Emissions"
+              },
+              {
+                "value": "Emissions|CH4|AFOLU",
+                "name": "AFOLU CH₄ Emissions"
+              },
+              {
+                "value": "Emissions|N2O|AFOLU",
+                "name": "AFOLU N₂O Emissions"
+              },
+              {
+                "value": "Carbon Sequestration|CCS|Biomass",
+                "name": "Carbon Sequestration from Biomass"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Food Prices",
+          "config": {
+            "variables": [
+              {
+                "value": "Price|Agriculture|Non-Energy Crops|Index",
+                "name": "Price Index for Food Crops"
+              },
+              {
+                "value": "Price|Agriculture|Livestock|Index",
+                "name": "Price Index for Livestock"
+              }
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/0a2ff834-856a-4a06-95a7-4da8ac33afc9"
+    },
+    {
+      "name": "How does demand-side mitigation develop in the 5 world regions?",
+      "groups": [
+        {
+          "name": "R5 ASIA - Demand-Side Mitigation",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM - Demand-Side Mitigation",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF - Demand-Side Mitigation",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU - Demand-Side Mitigation",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF - Demand-Side Mitigation",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ],
       "config": {
         "variables": [
-          {"value": "Food Demand|Crops", "name": "Demand for Crops"},
-          {"value": "Food Demand|Livestock", "name": "Demand for Livestock"},
-          {"value": "Land Cover|Cropland", "name": "Food Crops"},
-          {"value": "Land Cover|Pasture", "name": "Pasture"}
+          {
+            "value": "Food Demand|Crops",
+            "name": "Demand for Crops"
+          },
+          {
+            "value": "Food Demand|Livestock",
+            "name": "Demand for Livestock"
+          },
+          {
+            "value": "Land Cover|Cropland",
+            "name": "Food Crops"
+          },
+          {
+            "value": "Land Cover|Pasture",
+            "name": "Pasture"
+          }
         ]
-      }
-    }, {
-      "name": "Land-Based Mitigation",
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ab60b333-9362-4bdb-b3cf-886f44c39d49"
+    },
+    {
+      "name": "How does land-based mitigation develop in the 5 world regions?",
+      "groups": [
+        {
+          "name": "R5 ASIA - Land-Based Mitigation",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM - Land-Based Mitigation",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF - Land-Based Mitigation",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU - Land-Based Mitigation",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF - Land-Based Mitigation",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ],
       "config": {
         "variables": [
-          {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"},
-          {"value": "Land Cover|Forest|Afforestation and Reforestation", "name": "Afforestation"},
-          {"value": "Primary Energy|Biomass", "name": "Biomass"}
+          {
+            "value": "Land Cover|Cropland|Energy Crops",
+            "name": "Energy Crops"
+          },
+          {
+            "value": "Land Cover|Forest|Afforestation and Reforestation",
+            "name": "Afforestation"
+          },
+          {
+            "value": "Primary Energy|Biomass",
+            "name": "Biomass"
+          }
         ]
-      }
-    }, {
-      "name": "Emissions",
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/cac8064b-a765-4e29-9ba5-638d197bacb4"
+    },
+    {
+      "name": "How do AFOLU emissions develop in the 5 world regions?",
+      "groups": [
+        {
+          "name": "R5 ASIA - Emissions",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM - Emissions",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF - Emissions",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU - Emissions",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF - Emissions",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ],
       "config": {
         "variables": [
-          {"value": "Emissions|CO2|AFOLU", "name": "AFOLU CO₂ Emissions"},
-          {"value": "Emissions|CH4|AFOLU", "name": "AFOLU CH₄ Emissions"},
-          {"value": "Emissions|N2O|AFOLU", "name": "AFOLU N₂O Emissions"},
-          {"value": "Carbon Sequestration|CCS|Biomass", "name": "Carbon Sequestration from Biomass"}
+          {
+            "value": "Emissions|CO2|AFOLU",
+            "name": "AFOLU CO₂ Emissions"
+          },
+          {
+            "value": "Emissions|CH4|AFOLU",
+            "name": "AFOLU CH₄ Emissions"
+          },
+          {
+            "value": "Emissions|N2O|AFOLU",
+            "name": "AFOLU N₂O Emissions"
+          },
+          {
+            "value": "Carbon Sequestration|CCS|Biomass",
+            "name": "Carbon Sequestration from Biomass"
+          }
         ]
-      }
-    }, {
-      "name": "Food Prices",
-      "config": {
-        "variables": [
-          {"value": "Price|Agriculture|Non-Energy Crops|Index", "name": "Price Index for Food Crops"},
-          {"value": "Price|Agriculture|Livestock|Index", "name": "Price Index for Livestock"}
-        ]
-      }
-    }]
-  }, {
-    "name": "How does demand-side mitigation develop in the 5 world regions?",
-    "groups": {"r5": true, "suffix": "Demand-Side Mitigation"},
-    "config": {
-      "variables": [
-        {"value": "Food Demand|Crops", "name": "Demand for Crops"},
-        {"value": "Food Demand|Livestock", "name": "Demand for Livestock"},
-        {"value": "Land Cover|Cropland", "name": "Food Crops"},
-        {"value": "Land Cover|Pasture", "name": "Pasture"}
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/979a70aa-d5fb-4d84-9ffd-ff7f1443542b"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "radio": true,
+      "options": [
+        {
+          "name": "Default Policy",
+          "$scenario": "Def"
+        },
+        {
+          "name": "Sustainable Policy Set",
+          "$scenario": "Sust"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "radio": true,
+      "options": [
+        {
+          "name": "1.5°C",
+          "$wl": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$wl": "2C"
+        },
+        {
+          "name": "No Climate Policy",
+          "$wl": "REF"
+        }
       ]
     }
-  }, {
-    "name": "How does land-based mitigation develop in the 5 world regions?",
-    "groups": {"r5": true, "suffix": "Land-Based Mitigation"},
-    "config": {
-      "variables": [
-        {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"},
-        {"value": "Land Cover|Forest|Afforestation and Reforestation", "name": "Afforestation"},
-        {"value": "Primary Energy|Biomass", "name": "Biomass"}
-      ]
-    }
-  }, {
-    "name": "How do AFOLU emissions develop in the 5 world regions?",
-    "groups": {"r5": true, "suffix": "Emissions"},
-    "config": {
-      "variables": [
-        {"value": "Emissions|CO2|AFOLU", "name": "AFOLU CO₂ Emissions"},
-        {"value": "Emissions|CH4|AFOLU", "name": "AFOLU CH₄ Emissions"},
-        {"value": "Emissions|N2O|AFOLU", "name": "AFOLU N₂O Emissions"},
-        {"value": "Carbon Sequestration|CCS|Biomass", "name": "Carbon Sequestration from Biomass"}
-      ]
-    }
-  }],
-  "params": [{
-    "name": "Policy",
-    "radio": true,
-    "options": [{
-      "name": "Default Policy",
-      "$scenario": "Def"
-    }, {
-      "name": "Sustainable Policy Set",
-      "$scenario": "Sust"
-    }]
-  }, {
-    "name": "Warming Level",
-    "radio": true,
-    "options": [{
-      "name": "1.5°C",
-      "$wl": "1p5C"
-    }, {
-      "name": "2°C",
-      "$wl": "2C"
-    }, {
-      "name": "No Climate Policy",
-      "$wl": "REF"
-    }]
-  }]
+  ]
 }

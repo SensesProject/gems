@@ -3,81 +3,178 @@
   "description": "",
   "config": {
     "runs": [
-      ["$model", "$ssp-$rcp"]
+      [
+        "$model",
+        "$ssp-$rcp"
+      ]
     ],
-    "regions": ["World"]
+    "regions": [
+      "World"
+    ]
   },
-  "questions": [{
-    "name": "How do emissions from AFOLU compare to emissions from other Sectors?",
-    "groups": [{
-      "name": "Emissions from AFOLU",
+  "questions": [
+    {
+      "name": "How do emissions from AFOLU compare to emissions from other Sectors?",
+      "groups": [
+        {
+          "name": "Emissions from AFOLU",
+          "config": {
+            "variables": [
+              {
+                "value": "Emissions|CO2|AFOLU",
+                "name": "CO2"
+              },
+              {
+                "value": "Emissions|CH4|AFOLU",
+                "name": "CH4"
+              },
+              {
+                "value": "Emissions|N2O|AFOLU",
+                "name": "N2O"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Total Emissions",
+          "config": {
+            "variables": [
+              {
+                "value": "Emissions|CO2",
+                "name": "CO2"
+              },
+              {
+                "value": "Emissions|CH4",
+                "name": "CH4"
+              },
+              {
+                "value": "Emissions|N2O",
+                "name": "N2O"
+              }
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c9e099ea-8e41-4ade-8bd5-eaeb968f2f92"
+    },
+    {
+      "name": "How do emissions from AFOLU develop in the 5 world regions?",
       "config": {
         "variables": [
-          {"value": "Emissions|CO2|AFOLU", "name": "CO2"},
-          {"value": "Emissions|CH4|AFOLU", "name": "CH4"},
-          {"value": "Emissions|N2O|AFOLU", "name": "N2O"}
+          {
+            "value": "Emissions|CO2|AFOLU",
+            "name": "CO2"
+          },
+          {
+            "value": "Emissions|CH4|AFOLU",
+            "name": "CH4"
+          },
+          {
+            "value": "Emissions|N2O|AFOLU",
+            "name": "N2O"
+          }
         ]
-      }
-    }, {
-      "name": "Total Emissions",
-      "config": {
-        "variables": [
-          {"value": "Emissions|CO2", "name": "CO2"},
-          {"value": "Emissions|CH4", "name": "CH4"},
-          {"value": "Emissions|N2O", "name": "N2O"}
-        ]
-      }
-    }]
-  }, {
-    "name": "How do emissions from AFOLU develop in the 5 world regions?",
-    "config": {
-      "variables": [
-        {"value": "Emissions|CO2|AFOLU", "name": "CO2"},
-        {"value": "Emissions|CH4|AFOLU", "name": "CH4"},
-        {"value": "Emissions|N2O|AFOLU", "name": "N2O"}
+      },
+      "groups": [
+        {
+          "name": "R5 ASIA - Emissions from AFOLU",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM - Emissions from AFOLU",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF - Emissions from AFOLU",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU - Emissions from AFOLU",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF - Emissions from AFOLU",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b0552c45-685b-43ca-b938-8bc4aa6cdb8a"
+    }
+  ],
+  "params": [
+    {
+      "name": "Warming Level",
+      "radio": true,
+      "options": [
+        {
+          "name": "1.5°C",
+          "$rcp": "19"
+        },
+        {
+          "name": "2°C",
+          "$rcp": "26"
+        },
+        {
+          "name": "No Climate Policy",
+          "$rcp": "Baseline"
+        }
       ]
     },
-    "groups": {"r5": true, "suffix": "Emissions from AFOLU"}
-    
-   
-  }],
-  "params": [{
-    "name": "Warming Level",
-    "radio": true,
-    "options": [{
-      "name": "1.5°C",
-      "$rcp": "19"
-    }, {
-      "name": "2°C",
-      "$rcp": "26"
-    }, {
-      "name": "No Climate Policy",
-      "$rcp": "Baseline"
-    }]
-  }, {
-    "name": "Shared Socioeconomic Pathways",
-    "radio": true,
-    "default": 1,
-    "options": [{
-      "name": "SSP1: Sustainability",
-      "$ssp": "SSP1",
-      "$model": "IMAGE 3.0.1"
-    }, {
-      "name": "SSP2: Middle ofthe Road",
-      "$ssp": "SSP2",
-      "$model": "MESSAGE-GLOBIOM 1.0"
-    }, {
-      "name": "SSP3: Regional Rivalry",
-      "$ssp": "SSP3",
-      "$model": "AIM/CGE 2.0"
-    }, {
-      "name": "SSP4: Inequality",
-      "$ssp": "SSP4",
-      "$model": "GCAM 4.2"
-    }, {
-      "name": "SSP5: Fossil-Fueled Development",
-      "$ssp": "SSP5",
-      "$model": "REMIND-MAgPIE 1.5"
-    }]
-  }]
+    {
+      "name": "Shared Socioeconomic Pathways",
+      "radio": true,
+      "default": 1,
+      "options": [
+        {
+          "name": "SSP1: Sustainability",
+          "$ssp": "SSP1",
+          "$model": "IMAGE 3.0.1"
+        },
+        {
+          "name": "SSP2: Middle ofthe Road",
+          "$ssp": "SSP2",
+          "$model": "MESSAGE-GLOBIOM 1.0"
+        },
+        {
+          "name": "SSP3: Regional Rivalry",
+          "$ssp": "SSP3",
+          "$model": "AIM/CGE 2.0"
+        },
+        {
+          "name": "SSP4: Inequality",
+          "$ssp": "SSP4",
+          "$model": "GCAM 4.2"
+        },
+        {
+          "name": "SSP5: Fossil-Fueled Development",
+          "$ssp": "SSP5",
+          "$model": "REMIND-MAgPIE 1.5"
+        }
+      ]
+    }
+  ]
 }
