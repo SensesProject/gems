@@ -24,7 +24,7 @@ async function main () {
 
   // const configs = []
   const gem = JSON.parse(await fs.readFile(path, 'utf8'))
-  const questions = []
+  // const questions = []
   for (const question of gem.questions) {
     const config = parseConfigs({ gem, question })
     const runs = runIDs(config, basics)
@@ -41,15 +41,15 @@ async function main () {
     }).then(r => r.json())
     const workspaceUrl = `${explorerUrl}///////#/workspaces/share/${workspace.accessToken}`
     console.log(`Created Workspace: ${workspaceUrl}`)
-    questions.push({
-      ...question,
-      workspace: workspaceUrl
-    })
+    // questions.push({
+    //   ...question,
+    //   workspace: workspaceUrl
+    // })
+    question.workspace = workspaceUrl
   }
 
   await fs.writeFile(path, JSON.stringify({
-    ...gem,
-    questions
+    ...gem
   }, null, 2), 'utf8')
 
   console.log(`updated gem: ${path}`)
@@ -61,7 +61,6 @@ function getBody (gem, question, regions, timeseries, runs) {
     description: question.name,
     panels: regions.map(region => {
       return timeseries.map(ts => {
-        // console.log(ts)
         return {
           selection: {
             metadata: [],
@@ -73,7 +72,7 @@ function getBody (gem, question, regions, timeseries, runs) {
             units: []
           },
           options: {
-            name: `${region.name} – ${ts.name}`,
+            name: `${region.name} – ${(ts.name)}`,
             description: '',
             showAs: 'chart-line',
             size: 'half'
@@ -93,7 +92,7 @@ function regionIDs (config, basics) {
 
 function timeseriesIDs (config, basics) {
   return config.variables
-    .map(a => ({ name: a, id: basics.timeseries.find(b => a === b.variable).id }))
+    .map(a => ({ name: (a.name || a), id: (basics.timeseries.find(b => (a.value || a) === b.variable) || {}).id })).filter(a => a.id != null)
 }
 
 function runIDs (config, basics) {
@@ -128,7 +127,19 @@ async function getBasics (options) {
 function parseConfigs ({ gem, question }) {
   let config = { ...gem.config }
 
-  const grouped = {};
+  const grouped = {}
+  if (question.groups && question.groups.r5 === true) {
+    const suffix = question.groups.suffix ? ` - ${question.groups.suffix}` : ''
+    question.groups = ['ASIA', 'LAM', 'MAF', 'OECD90+EU', 'REF'].map(r => ({
+      name: `R5 ${r}${suffix}`,
+      icon: `R5-${r}`,
+      config: {
+        regions: [
+          `R5|${r}`
+        ]
+      }
+    }))
+  }
   (question.groups || []).forEach(g => {
     Object.keys(g.config).forEach(k => {
       if (grouped[k] === undefined) grouped[k] = []
