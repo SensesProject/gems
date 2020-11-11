@@ -1,24 +1,23 @@
 <template>
   <div class="home">
-    <div class="content tiny">
-      <h1>{{ collection.title }}</h1>
+    <div class="content">
+      <h1>{{ module.title }}</h1>
       <br>
-      <div class="box block" v-for="(group, i) in collection.groups" :key="`group-${i}`">
-        <span class="label uppercase">{{group.title || 'Available GEMs'}}</span>
-        <ul class="block">
-          <router-link v-for="(gem, i) in group.gems" :key="`g-${i}`" class="link button" :to="gem.path">
-            <li>{{ gem.title || gem.id }}</li>
-          </router-link>
-        </ul>
-      </div>
-      <div class="box block" v-if="collection.modules != null && collection.modules.length > 0">
-        <span class="label uppercase">Related Learn {{collection.modules.length === 1 ? 'module' : 'modules'}}</span>
-        <ul class="block">
-          <a class="link button dark" v-for="(m, i) in collection.modules" :key="`m-${i}`" :href="m.link">
-            <li>{{m.title}}</li>
+      <span class="mono tiny uppercase">Available GEMs</span>
+      <ul class="border">
+        <router-link v-for="(gem, i) in module.gems" :key="`g-${i}`" class="link" :to="gem.path">
+          <li>{{ gem.title || gem.id }}</li>
+        </router-link>
+      </ul>
+      <br>
+      <template v-if="module.link != null">
+        <span class="mono tiny uppercase">More on that topic</span>
+        <ul>
+          <a class="link" :href="module.link">
+            <li class="invert">Read the module</li>
           </a>
         </ul>
-      </div>
+      </template>
     </div>
   </div>
 </template>
@@ -31,28 +30,20 @@ export default {
   },
   computed: {
     ...mapState(['gems', 'modules']),
-    collection () {
+    module () {
       const { $route, gems } = this
-      const modules = this.modules ? this.modules.modules : []
-      const collection = gems.find(g => g.dir === $route.params.module)
-      if (collection == null) {
+      const module = gems.find(g => g.dir === $route.params.module)
+      if (module == null) {
         return {
           title: 'Guided Explore Modules',
-          groups: [{
-            title: 'All Collections',
-            gems: gems.map(({ title, dir }) => ({ title, path: dir }))
-          }]
+          gems: gems.map(({ title, dir }) => ({ title, path: dir }))
         }
       }
       return {
-        ...collection,
-        modules: collection.modules.map(m => modules.find(({ id }) => id === m)).filter(m => m != null),
-        groups: collection.groups.map(group => ({
-          title: group.title,
-          gems: group.gems.map(g => ({
-            ...g,
-            path: `${collection.dir}/${g.id}`
-          }))
+        ...module,
+        gems: module.gems.map(gem => ({
+          ...gem,
+          path: `${module.dir}/${gem.id}`
         }))
       }
     }
@@ -72,32 +63,30 @@ export default {
     max-width: 600px;
     margin-bottom: $spacing;
 
-    .box {
-      width: 100%;
-      margin-bottom: $spacing / 2;
-    }
     ul {
-      width: 100%;
       margin-top: $spacing / 8;
       border-radius: $border-radius;
-      text-align: center;
       &.border {
         border: 1px solid $color-pale-gray;
       }
-      display: flex;
-      flex-direction: column;
+
       .link {
-        width: 100%;
-        display: block;
-        + .link {
-          margin-top: $spacing / 8;
-        }
         li {
-          font-size: 1em;
-          // padding: $spacing / 4 $spacing / 2;
+          padding: $spacing / 4 $spacing / 2;
           list-style: none;
-          display: block;
+          border-bottom: 1px solid $color-pale-gray;
           transition: background-color $transition;
+          &:hover {
+            background-color: getColor(gray, 90)
+          }
+
+          &.invert {
+            background-color: $color-neon;
+            border-radius: $border-radius;
+            &:hover {
+              background-color: getColor(neon, 40)
+            }
+          }
         }
         &:last-child {
           li {
