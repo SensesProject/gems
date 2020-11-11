@@ -115,6 +115,12 @@ To offer a way to visually structure information, `questions` may als have a fie
 …
 ```
 
+A common use for groups is listing a repiting set of variables for all r5 regions. There's a shorthand for that use case, the suffix is appanded to all group names:
+
+```
+"groups": {"r5": true, "suffix": "Emissions from AFOLU"}
+```
+
 `params` are used to manipulate `runs` (models and scenario combinations). They allow users to choose what they want to compare within a chart (e.g. selecting between *warming level*, *policy*, and *cdr availabilty*). The selected dimension is then also used as the legend.
 
 ```
@@ -134,7 +140,7 @@ To offer a way to visually structure information, `questions` may als have a fie
 
 `params` require a `name` and an array of `options`. Each option is an Object with a name (which is shown to the users), and one or multiple string replacements. In this example the scenario template `PEP_$warming_full_NDC` is interpolated to `PEP_1p5C_full_NDC` or `PEP_2C_full_NDC` depending on the user setting, or if it's the parameter that is compared in the chart, both scenarios will be shown and the legend lists `1.5°C` and `2°C` as the scenarios listed. If the attribute `hidden` is set to true the user can not select said option, but the resulting model/scenario run is still displayed.
 
-A couple of attributes change the appearance of options and scenario/model runs, all of them are not required and default to `false`. `label` shows the parameter name next to the options, in most cases this is not necessary. `funnel` draws a polygon underneath the model runs to highlight the range of all runs. `monochrome` displays all options and runs in yellow instead of individual colors. `singleSelect` prevents the user from selecting/inspecting multiple runs at once. Below is an example that employs all these options:
+A couple of attributes change the appearance of options and scenario/model runs, all of them are not required and default to `false`. `label` shows the parameter name next to the options, in most cases this is not necessary. `funnel` draws a polygon underneath the model runs to highlight the range of all runs. `monochrome` displays all options and runs in yellow instead of individual colors. `singleSelect` prevents the user from selecting/inspecting multiple runs at once. `default` index (starting at 0) of the option taht is selected on load, defaults to 0. Below is an example that employs all these options:
 
 ```
 …,
@@ -144,6 +150,7 @@ A couple of attributes change the appearance of options and scenario/model runs,
   "funnel": true,
   "monochrome": true,
   "singleSelect": true,
+  "default": 1,
   "options": [{
     "name": "1.5°C",
     "$warming": "1p5C"

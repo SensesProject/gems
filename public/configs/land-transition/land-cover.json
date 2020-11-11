@@ -1,32 +1,134 @@
 {
-  "title": "Land Cover Changes",
+  "title": "Land Cover Change",
   "description": "",
   "config": {
     "runs": [
-      ["MESSAGE-GLOBIOM 1.0", "SSP2-$rcp"]
+      ["$model", "$ssp-$rcp"]
     ],
-    "regions": ["World"]
+    "regions": [
+      "World"
+    ]
   },
-  "questions": [{
-    "name": "How does land cover change?",
-    "config": {
-      "variables": [
-        {"value": "Land Cover|Cropland", "name": "Cropland"},
-        {"value": "Land Cover|Pasture", "name": "Pasture"},
-        {"value": "Land Cover|Forest", "name": "Forest"},
-        {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"}
+  "questions": [
+    {
+      "name": "How does global land cover and cropland change?",
+      "groups": [
+        {
+          "name": "Land Cover Change",
+          "config": {
+            "variables": [
+              {
+                "value": "Land Cover|Cropland",
+                "name": "Cropland (total)"
+              },
+              {
+                "value": "Land Cover|Pasture",
+                "name": "Pasture"
+              },
+              {
+                "value": "Land Cover|Forest",
+                "name": "Forest"
+              },
+              {
+                "value": "Land Cover|Other Natural Land",
+                "name": "Other Natural Land"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cropland Change",
+          "config": {
+            "variables": [
+              {
+                "value": "Land Cover|Cropland",
+                "name": "Cropland (total)"
+              },
+              {
+                "value": "Land Cover|Cropland|Energy Crops",
+                "name": "Energy Crops"
+              }
+            ]
+          }
+        }
       ]
+    }, {
+      "name": "How does land cover change in the 5 world regions?",
+      "config": {
+        "variables": [
+          {
+            "value": "Land Cover|Cropland",
+            "name": "Cropland (total)"
+          },
+          {
+            "value": "Land Cover|Pasture",
+            "name": "Pasture"
+          },
+          {
+            "value": "Land Cover|Forest",
+            "name": "Forest"
+          },
+          {
+            "value": "Land Cover|Other Natural Land",
+            "name": "Other Natural Land"
+          }
+        ]
+      },
+      "groups": {"r5": true, "suffix": "Land Cover Change"}
+    },  {
+      "name": "How does cropland change in the 5 world regions?",
+      "config": {
+        "variables": [
+          {
+            "value": "Land Cover|Cropland",
+            "name": "Cropland (total)"
+          },
+          {
+            "value": "Land Cover|Cropland|Energy Crops",
+            "name": "Energy Crops"
+          }
+        ]
+      },
+      "groups": {"r5": true, "suffix": "Cropland Change"}
     }
-  }],
+  ],
   "params": [{
-    "name": "Scenario",
+    "name": "Warming Level",
     "radio": true,
     "options": [{
-      "name": "SSP2-Baseline",
-      "$rcp": "Baseline"
-    }, {
-      "name": "SSP2-1.9",
+      "name": "1.5°C",
       "$rcp": "19"
+    }, {
+      "name": "2°C",
+      "$rcp": "26"
+    }, {
+      "name": "No Climate Policy",
+      "$rcp": "Baseline"
+    }]
+  }, {
+    "name": "Shared Socioeconomic Pathways",
+    "radio": true,
+    "default": 1,
+    "options": [{
+      "name": "SSP1: Sustainability",
+      "$ssp": "SSP1",
+      "$model": "IMAGE 3.0.1"
+    }, {
+      "name": "SSP2: Middle ofthe Road",
+      "$ssp": "SSP2",
+      "$model": "MESSAGE-GLOBIOM 1.0"
+    }, {
+      "name": "SSP3: Regional Rivalry",
+      "$ssp": "SSP3",
+      "$model": "AIM/CGE 2.0"
+    }, {
+      "name": "SSP4: Inequality",
+      "$ssp": "SSP4",
+      "$model": "GCAM 4.2"
+    }, {
+      "name": "SSP5: Fossil-Fueled Development",
+      "$ssp": "SSP5",
+      "$model": "REMIND-MAgPIE 1.5"
     }]
   }]
 }

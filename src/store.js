@@ -83,7 +83,7 @@ export default new Vuex.Store({
         value: {
           question: gem.questions[0].name,
           comparison: gem.params[0].name,
-          params: Object.fromEntries(gem.params.map(p => [p.name, p.options[0].name]))
+          params: Object.fromEntries(gem.params.map(p => [p.name, p.options[p.default || 0].name]))
         }
       })
       // if (config == null) return
@@ -121,7 +121,19 @@ function getConfig ({ gem, perspective }) {
   config = { ...config, ...gem.config }
 
   const question = gem.questions.find(q => q.name === perspective.question) || {}
-  const grouped = {};
+  const grouped = {}
+  if (question.groups && question.groups.r5 === true) {
+    const suffix = question.groups.suffix ? ` - ${question.groups.suffix}` : ''
+    question.groups = ['ASIA', 'LAM', 'MAF', 'OECD90+EU', 'REF'].map(r => ({
+      name: `R5 ${r}${suffix}`,
+      icon: `R5-${r}`,
+      config: {
+        regions: [
+          `R5|${r}`
+        ]
+      }
+    }))
+  }
   (question.groups || []).forEach(g => {
     Object.keys(g.config).forEach(k => {
       if (grouped[k] === undefined) grouped[k] = []

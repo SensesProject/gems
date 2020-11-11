@@ -199,7 +199,8 @@ export default {
 
         let runs = g.config.runs || (question.config && question.config.runs ? question.config.runs : (gem.config && gem.config.runs ? gem.config.runs : []))
 
-        const panels = data.filter(panel =>
+        const panels = data.filter((panel, i, panels) =>
+          panels.findIndex(p => panel.variable === p.variable && panel.region === p.region) === i &&
           variables.find(d => d === panel.variable) && regions.find(d => d === panel.region)
         ).map(panel => {
           return {
