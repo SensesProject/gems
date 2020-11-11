@@ -1,0 +1,223 @@
+{
+  "title": "Energy demand and the role of electricity ",
+  "description": "**You can explore here:**\n\n  Electrification of end use sector rather late. Different sectors different patterns > transport more efficient with electricity than liquids. Same holds not (?) for industry and buildings to that extent",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does direct electricity consumption on the demand side develop?",
+      "config": {
+        "variables": [
+          "Final Energy|Buildings|Electricity",
+          "Final Energy|Industry|Electricity", 
+          "Final Energy|Transport|Electricity"
+        ]
+      },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+    }, {
+      "name": "What is the final energy setup in industry?",
+        "config": {
+          "variables": [
+            "Final Energy|Industry|Electricity",
+            "Final Energy|Industry|Gases",
+            "Final Energy|Industry|Liquids",
+            "Final Energy|Industry|Solids",
+            "Final Energy|Industry|Hydrogen",
+            "Final Energy|Industry|Heat"
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+      },{
+        "name": "What is the final energy setup for transport?",
+        "config": {
+          "variables": [
+            "Final Energy|Transport|Electricity",
+            "Final Energy|Transport|Liquids",
+            "Final Energy|Transport|Hydrogen",
+            "Final Energy|Transport|Gases"
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+      },{
+        "name": "What is the final energy setup for buildings?",
+        "config": {
+          "variables": [
+            "Final Energy|Buildings|Electricity",
+            "Final Energy|Buildings|Gases",
+            "Final Energy|Buildings|Solids",
+            "Final Energy|Buildings|Liquids",
+            "Final Energy|Buildings|Heat"
+            
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

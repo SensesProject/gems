@@ -1,0 +1,115 @@
+{
+  "title": "Fossil fuel risks",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change.\n ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
+      ],
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How do fossil fuel quantities develop & what extent of carbon sequestration is required to compensate the emissions?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Primary Energy|Coal",
+              "Primary Energy|Gas",
+              "Primary Energy|Oil",
+              "Carbon Sequestration|CCS",
+              "Carbon Sequestration|Land Use"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/04dbdfc5-8cc4-44c0-8ae4-ff33b89e1335"
+    },
+    {
+      "name": "How do fossil fuels develop in electricity production?",
+      "groups": [
+        {
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal",
+              "Secondary Energy|Electricity|Gas",
+              "Secondary Energy|Electricity|Oil"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ac2e556f-8985-41a4-a8e6-9545c10635fe"
+    },
+    {
+      "name": "How do direct emission costs for the extraction of fossil fuels develop (not combustion)?",
+      "config": {
+        "variables": [
+          "RFP|Direct emissions cost|Coal",
+          "RFP|Direct emissions cost|Oil",
+          "RFP|Direct emissions cost|Gas",
+          "Price|Carbon"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/49c02fe0-6c62-4077-8dd4-4a70e899dec6"
+    },
+    {
+      "name": "How do revenues for fossil fuels develop?",
+      "config": {
+        "variables": [
+          "RFP|Revenue|Coal",
+          "RFP|Revenue|Oil",
+          "RFP|Revenue|Gas"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/d054c548-0f14-4dc6-8cd3-81e9e865414c"
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "2020_400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2020_1000"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming": ""
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

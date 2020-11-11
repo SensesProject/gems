@@ -1,0 +1,97 @@
+{
+  "title": "How do we get there (investments)?",
+  "description": "**You can explore here:** \n\n The means of implementation and support to achieve a well below 2°C warming target for different scenarios, here in terms of required investments to achieve a climate target well below 2°C. This information can be explored for different policy strategies, warming levels, and with full or reduced availability of carbon dioxide removal (CDR) technologies.  \n\n The Pep1p5 study is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1). \n \n Please note: Pep1p5 was conducted 2018. It is a single-model study, i.e. results were created with the REMIND-MAgPIE model only ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/5b1c57bb-8ea1-4455-9f73-8cf43078f5b7",
+  "config": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_$cdr_$policy"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How could investments in low carbon technology develop?",
+    "groups": [{
+      "name": "Investments in low-carbon technologies",
+      "config": {
+        "variables": [
+          "Investment|Energy Supply|Electricity|Solar",
+          "Investment|Energy Supply|Electricity|Wind",
+          "Investment|Energy Supply|Electricity|Biomass|w/ CCS"
+        ]
+      }
+    },{
+      "name": "",
+      "config": {
+        "variables": [ 
+          "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+          "Investment|Energy Supply|Electricity|Hydro",
+          "Investment|Energy Supply|Electricity|Nuclear"
+        ]
+      } 
+    },{
+      "name": "Investments in infrastructure",
+      "config": {
+        "variables": [ 
+          "Investment|Energy Supply|Electricity|Electricity Storage",
+        "Investment|Energy Supply|Electricity|Transmission and Distribution"
+        ]
+      } 
+    }]
+    },{ "name": "How could investments into carbon capture and storage (CCS) develop?",
+    "groups": [{
+      "name": "Investments into carbon capture and storage (CCS) ",
+      "config": {
+      "variables": [
+        "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
+        "Investment|Energy Supply|Electricity|Coal|w/ CCS",
+        "Investment|Energy Supply|Electricity|Gas|w/ CCS"
+      ]
+     }
+    }]
+  },{ "name": "How could divestment of unabated fossil fuels develop?",
+    "groups": [{
+      "name": "Divestment of unabated fossil fuels",
+      "config": {
+      "variables": [
+        "Investment|Energy Supply|Electricity|Coal|w/o CCS",
+        "Investment|Energy Supply|Electricity|Oil|w/o CCS",
+        "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+      ]
+     }
+  }]
+  }
+],
+  "params": [{
+    "name": "Policy",
+    "options": [ {
+      "name": "Most efficient transition",
+      "$policy": "eff"
+    }, {
+      "name": "Bridging scenario",
+      "$policy": "netzero"
+    },{
+      "name": "Nationally determined contributions",
+      "$policy": "NDC"
+    }]
+  }, {
+    "name": "Warming Level",
+    "radio": true,
+    "options": [{
+      "name": "1.5°C",
+      "$warming": "1p5C"
+    },{
+      "name": "2°C",
+      "$warming": "2C"
+    }]
+  }, {
+    "name": "CDR Availibility",
+    "radio": true,
+    "options": [{
+      "name": "Full",
+      "$cdr": "full"
+    }, {
+      "name": "Limited",
+      "$cdr": "red"
+    }]
+  }]
+}

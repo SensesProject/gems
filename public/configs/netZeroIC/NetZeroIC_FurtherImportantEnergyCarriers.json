@@ -1,0 +1,174 @@
+{
+  "title": "Electricity production",
+  "description": "**You can explore here:**\n\n Understand the shift in production of these important energy carriers (besides electricity). Describe perspective on industrialized countries. Explain gas, liquids, solids -  Cite paper  ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+     {
+        "name": "Role of liquids as energy carrier",
+        "config": {
+          "variables": [
+            "Secondary Energy|Liquids",
+            "Secondary Energy|Liquids|Oil",
+            "Secondary Energy|Liquids|Biomass",
+            "Secondary Energy|Liquids|Coal"
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+      },{
+      "name": "Production of gas as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Gases",
+          "Secondary Energy|Gases|Natural Gas",
+          "Secondary Energy|Gases|Biomass"
+        ]
+      },
+      "groups": [{
+        "name": "United States of America",
+        "icon": "",
+        "config": {
+          "regions": [
+            "United States"
+          ]
+        }
+      }, {
+        "name": "European Union",
+        "icon": "",
+        "config": {
+          "regions": [
+            "European Union"
+          ]
+        }
+      },{
+        "name": "Japan",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Australia"
+          ]
+        }
+      }
+    ]
+     },{
+      "name": "Role of solids as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Solids",
+          "Secondary Energy|Solids|Coal",
+          "Secondary Energy|Solids|Biomass"
+        ]
+      },
+      "groups": [{
+        "name": "United States of America",
+        "icon": "",
+        "config": {
+          "regions": [
+            "United States"
+          ]
+        }
+      }, {
+        "name": "European Union",
+        "icon": "",
+        "config": {
+          "regions": [
+            "European Union"
+          ]
+        }
+      },{
+        "name": "Japan",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Australia"
+          ]
+        }
+      }
+    ]
+  }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

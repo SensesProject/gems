@@ -1,0 +1,94 @@
+{
+  "title": " Inner logic & mitigation of integrated assessment models",
+  "description": "**You can explore here:**\n\n Individual mitigation outcomes for a subset of integrated assessment models that participated in the CD-LINKS study. \n \n We picked this subset of scenarios as they nicely illustrate how different the final composition of mitigation strategies due to the different model assumptions and inner logic can look. While one model focuses on large-scale deployment of solar energy, another model focuses on gas as bridging technology, yet another on retrofitting coal infrastructure with CCS.  All three of them plausible futures.\n\n We learn that scenarios with their mitigation strategies should not be understood in terms of individual values, but as a whole. For example in a policy case of well below 2°C warming, high shares of fossil energy require carbon sequestration technology, while high shares of renewable energy require high investment. The underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study. <br/><br/>  The CD-LINKS study (conducted in 2018) is especially relevant, because it had a dedicated focus on required investments for mitigation. Important further literature are the UNEP Finance Initiative report [EXTENDING OUR HORIZONS]( https://www.unepfi.org/news/themes/climate-change/extending-our-horizons/) and the paper by McCollum et al. [“Energy investment needs for fulfilling the Paris Agreement and achieving the Sustainable Development Goals” (2018)](https://doi.org/10.1038/s41560-018-0179-z).",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer////////#/workspaces/share/9919d0cc-eab0-4682-9bfc-179ebdc64d9f",
+  "config": {
+    "runs": [
+      [
+        "$model",
+        "CD-LINKS_NPi2020_$warming"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "What is the primary energy setup in mitigation scenarios for a climate boundary well below 2°C?",
+      "groups": [ {
+        "name": "Fossil fuels",
+        "config": {
+          "variables": [
+            "Primary Energy|Coal|w/o CCS" , 
+            "Primary Energy|Coal|w/ CCS",
+            "Primary Energy|Gas|w/ CCS", 
+            "Primary Energy|Gas|w/o CCS",
+            "Primary Energy|Oil|w/o CCS",
+            "Primary Energy|Oil|w/ CCS" 
+          ]
+        }
+      }, {
+        "name": "Carbon sequestration",
+        "config": {
+          "variables": [
+            "Carbon Sequestration|CCS",
+            "Carbon Sequestration|CCS|Biomass",
+            "Carbon Sequestration|Land Use|Afforestation", 
+            "Carbon Sequestration|CCS|Fossil|Energy|Supply",
+            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
+          ]
+        }
+      },{
+
+        "name": "Renewables & nuclear",
+        "config": {
+          "variables": [
+            "Primary Energy|Solar", 
+            "Primary Energy|Biomass|Modern|w/ CCS", 
+            "Primary Energy|Wind",
+            "Primary Energy|Biomass|Traditional", 
+            "Primary Energy|Nuclear"  
+          ]
+        }
+      }]
+    }
+  ],
+  "params": [
+    {
+      "name": "Model outcome",
+      "funnel": true,
+      "singleSelect": true,
+      "monochrome": true,
+      "options": [
+        {
+          "name": "High renewables share",
+          "$model": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "Gas as bridging technology",
+          "$model": "MESSAGEix-GLOBIOM 1.0"
+        },
+        {
+          "name": "Retrofit of fossil infrastructure & high efficiency",
+          "$model": "IMAGE 3.0.1"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "1000"
+        }
+      ]
+    }
+  ],
+  "dict": {
+  }
+}

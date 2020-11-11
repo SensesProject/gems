@@ -1,0 +1,101 @@
+{
+  "title": "Enduse risks",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the end use sector in mitigation scenarios. They help to understand the transformations in the end use sector under a climate target, how energy demand, costs, required and investments change.\n ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming"
+      ],
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does energy for the end use sectors develop?",
+      "config": {
+        "variables": [
+          "Final Energy|Residential and Commercial",
+          "Final Energy|Transportation",
+          "Final Energy|Industry"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/de235263-d2a0-45ef-acc2-1114dc0f8bb6"
+    },
+    {
+      "name": "How do direct emission costs develop for end use sectors for the transition?",
+      "config": {
+        "variables": [
+          "RFP|Direct emissions cost|Industrial processes",
+          "RFP|Direct emissions cost|Residential and commercial",
+          "RFP|Direct emissions cost|Transportation"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/01a85e04-f866-463d-abc9-43f05121e899"
+    },
+    {
+      "name": "How do indirect emission costs develop for end use sectors?",
+      "config": {
+        "variables": [
+          "RFP|Indirect emissions cost|Industrial processes",
+          "RFP|Indirect emissions cost|Transportation"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a47f2d6a-84e6-48c5-a977-c0cf1092919b"
+    },
+    {
+      "name": "How much low carbon capital expenditure is required?",
+      "config": {
+        "variables": [
+          "RFP|Low-carbon capital expenditure|Industrial processes",
+          "RFP|Low-carbon capital expenditure|Residential and commercial",
+          "RFP|Low-carbon capital expenditure|Transportation"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05c0ba3d-aebe-4038-8cf1-99872d3764ac"
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "2020_400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2020_1000"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming": ""
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand"
+  }
+}

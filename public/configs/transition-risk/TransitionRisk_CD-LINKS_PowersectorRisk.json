@@ -1,0 +1,111 @@
+{
+  "title": "Power sector risks",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the power sector in mitigation scenarios. They help to understand what role the power sector will play under a climate target, how production, costs, required investments and revenues change.\n ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming Riskfactor Pathways"
+      ],
+      [
+        "$scenario",
+        "CD-LINKS_NPi$warming"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How how does the power sector develop?",
+      "groups": [
+        {
+          "name": "Fossil fuels",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal",
+              "Secondary Energy|Electricity|Gas",
+              "Secondary Energy|Electricity|Oil"
+            ]
+          }
+        },
+        {
+          "name": "Renewables and nuclear",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Solar",
+              "Secondary Energy|Electricity|Wind",
+              "Secondary Energy|Electricity|Biomass|w/o CCS",
+              "Secondary Energy|Electricity|Biomass|w/ CCS",
+              "Secondary Energy|Electricity|Hydro",
+              "Secondary Energy|Electricity|Geothermal",
+              "Secondary Energy|Electricity|Nuclear"
+            ]
+          },
+          "workspace": ""
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/767fa9ea-937a-40a5-ba48-6dbf4d6b9277"
+    },
+    {
+      "name": "How do direct and indirect costs in the power sector develop?",
+      "config": {
+        "variables": [
+          "RFP|Direct emissions cost|Electricity",
+          "RFP|Indirect emissions cost|Electricity",
+          "Price|Carbon"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b6e08abc-a5d4-4d79-9536-a51dc6909801"
+    },
+    {
+      "name": "How do required investments and revenues develop?",
+      "config": {
+        "variables": [
+          "RFP|Low-carbon capital expenditure|Electricity",
+          "RFP|Revenue|Electricity",
+          "Price|Carbon"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f89d255c-5c31-4c7c-a3a1-3c0836a6ba26"
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "MESSAGEix-GLOBIOM 1.0"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "2020_400"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2020_1000"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming": ""
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "RFP|Low-carbon capital expenditure|Electricity": "Required investments"
+  }
+}

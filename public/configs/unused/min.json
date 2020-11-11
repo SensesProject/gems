@@ -1,0 +1,40 @@
+{
+  "title": "Where do we want to go? How do emissions decline?",
+  "description": "Required investments to achieve climate goals for scenarios of a small subset of integrated assessment models in the CD-LINKS study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving. The information depicted below holds for the CD-Links study, conducted in 2018.",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/885fb33b-557a-44f6-bd04-4532cffc4c2f",
+  "config": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_full_NDC"]
+    ],
+    "regions": ["World"],
+    "variables": [
+      "Emissions|CO2|Energy|Supply|Electricity",
+      "Emissions|CO2|Energy|Supply|Liquids",
+      "Emissions|CO2|Energy|Supply|Gases",
+      "Emissions|CO2|Energy|Supply|Heat",
+      "Emissions|CO2|Energy|Supply|Solids"
+    ]
+  },
+  "questions": [{
+    "name": "How much do individual sectors contribute to the decline?"
+  }, {
+    "name": "2",
+    "config": {
+      "runs": [["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_full_netzero"]]
+    }
+  }],
+  "params": [{
+    "name": "Warming Level",
+    "funnel": true,
+    "singleSelect": true,
+    "monochrome": true,
+    "radio": true,
+    "options": [{
+      "name": "1.5°C",
+      "$warming": "1p5C"
+    },{
+      "name": "2°C",
+      "$warming": "2C"
+    }]
+  }]
+}

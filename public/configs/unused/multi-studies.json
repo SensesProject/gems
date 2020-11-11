@@ -1,0 +1,78 @@
+{
+  "title": "Power sector risks testtest",
+  "description": "**You can explore here:**\n\n xx \n ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "$model",
+        "$scenario" 
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How how does the electricity sector develop?",
+      "groups": [{
+        "name": "Fossil fuels",
+        "config": {
+          "variables": [
+          "Primary Energy|Coal",
+          "Primary Energy|Gas",
+          "Primary Energy|Oil"
+        ]
+        }
+      }]}
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": false,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0 PEP",
+          "$model": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "PEP_$warming-pep_red_eff"
+        },
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0 CD-LINKS",
+          "$model": "REMIND-MAgPIE 1.7-3.0",
+          "$scenario": "CD-LINKS_NPi$warming-cdl"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0 CD-LINKS",
+          "$model": "MESSAGEix-GLOBIOM 1.0",
+          "$scenario": "CD-LINKS_NPi$warming-cdl"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming-cdl": "2020_400",
+          "$warming-pep": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$warming-cdl": "2020_1000",
+          "$warming-pep": "2C"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$warming-cdl": "",
+          "$warming-pep": ""
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "title": "Basic model assumptions and behaviour in the Pep1p5 study",
+  "description": "**You can explore here:**\n\n Basic characteristics in the Pep1p5 study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for Pep1p5 study. \n\n The Pep1p5 study is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1). \n \n Please note: Pep1p5 was conducted 2018. It is a single-model study, i.e. results were created with the REMIND-MAgPIE model only.",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/95a7803a-c169-4bd9-b74e-917e7a7f492b",
+  "config": {
+    "runs": [
+      [
+        "REMIND-MAgPIE 1.7-3.0",
+        "PEP_$warming_$cdr_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "What are the socioeconomic key drivers?",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Final Energy",
+          "Food Demand"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c8a00ae5-5361-421a-9947-dfd5a58a1f39"
+    },
+    {
+      "name": "How do socioeconomic key drivers develop in the 5 world regions?",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Final Energy",
+          "Food Demand"
+        ]
+      },
+      "groups": [
+        {
+          "name": "R5 ASIA - Socioeconomic key drivers",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU -  Socioeconomic key drivers",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM -  Socioeconomic key drivers",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF -  Socioeconomic key drivers",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF -  Socioeconomic key drivers",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28fa7e25-5dcd-4b2f-979a-183165c05f02"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "options": [{
+        "name": "Nationally determined contributions",
+        "$policy": "NDC"
+      }, {
+        "name": "Most efficient transition",
+        "$policy": "eff"
+      }, {
+        "name": "Bridging scenario",
+        "$policy": "netzero"
+      }
+    ]
+    },
+    {
+      "name": "Warming Level",
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2C"
+        }
+      ]
+    },
+    {
+      "name": "CDR Availibility",
+      "options": [
+        {
+          "name": "Full CDR",
+          "$cdr": "full"
+        },
+        {
+          "name": "Limited CDR",
+          "$cdr": "red"
+        }
+      ]
+    }
+  ],
+  "dict": {}
+}

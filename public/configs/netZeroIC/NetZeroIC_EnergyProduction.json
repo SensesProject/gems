@@ -1,0 +1,185 @@
+{
+  "title": "Electricity production",
+  "description": "**You can explore here:**\n\n Electricity production will largely develop into low carbon technologies, especially coal has to exit the system. Results from Remind. Describe perspective on industrialized countries. Explain secondary energy -  Cite paper   ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does electricity production from fossil fuels develop?",
+     
+        "config": {
+          "variables": [
+            "Secondary Energy|Electricity|Coal|w/o CCS",
+            "Secondary Energy|Electricity|Gas|w/o CCS",
+            "Secondary Energy|Electricity|Oil",
+            "Secondary Energy|Electricity|Gas|w/ CCS",
+            "Secondary Energy|Electricity|Coal|w/ CCS"
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+    },{
+      "name": "How does electricity production from renewables and nuclear develop?",
+     
+        "config": {
+          "variables": [
+            "Secondary Energy|Electricity|Solar",
+            "Secondary Energy|Electricity|Wind",
+            "Secondary Energy|Electricity|Hydro",
+            "Secondary Energy|Electricity|Nuclear",
+            "Secondary Energy|Electricity|Biomass|w/ CCS",
+            "Secondary Energy|Electricity|Biomass|w/o CCS",
+            "Secondary Energy|Electricity|Geothermal"
+          ]
+        },
+        "groups": [{
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        }, {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },{
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        }, {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "How do emissions profiles look like",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP", 
+          "Emissions|CO2",
+          "Emissions|CO2|Energy|Supply|Electricity|Gross", 
+          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg", 
+          "Emissions|CO2|Land-Use Change"
+        ]
+      },
+      "groups": [{
+        "name": "United States of America",
+        "icon": "",
+        "config": {
+          "regions": [
+            "United States"
+          ]
+        }
+      }, {
+        "name": "European Union",
+        "icon": "",
+        "config": {
+          "regions": [
+            "European Union"
+          ]
+        }
+      },{
+        "name": "Japan",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Japan"
+          ]
+        }
+      }, {
+        "name": "Australia",
+        "icon": "",
+        "config": {
+          "regions": [
+            "Australia"
+          ]
+        }
+      }
+    ]
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

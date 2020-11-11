@@ -1,0 +1,107 @@
+{
+  "title": "Sustainable Policies",
+  "description": "",
+  "config": {
+    "runs": [
+      ["REMIND-MAgPIE 1.7-3.0", "SMP_$wl_$scenario"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How does a sustainable mitigation policy pathway develop?",
+    "groups": [{
+      "name": "Demand-Side Mitigation",
+      "config": {
+        "variables": [
+          {"value": "Food Demand|Crops", "name": "Demand for Crops"},
+          {"value": "Food Demand|Livestock", "name": "Demand for Livestock"},
+          {"value": "Land Cover|Cropland", "name": "Food Crops"},
+          {"value": "Land Cover|Pasture", "name": "Pasture"}
+        ]
+      }
+    }, {
+      "name": "Land-Based Mitigation",
+      "config": {
+        "variables": [
+          {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"},
+          {"value": "Land Cover|Forest|Afforestation and Reforestation", "name": "Afforestation"},
+          {"value": "Primary Energy|Biomass", "name": "Biomass"}
+        ]
+      }
+    }, {
+      "name": "Emissions",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2|AFOLU", "name": "AFOLU CO₂ Emissions"},
+          {"value": "Emissions|CH4|AFOLU", "name": "AFOLU CH₄ Emissions"},
+          {"value": "Emissions|N2O|AFOLU", "name": "AFOLU N₂O Emissions"},
+          {"value": "Carbon Sequestration|CCS|Biomass", "name": "Carbon Sequestration from Biomass"}
+        ]
+      }
+    }, {
+      "name": "Food Prices",
+      "config": {
+        "variables": [
+          {"value": "Price|Agriculture|Non-Energy Crops|Index", "name": "Price Index for Food Crops"},
+          {"value": "Price|Agriculture|Livestock|Index", "name": "Price Index for Livestock"}
+        ]
+      }
+    }]
+  }, {
+    "name": "How does demand-side mitigation develop in the 5 world regions?",
+    "groups": {"r5": true, "suffix": "Demand-Side Mitigation"},
+    "config": {
+      "variables": [
+        {"value": "Food Demand|Crops", "name": "Demand for Crops"},
+        {"value": "Food Demand|Livestock", "name": "Demand for Livestock"},
+        {"value": "Land Cover|Cropland", "name": "Food Crops"},
+        {"value": "Land Cover|Pasture", "name": "Pasture"}
+      ]
+    }
+  }, {
+    "name": "How does land-based mitigation develop in the 5 world regions?",
+    "groups": {"r5": true, "suffix": "Land-Based Mitigation"},
+    "config": {
+      "variables": [
+        {"value": "Land Cover|Cropland|Energy Crops", "name": "Energy Crops"},
+        {"value": "Land Cover|Forest|Afforestation and Reforestation", "name": "Afforestation"},
+        {"value": "Primary Energy|Biomass", "name": "Biomass"}
+      ]
+    }
+  }, {
+    "name": "How do AFOLU emissions develop in the 5 world regions?",
+    "groups": {"r5": true, "suffix": "Emissions"},
+    "config": {
+      "variables": [
+        {"value": "Emissions|CO2|AFOLU", "name": "AFOLU CO₂ Emissions"},
+        {"value": "Emissions|CH4|AFOLU", "name": "AFOLU CH₄ Emissions"},
+        {"value": "Emissions|N2O|AFOLU", "name": "AFOLU N₂O Emissions"},
+        {"value": "Carbon Sequestration|CCS|Biomass", "name": "Carbon Sequestration from Biomass"}
+      ]
+    }
+  }],
+  "params": [{
+    "name": "Policy",
+    "radio": true,
+    "options": [{
+      "name": "Default Policy",
+      "$scenario": "Def"
+    }, {
+      "name": "Sustainable Policy Set",
+      "$scenario": "Sust"
+    }]
+  }, {
+    "name": "Warming Level",
+    "radio": true,
+    "options": [{
+      "name": "1.5°C",
+      "$wl": "1p5C"
+    }, {
+      "name": "2°C",
+      "$wl": "2C"
+    }, {
+      "name": "No Climate Policy",
+      "$wl": "REF"
+    }]
+  }]
+}

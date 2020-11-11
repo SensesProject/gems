@@ -1,0 +1,83 @@
+{
+  "title": "Emissions from Agriculture, Forests and Other Land Use",
+  "description": "",
+  "config": {
+    "runs": [
+      ["$model", "$ssp-$rcp"]
+    ],
+    "regions": ["World"]
+  },
+  "questions": [{
+    "name": "How do emissions from AFOLU compare to emissions from other Sectors?",
+    "groups": [{
+      "name": "Emissions from AFOLU",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2|AFOLU", "name": "CO2"},
+          {"value": "Emissions|CH4|AFOLU", "name": "CH4"},
+          {"value": "Emissions|N2O|AFOLU", "name": "N2O"}
+        ]
+      }
+    }, {
+      "name": "Total Emissions",
+      "config": {
+        "variables": [
+          {"value": "Emissions|CO2", "name": "CO2"},
+          {"value": "Emissions|CH4", "name": "CH4"},
+          {"value": "Emissions|N2O", "name": "N2O"}
+        ]
+      }
+    }]
+  }, {
+    "name": "How do emissions from AFOLU develop in the 5 world regions?",
+    "config": {
+      "variables": [
+        {"value": "Emissions|CO2|AFOLU", "name": "CO2"},
+        {"value": "Emissions|CH4|AFOLU", "name": "CH4"},
+        {"value": "Emissions|N2O|AFOLU", "name": "N2O"}
+      ]
+    },
+    "groups": {"r5": true, "suffix": "Emissions from AFOLU"}
+    
+   
+  }],
+  "params": [{
+    "name": "Warming Level",
+    "radio": true,
+    "options": [{
+      "name": "1.5°C",
+      "$rcp": "19"
+    }, {
+      "name": "2°C",
+      "$rcp": "26"
+    }, {
+      "name": "No Climate Policy",
+      "$rcp": "Baseline"
+    }]
+  }, {
+    "name": "Shared Socioeconomic Pathways",
+    "radio": true,
+    "default": 1,
+    "options": [{
+      "name": "SSP1: Sustainability",
+      "$ssp": "SSP1",
+      "$model": "IMAGE 3.0.1"
+    }, {
+      "name": "SSP2: Middle ofthe Road",
+      "$ssp": "SSP2",
+      "$model": "MESSAGE-GLOBIOM 1.0"
+    }, {
+      "name": "SSP3: Regional Rivalry",
+      "$ssp": "SSP3",
+      "$model": "AIM/CGE 2.0"
+    }, {
+      "name": "SSP4: Inequality",
+      "$ssp": "SSP4",
+      "$model": "GCAM 4.2"
+    }, {
+      "name": "SSP5: Fossil-Fueled Development",
+      "$ssp": "SSP5",
+      "$model": "REMIND-MAgPIE 1.5"
+    }]
+  }]
+}

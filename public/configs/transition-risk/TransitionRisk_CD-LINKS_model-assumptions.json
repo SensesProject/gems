@@ -1,0 +1,188 @@
+{
+  "title": "Basic model assumptions and behaviour in the CD-LINKS study",
+  "description": "**You can explore here:**\n\n Basic characteristics of a subset of integrated assessment models that participated in the CD-LINKS study. Scenarios are no predictions, but projections. The underlying models follow various assumptions and have an individual inner logic. <br/><br/> Below you find central parameters of basic assumptions and inner setup for a small set of integrated assessment models. Here you explore models in their baseline behaviour, when no policies towards a warming boundary are implied, i.e. without individual mitigation strategies. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for the CD-Links study. <br/><br/> The CD-LINKS study (conducted in 2018) is especially relevant, because it had a dedicated focus on required investments for mitigation. Important further literature are the UNEP Finance Initiative report [EXTENDING OUR HORIZONS]( https://www.unepfi.org/news/themes/climate-change/extending-our-horizons/) and the paper by McCollum et al. [“Energy investment needs for fulfilling the Paris Agreement and achieving the Sustainable Development Goals” (2018)](https://doi.org/10.1038/s41560-018-0179-z). \n  ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///////#/workspaces/share/b556baec-31db-4a4a-a058-d1f7d9a1ffb9",
+  "config": {
+    "runs": [
+      [
+        "$model",
+        "CD-LINKS_NoPolicy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "Basic characteristics - what are the socioeconomic key drivers?",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Final Energy",
+          "Food Demand"
+        ]
+      }
+    },
+    {
+      "name": "Basic characteristics - what are socioeconomic key drivers in the 5 world regions?",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Final Energy",
+          "Food Demand"
+        ]
+      },
+      "groups": [
+        {
+          "name": "R5 ASIA - Socioeconomic key drivers",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU -  Socioeconomic key drivers",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM -  Socioeconomic key drivers",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF -  Socioeconomic key drivers",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF -  Socioeconomic key drivers",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ]
+    },{
+      "name": "What is the baseline behaviour for the energy setup (without climate policy)?",
+      "config": {
+        "variables": [
+          "Primary Energy",
+          "Primary Energy|Fossil",
+          "Primary Energy|Non-Biomass Renewables",
+          "Primary Energy|Biomass"
+        ]
+      }
+    },
+    {
+      "name": "What is the baseline behaviour for energy setup in the 5 world regions (without climate policy)?",
+      "config": {
+        "variables": [
+          "Primary Energy",
+          "Primary Energy|Fossil",
+          "Primary Energy|Non-Biomass Renewables",
+          "Primary Energy|Biomass"
+        ]
+      },
+      "groups": [
+        {
+          "name": "R5 ASIA - Socioeconomic key drivers",
+          "icon": "R5-ASIA",
+          "config": {
+            "regions": [
+              "R5|ASIA"
+            ]
+          }
+        },
+        {
+          "name": "R5 OECD90+EU -  Socioeconomic key drivers",
+          "icon": "R5-OECD90+EU",
+          "config": {
+            "regions": [
+              "R5|OECD90+EU"
+            ]
+          }
+        },
+        {
+          "name": "R5 LAM -  Socioeconomic key drivers",
+          "icon": "R5-LAM",
+          "config": {
+            "regions": [
+              "R5|LAM"
+            ]
+          }
+        },
+        {
+          "name": "R5 MAF -  Socioeconomic key drivers",
+          "icon": "R5-MAF",
+          "config": {
+            "regions": [
+              "R5|MAF"
+            ]
+          }
+        },
+        {
+          "name": "R5 REF -  Socioeconomic key drivers",
+          "icon": "R5-REF",
+          "config": {
+            "regions": [
+              "R5|REF"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "Model",
+      "funnel": true,
+      "options": [
+        {
+          "name": "REMIND-MAgPIE 1.7-3.0",
+          "$model": "REMIND-MAgPIE 1.7-3.0"
+        },
+        {
+          "name": "MESSAGEix-GLOBIOM 1.0",
+          "$model": "MESSAGEix-GLOBIOM 1.0"
+        },
+        {
+          "name": "AIM/CGE 2.1",
+          "$model": "AIM/CGE 2.1"
+        },
+        {
+          "name": "IMAGE 3.0.1",
+          "$model": "IMAGE 3.0.1"
+        },
+        {
+          "name": "WITCH-GLOBIOM 4.4",
+          "$model": "WITCH-GLOBIOM 4.4"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
