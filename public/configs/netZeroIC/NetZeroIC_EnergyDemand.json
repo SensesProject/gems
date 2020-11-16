@@ -1,6 +1,6 @@
 {
   "title": "Energy demand and the role of electricity ",
-  "description": "**You can explore here:**\n\n  Electrification of end use sector rather late. Different sectors different patterns > transport more efficient with electricity than liquids. Same holds not (?) for industry and buildings to that extent",
+  "description": "**You can explore here:**\n\n You can explore here scenarios how electricity and energy demand may develop for the end use sectors in the four industrialized industries: United States of America, the European Union, Japan, and Australia. Results can be understood for three types of scenarios: one with a 1.5°C warming boundary, a NDC scenario (following the nationally determined contributions), and a 'no policy' scenario, which describes a pessimistic scenario of no climate mitigation at all. \n \n In a policy scenario electricity takes the absolute leading role. Gases, solids and liquids decline. \n \n The results are discussed in Schreyer et al. [Common but differentiated leadership: Strategies and challenges for carbon neutrality by 2050 across industrialized economies](https://doi.org/10.1088/1748-9326/abb852). ",
   "workspace": "",
   "config": {
     "runs": [
