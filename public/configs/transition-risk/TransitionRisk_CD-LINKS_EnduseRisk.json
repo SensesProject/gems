@@ -60,6 +60,39 @@
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05c0ba3d-aebe-4038-8cf1-99872d3764ac"
+    },{
+      "name": "How do  risk factors compare to each other?",
+      "groups": [{
+        "name": "Industry",
+        "config": {
+          "variables": [
+            "RFP|Direct emissions cost|Industrial processes",
+            "RFP|Indirect emissions cost|Industrial processes",
+            "RFP|Low-carbon capital expenditure|Industrial processes"
+          ]
+        },
+      "workspace": " "
+      }, {
+        "name": "Transportation",
+        "config": {
+          "variables": [
+            "RFP|Direct emissions cost|Transportation",
+            "RFP|Indirect emissions cost|Transportation",
+            "RFP|Low-carbon capital expenditure|Transportation"
+          ]
+        },
+      "workspace": " "
+      },{
+        "name": "Residential and commercial",
+        "config": {
+          "variables": [
+            "RFP|Direct emissions cost|Residential and commercial",
+            "RFP|Indirect emissions cost|Residential and commercial",
+            "RFP|Low-carbon capital expenditure|Residential and commercial"
+          ]
+        },
+      "workspace": " "
+      }]
     }
   ],
   "params": [

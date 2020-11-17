@@ -1,6 +1,6 @@
 {
   "title": "Fossil fuel risks",
-  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change.\n ",
+  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change. Please note: If direct emission costs seem very low for the fossil fuels then because we are here at the extraction level, the actual burning of these fules is priced in the energy sector.\n ",
   "workspace": "",
   "config": {
     "runs": [
@@ -72,6 +72,35 @@
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/d054c548-0f14-4dc6-8cd3-81e9e865414c"
+    },
+    {
+      "name": "How do the risk factors direct emission costs and revenues compare to each other?",
+      "groups": [{
+        "name": "COAL",
+        "config": {
+          "variables": [
+            "RFP|Revenue|Coal",
+            "RFP|Direct emissions cost|Coal"
+          ]
+        }
+        },{
+        "name": "OIL",
+        "config": {
+          "variables": [
+            "RFP|Revenue|Oil",
+            "RFP|Direct emissions cost|Oil"
+          ]
+        }
+        },{
+        "name": "GAS",
+        "config": {
+          "variables": [
+            "RFP|Revenue|Gas",
+            "RFP|Direct emissions cost|Gas"
+          ]
+        },
+      "workspace": " "
+    }]
     }
   ],
   "params": [

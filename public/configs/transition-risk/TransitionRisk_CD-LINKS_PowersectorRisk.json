@@ -64,12 +64,28 @@
       "name": "How do required investments and revenues develop?",
       "config": {
         "variables": [
-          "RFP|Low-carbon capital expenditure|Electricity",
           "RFP|Revenue|Electricity",
+          "RFP|Low-carbon capital expenditure|Electricity",
           "Price|Carbon"
         ]
       },
       "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f89d255c-5c31-4c7c-a3a1-3c0836a6ba26"
+    }, 
+    {
+      "name": "How do all risk factors compare to each other?",
+      "groups": [{
+        "name": "Electricity",
+        "config": {
+          "variables": [
+            "RFP|Direct emissions cost|Electricity",
+            "RFP|Indirect emissions cost|Electricity",
+            "RFP|Revenue|Electricity",
+            "RFP|Low-carbon capital expenditure|Electricity"
+            
+          ]
+        },
+      "workspace": " "
+      }]
     }
   ],
   "params": [
