@@ -1,6 +1,6 @@
 {
   "title": "Land Cover Change",
-  "description": "",
+  "description": "**You can explore here:**\n\n How land cover changes over time, with a focus on crop land cover. The development trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
   "config": {
     "runs": [
       [

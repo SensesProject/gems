@@ -1,6 +1,7 @@
 {
   "title": "Sustainable Policies",
-  "description": "",
+  "description": "**You can explore here:**\n\n How does a sustainable mitigation policy differ in detail from a default policy approach (cost effective choices). We look into demand side differences towards more sustainable use of land. We see differences in land based mitigation, important levers to reduce emissions. You will also discover that emission trajectories differ to a large extent. Finally, the sustainable approach can alleviate pressure on food price indices. The trajectories below are given for different climate policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SMP_1p5C_Sust) and a policy to limit warming to two 2°C (e.g. SMP_2C_Sust).  \n \n The information can also be explored in detail for the five major world regions. \n\n The details are also summarized in the paper bei Bertram et al. [Targeted policies can compensate most of the increased sustainability risks in 1.5 C mitigation scenarios](https://iopscience.iop.org/article/10.1088/1748-9326/aac3ec/meta) ",
+  
   "config": {
     "runs": [
       [
@@ -208,7 +209,7 @@
           "$wl": "2C"
         },
         {
-          "name": "No Climate Policy",
+          "name": "Baseline",
           "$wl": "REF"
         }
       ]

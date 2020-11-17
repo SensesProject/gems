@@ -1,6 +1,6 @@
 {
   "title": "Emissions from Agriculture, Forests and Other Land Use",
-  "description": "",
+  "description": "**You can explore here:**\n\n How emissions from agriculture, forests and other land use (AFOLU) develop over time. The emission trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
   "config": {
     "runs": [
       [
@@ -14,7 +14,7 @@
   },
   "questions": [
     {
-      "name": "How do emissions from AFOLU compare to emissions from other Sectors?",
+      "name": "How do emissions from AFOLU compare to total emissions?",
       "groups": [
         {
           "name": "Emissions from AFOLU",
@@ -88,16 +88,16 @@
       "radio": true,
       "options": [
         {
+          "name": "Baseline",
+          "$rcp": "Baseline"
+        },
+        {
           "name": "1.5°C",
           "$rcp": "19"
         },
         {
           "name": "2°C",
           "$rcp": "26"
-        },
-        {
-          "name": "No Climate Policy",
-          "$rcp": "Baseline"
         }
       ]
     },
