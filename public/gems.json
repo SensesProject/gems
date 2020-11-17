@@ -74,7 +74,7 @@
       }
     ]
   },{
-    "title": "Electrification",
+    "title": "Towards an electric future",
     "dir": "electrification",
     "modules": [
       "sector-transition",
@@ -82,11 +82,11 @@
     ],
     "groups": [
       {
-        "title": "Electrificaion",
+        "title": "Electrification",
         "gems": [
           {
             "id": "Electrification_ElectricityProduction",
-            "title": "Electricity Production"
+            "title": "Electricity production"
           },
           {
             "id": "Electrification_EnergyDemand",
@@ -94,13 +94,13 @@
           },
           {
             "id": "Electrification_FurtherImportantEnergyCarriers",
-            "title": "Decarbonization - Further Important Energy Carriers"
+            "title": "Decarbonization - Further important energy carriers"
           }
         ]
       }
     ]
   },{
-    "title": "Net zero for industrialized countries",
+    "title": "Net zero pathways for industrialized countries",
     "dir": "netZeroIC",
     "modules": [
       "countries-pathways",
@@ -112,7 +112,7 @@
         "gems": [
           {
             "id": "NetZeroIC_EnergyProduction",
-            "title": "Energy Production"
+            "title": "Energy production"
           },
           {
             "id": "NetZeroIC_EnergyDemand",
@@ -120,14 +120,14 @@
           },
           {
             "id": "NetZeroIC_FurtherImportantEnergyCarriers",
-            "title": "Further Important Energy Carriers"
+            "title": "Further important energy carriers"
           }
         ]
       }
     ]
   },
   {
-    "title": "Land Transition",
+    "title": "The role of land",
     "dir": "land-transition",
     "modules": [
       "land-transitions"
@@ -138,15 +138,15 @@
         "gems": [
           {
             "id": "emissions",
-            "title": "Emissions from Agriculture, Forests and Other Land Use"
+            "title": "Emissions from agriculture, forests and other land use"
           },
           {
             "id": "land-cover",
-            "title": "Land Cover Change"
+            "title": "Land cover change"
           },
           {
             "id": "sustainable",
-            "title": "Sustainable Policies"
+            "title": "Sustainable policies"
           }
         ]
       }
