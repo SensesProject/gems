@@ -1,6 +1,6 @@
 [
   {
-    "title": "Emissions gap",
+    "title": "Emissions Gap",
     "dir": "emissions-gap",
     "modules": [
       "emissions-gap"
@@ -11,26 +11,26 @@
         "gems": [
           {
             "id": "model-assumptions-pep",
-            "title": "Basic model characteristics in the Pep1p5 study"
+            "title": "Basic Model Characteristics in the Pep1p5 Study"
           },
           {
             "id": "where-do-we-want-to-go",
-            "title": "Where do we want to go? How do emissions decline?"
+            "title": "Where Do We Want to Go? How Do Emissions Decline?"
           },
           {
             "id": "how-do-we-get-there-mitigation",
-            "title": "How do we get there? How is the mitigation shaped?"
+            "title": "How Do We Get There? How Is the Mitigation Shaped?"
           },
           {
             "id": "how-do-we-get-there-investment",
-            "title": "How do we get there? Which investments are required?"
+            "title": "How Do We Get There? Which Investments Are Required?"
           }
         ]
       }
     ]
   },
   {
-    "title": "Transition risk",
+    "title": "Transition Risk",
     "dir": "transition-risk",
     "modules": [
       "transition-risk",
@@ -39,42 +39,42 @@
     ],
     "groups": [
       {
-        "title": "Basic understanding: integrated assessment modles and transition scenarios in the CD-LINKS study",
+        "title": "Basic Understanding – Integrated Assessment Models and Transition Scenarios",
         "gems": [
           {
             "id": "model-assumptions",
-            "title": "Basic model assumptions and behaviour in the CD-LINKS study"
+            "title": "Basic Model Assumptions and Behaviour in the CD-LINKS Study"
           },
           {
             "id": "mitigation-strategies",
-            "title": "Uncertainty risk - differing pathways in integrated assessment models"
+            "title": "Uncertainty Risk – Differing Pathways in Integrated Assessment Models"
           },
           {
             "id": "investments",
-            "title": "Required investments in the CD-LINKS study"
+            "title": "Required Investments in the CD-LINKS Study"
           }
         ]
       },
       {
-        "title": "Risk indicators - risk factor pathways",
+        "title": "Risk Indicators – Risk Factor Pathways",
         "gems": [
           {
             "id": "fossil-fuel-risk",
-            "title": "Fossil fuels risks for the CD-LINKS study"
+            "title": "Fossil Fuels Risks for the CD-LINKS Study"
           },
           {
             "id": "power-sector-risk",
-            "title": "Power sector risks for the CD-LINKS study"
+            "title": "Power Sector Risks for the CD-LINKS Study"
           },
           {
             "id": "enduse-risk",
-            "title": "Risks for end use sectors for the CD-LINKS study"
+            "title": "Risks for End Use Sectors for the CD-LINKS Study"
           }
         ]
       }
     ]
   },{
-    "title": "Towards an electric future",
+    "title": "Towards an Electric Future",
     "dir": "electrification",
     "modules": [
       "sector-transition",
@@ -82,25 +82,25 @@
     ],
     "groups": [
       {
-        "title": "Electrification",
+        "title": "Available GEMs",
         "gems": [
           {
             "id": "electricity-production",
-            "title": "Electricity production"
+            "title": "Electricity Production"
           },
           {
             "id": "energy-demand",
-            "title": "Demand side changes"
+            "title": "Demand Side Changes"
           },
           {
             "id": "decarbonization",
-            "title": "Decarbonization - Further important energy carriers"
+            "title": "Decarbonization – Further Important Energy Carriers"
           }
         ]
       }
     ]
   },{
-    "title": "Net zero pathways for industrialized countries",
+    "title": "Net Zero Pathways for Industrialized Countries",
     "dir": "net-zero-ic",
     "modules": [
       "countries-pathways",
@@ -108,26 +108,26 @@
     ],
     "groups": [
       {
-        "title": "Net zero pathways for industrialized countries",
+        "title": "Available GEMs",
         "gems": [
           {
             "id": "energy-production",
-            "title": "Energy production"
+            "title": "Energy Production"
           },
           {
             "id": "energy-demand",
-            "title": "Demand side - energy and electricity"
+            "title": "Demand Side – Energy and Electricity"
           },
           {
             "id": "energy-carriers",
-            "title": "Further important energy carriers"
+            "title": "Further Important Energy Carriers"
           }
         ]
       }
     ]
   },
   {
-    "title": "The role of land",
+    "title": "The Role of Land",
     "dir": "land-transition",
     "modules": [
       "land-transitions"
@@ -138,15 +138,15 @@
         "gems": [
           {
             "id": "emissions",
-            "title": "Emissions from agriculture, forests and other land use"
+            "title": "Emissions From Agriculture, Forests and Other Land Use"
           },
           {
             "id": "land-cover",
-            "title": "Land cover change"
+            "title": "Land Cover Change"
           },
           {
             "id": "sustainable",
-            "title": "Sustainable policies"
+            "title": "Sustainable Policies"
           }
         ]
       }
