@@ -1,6 +1,6 @@
 {
   "title": "Fossil fuel risks",
-  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change. Please note: If direct emission costs seem very low for the fossil fuels then because we are here at the extraction level, the actual burning of these fules is priced in the energy sector.\n ",
+  "description": "Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change. Please note: If direct emission costs seem very low for the fossil fuels then because we are here at the extraction level, the actual burning of these fules is priced in the energy sector.\n ",
   "workspace": "",
   "config": {
     "runs": [

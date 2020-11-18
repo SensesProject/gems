@@ -1,6 +1,6 @@
 {
   "title": "Enduse risks",
-  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the end use sector in mitigation scenarios. They help to understand the transformations in the end use sector under a climate target, how energy demand, costs, required and investments change.\n ",
+  "description": "Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the end use sector in mitigation scenarios. They help to understand the transformations in the end use sector under a climate target, how energy demand, costs, required and investments change.\n ",
   "workspace": "",
   "config": {
     "runs": [
