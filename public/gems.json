@@ -10,19 +10,19 @@
         "title": "Available GEMs",
         "gems": [
           {
-            "id": "model-assumptions_Pep",
+            "id": "model-assumptions-pep",
             "title": "Basic model characteristics in the Pep1p5 study"
           },
           {
-            "id": "stocktake-models_1_WhereDoWeWantToGo",
+            "id": "where-do-we-want-to-go",
             "title": "Where do we want to go? How do emissions decline?"
           },
           {
-            "id": "stocktake-models_2_HowDoWeGetThere_Mitigation",
+            "id": "how-do-we-get-there-mitigation",
             "title": "How do we get there? How is the mitigation shaped?"
           },
           {
-            "id": "stocktake-models_3_HowDoWeGetThere_Investment",
+            "id": "how-do-we-get-there-investment",
             "title": "How do we get there? Which investments are required?"
           }
         ]
@@ -42,15 +42,15 @@
         "title": "Basic understanding: integrated assessment modles and transition scenarios in the CD-LINKS study",
         "gems": [
           {
-            "id": "TransitionRisk_CD-LINKS_model-assumptions",
+            "id": "model-assumptions",
             "title": "Basic model assumptions and behaviour in the CD-LINKS study"
           },
           {
-            "id": "TransitionRisk_CD-LINKS_MitigationStrategies",
+            "id": "mitigation-strategies",
             "title": "Uncertainty risk - differing pathways in integrated assessment models"
           },
           {
-            "id": "TransitionRisk_CD-LINKS_Investments",
+            "id": "investments",
             "title": "Required investments in the CD-LINKS study"
           }
         ]
@@ -59,15 +59,15 @@
         "title": "Risk indicators - risk factor pathways",
         "gems": [
           {
-            "id": "TransitionRisk_CD-LINKS_FossilFuelRisk",
+            "id": "fossil-fuel-risk",
             "title": "Fossil fuels risks for the CD-LINKS study"
           },
           {
-            "id": "TransitionRisk_CD-LINKS_PowerSectorRisk",
+            "id": "power-sector-risk",
             "title": "Power sector risks for the CD-LINKS study"
           },
           {
-            "id": "TransitionRisk_CD-LINKS_EnduseRisk",
+            "id": "enduse-risk",
             "title": "Risks for end use sectors for the CD-LINKS study"
           }
         ]
@@ -85,15 +85,15 @@
         "title": "Electrification",
         "gems": [
           {
-            "id": "Electrification_ElectricityProduction",
+            "id": "electricity-production",
             "title": "Electricity production"
           },
           {
-            "id": "Electrification_EnergyDemand",
+            "id": "energy-demand",
             "title": "Demand side changes"
           },
           {
-            "id": "Electrification_FurtherImportantEnergyCarriers",
+            "id": "decarbonization",
             "title": "Decarbonization - Further important energy carriers"
           }
         ]
@@ -101,7 +101,7 @@
     ]
   },{
     "title": "Net zero pathways for industrialized countries",
-    "dir": "netZeroIC",
+    "dir": "net-zero-ic",
     "modules": [
       "countries-pathways",
       "sector-transition"
@@ -111,15 +111,15 @@
         "title": "Net zero pathways for industrialized countries",
         "gems": [
           {
-            "id": "NetZeroIC_EnergyProduction",
+            "id": "energy-production",
             "title": "Energy production"
           },
           {
-            "id": "NetZeroIC_EnergyDemand",
+            "id": "energy-demand",
             "title": "Demand side - energy and electricity"
           },
           {
-            "id": "NetZeroIC_FurtherImportantEnergyCarriers",
+            "id": "energy-carriers",
             "title": "Further important energy carriers"
           }
         ]
