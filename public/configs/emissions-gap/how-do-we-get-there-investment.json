@@ -4,94 +4,129 @@
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/5b1c57bb-8ea1-4455-9f73-8cf43078f5b7",
   "config": {
     "runs": [
-      ["REMIND-MAgPIE 1.7-3.0", "PEP_$warming_$cdr_$policy"]
+      [
+        "REMIND-MAgPIE 1.7-3.0",
+        "PEP_$warming_$cdr_$policy"
+      ]
     ],
-    "regions": ["World"]
+    "regions": [
+      "World"
+    ]
   },
-  "questions": [{
-    "name": "How could investments in low carbon technology develop?",
-    "groups": [{
-      "name": "Investments in low-carbon technologies",
-      "config": {
-        "variables": [
-          "Investment|Energy Supply|Electricity|Solar",
-          "Investment|Energy Supply|Electricity|Wind",
-          "Investment|Energy Supply|Electricity|Biomass|w/ CCS"
-        ]
-      }
-    },{
-      "name": "",
-      "config": {
-        "variables": [ 
-          "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
-          "Investment|Energy Supply|Electricity|Hydro",
-          "Investment|Energy Supply|Electricity|Nuclear"
-        ]
-      } 
-    },{
-      "name": "Investments in infrastructure",
-      "config": {
-        "variables": [ 
-          "Investment|Energy Supply|Electricity|Electricity Storage",
-        "Investment|Energy Supply|Electricity|Transmission and Distribution"
-        ]
-      } 
-    }]
-    },{ "name": "How could investments into carbon capture and storage (CCS) develop?",
-    "groups": [{
-      "name": "Investments into carbon capture and storage (CCS) ",
-      "config": {
-      "variables": [
-        "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
-        "Investment|Energy Supply|Electricity|Coal|w/ CCS",
-        "Investment|Energy Supply|Electricity|Gas|w/ CCS"
+  "questions": [
+    {
+      "name": "How could investments in low carbon technology develop?",
+      "groups": [
+        {
+          "name": "Investments in low-carbon technologies",
+          "config": {
+            "variables": [
+              "Investment|Energy Supply|Electricity|Solar",
+              "Investment|Energy Supply|Electricity|Wind",
+              "Investment|Energy Supply|Electricity|Biomass|w/ CCS"
+            ]
+          }
+        },
+        {
+          "name": "",
+          "config": {
+            "variables": [
+              "Investment|Energy Supply|Electricity|Biomass|w/o CCS",
+              "Investment|Energy Supply|Electricity|Hydro",
+              "Investment|Energy Supply|Electricity|Nuclear"
+            ]
+          }
+        },
+        {
+          "name": "Investments in infrastructure",
+          "config": {
+            "variables": [
+              "Investment|Energy Supply|Electricity|Electricity Storage",
+              "Investment|Energy Supply|Electricity|Transmission and Distribution"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8ce27df9-1aed-4c4c-9630-30e2fb80f70f"
+    },
+    {
+      "name": "How could investments into carbon capture and storage (CCS) develop?",
+      "groups": [
+        {
+          "name": "Investments into carbon capture and storage (CCS) ",
+          "config": {
+            "variables": [
+              "Investment|Energy Supply|Electricity|Biomass|w/ CCS",
+              "Investment|Energy Supply|Electricity|Coal|w/ CCS",
+              "Investment|Energy Supply|Electricity|Gas|w/ CCS"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a87398c2-6218-43db-b7cf-331b56d3d2ae"
+    },
+    {
+      "name": "How could divestment of unabated fossil fuels develop?",
+      "groups": [
+        {
+          "name": "Divestment of unabated fossil fuels",
+          "config": {
+            "variables": [
+              "Investment|Energy Supply|Electricity|Coal|w/o CCS",
+              "Investment|Energy Supply|Electricity|Oil|w/o CCS",
+              "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c21259cd-c91d-4c30-8821-1ad47819b4d9"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "options": [
+        {
+          "name": "Most efficient transition",
+          "$policy": "eff"
+        },
+        {
+          "name": "Bridging scenario",
+          "$policy": "netzero"
+        },
+        {
+          "name": "Nationally determined contributions",
+          "$policy": "NDC"
+        }
       ]
-     }
-    }]
-  },{ "name": "How could divestment of unabated fossil fuels develop?",
-    "groups": [{
-      "name": "Divestment of unabated fossil fuels",
-      "config": {
-      "variables": [
-        "Investment|Energy Supply|Electricity|Coal|w/o CCS",
-        "Investment|Energy Supply|Electricity|Oil|w/o CCS",
-        "Investment|Energy Supply|Electricity|Gas|w/o CCS"
+    },
+    {
+      "name": "Warming Level",
+      "radio": true,
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2C"
+        }
       ]
-     }
-  }]
-  }
-],
-  "params": [{
-    "name": "Policy",
-    "options": [ {
-      "name": "Most efficient transition",
-      "$policy": "eff"
-    }, {
-      "name": "Bridging scenario",
-      "$policy": "netzero"
-    },{
-      "name": "Nationally determined contributions",
-      "$policy": "NDC"
-    }]
-  }, {
-    "name": "Warming Level",
-    "radio": true,
-    "options": [{
-      "name": "1.5°C",
-      "$warming": "1p5C"
-    },{
-      "name": "2°C",
-      "$warming": "2C"
-    }]
-  }, {
-    "name": "CDR Availibility",
-    "radio": true,
-    "options": [{
-      "name": "Full",
-      "$cdr": "full"
-    }, {
-      "name": "Limited",
-      "$cdr": "red"
-    }]
-  }]
+    },
+    {
+      "name": "CDR Availibility",
+      "radio": true,
+      "options": [
+        {
+          "name": "Full",
+          "$cdr": "full"
+        },
+        {
+          "name": "Limited",
+          "$cdr": "red"
+        }
+      ]
+    }
+  ]
 }

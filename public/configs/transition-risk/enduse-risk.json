@@ -27,7 +27,7 @@
           "Final Energy|Industry"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/de235263-d2a0-45ef-acc2-1114dc0f8bb6"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/48afe8c9-72b9-430a-b3c7-f6404ec63763"
     },
     {
       "name": "How do direct emission costs develop for end use sectors for the transition?",
@@ -38,7 +38,7 @@
           "RFP|Direct emissions cost|Transportation"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/01a85e04-f866-463d-abc9-43f05121e899"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/5b3eaf1a-574d-4f09-8755-361a2ece048f"
     },
     {
       "name": "How do indirect emission costs develop for end use sectors?",
@@ -48,7 +48,7 @@
           "RFP|Indirect emissions cost|Transportation"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a47f2d6a-84e6-48c5-a977-c0cf1092919b"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/9fde7333-3863-46e0-996f-9841965d7081"
     },
     {
       "name": "How much low carbon capital expenditure is required?",
@@ -59,40 +59,46 @@
           "RFP|Low-carbon capital expenditure|Transportation"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05c0ba3d-aebe-4038-8cf1-99872d3764ac"
-    },{
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/fa939eb7-1d8d-4273-8c3f-8f828e6265b0"
+    },
+    {
       "name": "How do  risk factors compare to each other?",
-      "groups": [{
-        "name": "Industry",
-        "config": {
-          "variables": [
-            "RFP|Direct emissions cost|Industrial processes",
-            "RFP|Indirect emissions cost|Industrial processes",
-            "RFP|Low-carbon capital expenditure|Industrial processes"
-          ]
+      "groups": [
+        {
+          "name": "Industry",
+          "config": {
+            "variables": [
+              "RFP|Direct emissions cost|Industrial processes",
+              "RFP|Indirect emissions cost|Industrial processes",
+              "RFP|Low-carbon capital expenditure|Industrial processes"
+            ]
+          },
+          "workspace": " "
         },
-      "workspace": " "
-      }, {
-        "name": "Transportation",
-        "config": {
-          "variables": [
-            "RFP|Direct emissions cost|Transportation",
-            "RFP|Indirect emissions cost|Transportation",
-            "RFP|Low-carbon capital expenditure|Transportation"
-          ]
+        {
+          "name": "Transportation",
+          "config": {
+            "variables": [
+              "RFP|Direct emissions cost|Transportation",
+              "RFP|Indirect emissions cost|Transportation",
+              "RFP|Low-carbon capital expenditure|Transportation"
+            ]
+          },
+          "workspace": " "
         },
-      "workspace": " "
-      },{
-        "name": "Residential and commercial",
-        "config": {
-          "variables": [
-            "RFP|Direct emissions cost|Residential and commercial",
-            "RFP|Indirect emissions cost|Residential and commercial",
-            "RFP|Low-carbon capital expenditure|Residential and commercial"
-          ]
-        },
-      "workspace": " "
-      }]
+        {
+          "name": "Residential and commercial",
+          "config": {
+            "variables": [
+              "RFP|Direct emissions cost|Residential and commercial",
+              "RFP|Indirect emissions cost|Residential and commercial",
+              "RFP|Low-carbon capital expenditure|Residential and commercial"
+            ]
+          },
+          "workspace": " "
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/2756f0e3-69ff-4a9f-9c70-701e87a14439"
     }
   ],
   "params": [

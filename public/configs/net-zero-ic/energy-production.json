@@ -16,16 +16,16 @@
   "questions": [
     {
       "name": "How does electricity production from fossil fuels develop?",
-     
-        "config": {
-          "variables": [
-            "Secondary Energy|Electricity|Coal|w/o CCS",
-            "Secondary Energy|Electricity|Gas|w/o CCS",
-            "Secondary Energy|Electricity|Gas|w/ CCS",
-            "Secondary Energy|Electricity|Coal|w/ CCS"
-          ]
-        },
-        "groups": [{
+      "config": {
+        "variables": [
+          "Secondary Energy|Electricity|Coal|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/ CCS",
+          "Secondary Energy|Electricity|Coal|w/ CCS"
+        ]
+      },
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -33,7 +33,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -41,7 +42,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -49,7 +51,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -58,22 +61,24 @@
             ]
           }
         }
-      ]
-    },{
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28f3bc8f-90e2-4bae-b561-b1e8984199d2"
+    },
+    {
       "name": "How does electricity production from renewables and nuclear develop?",
-     
-        "config": {
-          "variables": [
-            "Secondary Energy|Electricity|Solar",
-            "Secondary Energy|Electricity|Wind",
-            "Secondary Energy|Electricity|Hydro",
-            "Secondary Energy|Electricity|Nuclear",
-            "Secondary Energy|Electricity|Biomass|w/ CCS",
-            "Secondary Energy|Electricity|Biomass|w/o CCS",
-            "Secondary Energy|Electricity|Geothermal"
-          ]
-        },
-        "groups": [{
+      "config": {
+        "variables": [
+          "Secondary Energy|Electricity|Solar",
+          "Secondary Energy|Electricity|Wind",
+          "Secondary Energy|Electricity|Hydro",
+          "Secondary Energy|Electricity|Nuclear",
+          "Secondary Energy|Electricity|Biomass|w/ CCS",
+          "Secondary Energy|Electricity|Biomass|w/o CCS",
+          "Secondary Energy|Electricity|Geothermal"
+        ]
+      },
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -81,7 +86,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -89,7 +95,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -97,7 +104,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -106,54 +114,60 @@
             ]
           }
         }
-      ]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/44e90ca9-0c8c-4244-8deb-8cc34af85f5b"
     },
     {
       "name": "How do emissions profiles look like",
       "config": {
         "variables": [
           "Population",
-          "GDP|PPP", 
+          "GDP|PPP",
           "Emissions|CO2",
-          "Emissions|CO2|Energy|Supply|Electricity|Gross", 
-          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg", 
+          "Emissions|CO2|Energy|Supply|Electricity|Gross",
+          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg",
           "Emissions|CO2|Land-Use Change"
         ]
       },
-      "groups": [{
-        "name": "United States of America",
-        "icon": "",
-        "config": {
-          "regions": [
-            "United States"
-          ]
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
         }
-      }, {
-        "name": "European Union",
-        "icon": "",
-        "config": {
-          "regions": [
-            "European Union"
-          ]
-        }
-      },{
-        "name": "Japan",
-        "icon": "",
-        "config": {
-          "regions": [
-            "Japan"
-          ]
-        }
-      }, {
-        "name": "Australia",
-        "icon": "",
-        "config": {
-          "regions": [
-            "Australia"
-          ]
-        }
-      }
-    ]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/96b05a2c-a3e6-4715-8175-27e252f2e238"
     }
   ],
   "params": [

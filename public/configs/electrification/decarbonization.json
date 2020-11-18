@@ -16,35 +16,40 @@
   "questions": [
     {
       "name": "Which other important energy carriers play a signifcant role?",
-      "groups": [{
-        "name": "Gases",
-        "config": {
-          "variables": [
-            "Secondary Energy|Gases",
-            "Secondary Energy|Gases|Natural Gas",
-            "Secondary Energy|Gases|Biomass"
-          ]
+      "groups": [
+        {
+          "name": "Gases",
+          "config": {
+            "variables": [
+              "Secondary Energy|Gases",
+              "Secondary Energy|Gases|Natural Gas",
+              "Secondary Energy|Gases|Biomass"
+            ]
+          }
+        },
+        {
+          "name": "Liquids",
+          "config": {
+            "variables": [
+              "Secondary Energy|Liquids",
+              "Secondary Energy|Liquids|Oil",
+              "Secondary Energy|Liquids|Biomass",
+              "Secondary Energy|Liquids|Coal"
+            ]
+          }
+        },
+        {
+          "name": "Solids",
+          "config": {
+            "variables": [
+              "Secondary Energy|Solids",
+              "Secondary Energy|Solids|Coal",
+              "Secondary Energy|Solids|Biomass"
+            ]
+          }
         }
-       }, {
-        "name": "Liquids",
-        "config": {
-          "variables": [
-            "Secondary Energy|Liquids",
-            "Secondary Energy|Liquids|Oil",
-            "Secondary Energy|Liquids|Biomass",
-            "Secondary Energy|Liquids|Coal"
-          ]
-        }
-      },{
-        "name": "Solids",
-        "config": {
-          "variables": [
-            "Secondary Energy|Solids",
-            "Secondary Energy|Solids|Coal",
-            "Secondary Energy|Solids|Biomass"
-          ]
-        }
-      }]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/7f254f77-66cb-49f7-859d-80f46e9a1baa"
     }
   ],
   "params": [

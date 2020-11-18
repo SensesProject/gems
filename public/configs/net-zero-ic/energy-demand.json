@@ -19,11 +19,12 @@
       "config": {
         "variables": [
           "Final Energy|Buildings|Electricity",
-          "Final Energy|Industry|Electricity", 
+          "Final Energy|Industry|Electricity",
           "Final Energy|Transport|Electricity"
         ]
       },
-        "groups": [{
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -31,7 +32,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -39,7 +41,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -47,7 +50,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -56,20 +60,23 @@
             ]
           }
         }
-      ]
-    }, {
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/32afd78b-d44f-4fda-a8d6-d1b0ff35ba2a"
+    },
+    {
       "name": "What is the final energy setup in industry?",
-        "config": {
-          "variables": [
-            "Final Energy|Industry|Electricity",
-            "Final Energy|Industry|Gases",
-            "Final Energy|Industry|Liquids",
-            "Final Energy|Industry|Solids",
-            "Final Energy|Industry|Hydrogen",
-            "Final Energy|Industry|Heat"
-          ]
-        },
-        "groups": [{
+      "config": {
+        "variables": [
+          "Final Energy|Industry|Electricity",
+          "Final Energy|Industry|Gases",
+          "Final Energy|Industry|Liquids",
+          "Final Energy|Industry|Solids",
+          "Final Energy|Industry|Hydrogen",
+          "Final Energy|Industry|Heat"
+        ]
+      },
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -77,7 +84,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -85,7 +93,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -93,7 +102,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -102,18 +112,21 @@
             ]
           }
         }
-      ]
-      },{
-        "name": "What is the final energy setup for transport?",
-        "config": {
-          "variables": [
-            "Final Energy|Transport|Electricity",
-            "Final Energy|Transport|Liquids",
-            "Final Energy|Transport|Hydrogen",
-            "Final Energy|Transport|Gases"
-          ]
-        },
-        "groups": [{
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ff9a145e-1a62-415d-a86f-036f085a9283"
+    },
+    {
+      "name": "What is the final energy setup for transport?",
+      "config": {
+        "variables": [
+          "Final Energy|Transport|Electricity",
+          "Final Energy|Transport|Liquids",
+          "Final Energy|Transport|Hydrogen",
+          "Final Energy|Transport|Gases"
+        ]
+      },
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -121,7 +134,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -129,7 +143,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -137,7 +152,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -146,20 +162,22 @@
             ]
           }
         }
-      ]
-      },{
-        "name": "What is the final energy setup for buildings?",
-        "config": {
-          "variables": [
-            "Final Energy|Buildings|Electricity",
-            "Final Energy|Buildings|Gases",
-            "Final Energy|Buildings|Solids",
-            "Final Energy|Buildings|Liquids",
-            "Final Energy|Buildings|Heat"
-            
-          ]
-        },
-        "groups": [{
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/17254181-7f6d-4122-a37b-b6c9372a1b38"
+    },
+    {
+      "name": "What is the final energy setup for buildings?",
+      "config": {
+        "variables": [
+          "Final Energy|Buildings|Electricity",
+          "Final Energy|Buildings|Gases",
+          "Final Energy|Buildings|Solids",
+          "Final Energy|Buildings|Liquids",
+          "Final Energy|Buildings|Heat"
+        ]
+      },
+      "groups": [
+        {
           "name": "United States of America",
           "icon": "",
           "config": {
@@ -167,7 +185,8 @@
               "United States"
             ]
           }
-        }, {
+        },
+        {
           "name": "European Union",
           "icon": "",
           "config": {
@@ -175,7 +194,8 @@
               "European Union"
             ]
           }
-        },{
+        },
+        {
           "name": "Japan",
           "icon": "",
           "config": {
@@ -183,7 +203,8 @@
               "Japan"
             ]
           }
-        }, {
+        },
+        {
           "name": "Australia",
           "icon": "",
           "config": {
@@ -192,7 +213,8 @@
             ]
           }
         }
-      ]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/80053053-7d2b-42ec-bb44-a9a926f626df"
     }
   ],
   "params": [

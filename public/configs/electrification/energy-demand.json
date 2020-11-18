@@ -18,51 +18,58 @@
       "name": "Electricity demand - how end use sectors develop?",
       "config": {
         "variables": [
-          "Final Energy|Industry|Electricity", 
+          "Final Energy|Industry|Electricity",
           "Final Energy|Buildings|Electricity",
           "Final Energy|Transport|Electricity"
         ]
-      }
-    }, {
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c359a62d-1e15-4698-b2f1-f032c1f77f15"
+    },
+    {
       "name": "What is the overall final energy demand profile in the sectors?",
-      "groups": [ {
-        "name": "Industry",
-        "config": {
-          "variables": [
-            "Final Energy|Industry",
-            "Final Energy|Industry|Electricity",
-            "Final Energy|Industry|Gases",
-            "Final Energy|Industry|Liquids",
-            "Final Energy|Industry|Solids",
-            "Final Energy|Industry|Hydrogen",
-            "Final Energy|Industry|Heat"
-          ]
+      "groups": [
+        {
+          "name": "Industry",
+          "config": {
+            "variables": [
+              "Final Energy|Industry",
+              "Final Energy|Industry|Electricity",
+              "Final Energy|Industry|Gases",
+              "Final Energy|Industry|Liquids",
+              "Final Energy|Industry|Solids",
+              "Final Energy|Industry|Hydrogen",
+              "Final Energy|Industry|Heat"
+            ]
+          }
+        },
+        {
+          "name": "Transport",
+          "config": {
+            "variables": [
+              "Final Energy|Transport",
+              "Final Energy|Transport|Electricity",
+              "Final Energy|Transport|Liquids",
+              "Final Energy|Transport|Gases",
+              "Final Energy|Transport|Hydrogen"
+            ]
+          }
+        },
+        {
+          "name": "Buildings",
+          "config": {
+            "variables": [
+              "Final Energy|Buildings",
+              "Final Energy|Buildings|Electricity",
+              "Final Energy|Buildings|Gases",
+              "Final Energy|Buildings|Solids",
+              "Final Energy|Buildings|Heat",
+              "Final Energy|Buildings|Hydrogen",
+              "Final Energy|Buildings|Liquids"
+            ]
+          }
         }
-      },{
-        "name": "Transport",
-        "config": {
-          "variables": [
-            "Final Energy|Transport", 
-            "Final Energy|Transport|Electricity",
-            "Final Energy|Transport|Liquids",
-            "Final Energy|Transport|Gases",
-            "Final Energy|Transport|Hydrogen"
-          ]
-        }
-      },{
-        "name": "Buildings",
-        "config": {
-          "variables": [
-            "Final Energy|Buildings",
-            "Final Energy|Buildings|Electricity",
-            "Final Energy|Buildings|Gases",
-            "Final Energy|Buildings|Solids",
-            "Final Energy|Buildings|Heat",
-            "Final Energy|Buildings|Hydrogen",
-            "Final Energy|Buildings|Liquids"
-          ]
-        }
-       }]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/cc85e14b-affd-455e-924f-0adad53e364b"
     }
   ],
   "params": [

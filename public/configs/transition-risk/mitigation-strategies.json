@@ -16,42 +16,46 @@
   "questions": [
     {
       "name": "What is the primary energy setup in mitigation scenarios for a climate boundary well below 2°C?",
-      "groups": [ {
-        "name": "Fossil fuels",
-        "config": {
-          "variables": [
-            "Primary Energy|Coal|w/o CCS" , 
-            "Primary Energy|Coal|w/ CCS",
-            "Primary Energy|Gas|w/ CCS", 
-            "Primary Energy|Gas|w/o CCS",
-            "Primary Energy|Oil|w/o CCS",
-            "Primary Energy|Oil|w/ CCS" 
-          ]
+      "groups": [
+        {
+          "name": "Fossil fuels",
+          "config": {
+            "variables": [
+              "Primary Energy|Coal|w/o CCS",
+              "Primary Energy|Coal|w/ CCS",
+              "Primary Energy|Gas|w/ CCS",
+              "Primary Energy|Gas|w/o CCS",
+              "Primary Energy|Oil|w/o CCS",
+              "Primary Energy|Oil|w/ CCS"
+            ]
+          }
+        },
+        {
+          "name": "Carbon sequestration",
+          "config": {
+            "variables": [
+              "Carbon Sequestration|CCS",
+              "Carbon Sequestration|CCS|Biomass",
+              "Carbon Sequestration|Land Use|Afforestation",
+              "Carbon Sequestration|CCS|Fossil|Energy|Supply",
+              "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
+            ]
+          }
+        },
+        {
+          "name": "Renewables & nuclear",
+          "config": {
+            "variables": [
+              "Primary Energy|Solar",
+              "Primary Energy|Biomass|Modern|w/ CCS",
+              "Primary Energy|Wind",
+              "Primary Energy|Biomass|Traditional",
+              "Primary Energy|Nuclear"
+            ]
+          }
         }
-      }, {
-        "name": "Carbon sequestration",
-        "config": {
-          "variables": [
-            "Carbon Sequestration|CCS",
-            "Carbon Sequestration|CCS|Biomass",
-            "Carbon Sequestration|Land Use|Afforestation", 
-            "Carbon Sequestration|CCS|Fossil|Energy|Supply",
-            "Carbon Sequestration|CCS|Fossil|Energy|Demand|Industry"
-          ]
-        }
-      },{
-
-        "name": "Renewables & nuclear",
-        "config": {
-          "variables": [
-            "Primary Energy|Solar", 
-            "Primary Energy|Biomass|Modern|w/ CCS", 
-            "Primary Energy|Wind",
-            "Primary Energy|Biomass|Traditional", 
-            "Primary Energy|Nuclear"  
-          ]
-        }
-      }]
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/54315fb8-b3da-48e2-944e-22328d0e0cc6"
     }
   ],
   "params": [
@@ -89,6 +93,5 @@
       ]
     }
   ],
-  "dict": {
-  }
+  "dict": {}
 }

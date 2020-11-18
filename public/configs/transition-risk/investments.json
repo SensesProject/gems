@@ -23,7 +23,7 @@
           "Investment|Energy Efficiency"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/57fc9972-fd71-4a44-b399-e3fbf8f0bb39"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/cb146c21-d93e-4689-9fef-87a9e5b623d8"
     },
     {
       "name": "What are the major required investments in the major world regions?",
@@ -81,7 +81,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8fc09037-5596-4cf5-95b3-1e7b35b685ff"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/e545e1ee-e85a-434d-bd0d-ac5595a0782a"
     },
     {
       "name": "What are the investments into low-carbon electricity",
@@ -116,7 +116,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/194fe59b-62e5-41a2-8570-ed84dc4709d0"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/da439f19-5ad6-4f41-bc07-3f563e44f01a"
     },
     {
       "name": "How can divestment in unabated fossil fuels develop?",
@@ -127,7 +127,7 @@
           "Investment|Energy Supply|Electricity|Gas|w/o CCS"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/7fcddf1c-ff5c-4c1f-8c0a-f70a18a2c1cd"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/3ad9e9c3-d104-4440-be91-d06f059539c2"
     }
   ],
   "params": [
