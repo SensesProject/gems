@@ -52,6 +52,24 @@
           ]
         }
       }]
+    }, {
+      "name": "Is the future electric? What are the main energy forms in end use?",
+      "groups": [ {
+        "name": "Final energy ",
+        "config": {
+          "variables": [
+            "Final Energy",
+            "Final Energy|Electricity", 
+            "Final Energy|Liquids", 
+            "Final Energy|Gases", 
+            "Final Energy|Solids", 
+            "Final Energy|Heat", 
+            "Final Energy|Hydrogen", 
+            "GDP|PPP"
+            
+          ]
+        }
+      }]
     }
   ],
   "params": [
