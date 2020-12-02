@@ -1,6 +1,6 @@
 {
   "title": "Land Cover Change",
-  "description": "**You can explore here:**\n\n How land cover changes over time, with a focus on crop land cover. The development trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: If you compare the SSPs in one panel, you might see that some variables don’t start at the same value. This is because each SSP has its own reference model, which introduce this slight differences. Further, not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
+  "description": "How land cover changes over time, with a focus on crop land cover. The development trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: If you compare the SSPs in one panel, you might see that some variables don’t start at the same value. This is because each SSP has its own reference model, which introduce this slight differences. Further, not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
   "config": {
     "runs": [
       [
@@ -55,7 +55,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/5a00b8ed-6bfe-4c41-967f-bf7d179b5ecc"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/4fa460d3-e05f-4da7-9a6a-d15b44e42248"
     },
     {
       "name": "How does land cover change in the 5 world regions?",
@@ -83,7 +83,7 @@
         "r5": true,
         "suffix": "Land Cover Change"
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/dd35ce8d-a98c-4b2d-b461-f2549bdc10d6"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/cb8d9ee7-f4b2-4b9c-be34-6b8b4e5f2e16"
     },
     {
       "name": "How does cropland change in the 5 world regions?",
@@ -103,7 +103,7 @@
         "r5": true,
         "suffix": "Cropland Change"
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8aeb3f43-dc83-42e0-af2c-6431ecfe39c4"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a0844348-0887-4cfd-b4ec-4aeafe896853"
     }
   ],
   "params": [

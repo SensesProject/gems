@@ -1,7 +1,6 @@
 {
   "title": "Sustainable Policies",
-  "description": "**You can explore here:**\n\n How does a sustainable mitigation policy differ in detail from a default policy approach (cost effective choices). We look into demand side differences towards more sustainable use of land. We see differences in land based mitigation, important levers to reduce emissions. You will also discover that emission trajectories differ to a large extent. Finally, the sustainable approach can alleviate pressure on food price indices. The trajectories below are given for different climate policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SMP_1p5C_Sust) and a policy to limit warming to two 2°C (e.g. SMP_2C_Sust).  \n \n The information can also be explored in detail for the five major world regions. \n\n The details are also summarized in the paper bei Bertram et al. [Targeted policies can compensate most of the increased sustainability risks in 1.5 C mitigation scenarios](https://iopscience.iop.org/article/10.1088/1748-9326/aac3ec/meta) ",
-  
+  "description": "How does a sustainable mitigation policy differ in detail from a default policy approach (cost effective choices). We look into demand side differences towards more sustainable use of land. We see differences in land based mitigation, important levers to reduce emissions. You will also discover that emission trajectories differ to a large extent. Finally, the sustainable approach can alleviate pressure on food price indices. The trajectories below are given for different climate policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SMP_1p5C_Sust) and a policy to limit warming to two 2°C (e.g. SMP_2C_Sust).  \n \n The information can also be explored in detail for the five major world regions. \n\n The details are also summarized in the paper bei Bertram et al. [Targeted policies can compensate most of the increased sustainability risks in 1.5 C mitigation scenarios](https://iopscience.iop.org/article/10.1088/1748-9326/aac3ec/meta) ",
   "config": {
     "runs": [
       [
@@ -98,7 +97,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/0a2ff834-856a-4a06-95a7-4da8ac33afc9"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/114a3734-a497-453a-bc97-3f99e18ea89e"
     },
     {
       "name": "How does demand-side mitigation develop in the 5 world regions?",
@@ -126,7 +125,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ab60b333-9362-4bdb-b3cf-886f44c39d49"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ba1f8ee8-fa28-47e1-b5a2-48b4af2e947b"
     },
     {
       "name": "How does land-based mitigation develop in the 5 world regions?",
@@ -150,7 +149,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/cac8064b-a765-4e29-9ba5-638d197bacb4"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/3c0c4659-6b50-497b-8ef2-7016643edf8b"
     },
     {
       "name": "How do AFOLU emissions develop in the 5 world regions?",
@@ -178,7 +177,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/979a70aa-d5fb-4d84-9ffd-ff7f1443542b"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8affa6b1-75f5-4ebe-a80b-52647011a91c"
     }
   ],
   "params": [

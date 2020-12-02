@@ -1,6 +1,6 @@
 {
   "title": "Power sector risks",
-  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the power sector in mitigation scenarios. They help to understand what role the power sector will play under a climate target, how production, costs, required investments and revenues change.\n ",
+  "description": "Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways for the power sector in mitigation scenarios. They help to understand what role the power sector will play under a climate target, how production, costs, required investments and revenues change.\n ",
   "workspace": "",
   "config": {
     "runs": [
@@ -47,7 +47,7 @@
           "workspace": ""
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/767fa9ea-937a-40a5-ba48-6dbf4d6b9277"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/19236a23-44de-4dfd-b2be-c320ac78f09f"
     },
     {
       "name": "How do direct and indirect costs in the power sector develop?",
@@ -58,7 +58,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b6e08abc-a5d4-4d79-9536-a51dc6909801"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c14f4430-0c8a-4f4b-ac0a-8555081ed12e"
     },
     {
       "name": "How do required investments and revenues develop?",
@@ -69,23 +69,25 @@
           "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f89d255c-5c31-4c7c-a3a1-3c0836a6ba26"
-    }, 
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/bfbc4ca2-3cf0-489e-bc7b-69cc1e845ee1"
+    },
     {
       "name": "How do all risk factors compare to each other?",
-      "groups": [{
-        "name": "Electricity",
-        "config": {
-          "variables": [
-            "RFP|Direct emissions cost|Electricity",
-            "RFP|Indirect emissions cost|Electricity",
-            "RFP|Revenue|Electricity",
-            "RFP|Low-carbon capital expenditure|Electricity"
-            
-          ]
-        },
-      "workspace": " "
-      }]
+      "groups": [
+        {
+          "name": "Electricity",
+          "config": {
+            "variables": [
+              "RFP|Direct emissions cost|Electricity",
+              "RFP|Indirect emissions cost|Electricity",
+              "RFP|Revenue|Electricity",
+              "RFP|Low-carbon capital expenditure|Electricity"
+            ]
+          },
+          "workspace": " "
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f0c111cb-1e34-4d8a-90a8-59f41201ca81"
     }
   ],
   "params": [

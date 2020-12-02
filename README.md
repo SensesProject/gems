@@ -1,6 +1,12 @@
 # GEMs
 
-GEMs are guided explore modules and are mostly used as supplementary material for SENSES Learn-Modules. A GEM (e.g. *Where do we want to go? How do emissions decline?*) is generally structured around a couple of guiding questions and belongs to a group of GEMs (e.g. *Emissions gap*).
+GEMs are guided explore modules and are mostly used as supplementary material for SENSES Learn-Modules. A GEM (e.g. [*Where do we want to go? How do emissions decline?*](https://climatescenarios.org/gems/#/emissions-gap/where-do-we-want-to-go)) is generally structured around a couple of guiding questions and belongs to a group of GEMs (e.g. [*Emissions gap*](https://climatescenarios.org/gems/#/emissions-gap)).
+
+![screenshot of a gem](./module.png)
+
+## License
+
+The source code is licensed under the [ISC license](LICENSE.md). Text and graphics are licensed under [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Adding GEMs
 
@@ -197,11 +203,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files

@@ -1,0 +1,121 @@
+{
+  "title": "Where do we want to go? How do emissions decline?",
+  "description": " The required emissions reductions for the major greenhousegas emittors.  Which sectors and major economies need to change most under a climate policy. This information can be explored for different policy strategies, warming levels, and with full or reduced availability of carbon dioxide removal (CDR) technologies.  \n\n The Pep1p5 study is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1). \n \n Please note: Pep1p5 was conducted 2018. It is a single-model study, i.e. results were created with the REMIND-MAgPIE model only ",
+  "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer/////#/workspaces/share/885fb33b-557a-44f6-bd04-4532cffc4c2f",
+  "config": {
+    "runs": [
+      [
+        "REMIND-MAgPIE 1.7-3.0",
+        "PEP_$warming_$cdr_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How much do individual sectors contribute to the decline?",
+      "groups": [
+        {
+          "name": "Demand side emissions",
+          "config": {
+            "variables": [
+              "Emissions|CO2|Energy|Demand|Industry",
+              "Emissions|CO2|Energy|Demand|Transportation",
+              "Emissions|CO2|Energy|Demand|Residential and Commercial",
+              "Emissions|CO2|Industrial Processes"
+            ]
+          }
+        },
+        {
+          "name": "Energy supply emissions",
+          "config": {
+            "variables": [
+              "Emissions|CO2|Energy|Supply|Electricity",
+              "Emissions|CO2|Energy|Supply|Liquids",
+              "Emissions|CO2|Energy|Supply|Gases",
+              "Emissions|CO2|Energy|Supply|Heat",
+              "Emissions|CO2|Energy|Supply|Solids"
+            ]
+          }
+        },
+        {
+          "name": "Agriculture, forestry & other land use emissions",
+          "config": {
+            "variables": [
+              "Emissions|CO2|AFOLU",
+              "Emissions|CH4|AFOLU",
+              "Emissions|N2O|AFOLU"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f6e8fc04-296a-441d-add4-fe8bd07a811c"
+    },
+    {
+      "name": "How much do major economies contribute to the decline?",
+      "config": {
+        "variables": [
+          "Emissions|Kyoto Gases",
+          "Emissions|CO2|Energy|Supply|Electricity",
+          "Emissions|CO2|Energy|Demand|Industry",
+          "Emissions|CO2|Energy|Demand|Transportation",
+          "Emissions|CO2|Energy|Demand|Residential and Commercial"
+        ]
+      },
+      "groups": {
+        "r5": true,
+        "suffix": "Emissions decline"
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05c05963-73e8-48b5-ac1f-4516e85cbdd1"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "options": [
+        {
+          "name": "Most efficient transition",
+          "$policy": "eff"
+        },
+        {
+          "name": "Bridging scenario",
+          "$policy": "netzero"
+        },
+        {
+          "name": "Nationally determined contributions",
+          "$policy": "NDC"
+        }
+      ]
+    },
+    {
+      "name": "Warming Level",
+      "radio": true,
+      "options": [
+        {
+          "name": "1.5°C",
+          "$warming": "1p5C"
+        },
+        {
+          "name": "2°C",
+          "$warming": "2C"
+        }
+      ]
+    },
+    {
+      "name": "CDR Availibility",
+      "radio": true,
+      "options": [
+        {
+          "name": "Full",
+          "$cdr": "full"
+        },
+        {
+          "name": "Limited",
+          "$cdr": "red"
+        }
+      ]
+    }
+  ]
+}

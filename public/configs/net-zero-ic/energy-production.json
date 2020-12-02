@@ -1,0 +1,198 @@
+{
+  "title": "Electricity production",
+  "description": "You can explore here scenarios how electricity production may develop globally. Results can be understood for three types of scenarios: one with a 1.5°C warming boundary, a NDC scenario (following the nationally determined contributions), and a 'no policy' scenario, which describes a pessimistic scenario of no climate mitigation at all.\n \n In the scenario with maximum 1.5°C mean temperature warming, electricity production from fossil fuels is undergoing a strong decline. Coal is phased out first and gas follows. (Please note: oil has no big role for electricity production).  \n \n At the same time electricity production from renewables (solar, wind) experience strong growth, not only under a warming boundary but also in a baseline case. \n \n Global emission profiles can be understood in total emissions, emissions by energy supply and land use change, and negative emissions in form of BECCS. \n \n The results are discussed in Schreyer et al. [Common but differentiated leadership: Strategies and challenges for carbon neutrality by 2050 across industrialized economies](https://doi.org/10.1088/1748-9326/abb852). ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does electricity production from fossil fuels develop?",
+      "config": {
+        "variables": [
+          "Secondary Energy|Electricity|Coal|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/o CCS",
+          "Secondary Energy|Electricity|Gas|w/ CCS",
+          "Secondary Energy|Electricity|Coal|w/ CCS"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28f3bc8f-90e2-4bae-b561-b1e8984199d2"
+    },
+    {
+      "name": "How does electricity production from renewables and nuclear develop?",
+      "config": {
+        "variables": [
+          "Secondary Energy|Electricity|Solar",
+          "Secondary Energy|Electricity|Wind",
+          "Secondary Energy|Electricity|Hydro",
+          "Secondary Energy|Electricity|Nuclear",
+          "Secondary Energy|Electricity|Biomass|w/ CCS",
+          "Secondary Energy|Electricity|Biomass|w/o CCS",
+          "Secondary Energy|Electricity|Geothermal"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/44e90ca9-0c8c-4244-8deb-8cc34af85f5b"
+    },
+    {
+      "name": "How do emissions profiles look like",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Emissions|CO2",
+          "Emissions|CO2|Energy|Supply|Electricity|Gross",
+          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg",
+          "Emissions|CO2|Land-Use Change"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/96b05a2c-a3e6-4715-8175-27e252f2e238"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "title": "Fossil fuel risks",
-  "description": "**You can explore here:**\n\n Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change. Please note: If direct emission costs seem very low for the fossil fuels then because we are here at the extraction level, the actual burning of these fules is priced in the energy sector.\n ",
+  "description": "Financial risk factor variables, called “risk factor pathways”. The methodology is explained in the UNEP-FI publication [“Extending Our Horizons”](https://doi.org/10.1038/s41560-018-0179-z). \n\n  Here, we focus on risk factor pathways of fossil fuels in mitigation scenarios. They help to understand what role fossil fuels will play under a climate target, how quantities, costs and revenues change. Please note: If direct emission costs seem very low for the fossil fuels then because we are here at the extraction level, the actual burning of these fules is priced in the energy sector.\n ",
   "workspace": "",
   "config": {
     "runs": [
@@ -33,7 +33,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/04dbdfc5-8cc4-44c0-8ae4-ff33b89e1335"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/05261e46-a30a-45e8-b4e9-8ae6968e18e2"
     },
     {
       "name": "How do fossil fuels develop in electricity production?",
@@ -48,7 +48,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ac2e556f-8985-41a4-a8e6-9545c10635fe"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a4943bef-bc1d-4afb-84cd-947ade649c55"
     },
     {
       "name": "How do direct emission costs for the extraction of fossil fuels develop (not combustion)?",
@@ -60,7 +60,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/49c02fe0-6c62-4077-8dd4-4a70e899dec6"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/7ba55b8d-6f31-4d07-9918-e597f13194d8"
     },
     {
       "name": "How do revenues for fossil fuels develop?",
@@ -71,36 +71,41 @@
           "RFP|Revenue|Gas"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/d054c548-0f14-4dc6-8cd3-81e9e865414c"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/67ae07cc-f31c-4c9b-b711-4ee8f7c73482"
     },
     {
       "name": "How do the risk factors direct emission costs and revenues compare to each other?",
-      "groups": [{
-        "name": "COAL",
-        "config": {
-          "variables": [
-            "RFP|Revenue|Coal",
-            "RFP|Direct emissions cost|Coal"
-          ]
-        }
-        },{
-        "name": "OIL",
-        "config": {
-          "variables": [
-            "RFP|Revenue|Oil",
-            "RFP|Direct emissions cost|Oil"
-          ]
-        }
-        },{
-        "name": "GAS",
-        "config": {
-          "variables": [
-            "RFP|Revenue|Gas",
-            "RFP|Direct emissions cost|Gas"
-          ]
+      "groups": [
+        {
+          "name": "COAL",
+          "config": {
+            "variables": [
+              "RFP|Revenue|Coal",
+              "RFP|Direct emissions cost|Coal"
+            ]
+          }
         },
-      "workspace": " "
-    }]
+        {
+          "name": "OIL",
+          "config": {
+            "variables": [
+              "RFP|Revenue|Oil",
+              "RFP|Direct emissions cost|Oil"
+            ]
+          }
+        },
+        {
+          "name": "GAS",
+          "config": {
+            "variables": [
+              "RFP|Revenue|Gas",
+              "RFP|Direct emissions cost|Gas"
+            ]
+          },
+          "workspace": " "
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/202a5751-6f77-4fac-96c9-5082fbe51bd6"
     }
   ],
   "params": [

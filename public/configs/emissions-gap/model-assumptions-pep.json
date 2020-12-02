@@ -1,6 +1,6 @@
 {
   "title": "Basic model assumptions and behaviour in the Pep1p5 study",
-  "description": "**You can explore here:**\n\n Basic characteristics in the Pep1p5 study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for Pep1p5 study. \n\n The Pep1p5 study is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1). \n \n Please note: Pep1p5 was conducted 2018. It is a single-model study, i.e. results were created with the REMIND-MAgPIE model only.",
+  "description": "Basic characteristics in the Pep1p5 study. Scenarios are no predictions, but projections. Thus, the underlying models follow various assumptions and have an individual inner logic. Please note, this model characteristics are object of permanent research and evolving.  The information depicted below holds for Pep1p5 study. \n\n The Pep1p5 study is especially relevant, because it  aims to answer crucial questions about the feasibility of 1.5°C scenarios, related to the feasibility of policies - contrasting immediate pricing only (most efficient) and scenarios with gradual ratcheting up of ambition, also called bridging scenarios. Further it assesses the implications of carbon dioxide removal (CDR) availability. \n Important literature is the paper by Kriegler et al. [Short term policies to keep the door open for Paris climate goals](https://doi.org/10.1088/1748-9326/aac4f1). \n \n Please note: Pep1p5 was conducted 2018. It is a single-model study, i.e. results were created with the REMIND-MAgPIE model only.",
   "workspace": "https://data.ene.iiasa.ac.at/iamc-1.5c-explorer///#/workspaces/share/95a7803a-c169-4bd9-b74e-917e7a7f492b",
   "config": {
     "runs": [
@@ -24,7 +24,7 @@
           "Food Demand"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c8a00ae5-5361-421a-9947-dfd5a58a1f39"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/46763297-1ff7-4714-8394-881ecbbdd6f1"
     },
     {
       "name": "How do socioeconomic key drivers develop in the 5 world regions?",
@@ -83,23 +83,26 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28fa7e25-5dcd-4b2f-979a-183165c05f02"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/7de008d0-89ba-44b3-a6b6-185e3b0f2b9a"
     }
   ],
   "params": [
     {
       "name": "Policy",
-      "options": [{
-        "name": "Nationally determined contributions",
-        "$policy": "NDC"
-      }, {
-        "name": "Most efficient transition",
-        "$policy": "eff"
-      }, {
-        "name": "Bridging scenario",
-        "$policy": "netzero"
-      }
-    ]
+      "options": [
+        {
+          "name": "Nationally determined contributions",
+          "$policy": "NDC"
+        },
+        {
+          "name": "Most efficient transition",
+          "$policy": "eff"
+        },
+        {
+          "name": "Bridging scenario",
+          "$policy": "netzero"
+        }
+      ]
     },
     {
       "name": "Warming Level",

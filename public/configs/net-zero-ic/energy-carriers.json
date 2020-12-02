@@ -1,0 +1,191 @@
+{
+  "title": "Further important energy carriers",
+  "description": "The potential development of other important energy carriers on a global level. Results can be understood for three types of scenarios: one with a 1.5°C warming boundary, a NDC scenario (following the nationally determined contributions), and a 'no policy' scenario, which describes a pessimistic scenario of no climate mitigation at all. \n \n Electricity is not the only carrier of the future. The energy carriers below also undergo a transformation and a share gets decarbonized. In the policy scenario (max 1.5°C mean temperature warming) classic liquids from oil decline strong, whereas liquids from biomass increase, however in quantity to a lesser extent. Gas production from renewables is practically not seen in these scenarios. It remains bound to fossil gas, which undergoes a strong decline in a policy scenario. Further, in a policy scenario solids from coal are rapidly phased out and solids from biosmass increase. \n \n The results are discussed in Schreyer et al. [Common but differentiated leadership: Strategies and challenges for carbon neutrality by 2050 across industrialized economies](https://doi.org/10.1088/1748-9326/abb852). ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "Role of liquids as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Liquids",
+          "Secondary Energy|Liquids|Oil",
+          "Secondary Energy|Liquids|Biomass",
+          "Secondary Energy|Liquids|Coal"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b85685e2-cc40-4150-b7e6-a54da84c41a4"
+    },
+    {
+      "name": "Production of gas as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Gases",
+          "Secondary Energy|Gases|Natural Gas",
+          "Secondary Energy|Gases|Biomass"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/4b517875-81a4-4125-9ac1-7bab939aeb03"
+    },
+    {
+      "name": "Role of solids as energy carrier",
+      "config": {
+        "variables": [
+          "Secondary Energy|Solids",
+          "Secondary Energy|Solids|Coal",
+          "Secondary Energy|Solids|Biomass"
+        ]
+      },
+      "groups": [
+        {
+          "name": "United States of America",
+          "icon": "",
+          "config": {
+            "regions": [
+              "United States"
+            ]
+          }
+        },
+        {
+          "name": "European Union",
+          "icon": "",
+          "config": {
+            "regions": [
+              "European Union"
+            ]
+          }
+        },
+        {
+          "name": "Japan",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Japan"
+            ]
+          }
+        },
+        {
+          "name": "Australia",
+          "icon": "",
+          "config": {
+            "regions": [
+              "Australia"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/834e23df-d304-468b-9b09-3b365df60ff1"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "title": "Emissions from Agriculture, Forests and Other Land Use",
-  "description": "**You can explore here:**\n\n How emissions from agriculture, forests and other land use (AFOLU) develop over time. The emission trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: If you compare the SSPs in one panel, you might see that some variables don’t start at the same value. This is because each SSP has its own reference model, which introduce this slight differences. Further, not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
+  "description": "How emissions from agriculture, forests and other land use (AFOLU) develop over time. The emission trajectories below are given for the [Shared Socioeconomic Pathways (SSPs)](https://climatescenarios.org/primer/socioeconomic-development). The emissions in the respective SPPs can be explored in combination with different policies: no policy to limit warming (baseline), policy to limit warming of global mean temperature to 1.5°C (e.g. SSP-x 1.9) and a policy to limit warming to two 2°C (e.g. SSP-x-2.6).  \n \n The information can also be explored in detail for the five major world regions. \n \n Please note: If you compare the SSPs in one panel, you might see that some variables don’t start at the same value. This is because each SSP has its own reference model, which introduce this slight differences. Further, not all warming levels have been computed for all SSPs in this case you will see only the available trajectories depicted in the panels below. ",
   "config": {
     "runs": [
       [
@@ -55,7 +55,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c9e099ea-8e41-4ade-8bd5-eaeb968f2f92"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a637e589-d10b-47b9-89af-6b025d801b5b"
     },
     {
       "name": "How do emissions from AFOLU develop in the 5 world regions?",
@@ -79,7 +79,7 @@
         "r5": true,
         "suffix": "Emissions from AFOLU"
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b0552c45-685b-43ca-b938-8bc4aa6cdb8a"
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/43e8b776-0f09-4a31-8b4d-895498df7258"
     }
   ],
   "params": [

@@ -1,0 +1,89 @@
+{
+  "title": "Electricity production",
+  "description": "You can explore here scenarios how electricity production may develop globally. Results can be understood for three types of scenarios: one with a 1.5°C warming boundary, a NDC scenario (following the nationally determined contributions), and a 'no policy' scenario, which describes a pessimistic scenario of no climate mitigation at all.\n \n In the scenario with maximum 1.5°C mean temperature warming, electricity production from fossil fuels is undergoing a strong decline. Coal is phased out first and gas follows. (Please note: oil has no big role for electricity production).  \n \n At the same time electricity production from renewables (solar, wind) experience strong growth, not only under a warming boundary but also in a baseline case. \n \n Global emission profiles can be understood in total emissions, emissions by energy supply and land use change, and negative emissions in form of BECCS. \n \n The results are discussed in Schreyer et al. [Common but differentiated leadership: Strategies and challenges for carbon neutrality by 2050 across industrialized economies](https://doi.org/10.1088/1748-9326/abb852). ",
+  "workspace": "",
+  "config": {
+    "runs": [
+      [
+        "REMIND 2.1.2",
+        "SSP2_ElectricFutures_$policy"
+      ]
+    ],
+    "regions": [
+      "World"
+    ]
+  },
+  "questions": [
+    {
+      "name": "How does electricity production develop?",
+      "groups": [
+        {
+          "name": "Electricity production fossils",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Coal|w/o CCS",
+              "Secondary Energy|Electricity|Gas|w/o CCS",
+              "Secondary Energy|Electricity|Gas|w/ CCS",
+              "Secondary Energy|Electricity|Coal|w/ CCS",
+              "Secondary Energy|Electricity|Oil"
+            ]
+          }
+        },
+        {
+          "name": "Electricity production renewables and nuclear",
+          "config": {
+            "variables": [
+              "Secondary Energy|Electricity|Solar",
+              "Secondary Energy|Electricity|Wind",
+              "Secondary Energy|Electricity|Hydro",
+              "Secondary Energy|Electricity|Nuclear",
+              "Secondary Energy|Electricity|Biomass|w/ CCS",
+              "Secondary Energy|Electricity|Biomass|w/o CCS",
+              "Secondary Energy|Electricity|Geothermal"
+            ]
+          }
+        }
+      ],
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/e538e8d2-d6f7-4435-bdac-f9058e40791a"
+    },
+    {
+      "name": "Emissions profile",
+      "config": {
+        "variables": [
+          "Population",
+          "GDP|PPP",
+          "Emissions|CO2",
+          "Emissions|CO2|Energy|Supply|Electricity|Gross",
+          "Emissions|CO2|Carbon Capture and Storage|Biomass|Neg",
+          "Emissions|CO2|Land-Use Change"
+        ]
+      },
+      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/759a7f0f-d03e-4647-9741-07c041f62f52"
+    }
+  ],
+  "params": [
+    {
+      "name": "Policy",
+      "funnel": true,
+      "options": [
+        {
+          "name": "1.5 degree",
+          "$policy": "NetZeroIC_100"
+        },
+        {
+          "name": "Nationally implemented policies",
+          "$policy": "NPi"
+        },
+        {
+          "name": "No policy",
+          "$policy": "NoPolicy"
+        }
+      ]
+    }
+  ],
+  "dict": {
+    "Investment|Energy Efficiency": "Energy Demand",
+    "Investment|Energy Supply": "Energy Supply",
+    "Investment|Energy Supply|Electricity|Transmission and Distribution": "Transmission and Distribution"
+  }
+}
