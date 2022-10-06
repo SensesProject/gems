@@ -17,7 +17,7 @@
     "d3-timer": "^2.0.0",
     "dompurify": "^2.0.8",
     "library": "github:SensesProject/library",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "sanitize-filename": "^1.6.3",
     "unfetch": "^4.1.0",
     "vue": "^2.6.12",
