@@ -5,8 +5,8 @@ import { getUrlToResources } from 'library/src/assets/js/utils'
 
 Vue.use(Vuex)
 
-const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1'
-const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/anonym/IXSE_TEST_PUBLIC'
+const url = 'https://db1.ene.iiasa.ac.at/senses-api/rest/v2.1'
+const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/anonym/IXSE_SENSES'
 
 export default new Vuex.Store({
   state: {
