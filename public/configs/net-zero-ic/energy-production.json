@@ -62,7 +62,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/28f3bc8f-90e2-4bae-b561-b1e8984199d2"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/28f3bc8f-90e2-4bae-b561-b1e8984199d2"
     },
     {
       "name": "How does electricity production from renewables and nuclear develop?",
@@ -115,7 +115,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/44e90ca9-0c8c-4244-8deb-8cc34af85f5b"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/44e90ca9-0c8c-4244-8deb-8cc34af85f5b"
     },
     {
       "name": "How do emissions profiles look like",
@@ -167,7 +167,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/96b05a2c-a3e6-4715-8175-27e252f2e238"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/96b05a2c-a3e6-4715-8175-27e252f2e238"
     }
   ],
   "params": [

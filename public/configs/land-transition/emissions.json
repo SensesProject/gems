@@ -55,7 +55,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a637e589-d10b-47b9-89af-6b025d801b5b"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/a637e589-d10b-47b9-89af-6b025d801b5b"
     },
     {
       "name": "How do emissions from AFOLU develop in the 5 world regions?",
@@ -79,7 +79,7 @@
         "r5": true,
         "suffix": "Emissions from AFOLU"
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/43e8b776-0f09-4a31-8b4d-895498df7258"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/43e8b776-0f09-4a31-8b4d-895498df7258"
     }
   ],
   "params": [

@@ -5,7 +5,7 @@ import credentials from './credentials.json'
 
 const url = 'https://db1.ene.iiasa.ac.at/ixmp-api-sandbox/rest/v2.1'
 const authUrl = 'https://db1.ene.iiasa.ac.at/EneAuth/config/v1/login'
-const explorerUrl = 'https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox'
+const explorerUrl = 'https://data.ene.iiasa.ac.at/senses'
 
 const path = process.argv[2]
 if (path === undefined) {

@@ -24,7 +24,7 @@
           "Food Demand"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/4c23d71a-2549-404b-8515-dff60884319c"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/4c23d71a-2549-404b-8515-dff60884319c"
     },
     {
       "name": "Basic characteristics - what are socioeconomic key drivers in the 5 world regions?",
@@ -83,7 +83,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8166533d-2129-4786-94a6-fdd0d86b3695"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/8166533d-2129-4786-94a6-fdd0d86b3695"
     },
     {
       "name": "What is the baseline behaviour for the energy setup (without climate policy)?",
@@ -95,7 +95,7 @@
           "Primary Energy|Biomass"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/e3d53a38-eaf8-48a1-95c7-14107bab8f03"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/e3d53a38-eaf8-48a1-95c7-14107bab8f03"
     },
     {
       "name": "What is the baseline behaviour for energy setup in the 5 world regions (without climate policy)?",
@@ -154,7 +154,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/fa966a27-5c77-4092-ac5b-6e1edba57b9e"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/fa966a27-5c77-4092-ac5b-6e1edba57b9e"
     }
   ],
   "params": [

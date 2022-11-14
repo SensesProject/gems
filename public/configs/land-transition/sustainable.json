@@ -97,7 +97,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/114a3734-a497-453a-bc97-3f99e18ea89e"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/114a3734-a497-453a-bc97-3f99e18ea89e"
     },
     {
       "name": "How does demand-side mitigation develop in the 5 world regions?",
@@ -125,7 +125,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ba1f8ee8-fa28-47e1-b5a2-48b4af2e947b"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/ba1f8ee8-fa28-47e1-b5a2-48b4af2e947b"
     },
     {
       "name": "How does land-based mitigation develop in the 5 world regions?",
@@ -149,7 +149,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/3c0c4659-6b50-497b-8ef2-7016643edf8b"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/3c0c4659-6b50-497b-8ef2-7016643edf8b"
     },
     {
       "name": "How do AFOLU emissions develop in the 5 world regions?",
@@ -177,7 +177,7 @@
           }
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8affa6b1-75f5-4ebe-a80b-52647011a91c"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/8affa6b1-75f5-4ebe-a80b-52647011a91c"
     }
   ],
   "params": [

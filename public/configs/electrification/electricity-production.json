@@ -44,7 +44,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/e538e8d2-d6f7-4435-bdac-f9058e40791a"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/e538e8d2-d6f7-4435-bdac-f9058e40791a"
     },
     {
       "name": "Emissions profile",
@@ -58,7 +58,7 @@
           "Emissions|CO2|Land-Use Change"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/759a7f0f-d03e-4647-9741-07c041f62f52"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/759a7f0f-d03e-4647-9741-07c041f62f52"
     }
   ],
   "params": [

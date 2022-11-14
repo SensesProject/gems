@@ -47,7 +47,7 @@
           "workspace": ""
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/19236a23-44de-4dfd-b2be-c320ac78f09f"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/19236a23-44de-4dfd-b2be-c320ac78f09f"
     },
     {
       "name": "How do direct and indirect costs in the power sector develop?",
@@ -58,7 +58,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c14f4430-0c8a-4f4b-ac0a-8555081ed12e"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/c14f4430-0c8a-4f4b-ac0a-8555081ed12e"
     },
     {
       "name": "How do required investments and revenues develop?",
@@ -69,7 +69,7 @@
           "Price|Carbon"
         ]
       },
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/bfbc4ca2-3cf0-489e-bc7b-69cc1e845ee1"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/bfbc4ca2-3cf0-489e-bc7b-69cc1e845ee1"
     },
     {
       "name": "How do all risk factors compare to each other?",
@@ -87,7 +87,7 @@
           "workspace": " "
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/f0c111cb-1e34-4d8a-90a8-59f41201ca81"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/f0c111cb-1e34-4d8a-90a8-59f41201ca81"
     }
   ],
   "params": [

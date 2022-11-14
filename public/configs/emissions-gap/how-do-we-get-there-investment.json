@@ -47,7 +47,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/8ce27df9-1aed-4c4c-9630-30e2fb80f70f"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/8ce27df9-1aed-4c4c-9630-30e2fb80f70f"
     },
     {
       "name": "How could investments into carbon capture and storage (CCS) develop?",
@@ -63,7 +63,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/a87398c2-6218-43db-b7cf-331b56d3d2ae"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/a87398c2-6218-43db-b7cf-331b56d3d2ae"
     },
     {
       "name": "How could divestment of unabated fossil fuels develop?",
@@ -79,7 +79,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/c21259cd-c91d-4c30-8821-1ad47819b4d9"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/c21259cd-c91d-4c30-8821-1ad47819b4d9"
     }
   ],
   "params": [

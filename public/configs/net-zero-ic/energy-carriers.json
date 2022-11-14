@@ -62,7 +62,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/b85685e2-cc40-4150-b7e6-a54da84c41a4"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/b85685e2-cc40-4150-b7e6-a54da84c41a4"
     },
     {
       "name": "Production of gas as energy carrier",
@@ -111,7 +111,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/4b517875-81a4-4125-9ac1-7bab939aeb03"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/4b517875-81a4-4125-9ac1-7bab939aeb03"
     },
     {
       "name": "Role of solids as energy carrier",
@@ -160,7 +160,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/834e23df-d304-468b-9b09-3b365df60ff1"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/834e23df-d304-468b-9b09-3b365df60ff1"
     }
   ],
   "params": [

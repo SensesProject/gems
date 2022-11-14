@@ -61,7 +61,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/32afd78b-d44f-4fda-a8d6-d1b0ff35ba2a"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/32afd78b-d44f-4fda-a8d6-d1b0ff35ba2a"
     },
     {
       "name": "What is the final energy setup in industry?",
@@ -113,7 +113,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/ff9a145e-1a62-415d-a86f-036f085a9283"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/ff9a145e-1a62-415d-a86f-036f085a9283"
     },
     {
       "name": "What is the final energy setup for transport?",
@@ -163,7 +163,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/17254181-7f6d-4122-a37b-b6c9372a1b38"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/17254181-7f6d-4122-a37b-b6c9372a1b38"
     },
     {
       "name": "What is the final energy setup for buildings?",
@@ -214,7 +214,7 @@
           }
         }
       ],
-      "workspace": "https://data.ene.iiasa.ac.at/ixmp-explorer-sandbox///////#/workspaces/share/80053053-7d2b-42ec-bb44-a9a926f626df"
+      "workspace": "https://data.ene.iiasa.ac.at/senses///////#/workspaces/share/80053053-7d2b-42ec-bb44-a9a926f626df"
     }
   ],
   "params": [
